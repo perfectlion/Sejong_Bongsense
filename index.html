@@ -42,11 +42,11 @@
       line-height: 1.4;
       margin-bottom: 24px;
     }
-.btn-group {
+    .btn-group {
       display: flex;
       gap: 12px;
       justify-content: center;
-      margin-bottom: 12px; /* 간격 축소 */
+      margin-bottom: 12px;
     }
     button {
       flex: 1;
@@ -75,16 +75,13 @@
       background-color: #dc2626;
       animation: pulse 1.5s infinite;
     }
-/* ✏️ 다음 버튼을 중앙으로 정렬하는 컨테이너 */
     .next-btn-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
-
-    /* ✏️ 다음 버튼 전용 스타일 */
     .btn-next {
-      width: 60%; /* 버튼 너비 조정 */
+      width: 60%;
       padding: 12px;
       font-size: 15px;
       font-weight: 600;
@@ -116,15 +113,15 @@
 <body>
 
 <div class="card">
-  <div class="progress" id="progress">1 / 3</div>
+  <div class="progress" id="progress">1 / 0</div>
   <div class="sentence-box" id="target-sentence">문장을 불러오는 중...</div>
 
-<div class="btn-group">
-    <button class="btn-listen" onclick="playTTS()">🔊 듣기</button>
+  <div class="btn-group">
+    <button class="btn-listen" id="btn-listen" onclick="playTTS()">🔊 듣기</button>
     <button class="btn-speak" id="btn-mic" onclick="toggleRecognition()">🎤 따라 읽기</button>
   </div>
 
-<div class="next-btn-container">
+  <div class="next-btn-container">
     <button class="btn-next" id="btn-next" onclick="skipToNext()">⏭️ 다음 문장</button>
   </div>
 
@@ -135,27 +132,30 @@
 
 <script>
   const sentences = [
-"이 메뉴는 예약하셔야 돼요.",
-"저희 주문할게요.",
-"메뉴 하나는 취소하고 싶어요.",
-"이 음식을 포장해 주세요.",
-"이 접시에 음식을 담으세요.",
-"숟가락 좀 바꿔주세요.",
-"젓가락으로 자장면을 먹어요.",
-"여기 수저 좀주세요.",
-"다 먹었으니까 계산을 할까요?",
-"영수증을 드릴까요?",
-"저희 주문할게요.",
-"뭘 드릴까요?",
-"밥하고 다섯 가지 반찬이 나왔어요.",
-"지금 통화할 수 있어?<br>지금은 나가야 해. 내가 나중에 전화할게.",
-"이 문제는 누가 풀어 볼까요?<br>제가 풀어 볼게요",
-"오늘 파티에 몇 시에 올거야?<br>9시까지는 갈게.",
-"지금 사는 동네는 어때요?<br>집 근처에 슈퍼마켓이 있어서 살기가 편해요.",
-"여기서 뭐하고 있어요? 공부 다 했어요?<br>아니요. 공부하기 싫어서 잠깐 나왔어요. 곧 들어갈 거예요.",
-"발이 아파서 걷기 힘들어요.<br>그럼 운동화를 사러 갈까요?",
-"한국 여행 첫날.<br>드디어 한국 식당에 갔다.<br>한국 식당에는 신기한 것이 많다.<br>하나는 주문할 때 벨을 사용하는 것이다.<br>처음에는 몰라서 주문하기 어려웠지만 나중에는 정말 편했다.<br>또 메뉴를 두 가지 시켰는데 반찬이 다섯 개가 나왔다.<br>계산할 때 보니까 반찬은 다 공짜였다!<br>내일 또 한국 식당에 가고 싶다."
-
+    "이 메뉴는 예약하셔야 돼요.",
+    "저희 주문할게요.",
+    "메뉴 하나는 취소하고 싶어요.",
+    "이 음식을 포장해 주세요.",
+    "이 접시에 음식을 담으세요.",
+    "숟가락 좀 바꿔주세요.",
+    "젓가락으로 자장면을 먹어요.",
+    "여기 수저 좀 주세요.",
+    "다 먹었으니까 계산을 할까요?",
+    "영수증을 드릴까요?",
+    "저희 주문할게요.",
+    "뭘 드릴까요?",
+    "밥하고 다섯 가지 반찬이 나왔어요.",
+    "지금 통화할 수 있어?<br>지금은 나가야 해. 내가 나중에 전화할게.",
+    "이 문제는 누가 풀어 볼까요?<br>제가 풀어 볼게요",
+    "오늘 파티에 몇 시에 올거야?<br>9시까지는 갈게.",
+    "지금 사는 동네는 어때요?<br>집 근처에 슈퍼마켓이 있어서 살기가 편해요.",
+    "여기서 뭐하고 있어요? 공부 다 했어요?<br>아니요. 공부하기 싫어서 잠깐 나왔어요. 곧 들어갈 거예요.",
+    "발이 아파서 걷기 힘들어요.<br>그럼 운동화를 사러 갈까요?",
+    "한국 여행 첫날.<br>드디어 한국 식당에 갔다.",
+    "한국 식당에는 신기한 것이 많다.<br>하나는 주문할 때 벨을 사용하는 것이다.",
+    "처음에는 몰라서 주문하기 어려웠지만 나중에는 정말 편했다.",
+    "또 메뉴를 두 가지 시켰는데 반찬이 다섯 개가 나왔다.",
+    "계산할 때 보니까 반찬은 다 공짜였다!<br>내일 또 한국 식당에 가고 싶다."
   ];
 
   let currentIndex = 0;
@@ -167,15 +167,15 @@
   const resultElem = document.getElementById("result-box");
   const micBtn = document.getElementById("btn-mic");
 
-function loadSentence() {
+  function loadSentence() {
     targetElem.innerHTML = sentences[currentIndex];
     progressElem.innerText = `${currentIndex + 1} / ${sentences.length}`;
   }
 
   function playTTS() {
     window.speechSynthesis.cancel();
-    const text = sentences[currentIndex];
-    const utterance = new SpeechSynthesisUtterance(text);
+    const cleanText = sentences[currentIndex].replace(/<br\s*\/?>/gi, " ");
+    const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'ko-KR';
     utterance.rate = 0.9;
     window.speechSynthesis.speak(utterance);
@@ -183,31 +183,57 @@ function loadSentence() {
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  let silenceTimer = null;
+  let lastRecognizedText = "";
+
   if (SpeechRecognition) {
     recognition = new SpeechRecognition();
     recognition.lang = 'ko-KR';
-    recognition.interimResults = false;
+    recognition.interimResults = true; 
+    recognition.continuous = true; 
 
     recognition.onstart = function() {
       isRecording = true;
+      lastRecognizedText = "";
       micBtn.classList.add("recording");
       micBtn.innerText = "🛑 듣는 중...";
-      resultElem.innerText = "말해 주세요...";
+      resultElem.innerText = "천천히 문장을 읽어 보세요...";
+    };
+
+    recognition.onresult = function(event) {
+      // ✏️ 수정 포인트: event.results 전체를 매번 조합하여 누락 방지
+      let fullTranscript = "";
+      for (let i = 0; i < event.results.length; i++) {
+        fullTranscript += event.results[i][0].transcript;
+      }
+      
+      lastRecognizedText = fullTranscript.trim();
+      resultElem.innerText = `인식 중: "${lastRecognizedText}"`;
+
+      // 말할 때마다 침묵 타이머 리셋 (1.8초간 침묵 시 자동으로 정지)
+      clearTimeout(silenceTimer);
+      silenceTimer = setTimeout(() => {
+        recognition.stop();
+      }, 1800);
     };
 
     recognition.onend = function() {
       isRecording = false;
+      clearTimeout(silenceTimer);
       micBtn.classList.remove("recording");
-      micBtn.innerText = "🎤 따라 읽기";
-    };
+      micBtn.innerText = "🎤 읽기";
 
-    recognition.onresult = function(event) {
-      const userText = event.results[0][0].transcript;
-      evaluateSpeech(userText);
+      // ✏️ 수정 포인트: 최종 인식 텍스트 유무 검사
+      if (lastRecognizedText && lastRecognizedText.length > 0) {
+        evaluateSpeech(lastRecognizedText);
+      } else {
+        resultElem.innerText = "안들려요. 다시 읽어주세요.";
+      }
     };
 
     recognition.onerror = function(event) {
-      resultElem.innerHTML = `<span class="status-fail">뭐라고요? 다시 읽어 주세요.</span>`;
+      clearTimeout(silenceTimer);
+      resultElem.innerHTML = `<span class="status-fail">잘 못들었어요. 다시 읽어 주세요.</span>`;
     };
   }
 
@@ -220,15 +246,18 @@ function loadSentence() {
     }
   }
 
+  // 발음 평가 함수
   function evaluateSpeech(userText) {
-    const targetText = sentences[currentIndex];
-    const cleanTarget = targetText.replace(/[^가-힣a-zA-Z0-9]/g, "");
-    const cleanUser = userText.replace(/[^가-힣a-zA-Z0-9]/g, "");
+    const targetClean = sentences[currentIndex]
+      .replace(/<br\s*\/?>/gi, " ")
+      .replace(/[^가-힣a-zA-Z0-9]/g, "");
 
-    const similarity = calculateSimilarity(cleanTarget, cleanUser);
+    const userClean = userText.replace(/[^가-힣a-zA-Z0-9]/g, "");
 
-    if (similarity >= 0.7) {
-      resultElem.innerHTML = `<span class="status-success">잘했어요! 🎉</span><br>("${userText}")`;
+    const score = calculateSimilarity(targetClean, userClean);
+
+    if (score >= 0.6) {
+      resultElem.innerHTML = `<span class="status-success">잘했어요! 🎉</span><br>인식 결과: "${userText}"`;
       setTimeout(() => {
         if (currentIndex < sentences.length - 1) {
           currentIndex++;
@@ -238,12 +267,33 @@ function loadSentence() {
           targetElem.innerText = "축하합니다! 모든 연습을 마쳤습니다. 👏";
           micBtn.style.display = "none";
           document.getElementById("btn-next").style.display = "none";
+          document.getElementById("btn-listen").style.display = "none";
           resultElem.innerText = "수고하셨습니다.";
         }
       }, 1500);
     } else {
       resultElem.innerHTML = `<span class="status-fail">다시 읽어보세요! 😅</span><br>인식된 음성: "${userText}"`;
     }
+  }
+
+  // 글자 포함 비율 기반 유사도 계산 함수
+  function calculateSimilarity(target, user) {
+    if (!target || !user) return 0;
+    if (target === user) return 1.0;
+
+    let matchedCount = 0;
+    const targetChars = target.split("");
+    const userChars = user.split("");
+
+    targetChars.forEach(char => {
+      const index = userChars.indexOf(char);
+      if (index !== -1) {
+        matchedCount++;
+        userChars.splice(index, 1);
+      }
+    });
+
+    return matchedCount / targetChars.length;
   }
 
   function skipToNext() {
@@ -260,18 +310,9 @@ function loadSentence() {
       targetElem.innerText = "축하합니다! 모든 연습을 마쳤습니다. 👏";
       micBtn.style.display = "none";
       document.getElementById("btn-next").style.display = "none";
+      document.getElementById("btn-listen").style.display = "none";
       resultElem.innerText = "수고하셨습니다.";
     }
-  }
-
-  function calculateSimilarity(str1, str2) {
-    if (!str1 || !str2) return 0;
-    let matches = 0;
-    const length = Math.max(str1.length, str2.length);
-    for (let i = 0; i < Math.min(str1.length, str2.length); i++) {
-      if (str1[i] === str2[i]) matches++;
-    }
-    return matches / length;
   }
 
   window.onload = loadSentence;
