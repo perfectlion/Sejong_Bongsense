@@ -1,0 +1,164 @@
+[
+  {
+    "schedule_id": "26-38",
+    "start_date": "2026-09-14",
+    "end_date": "2026-09-18",
+    "lessons": [1, 25, 46]
+  },
+  {
+    "schedule_id": "26-39",
+    "start_date": "2026-09-21",
+    "end_date": "2026-09-25",
+    "lessons": [1, 25, 46]
+  },
+  {
+    "schedule_id": "26-40",
+    "start_date": "2026-09-28",
+    "end_date": "2026-10-02",
+    "lessons": [2, 26, 46]
+  },
+  {
+    "schedule_id": "26-41",
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-09",
+    "lessons": [2, 26, 46]
+  },
+  {
+    "schedule_id": "26-42",
+    "start_date": "2026-10-12",
+    "end_date": "2026-10-16",
+    "lessons": [2, 26, 46]
+  },
+  {
+    "schedule_id": "26-43",
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-23",
+    "lessons": [3, 27, 47]
+  },
+  {
+    "schedule_id": "26-44",
+    "start_date": "2026-10-26",
+    "end_date": "2026-10-30",
+    "lessons": [4, 28, 48]
+  },
+  {
+    "schedule_id": "26-45",
+    "start_date": "2026-11-02",
+    "end_date": "2026-11-06",
+    "lessons": [5, 29, 49]
+  },
+  {
+    "schedule_id": "26-46",
+    "start_date": "2026-11-09",
+    "end_date": "2026-11-13",
+    "lessons": [6, 30, 50]
+  },
+  {
+    "schedule_id": "26-47",
+    "start_date": "2026-11-16",
+    "end_date": "2026-11-20",
+    "lessons": [7, 30, 50]
+  },
+  {
+    "schedule_id": "26-48",
+    "start_date": "2026-11-23",
+    "end_date": "2026-11-27",
+    "lessons": [8, 31, 51]
+  },
+  {
+    "schedule_id": "26-49",
+    "start_date": "2026-11-30",
+    "end_date": "2026-12-04",
+    "lessons": [9, 32, 52]
+  },
+  {
+    "schedule_id": "26-50",
+    "start_date": "2026-12-07",
+    "end_date": "2026-12-11",
+    "lessons": [10, 33, 53]
+  },
+  {
+    "schedule_id": "26-51",
+    "start_date": "2026-12-14",
+    "end_date": "2026-12-18",
+    "lessons": [11, 34, 54]
+  },
+  {
+    "schedule_id": "26-52",
+    "start_date": "2026-12-21",
+    "end_date": "2026-12-25",
+    "lessons": [12, 35, 55]
+  },
+  {
+    "schedule_id": "26-53",
+    "start_date": "2026-12-28",
+    "end_date": "2027-01-01",
+    "lessons": [12, 35, 55]
+  },
+  {
+    "schedule_id": "27-01",
+    "start_date": "2027-01-04",
+    "end_date": "2027-01-08",
+    "lessons": [13, 35, 55]
+  },
+  {
+    "schedule_id": "27-02",
+    "start_date": "2027-01-11",
+    "end_date": "2027-01-15",
+    "lessons": [14, 36, 56]
+  },
+  {
+    "schedule_id": "27-03",
+    "start_date": "2027-01-18",
+    "end_date": "2027-01-22",
+    "lessons": [15, 37, 57]
+  },
+  {
+    "schedule_id": "27-04",
+    "start_date": "2027-01-25",
+    "end_date": "2027-01-29",
+    "lessons": [16, 38, 58]
+  },
+  {
+    "schedule_id": "27-05",
+    "start_date": "2027-02-01",
+    "end_date": "2027-02-05",
+    "lessons": [17, 39, 59]
+  },
+  {
+    "schedule_id": "27-06",
+    "start_date": "2027-02-08",
+    "end_date": "2027-02-12",
+    "lessons": [17, 39, 59]
+  },
+  {
+    "schedule_id": "27-07",
+    "start_date": "2027-02-15",
+    "end_date": "2027-02-19",
+    "lessons": [17, 39, 59]
+  },
+  {
+    "schedule_id": "27-08",
+    "start_date": "2027-02-22",
+    "end_date": "2027-02-26",
+    "lessons": [17, 39, 59]
+  },
+  {
+    "schedule_id": "27-09",
+    "start_date": "2027-03-01",
+    "end_date": "2027-03-05",
+    "lessons": [18, 40, 60]
+  },
+  {
+    "schedule_id": "27-10",
+    "start_date": "2027-03-08",
+    "end_date": "2027-03-12",
+    "lessons": [19, 40, 60]
+  },
+  {
+    "schedule_id": "27-11",
+    "start_date": "2027-03-15",
+    "end_date": "2027-03-19",
+    "lessons": [20, 40, 60]
+  }
+]
