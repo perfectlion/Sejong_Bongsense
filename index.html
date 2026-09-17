@@ -129,6 +129,20 @@
     .hidden-view {
       display: none !important;
     }
+  
+    /* 카드 뒤집기 3D 효과 */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface flex flex-col min-h-screen">
@@ -227,7 +241,7 @@
           <div class="flex items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-md">
             <div class="flex flex-col min-w-0">
               <h2 id="welcome-title" class="font-headline-lg text-headline-lg text-on-surface tracking-tight truncate">
-                안녕하세요, 봉근님!
+                안녕하세요, 봉근 님!
               </h2>
               <p class="font-kana-subtext text-kana-subtext text-on-surface-variant flex items-center gap-1 mt-1">
                 <span>今日も一歩前進しましょう</span>
@@ -338,7 +352,7 @@
           </div>
         </div>
         <div class="flex items-center gap-space-sm">
-         <img id="practice-user-profile-img" class="user-profile-img-all w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="..." />
+         <img id="practice-user-profile-img" class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="..." />
         </div>
       </div>
     </header>
@@ -439,176 +453,124 @@
   </div>
       
 <!-- ==================== VIEW 4: 데일리 퀴즈 학습 화면 ==================== -->
-  <div id="view-quiz" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+<div id="view-quiz" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+  
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <button id="back-from-quiz" aria-label="戻る" class="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 rounded-full active:scale-95 text-on-surface transition-transform cursor-pointer" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="font-headline-sm text-headline-sm text-primary tracking-tight">세종학당 봉센세</span>
+          </div>
+          <span class="font-kana-subtext text-kana-subtext text-on-surface-variant line-clamp-1 leading-tight">Quiz Mode</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <img id="practice-user-profile-img" class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="./images/default-avatar.png" alt="Profile" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex flex-col relative w-full pt-20 pb-28 px-gutter bg-surface flex-grow">
     
-    <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
-      <div class="h-16 px-gutter flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <button id="back-from-quiz" class="min-w-[44px] min-h-[44px] -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all cursor-pointer" type="button" aria-label="뒤로가기">
-            <span class="material-symbols-outlined text-[24px]">arrow_back</span>
-          </button>
-          <div class="flex flex-col min-w-0">
-            <div class="flex items-center gap-1">
-              <span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold truncate">세종학당 봉센세</span>
-            </div>
-            <span class="font-bilingual-hint text-[12px] text-on-surface-variant leading-none">Quiz Mode</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-space-sm">
-         <img id="quiz-user-profile-img" class="user-profile-img-all w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="..." />
+    <!-- Progress Header Deck (파란색 메인 스태터스 바) -->
+    <div class="w-full flex items-center justify-between gap-space-sm pt-space-xs pb-space-sm">
+      <div class="flex-1 h-3.5 bg-surface-container rounded-full overflow-hidden p-0.5 shadow-inner">
+        <div id="quiz-progress-bar" class="h-full bg-primary rounded-full transition-all duration-500 relative flex items-center" style="width: 0%;">
+          <div class="absolute inset-0 bg-white/20 rounded-full"></div>
         </div>
       </div>
-    </header>
+      <div class="flex items-center gap-1 bg-primary-container px-2.5 py-1 rounded-full shadow-sm">
+        <span id="quiz-progress-percent" class="font-label-bold text-label-bold text-white">0%</span>
+      </div>
+    </div>
+    
+    <!-- Lesson Stage Track Indicator -->
+    <div class="flex items-center justify-between px-1 mb-space-sm">
+      <span id="quiz-course-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Lesson 1 • 복습 퀴즈</span>
+      <span id="quiz-progress-text" class="font-label-bold text-label-bold text-primary">Q 1 / 5</span>
+    </div>
 
-    <!-- Main Content -->
-    <main class="flex flex-col relative w-full pt-20 pb-44 px-gutter bg-surface flex-grow">
+    <!-- Main Focus Learning Card (클릭 시 3D 뒤집기) -->
+    <div id="quiz-card-container" class="perspective-1000 w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-md flex flex-col items-center text-center relative overflow-hidden mb-space-md cursor-pointer select-none">
       
-      <!-- Top Quiz Progress Bar -->
-      <div class="flex items-center justify-between gap-gutter pb-space-sm">
-        <div class="flex-1 flex flex-col gap-1 w-full">
-          <div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-            <span>Q 1 / 5</span>
-            <span class="font-bold text-secondary">20%</span>
+      <div id="quiz-card-inner" class="relative w-full transition-transform duration-500 transform-style-3d">
+        
+        <!-- [앞면] 문제 문장 및 힌트 -->
+        <div class="w-full backface-hidden flex flex-col items-center text-center">
+          
+          <!-- 1. 상단 안내 영역 -->
+          <div class="w-full bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center text-center gap-1 mb-space-md">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+              <p class="font-label-bold text-label-bold text-on-surface">빈칸에 알맞은 단어를 고르세요</p>
+            </div>
+            <p class="text-xs text-on-surface-variant/80 font-normal">카드를 터치하면 전체 일본어 번역이 보입니다</p>
           </div>
-          <div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden p-0.5 shadow-inner">
-            <div class="h-full bg-secondary rounded-full relative w-1/5 shadow-sm transition-all duration-500">
-              <div class="absolute inset-x-1 top-0.5 h-1 bg-white/40 rounded-full"></div>
+
+          <!-- 2. 중앙 한국어 학습 문장 영역 -->
+          <div class="my-space-sm flex flex-col items-center text-center">
+            <h2 id="quiz-sentence-kr" class="font-hangul-display text-hangul-display text-primary tracking-tight leading-relaxed">
+              학습 문제를 불러오는 중입니다...
+            </h2>
+
+            <!-- 3. 한국어 문장 바로 밑 검은색 작은 글자 힌트 (1a, 2a 전용) -->
+            <div id="quiz-hint-box" class="mt-3 flex items-center justify-center">
+              <p id="quiz-hint-text" class="text-xs text-on-surface/80 font-medium tracking-tight">
+                힌트 : -
+              </p>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Instruction Header -->
-      <div class="my-space-sm">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full shadow-sm mb-1">
-          <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
-          <span class="font-label-sm text-label-sm">빈칸 채우기 クイズ</span>
-        </div>
-        <h2 class="font-headline-sm text-headline-sm text-on-surface">
-          빈칸에 알맞은 단어를 고르세요
-        </h2>
-        <p class="font-bilingual-hint text-bilingual-hint text-on-surface-variant mt-0.5">
-          空欄に入る正しい単語を選んでください
-        </p>
-      </div>
-
-      <!-- Question Card -->
-      <div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-md mb-space-md overflow-hidden">
-        <div class="flex items-center justify-between mb-space-sm">
-          <button class="inline-flex items-center gap-2 bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full shadow-sm active:scale-95 transition-all cursor-pointer" type="button">
-            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
-            <span>듣기 (音声)</span>
-          </button>
-          <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[12px]">
-            <span>초급 2 · 15과</span>
-          </div>
         </div>
 
-        <div class="my-space-sm">
-          <p class="font-hangul-display text-hangul-display text-on-surface tracking-tight leading-relaxed">
-            내일 비행기를 타러
-            <span class="inline-flex items-center justify-center min-w-[76px] h-10 px-3 mx-1 bg-secondary-container text-on-secondary-container font-headline-md text-headline-md rounded-lg shadow-sm align-middle">
-              공항
-            </span>
-            에 갑니다.
+        <!-- [뒷면] 일본어 문장 (sentence_jp) -->
+        <div class="absolute inset-0 w-full h-full p-space-md bg-primary-container text-on-primary-container rounded-2xl backface-hidden rotate-y-180 flex flex-col justify-center items-center text-center">
+          <span class="text-xs font-bold text-primary mb-2">日本語訳 (전체 의미)</span>
+          <p id="quiz-sentence-jp" class="font-bilingual-hint text-body-lg font-semibold leading-relaxed">
+            -
           </p>
         </div>
 
-        <div class="mt-space-sm pt-2 flex items-center gap-2">
-          <div class="flex items-center gap-1.5 px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg text-bilingual-hint font-bilingual-hint font-bold shadow-sm">
-            <span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-            <span>힌트 : 空港 (くうこう)</span>
-          </div>
-        </div>
       </div>
 
-      <!-- Choices Grid -->
-      <div class="flex flex-col gap-2.5 w-full">
-        <!-- Option 1 -->
-        <button class="w-full flex items-center justify-between p-3.5 bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low active:scale-[0.99] transition-all text-left cursor-pointer" type="button">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm shadow-inner shrink-0">1</div>
-            <div class="flex flex-col min-w-0">
-              <span class="font-hangul-tile text-hangul-tile text-on-surface">우체국</span>
-              <span class="font-bilingual-hint text-bilingual-hint text-on-surface-variant truncate">郵便局 · [ウチェグッ]</span>
-            </div>
-          </div>
-          <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-outline shrink-0">
-            <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
-          </div>
-        </button>
-
-        <!-- Option 2 (Selected) -->
-        <button class="w-full flex items-center justify-between p-3.5 bg-secondary-container rounded-xl shadow-md text-left transition-all active:scale-[0.99] cursor-pointer" type="button">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-headline-sm shadow shrink-0">2</div>
-            <div class="flex flex-col min-w-0">
-              <div class="flex items-center gap-1.5">
-                <span class="font-hangul-tile text-hangul-tile text-on-secondary-container font-bold">공항</span>
-                <span class="px-1.5 py-0.5 bg-secondary text-on-secondary text-ruby-annotation rounded-full text-[11px]">선택됨</span>
-              </div>
-              <span class="font-bilingual-hint text-bilingual-hint text-on-secondary-fixed-variant font-medium truncate">空港 · [コンハン]</span>
-            </div>
-          </div>
-          <div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow shrink-0">
-            <span class="material-symbols-outlined text-[18px]">check</span>
-          </div>
-        </button>
-
-        <!-- Option 3 -->
-        <button class="w-full flex items-center justify-between p-3.5 bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low active:scale-[0.99] transition-all text-left cursor-pointer" type="button">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm shadow-inner shrink-0">3</div>
-            <div class="flex flex-col min-w-0">
-              <span class="font-hangul-tile text-hangul-tile text-on-surface">약국</span>
-              <span class="font-bilingual-hint text-bilingual-hint text-on-surface-variant truncate">薬局 · [ヤッグッ]</span>
-            </div>
-          </div>
-          <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-outline shrink-0">
-            <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
-          </div>
-        </button>
-
-        <!-- Option 4 -->
-        <button class="w-full flex items-center justify-between p-3.5 bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low active:scale-[0.99] transition-all text-left cursor-pointer" type="button">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm shadow-inner shrink-0">4</div>
-            <div class="flex flex-col min-w-0">
-              <span class="font-hangul-tile text-hangul-tile text-on-surface">도서관</span>
-              <span class="font-bilingual-hint text-bilingual-hint text-on-surface-variant truncate">図書館 · [トソグァン]</span>
-            </div>
-          </div>
-          <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-outline shrink-0">
-            <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
-          </div>
-        </button>
-      </div>
-    </main>
-
-    <!-- Bottom Drawer -->
-    <div id="quiz-bottom-drawer" class="hidden fixed inset-x-0 bottom-0 z-40 bg-secondary-container shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-gutter pt-4 pb-safe border-t border-secondary/10">
-      <div class="flex flex-col gap-3 pb-3 max-w-md mx-auto">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md shrink-0">
-              <span class="material-symbols-outlined text-[24px]">check</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-headline-sm text-headline-sm text-on-secondary-container font-bold">정답입니다! 🎉</span>
-              <span class="font-bilingual-hint text-bilingual-hint text-on-secondary-fixed-variant">正解です！よくできました</span>
-            </div>
-          </div>
-        </div>
-
-        <button class="w-full h-12 bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md rounded-xl shadow-lg active:translate-y-1 transition-all flex items-center justify-center gap-2 cursor-pointer" type="button">
-          <span>정답 확인 완료 / 다음 (次へ)</span>
-          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-        </button>
-      </div>
     </div>
 
+    <!-- Choices Grid (보기 버튼 4개) -->
+    <div id="quiz-choices-container" class="flex flex-col gap-2.5 w-full">
+      <!-- 동적 보기 버튼 생성 영역 -->
+    </div>
+
+  </main>
+
+  <!-- Bottom Drawer -->
+  <div id="quiz-bottom-drawer" class="hidden fixed inset-x-0 bottom-0 z-40 bg-secondary-container shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-gutter pt-4 pb-safe border-t border-secondary/10">
+    <div class="flex flex-col gap-3 pb-3 max-w-md mx-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md shrink-0">
+            <span class="material-symbols-outlined text-[24px]">check</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-headline-sm text-on-secondary-container font-bold">정답입니다! 🎉</span>
+            <span class="font-bilingual-hint text-bilingual-hint text-on-secondary-fixed-variant">正解です！よくできました</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-next-quiz" class="w-full h-12 bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md rounded-xl shadow-lg active:translate-y-1 transition-all flex items-center justify-center gap-2 cursor-pointer" type="button">
+        <span>정답 확인 완료 / 다음 (次へ)</span>
+        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+      </button>
+    </div>
   </div>
+
+</div>
 
   <!-- ==================== 데이터 연동 및 로직 스크립트 ==================== -->
 <script>
@@ -686,49 +648,43 @@
     if (togglePwIcon) togglePwIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
   });
 
-// 뷰 전환 전용 함수 (함수명을 showView로 통일)
-function showView(targetViewId) {
-  // 모든 VIEW 레이어 숨기기
-  const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz'];
-  views.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('hidden-view');
-  });
+  // 뷰 전환 전용 함수
+  function showView(targetViewId) {
+    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz'];
+    views.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden-view');
+    });
 
-  // 목표 VIEW만 보이기
-  const target = document.getElementById(targetViewId);
-  if (target) {
-    target.classList.remove('hidden-view');
-    window.scrollTo(0, 0); // 화면 최상단으로 스크롤 reset
-  } else {
-    console.error(`VIEW ID를 찾을 수 없습니다: ${targetViewId}`);
+    const target = document.getElementById(targetViewId);
+    if (target) {
+      target.classList.remove('hidden-view');
+      window.scrollTo(0, 0);
+    } else {
+      console.error(`VIEW ID를 찾을 수 없습니다: ${targetViewId}`);
+    }
   }
-}
 
-// 이벤트 리스너 등록
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. 대시보드 -> 읽기 연습
-  document.getElementById('go-practice-btn')?.addEventListener('click', () => {
-    showView('view-practice');
+  // 이벤트 리스너 등록
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('go-practice-btn')?.addEventListener('click', () => {
+      showView('view-practice');
+    });
+
+    document.getElementById('back-to-dashboard')?.addEventListener('click', () => {
+      showView('view-dashboard');
+    });
+
+    document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
+      showView('view-quiz');
+    });
+
+    document.getElementById('back-from-quiz')?.addEventListener('click', () => {
+      showView('view-dashboard');
+    });
   });
 
-  // 2. 읽기 연습 -> 대시보드
-  document.getElementById('back-to-dashboard')?.addEventListener('click', () => {
-    showView('view-dashboard');
-  });
-
-  // 3. 대시보드 -> 데일리 퀴즈
-  document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
-    showView('view-quiz');
-  });
-
-  // 4. 데일리 퀴즈 -> 대시보드
-  document.getElementById('back-from-quiz')?.addEventListener('click', () => {
-    showView('view-dashboard');
-  });
-});
-
-// 1. JSON 데이터베이스 로드 및 세션 복원
+  // 1. JSON 데이터베이스 로드 및 세션 복원
   async function loadAllDatabases() {
     try {
       const [uRes, sRes, lRes, cRes] = await Promise.all([
@@ -786,37 +742,43 @@ document.addEventListener('DOMContentLoaded', () => {
     return minId;
   }
 
-  function getBookAndLessonTitle(course, lessonId) {
-    let bookName = "세종학당 한국어 초급 1";
-    let lessonNum = lessonId;
+  // 레슨 ID(1, 2, 21, 25 등)를 책 이름과 과 번호로 변환하는 함수
+  function getBookAndLessonTitle(course, absoluteLessonId) {
+    const lessonNum = Number(absoluteLessonId);
+    let bookName = "초급 1";
+    let displayLessonNum = lessonNum;
 
-    if (course === "2a") {
-      bookName = "세종학당 한국어 초급 2";
-      lessonNum = lessonId - 20;
-    } else if (course === "3a") {
-      bookName = "세종학당 한국어 중급 1";
-      lessonNum = lessonId - 40;
-    } else if (course === "4a") {
-      bookName = "세종학당 한국어 중급 2";
-      lessonNum = lessonId - 60;
+    if (lessonNum >= 1 && lessonNum <= 20) {
+        bookName = "초급 1";
+        displayLessonNum = lessonNum;
+      } else if (lessonNum >= 21 && lessonNum <= 40) {
+        bookName = "초급 2";
+        displayLessonNum = lessonNum - 20; // 21과 -> 초급 2 제 1과
+      } else if (lessonNum >= 41 && lessonNum <= 60) {
+        bookName = "중급 1";
+        displayLessonNum = lessonNum - 40; // 41과 -> 중급 1 제 1과
+      } else if (lessonNum >= 61 && lessonNum <= 80) {
+        bookName = "중급 2";
+        displayLessonNum = lessonNum - 60; // 61과 -> 중급 2 제 1과
+      }
+
+    return {
+      bookName: bookName,
+      lessonNum: displayLessonNum
+    };
+  }
+
+  // 대시보드 데이터 및 UI 세팅
+  function setupDashboardUI(user) {
+    const userName = user.Name || user.ID || "학생";
+    if (welcomeTitle) welcomeTitle.innerText = `안녕하세요, ${userName} 님!`;
+
+    if (userProfileImgs && userProfileImgs.length > 0) {
+      const photoUrl = user.profile_img || `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=0D9488&color=fff`;
+      userProfileImgs.forEach(img => {
+        img.src = photoUrl;
+      });
     }
-
-    return { bookName, lessonNum };
-  }
-
-// 대시보드 데이터 및 UI 세팅
-function setupDashboardUI(user) {
-  const userName = user.Name || user.ID || "학생";
-  if (welcomeTitle) welcomeTitle.innerText = `안녕하세요, ${userName}님!`;
-
-  // 💡 공통 class를 가진 모든 프로필 이미지 src 변경
-  if (userProfileImgs && userProfileImgs.length > 0) {
-    const photoUrl = user.profile_img || `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=0D9488&color=fff`;
-    
-    userProfileImgs.forEach(img => {
-      img.src = photoUrl;
-    });
-  }
 
     currentLessonId = getLessonIdForUser(user.course || "1a");
 
@@ -912,19 +874,19 @@ function setupDashboardUI(user) {
       if (practiceEvalText) practiceEvalText.innerText = "음성 버튼을 누르고 한국어로 말하면 AI가 발음을 분석해 줍니다.";
 
       if (index < totalSentences - 1) {
-        if (nextBtnText) nextBtnText.innerText = "다음 문장으로 (다음 문장으로)";
+        if (nextBtnText) nextBtnText.innerText = "다음 문장 (次の文)";
         if (nextBtnIcon) nextBtnIcon.style.display = "inline-block";
       } else {
-        if (nextBtnText) nextBtnText.innerText = "학습 완료 · 대시보드로 (완료)";
+        if (nextBtnText) nextBtnText.innerText = "학습 완료 · 처음으로 (完了)";
         if (nextBtnIcon) nextBtnIcon.style.display = "none";
       }
     } else {
       if (practiceSentence) practiceSentence.innerText = "수고하셨습니다!";
-      if (practiceSentenceTrans) practiceSentenceTrans.innerText = "모든 학습 문장을 완료했습니다. 素晴らしい！";
-      if (practiceStepIndicator) practiceStepIndicator.innerText = "완료 (完了)";
+      if (practiceSentenceTrans) practiceSentenceTrans.innerText = "모든 학습 문장을 완료했습니다.";
+      if (practiceStepIndicator) practiceStepIndicator.innerText = "완료";
       if (practiceProgressBar) practiceProgressBar.style.width = "100%";
 
-      if (nextBtnText) nextBtnText.innerText = "대시보드로 돌아가기 (ダッシュボードへ)";
+      if (nextBtnText) nextBtnText.innerText = "처음으로";
       if (nextBtnIcon) nextBtnIcon.style.display = "none";
     }
   }
@@ -949,31 +911,226 @@ function setupDashboardUI(user) {
   backToDashboard?.addEventListener('click', returnToDashboard);
   closePracticeBtn?.addEventListener('click', returnToDashboard);
 
-    // 퀴즈 화면으로 이동
-    document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
-      document.getElementById('view-dashboard').classList.add('hidden-view');
-      document.getElementById('view-quiz').classList.remove('hidden-view');
-    });
+  document.getElementById('back-from-quiz')?.addEventListener('click', () => {
+    showView('view-dashboard');
+  });
+
+  // ==================== 데일리 퀴즈 상태 변수 ====================
+  let currentQuizList = [];
+  let currentQuizIndex = 0;
+  let isCardFlipped = false;
+
+  // 1. 코스별 퀴즈 문제 및 유사 글자수 오답 생성 로직
+  function generateQuizProblem(targetItem, allLessons) {
+    const maskedSentence = targetItem.sentence_kr.replace(
+      targetItem.word_kr,
+      `<span class="inline-flex items-center justify-center min-w-[68px] h-10 px-3 mx-1 bg-primary-container/40 text-primary font-headline-md text-headline-md rounded-xl border border-primary/30 shadow-sm align-middle tracking-wider">____</span>`
+    );
+
+    const targetLen = targetItem.word_kr.length;
+    const otherWords = Array.from(
+      new Set(
+        allLessons
+          .filter(l => l.word_kr && l.word_kr.trim() !== "" && l.word_kr !== targetItem.word_kr)
+          .map(l => l.word_kr)
+      )
+    );
+
+    let candidates = otherWords.filter(w => w.length === targetLen);
+    if (candidates.length < 3) {
+      const backup = otherWords.filter(w => Math.abs(w.length - targetLen) === 1);
+      candidates = [...candidates, ...backup];
+    }
+
+    const shuffledWrong = candidates.sort(() => 0.5 - Math.random()).slice(0, 3);
+    const choices = [targetItem.word_kr, ...shuffledWrong].sort(() => 0.5 - Math.random());
+
+    return {
+      maskedSentence,
+      correctAnswer: targetItem.word_kr,
+      choices,
+      hintJp: targetItem.word_jp,
+      sentenceJp: targetItem.sentence_jp
+    };
+  }
+
+  // 2. 퀴즈 화면 데이터 바인딩 및 렌더링
+  function renderQuizIndex(index) {
+    const total = currentQuizList.length;
+
+    if (total === 0 || index >= total) {
+      alert("오늘의 퀴즈를 모두 완료했습니다! 🎉");
+      showView('view-dashboard');
+      return;
+    }
+
+    const problem = currentQuizList[index];
+
+    // ① Status Bar (진행도) 업데이트
+    const currentStep = index + 1;
+    const percent = Math.round((currentStep / total) * 100);
+
+    const textElem = document.getElementById('quiz-progress-text');
+    const percentElem = document.getElementById('quiz-progress-percent');
+    const barElem = document.getElementById('quiz-progress-bar');
+
+    if (textElem) textElem.innerText = `Q ${currentStep} / ${total}`;
+    if (percentElem) percentElem.innerText = `${percent}%`;
+    if (barElem) barElem.style.width = `${percent}%`;
+
+    // ② 퀴즈용으로 계산된 타이틀로 상단 태그 업데이트
+    const courseTag = document.getElementById('quiz-course-tag');
+      if (courseTag && currentLessonDisplayTitle) {
+        courseTag.innerText = currentLessonDisplayTitle;
+      }
     
-    // 퀴즈 화면에서 뒤로가기 버튼 클릭 시 대시보드로 복귀
-    document.getElementById('back-from-quiz')?.addEventListener('click', () => {
-      document.getElementById('view-quiz').classList.add('hidden-view');
-      document.getElementById('view-dashboard').classList.remove('hidden-view');
+    // 카드 뒤집힘 상태 초기화 (앞면으로)
+    const cardInner = document.getElementById('quiz-card-inner');
+    isCardFlipped = false;
+    cardInner?.classList.remove('rotate-y-180');
+
+    // 문제 문장 대입
+    const sentenceKrElem = document.getElementById('quiz-sentence-kr');
+    const sentenceJpElem = document.getElementById('quiz-sentence-jp');
+    if (sentenceKrElem) sentenceKrElem.innerHTML = problem.maskedSentence;
+    if (sentenceJpElem) sentenceJpElem.innerText = problem.sentenceJp;
+
+    // 힌트 제어 (1a, 2a만 노출)
+    const userCourse = currentUser?.course || "1a";
+    const hintBox = document.getElementById('quiz-hint-box');
+    const hintTextElem = document.getElementById('quiz-hint-text');
+
+    if (userCourse === "1a" || userCourse === "2a") {
+      if (hintBox) hintBox.classList.remove('hidden');
+      if (hintTextElem) hintTextElem.innerText = `힌트 : ${problem.hintJp}`;
+    } else {
+      if (hintBox) hintBox.classList.add('hidden');
+    }
+
+    // 보기 버튼 생성
+    const choicesContainer = document.getElementById('quiz-choices-container');
+    if (choicesContainer) {
+      choicesContainer.innerHTML = '';
+
+      problem.choices.forEach((choiceText, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = "w-full flex items-center justify-between p-3.5 bg-surface-container-lowest rounded-xl shadow-sm hover:bg-surface-container-low active:scale-[0.99] transition-all text-left cursor-pointer";
+        btn.innerHTML = `
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm shadow-inner shrink-0">${idx + 1}</div>
+            <span class="font-hangul-tile text-hangul-tile text-on-surface">${choiceText}</span>
+          </div>
+          <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-outline shrink-0">
+            <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+          </div>
+        `;
+
+        btn.addEventListener('click', () => handleChoiceSelect(choiceText, problem.correctAnswer, btn));
+        choicesContainer.appendChild(btn);
+      });
+    }
+
+    document.getElementById('quiz-bottom-drawer')?.classList.add('hidden');
+  }
+
+  // 3. 카드 클릭 시 뒤집기
+  document.getElementById('quiz-card-container')?.addEventListener('click', () => {
+    const cardInner = document.getElementById('quiz-card-inner');
+    isCardFlipped = !isCardFlipped;
+    if (isCardFlipped) {
+      cardInner?.classList.add('rotate-y-180');
+    } else {
+      cardInner?.classList.remove('rotate-y-180');
+    }
+  });
+
+  // 4. 정답 선택 시 처리
+  function handleChoiceSelect(selectedChoice, correctAnswer, clickedBtn) {
+    const drawer = document.getElementById('quiz-bottom-drawer');
+    
+    if (selectedChoice === correctAnswer) {
+      drawer?.classList.remove('hidden');
+    } else {
+      alert("아쉽네요! 다시 선택해보세요. (違います。もう一度選んでください)");
+    }
+  }
+
+  // 5. 다음 문제 이동
+  document.getElementById('btn-next-quiz')?.addEventListener('click', () => {
+    currentQuizIndex++;
+    renderQuizIndex(currentQuizIndex);
+  });
+
+ // 6. 대시보드 -> 퀴즈 화면 진입 이벤트 (복습 선택 단원 타이틀 동기화)
+document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
+  try {
+    const currentLessonIdNum = Number(currentLessonId || 1);
+
+    // 과거 학습 범위 계산 (1과 ~ 오늘 진도 전 단원)
+    let availableLessons = [];
+    if (currentLessonIdNum <= 1) {
+      availableLessons = [1];
+    } else {
+      for (let i = 1; i < currentLessonIdNum; i++) {
+        availableLessons.push(i);
+      }
+    }
+
+    let historyKey = `quizHistory_${currentUser?.ID || 'default'}`;
+    let quizLogs = [];
+    try {
+      quizLogs = JSON.parse(localStorage.getItem(historyKey)) || [];
+    } catch (e) {
+      quizLogs = [];
+    }
+
+    const completedLessonIds = quizLogs.map(log => log.lessonId);
+    let uncompletedLessons = availableLessons.filter(id => !completedLessonIds.includes(id));
+
+    if (uncompletedLessons.length === 0) {
+      quizLogs = [];
+      localStorage.removeItem(historyKey);
+      uncompletedLessons = [...availableLessons];
+    }
+
+    // 복습할 단원 무작위 1개 선택
+    const selectedLessonId = uncompletedLessons[Math.floor(Math.random() * uncompletedLessons.length)];
+
+    const lessonItems = (lessonsData || []).filter(
+      l => Number(l.lesson_id) === selectedLessonId && l.word_kr && l.word_kr.trim() !== ""
+    );
+
+    if (lessonItems.length === 0) {
+      alert(`제 ${selectedLessonId}과에 해당하는 퀴즈 데이터가 없습니다.`);
+      return;
+    }
+
+    // 기록 누적 저장
+    quizLogs.push({
+      timestamp: new Date().toISOString(),
+      lessonId: selectedLessonId
     });
+    localStorage.setItem(historyKey, JSON.stringify(quizLogs));
+
+    // 선택된 복습 단원으로 문제 생성
+    currentQuizList = lessonItems.map(item => generateQuizProblem(item, lessonsData || []));
+    currentQuizIndex = 0;
+
+    // 💡 [핵심] 선택된 selectedLessonId 기준으로 복습 퀴즈 타이틀 전역변수 변경
+    const titleObj = getBookAndLessonTitle(currentUser?.course || "1a", selectedLessonId);
+    currentLessonDisplayTitle = `${titleObj.bookName} • 제 ${titleObj.lessonNum}과 (복습 퀴즈)`;
+
+    renderQuizIndex(currentQuizIndex);
+    showView('view-quiz');
+
+  } catch (err) {
+    console.error("퀴즈 진입 도중 오류 발생:", err);
+  }
+});
   
-    // 정답 제출 및 드로어 제어 함수 예시
-      function showQuizResult(isCorrect) {
-        // 드로어 열기
-        document.getElementById('quiz-bottom-drawer')?.classList.remove('hidden');
-      }
-      
-      function hideQuizResult() {
-        // 드로어 닫기
-        document.getElementById('quiz-bottom-drawer')?.classList.add('hidden');
-      }
-  
-  // 5. TTS 음성 출력
-  function playTTS(text, rate = 1.0) {
+  // 7. TTS 음성 출력
+  function playTTS(text, rate = 0.8) {
     if ('speechSynthesis' in window && text) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
@@ -986,7 +1143,7 @@ function setupDashboardUI(user) {
   topTtsBtn?.addEventListener('click', () => playTTS(practiceSentence?.innerText || ''));
   btnAudioNormal?.addEventListener('click', () => playTTS(practiceSentence?.innerText || ''));
 
-  // 6. STT 음성 인식 및 Gemini AI 평가
+  // 8. STT 및 AI 평가
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   let recognition = null;
   let isRecording = false;
@@ -1066,7 +1223,7 @@ function setupDashboardUI(user) {
       const isExact = target.replace(/\s+/g, '') === spoken.replace(/\s+/g, '');
       const score = isExact ? "100%" : "85%";
       if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score} 一致`;
-      if (practiceEvalText) practiceEvalText.innerText = isExact ? "발음 정확도: 完璧です！ (완벽합니다!)" : "발음 정확도: 良好 (자연스러운 발음입니다!)";
+      if (practiceEvalText) practiceEvalText.innerText = isExact ? "발음 정확도: 完璧です！" : "발음 정확도: 良好";
       return;
     }
 
@@ -1096,7 +1253,7 @@ Respond ONLY with valid JSON in this exact structure without markdown backticks:
       if (practiceEvalText) practiceEvalText.innerText = `발음 정확도: ${result.evaluation || "훌륭한 발음입니다!"}`;
     } catch (err) {
       if (practiceMatchBadge) practiceMatchBadge.innerHTML = "🎯 90% 一致";
-      if (practiceEvalText) practiceEvalText.innerText = "발음 정확도: 優良 (좋은 발음입니다!)";
+      if (practiceEvalText) practiceEvalText.innerText = "발음 정확도: 優良";
     }
   }
 </script>
