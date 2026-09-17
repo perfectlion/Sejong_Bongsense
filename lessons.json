@@ -1895,29 +1895,29 @@
    "sentence_kr": "사과 하나 주세요.",
    "sentence_jp": "りんごを一つください。"
  },
- {
+{
    "id": "1a-10-02",
    "lesson_id": 10,
    "word_kr": "둘",
    "word_jp": "二つ",
-   "sentence_kr": "김밥 둘 주세요.",
-   "sentence_jp": "キンパを二つください。"
+   "sentence_kr": "하나는 먹고 둘은 남겨 주세요.",
+   "sentence_jp": "1つは食べて、2つは残してください"
  },
  {
    "id": "1a-10-03",
    "lesson_id": 10,
    "word_kr": "셋",
    "word_jp": "三つ",
-   "sentence_kr": "연필 셋 있어요.",
-   "sentence_jp": "鉛筆が三本あります。"
+   "sentence_kr": "셋 중에서 하나를 고르세요.",
+   "sentence_jp": "3つの中から1つ選んでください。"
  },
  {
    "id": "1a-10-04",
    "lesson_id": 10,
    "word_kr": "넷",
    "word_jp": "四つ",
-   "sentence_kr": "사과 넷 먹었어요.",
-   "sentence_jp": "りんごを四つ食べました。"
+   "sentence_kr": "넷이서 같이 갔어요.",
+   "sentence_jp": "4人で一緒に行きました。"
  },
  {
    "id": "1a-10-05",
