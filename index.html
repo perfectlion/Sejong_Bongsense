@@ -1239,34 +1239,68 @@
   });
 
 /**
-   * Vercel Serverless Function API를 호출하여 AI 발음 평가를 진행하는 함수
+   * 레벤슈타인 거리(Levenshtein Distance) 알고리즘
+   * 두 문자열 간의 유사도를 0 ~ 100점 사이로 계산합니다.
+   */
+  function calculateSimilarity(str1, str2) {
+    if (!str1 || !str2) return 0;
+    
+    // 공백 및 특수문자 제거 후 비교
+    const s1 = str1.replace(/\s+/g, '').trim();
+    const s2 = str2.replace(/\s+/g, '').trim();
+    
+    if (s1 === s2) return 100;
+    if (s1.length === 0 || s2.length === 0) return 0;
+
+    const track = Array(s2.length + 1).fill(null).map(() =>
+      Array(s1.length + 1).fill(null)
+    );
+
+    for (let i = 0; i <= s1.length; i += 1) track[0][i] = i;
+    for (let j = 0; j <= s2.length; j += 1) track[j][0] = j;
+
+    for (let j = 1; j <= s2.length; j += 1) {
+      for (let i = 1; i <= s1.length; i += 1) {
+        const indicator = s1[i - 1] === s2[j - 1] ? 0 : 1;
+        track[j][i] = Math.min(
+          track[j][i - 1] + 1, // 삽입
+          track[j - 1][i] + 1, // 삭제
+          track[j - 1][i - 1] + indicator // 수정
+        );
+      }
+    }
+
+    const distance = track[s2.length][s1.length];
+    const maxLength = Math.max(s1.length, s2.length);
+    const similarity = ((maxLength - distance) / maxLength) * 100;
+    
+    return Math.max(0, Math.round(similarity));
+  }
+
+  /**
+   * Vercel API 연동 및 레벤슈타인 유사도 평가 함수
    */
   async function evaluatePronunciationAI(target, spoken) {
     if (practiceMatchBadge) practiceMatchBadge.innerHTML = "🎯 분석 중...";
     if (practiceEvalText) practiceEvalText.innerText = "발음을 분석하고 있습니다...";
 
-    // 💡 Vercel에서 배포된 본인의 실제 API 주소로 수정하세요!
-    // 만약 프론트엔드와 Vercel API가 같은 프로젝트 내에 있다면 "/api/evaluate" 상대 경로도 가능합니다.
+    // 💡 Vercel 배포 주소로 변경하세요. (같은 Vercel 서버일 경우 "/api/evaluate" 지정 가능)
     const VERCEL_API_URL = "https://sejong-bongsense.vercel.app/api/evaluate";
 
     try {
+      // 1. Vercel API 호출 시도
       const response = await fetch(VERCEL_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ target: target, spoken: spoken })
       });
 
-      if (!response.ok) {
-        throw new Error(`서버 응답 오류: ${response.status}`);
-      }
+      if (!response.ok) throw new Error("API 통신 실패");
 
       const data = await response.json();
-
-      // Vercel API 응답 파싱
       let score = data.score;
       let evaluation = data.evaluation;
 
-      // 만약 API에서 raw Gemini 응답(텍스트)을 그대로 내려주는 경우 예외 처리
       if (!score && data.candidates) {
         let rawText = data.candidates[0].content.parts[0].text
           .trim()
@@ -1278,26 +1312,30 @@
         evaluation = parsed.evaluation;
       }
 
-      // UI 반영
-      if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score || "90%"} 一致`;
-      if (practiceEvalText) practiceEvalText.innerText = evaluation || "좋은 발음입니다!";
+      if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score}% 一致`;
+      if (practiceEvalText) practiceEvalText.innerText = evaluation;
 
     } catch (err) {
-      console.error("AI 평가 에러:", err);
+      // 2. Vercel API 호출 실패 시 레벤슈타인 거리 오프라인 평가로 자동 전환
+      console.warn("Vercel API 미연동 또는 연결 실패: 레벤슈타인 거리 알고리즘으로 평가합니다.", err);
 
-      // 💡 예외 처리: Vercel API 통신 실패 시 레벤슈타인 유사도 계산(비상용)으로 자동 전환
-      const fallbackScore = calculateSimilarity(target, spoken);
-      
-      let fallbackText = "";
-      if (fallbackScore >= 90) fallbackText = "발음 정확도: 完璧です！ (완벽합니다!)";
-      else if (fallbackScore >= 75) fallbackText = "발음 정확도: 良好 (아주 잘하셨습니다)";
-      else if (fallbackScore >= 55) fallbackText = "발음 정확도: 惜しいです！ (조금 더 명확히 발음해 보세요)";
-      else fallbackText = "발음 정확도: もう一度練習してみましょう (다시 시도해 보세요)";
+      const score = calculateSimilarity(target, spoken);
+      let evaluationText = "";
 
-      if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${fallbackScore}% 一致`;
-      if (practiceEvalText) practiceEvalText.innerText = fallbackText;
+      if (score >= 90) {
+        evaluationText = "발음 정확도: 完璧です！ (완벽합니다!)";
+      } else if (score >= 70) {
+        evaluationText = "발음 정확도: 良好 (아주 잘하셨습니다)";
+      } else if (score >= 40) {
+        evaluationText = "발음 정확도: 惜しいです！ (조금 더 명확히 발음해 보세요)";
+      } else {
+        evaluationText = "발음 정확도: もう一度練習してみましょう (다시 시도해 보세요)";
+      }
+
+      if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score}% 一致`;
+      if (practiceEvalText) practiceEvalText.innerText = evaluationText;
+    }
   }
-}
 </script>
 </body>
 </html>
