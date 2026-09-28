@@ -108,6 +108,9 @@
     }
   </script>
 
+<!-- html2canvas 라이브러리 (head 태그 상단에 필수 위치) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
 <style>
     /* Material Symbols 기본 클래스 설정 */
     .material-symbols-outlined {
@@ -328,7 +331,10 @@
           <span class="material-symbols-outlined text-[24px] mb-0.5">replay</span>
           <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">復習モード</span>
         </a>
-        <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group" href="#" onclick="alert('학습 기록 페이지입니다.')">
+        <a id="nav-weekly-stats" 
+           class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group cursor-pointer" 
+           href="javascript:void(0);" 
+           onclick="document.getElementById('view-dashboard').classList.add('hidden-view'); document.getElementById('view-weekly-stats').classList.remove('hidden-view');">
           <span class="material-symbols-outlined text-[24px] mb-0.5">monitoring</span>
           <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">学習記録</span>
         </a>
@@ -336,7 +342,7 @@
     </nav>
   </div>
 
-  <!-- ==================== VIEW 3: 말하기 인터랙티브 학습 화면 ==================== -->
+  <!-- ==================== VIEW 3: 말하기 학습 화면 ==================== -->
   <div id="view-practice" class="hidden-view flex flex-col min-h-screen w-full bg-surface">
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
       <div class="h-16 px-gutter flex items-center justify-between">
@@ -572,7 +578,282 @@
 
 </div>
 
-  <!-- ==================== 데이터 연동 및 로직 스크립트 ==================== -->
+<!-- ==================== VIEW 5: 주간 성과 화면 ==================== -->
+<div id="view-weekly-stats" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+  
+  <!-- Header (VIEW 3, VIEW 4와 동일한 구조) -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <button id="back-from-stats" aria-label="戻る" class="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 rounded-full active:scale-95 text-on-surface transition-transform cursor-pointer" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="font-headline-sm text-headline-sm text-primary tracking-tight">세종학당 봉센세</span>
+          </div>
+          <span class="font-kana-subtext text-kana-subtext text-on-surface-variant line-clamp-1 leading-tight">Achievement Mode</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <img class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="./images/default-avatar.png" alt="Profile" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content (고정 헤더 아래에서 시작하도록 pt-20 설정) -->
+  <main class="flex flex-col relative w-full pt-20 pb-28 px-gutter bg-surface flex-grow">
+    
+    <!-- Progress Header Deck -->
+    <div class="w-full flex items-center justify-between gap-space-sm pt-space-xs pb-space-sm">
+      <div class="flex-1 h-3.5 bg-surface-container rounded-full overflow-hidden p-0.5 shadow-inner">
+        <div id="achievement-progress-bar" class="h-full bg-primary rounded-full transition-all duration-500 relative flex items-center" style="width: 0%;">
+          <div class="absolute inset-0 bg-white/20 rounded-full"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-1 bg-primary-container px-2.5 py-1 rounded-full shadow-sm">
+        <span id="achievement-progress-percent" class="font-label-bold text-label-bold text-white">0%</span>
+      </div>
+    </div>
+    
+    <!-- Lesson Stage Track Indicator -->
+    <div class="flex items-center justify-between px-1 mb-space-sm">
+      <span id="achievement-course-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
+        주간 성취도 (週間達成度)
+      </span>
+      <span class="font-label-bold text-label-bold text-primary">0 / 5일</span>
+    </div>
+
+    <!-- Title Group -->
+    <div class="mt-2.5 mb-4">
+      <h2 class="text-[19px] font-bold text-slate-900 tracking-tight leading-snug">
+        이번 주 학습 기록을 확인하세요
+      </h2>
+      <p class="text-xs text-slate-500 mt-0.5">
+        月曜日から金曜日までの学習記録と時間です
+      </p>
+    </div>
+
+    <!-- Weekly Achievement Table -->
+    <section class="bg-white rounded-2xl shadow-xs border border-slate-100 overflow-hidden" data-purpose="weekly-matrix-table">
+      <!-- Table Header -->
+      <div class="grid grid-cols-12 bg-slate-50 border-b border-slate-100 text-slate-500 text-[11px] font-semibold py-2.5 px-3 text-center items-center">
+        <div class="col-span-4 text-left pl-1">날짜/요일 (日付)</div>
+        <div class="col-span-4">📖 읽기 (Reading)</div>
+        <div class="col-span-4">✍️ 퀴즈 (Quiz)</div>
+      </div>
+      
+<!-- Matrix Rows -->
+<div class="divide-y divide-slate-100 text-xs">
+<!-- Row 1: 월요일 (Both Completed) -->
+<div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors">
+<div class="col-span-4">
+<span class="font-bold text-slate-800 text-[13px] block">5월 13일 (월)</span>
+<span class="text-[10px] text-slate-400">05/13 月曜日</span>
+</div>
+<!-- Reading: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">14분 소요</span>
+</div>
+<!-- Quiz: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">10분 소요</span>
+</div>
+</div>
+<!-- Row 2: 화요일 (Reading Completed, Quiz Not Done) -->
+<div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors">
+<div class="col-span-4">
+<span class="font-bold text-slate-800 text-[13px] block">5월 14일 (화)</span>
+<span class="text-[10px] text-slate-400">05/14 火曜日</span>
+</div>
+<!-- Reading: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">16분 소요</span>
+</div>
+<!-- Quiz: Crying Mascot (Incomplete) -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<!-- Cute Crying Mascot Illustration -->
+<div class="w-6 h-6 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center relative mb-0.5 shadow-xs">
+<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="#FEF3C7" r="10" stroke="#F59E0B" stroke-width="1.5"></circle>
+<circle cx="9" cy="10" fill="#78350F" r="1.2"></circle>
+<circle cx="15" cy="10" fill="#78350F" r="1.2"></circle>
+<!-- Sad mouth -->
+<path d="M9.5 16C10.5 14.5 13.5 14.5 14.5 16" stroke="#78350F" stroke-linecap="round" stroke-width="1.3"></path>
+<!-- Teardrop -->
+<path d="M16 11.5C16 12.5 15.3 13.5 14.8 13.5C14.3 13.5 14 12.8 14.5 11.8C14.9 11.2 16 11 16 11.5Z" fill="#38BDF8"></path>
+</svg>
+</div>
+<span class="text-[10px] font-medium text-slate-400">미학습 (未学習)</span>
+</div>
+</div>
+<!-- Row 3: 수요일 (Both Completed) -->
+<div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors">
+<div class="col-span-4">
+<span class="font-bold text-slate-800 text-[13px] block">5월 15일 (수)</span>
+<span class="text-[10px] text-slate-400">05/15 水曜日</span>
+</div>
+<!-- Reading: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">12분 소요</span>
+</div>
+<!-- Quiz: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">15분 소요</span>
+</div>
+</div>
+<!-- Row 4: 목요일 (Both Incomplete - Crying Mascots) -->
+<div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors bg-amber-50/20">
+<div class="col-span-4">
+<span class="font-bold text-slate-800 text-[13px] block">5월 16일 (목)</span>
+<span class="text-[10px] text-slate-400">05/16 木曜日</span>
+</div>
+<!-- Reading: Crying Mascot -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="#FEF3C7" r="10" stroke="#F59E0B" stroke-width="1.5"></circle>
+<circle cx="9" cy="10" fill="#78350F" r="1.2"></circle>
+<circle cx="15" cy="10" fill="#78350F" r="1.2"></circle>
+<path d="M9.5 16C10.5 14.5 13.5 14.5 14.5 16" stroke="#78350F" stroke-linecap="round" stroke-width="1.3"></path>
+<path d="M8 11.5C8 12.5 8.7 13.5 9.2 13.5C9.7 13.5 10 12.8 9.5 11.8C9.1 11.2 8 11 8 11.5Z" fill="#38BDF8"></path>
+</svg>
+</div>
+<span class="text-[10px] font-medium text-slate-400">미학습 (未学習)</span>
+</div>
+<!-- Quiz: Crying Mascot -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24">
+<circle cx="12" cy="12" fill="#FEF3C7" r="10" stroke="#F59E0B" stroke-width="1.5"></circle>
+<circle cx="9" cy="10" fill="#78350F" r="1.2"></circle>
+<circle cx="15" cy="10" fill="#78350F" r="1.2"></circle>
+<path d="M9.5 16C10.5 14.5 13.5 14.5 14.5 16" stroke="#78350F" stroke-linecap="round" stroke-width="1.3"></path>
+<path d="M16 11.5C16 12.5 15.3 13.5 14.8 13.5C14.3 13.5 14 12.8 14.5 11.8C14.9 11.2 16 11 16 11.5Z" fill="#38BDF8"></path>
+</svg>
+</div>
+<span class="text-[10px] font-medium text-slate-400">미학습 (未学習)</span>
+</div>
+</div>
+<!-- Row 5: 금요일 (Both Completed) -->
+<div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors">
+<div class="col-span-4">
+<span class="font-bold text-slate-800 text-[13px] block">5월 17일 (금)</span>
+<span class="text-[10px] text-slate-400">05/17 金曜日</span>
+</div>
+<!-- Reading: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">20분 소요</span>
+</div>
+<!-- Quiz: Completed -->
+<div class="col-span-4 flex flex-col items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-emerald-800">18분 소요</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WeeklyAchievementTable -->
+<!-- BEGIN: WeeklyInsightCard -->
+<section class="bg-white rounded-2xl p-4 shadow-xs border border-slate-100 space-y-3" data-purpose="summary-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+<span class="text-xs font-semibold text-slate-500">주간 학습 통계 (週間統計)</span>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Metric 1: 총 학습 시간 -->
+<div class="bg-slate-50/80 rounded-xl p-3">
+<span class="text-[11px] text-slate-400 block mb-0.5">총 학습 시간 (総時間)</span>
+<div class="flex items-baseline space-x-1">
+<span class="text-lg font-bold text-slate-800 tracking-tight">1시간 45분</span>
+</div>
+</div>
+<!-- Metric 2: 스트릭 -->
+<div class="bg-slate-50/80 rounded-xl p-3">
+<span class="text-[11px] text-slate-400 block mb-0.5">연속 학습 스트릭</span>
+<div class="flex items-center space-x-1">
+<span class="text-lg font-bold text-amber-600 tracking-tight">3일 달성</span>
+<span class="text-sm">🔥</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WeeklyInsightCard -->
+</main>
+<!-- END: MainContentSection -->
+<!-- BEGIN: BottomActionSection -->
+<footer class="p-4 bg-white/95 backdrop-blur-xs border-t border-slate-100 sticky bottom-0 z-20" data-purpose="bottom-action-container">
+<button id="submit-report-btn" onclick="handleReportSubmit()" class="w-full h-13 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] transition-all rounded-2xl flex items-center justify-center space-x-2 shadow-sm text-white font-bold text-[15px]" type="button">
+<span class="text-lg leading-tight">📸</span>
+<span id="btn-label" class="">레포트 제출 (レポート提出)</span>
+<svg id="btn-arrow-icon" class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</footer>
+<!-- END: BottomActionSection -->
+<!-- Camera Shutter Flash Overlay -->
+<div id="camera-flash" class="pointer-events-none fixed inset-0 z-50 bg-white opacity-0 transition-opacity duration-200"></div>
+
+<!-- Submission Toast / Modal Notification -->
+<div id="submission-toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl shadow-xl p-4 flex items-start space-x-3 transition-all duration-300 transform -translate-y-20 opacity-0 pointer-events-none">
+<div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0 flex items-center justify-center font-bold text-lg">
+✓
+</div>
+<div class="flex-1 text-left">
+<div class="flex items-center space-x-1.5">
+<span class="text-xs font-bold text-emerald-800">📸 캡처 &amp; 완료!</span>
+<span class="text-[10px] px-1.5 py-0.2 bg-emerald-100 text-emerald-700 font-semibold rounded-full">전송 성공</span>
+</div>
+<p class="text-[12px] font-semibold text-slate-800 mt-1 leading-snug">
+학습 레포트가 캡처되었어요. 선생님께 보내주세요!
+</p>
+<p class="text-[10.5px] text-slate-500 mt-0.5">
+画面が保存され、先生に送ってください ✨
+</p>
+</div>
+</div>
+
+
+</main>
+
+</body>
+</html>
+
 <script>
   // ==================== 데이터 및 상태 관리 ====================
   let usersData = [];
@@ -587,16 +868,24 @@
   let lessonSentencesList = [];
   let currentSentenceIndex = 0;
 
+  // 녹음 관련 전역 변수
+  let isRecording = false; 
+  let mediaRecorder = null;
+  let recognition = null;
+
+  // 학습 시작 시각 측정
+  let practiceStartTime = null;
+  let quizStartTime = null;
+
   // Gemini API 설정
-  const GEMINI_MODEL = "gemini-1.5-flash"; // 최신 모델명 권장 (gemini-1.5-flash)
+  const GEMINI_MODEL = "gemini-1.5-flash";
 
   // ==================== DOM 요소 참조 ====================
-  // 뷰 화면
   const viewLogin = document.getElementById('view-login');
   const viewDashboard = document.getElementById('view-dashboard');
   const viewPractice = document.getElementById('view-practice');
+  const viewStats = document.getElementById('view-weekly-stats');
 
-  // 로그인 관련
   const loginForm = document.getElementById('login-form');
   const userIdInput = document.getElementById('user-id');
   const userPwInput = document.getElementById('user-pw');
@@ -605,7 +894,6 @@
   const loginSpinner = document.getElementById('login-spinner');
   const loginErrorMsg = document.getElementById('login-error-msg');
 
-  // 대시보드 관련
   const welcomeTitle = document.getElementById('welcome-title');
   const logoutBtn = document.getElementById('logout-btn');
   const goPracticeBtn = document.getElementById('go-practice-btn');
@@ -613,7 +901,6 @@
   const cardLessonTag = document.getElementById('card-lesson-tag');
   const targetSentenceElem = document.getElementById('target-sentence');
 
-  // 연습 모드 관련
   const backToDashboard = document.getElementById('back-to-dashboard');
   const closePracticeBtn = document.getElementById('close-practice-btn');
   const practiceStageTitle = document.getElementById('practice-stage-title');
@@ -637,11 +924,68 @@
   const practiceMatchBadge = document.getElementById('practice-match-badge');
   const practiceEvalText = document.getElementById('practice-eval-text');
 
-  // ==================== 유티리티: 레벤슈타인 거리 및 유사도 계산 ====================
+  // ==================== 주간 데이터 및 학습 진행상태 저장 헬퍼 함수 ====================
   
-  /**
-   * 두 문자열 간의 레벤슈타인 거리(Levenshtein Distance)를 계산합니다.
-   */
+  // 1. 학습 완료 시 주간 통계 기록
+  function saveTodayLearningData(type, timeSpentMinutes = 10) {
+    const today = new Date();
+    const year = today.getFullYear();
+    const monthStr = String(today.getMonth() + 1).padStart(2, '0');
+    const dateStr = String(today.getDate()).padStart(2, '0');
+    const dateKey = `${year}-${monthStr}-${dateStr}`;
+
+    const storedData = JSON.parse(localStorage.getItem('weeklyLearningData') || '{}');
+
+    if (!storedData[dateKey]) {
+      storedData[dateKey] = {
+        readingDone: false,
+        readingTime: 0,
+        quizDone: false,
+        quizTime: 0
+      };
+    }
+
+    if (type === 'reading') {
+      storedData[dateKey].readingDone = true;
+      storedData[dateKey].readingTime = (storedData[dateKey].readingTime || 0) + timeSpentMinutes;
+    } else if (type === 'quiz') {
+      storedData[dateKey].quizDone = true;
+      storedData[dateKey].quizTime = (storedData[dateKey].quizTime || 0) + timeSpentMinutes;
+    }
+
+    localStorage.setItem('weeklyLearningData', JSON.stringify(storedData));
+    
+    if (typeof renderWeeklyStatsView === 'function') {
+      renderWeeklyStatsView();
+    }
+  }
+
+  // 2. 학습 진행 상태 (이어풀기 정보) 저장
+  function saveLearningProgress(type, lessonId, currentIndex) {
+    const userId = currentUser?.ID || 'default';
+    const progressKey = `progress_${type}_${userId}_${lessonId}`;
+    localStorage.setItem(progressKey, JSON.stringify({
+      currentIndex: currentIndex,
+      timestamp: new Date().toISOString()
+    }));
+  }
+
+  // 3. 저장된 진행 상태 불러오기
+  function getLearningProgress(type, lessonId) {
+    const userId = currentUser?.ID || 'default';
+    const progressKey = `progress_${type}_${userId}_${lessonId}`;
+    const data = localStorage.getItem(progressKey);
+    return data ? JSON.parse(data) : null;
+  }
+
+  // 4. 완료 시 진행 상태 삭제
+  function clearLearningProgress(type, lessonId) {
+    const userId = currentUser?.ID || 'default';
+    const progressKey = `progress_${type}_${userId}_${lessonId}`;
+    localStorage.removeItem(progressKey);
+  }
+
+  // ==================== 유틸리티: 레벤슈타인 거리 및 유사도 ====================
   function getLevenshteinDistance(str1, str2) {
     const len1 = str1.length;
     const len2 = str2.length;
@@ -654,20 +998,16 @@
       for (let j = 1; j <= len2; j++) {
         const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
         matrix[i][j] = Math.min(
-          matrix[i - 1][j] + 1,      // 삭제
-          matrix[i][j - 1] + 1,      // 삽입
-          matrix[i - 1][j - 1] + cost // 대치
+          matrix[i - 1][j] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j - 1] + cost
         );
       }
     }
     return matrix[len1][len2];
   }
 
-  /**
-   * 목표 문장과 인식된 문장 간의 유사도를 퍼센트(0~100%)로 환산합니다.
-   */
   function calculateSimilarity(targetStr, spokenStr) {
-    // 공백 및 문장부호 제거 후 정규화
     const cleanTarget = targetStr.replace(/[^a-zA-Z0-9가-힣]/g, '');
     const cleanSpoken = spokenStr.replace(/[^a-zA-Z0-9가-힣]/g, '');
 
@@ -683,8 +1023,6 @@
   }
 
   // ==================== 초기화 및 이벤트 등록 ====================
-
-  // 비밀번호 보이기/숨기기
   togglePwBtn?.addEventListener('click', () => {
     if (!userPwInput) return;
     const isPassword = userPwInput.getAttribute('type') === 'password';
@@ -692,9 +1030,8 @@
     if (togglePwIcon) togglePwIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
   });
 
-  // 뷰 전환 전용 함수
   function showView(targetViewId) {
-    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz'];
+    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz', 'view-weekly-stats'];
     views.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden-view');
@@ -709,26 +1046,20 @@
     }
   }
 
-  // 이벤트 리스너 등록
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('go-practice-btn')?.addEventListener('click', () => {
-      showView('view-practice');
-    });
-
     document.getElementById('back-to-dashboard')?.addEventListener('click', () => {
+      returnToDashboard(false); // 미완료로 복귀
+    });
+
+    document.getElementById('back-from-stats')?.addEventListener('click', () => {
       showView('view-dashboard');
     });
-
-    document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
-      showView('view-quiz');
-    });
-
+    
     document.getElementById('back-from-quiz')?.addEventListener('click', () => {
-      showView('view-dashboard');
+      stopQuizAndReturn(false); // 미완료로 복귀
     });
   });
 
-  // 1. JSON 데이터베이스 로드 및 세션 복원
   async function loadAllDatabases() {
     try {
       const [uRes, sRes, lRes, cRes] = await Promise.all([
@@ -750,7 +1081,6 @@
   }
   loadAllDatabases();
 
-  // 자동 로그인 체크
   function checkAutoLogin() {
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
@@ -767,7 +1097,6 @@
     }
   }
 
-  // 2. 학생 course와 날짜에 따른 lesson_id 연산
   function getLessonIdForUser(userCourse) {
     const todayStr = new Date().toISOString().split('T')[0];
     
@@ -786,7 +1115,6 @@
     return minId;
   }
 
-  // 레슨 ID를 책 이름과 과 번호로 변환하는 함수
   function getBookAndLessonTitle(course, absoluteLessonId) {
     const lessonNum = Number(absoluteLessonId);
     let bookName = "초급 1";
@@ -806,26 +1134,19 @@
       displayLessonNum = lessonNum - 60;
     }
 
-    return {
-      bookName: bookName,
-      lessonNum: displayLessonNum
-    };
+    return { bookName: bookName, lessonNum: displayLessonNum };
   }
 
-  // 대시보드 데이터 및 UI 세팅
   function setupDashboardUI(user) {
     const userName = user.Name || user.ID || "학생";
     if (welcomeTitle) welcomeTitle.innerText = `안녕하세요, ${userName} 님!`;
 
     if (userProfileImgs && userProfileImgs.length > 0) {
       const photoUrl = user.profile_img || `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=0D9488&color=fff`;
-      userProfileImgs.forEach(img => {
-        img.src = photoUrl;
-      });
+      userProfileImgs.forEach(img => { img.src = photoUrl; });
     }
 
     currentLessonId = getLessonIdForUser(user.course || "1a");
-
     const currItem = curriculumData.find(c => c.lesson_id === currentLessonId);
     const { bookName, lessonNum } = getBookAndLessonTitle(user.course || "1a", currentLessonId);
 
@@ -841,7 +1162,6 @@
     if (targetSentenceElem) targetSentenceElem.innerText = currentTargetSentence;
   }
 
-  // 3. 로그인 및 로그아웃
   loginForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const inputId = userIdInput.value.trim();
@@ -876,7 +1196,7 @@
     showView('view-login');
   });
 
-  // 4. 연습하기 진입 및 진행
+  // ==================== 1. 읽기 학습 모드 ====================
   goPracticeBtn?.addEventListener('click', () => {
     const targetId = Number(currentLessonId);
 
@@ -894,7 +1214,16 @@
       }];
     }
 
-    currentSentenceIndex = 0;
+    practiceStartTime = Date.now();
+
+    // 이전에 풀다 만 진행 상태 확인
+    const savedProgress = getLearningProgress('reading', targetId);
+    if (savedProgress && typeof savedProgress.currentIndex === 'number' && savedProgress.currentIndex < lessonSentencesList.length) {
+      currentSentenceIndex = savedProgress.currentIndex;
+    } else {
+      currentSentenceIndex = 0;
+    }
+
     loadPracticeSentenceAtIndex(currentSentenceIndex);
     showView('view-practice');
   });
@@ -917,6 +1246,9 @@
       if (practiceMatchBadge) practiceMatchBadge.innerText = "🎯 발음 대기 중";
       if (practiceEvalText) practiceEvalText.innerText = "음성 버튼을 누르고 한국어로 말하면 발음을 분석해 줍니다.";
 
+      // 현재 진행 위치 저장
+      saveLearningProgress('reading', currentLessonId, index);
+
       if (index < totalSentences - 1) {
         if (nextBtnText) nextBtnText.innerText = "다음 문장 (次の文)";
         if (nextBtnIcon) nextBtnIcon.style.display = "inline-block";
@@ -935,11 +1267,37 @@
     }
   }
 
-  function returnToDashboard() {
+  function stopPracticeRecordingUI() {
+    if (typeof isRecording !== 'undefined' && isRecording) {
+      isRecording = false;
+      if (recognition) {
+        try { recognition.stop(); } catch(e){}
+      }
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        try { mediaRecorder.stop(); } catch(e){}
+      }
+    }
+  }
+
+  // 대시보드로 복귀 (isCompleted가 true일 경우만 성적 반영)
+  function returnToDashboard(isCompleted = false) {
     stopPracticeRecordingUI();
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
+
+    if (isCompleted) {
+      // 100% 다 풀었을 경우 소요시간 계산 및 완료 저장
+      let elapsedMinutes = 5;
+      if (practiceStartTime) {
+        const elapsedMs = Date.now() - practiceStartTime;
+        elapsedMinutes = Math.max(1, Math.round(elapsedMs / 1000 / 60));
+      }
+      saveTodayLearningData('reading', elapsedMinutes);
+      clearLearningProgress('reading', currentLessonId); // 진행 데이터 제거
+    }
+
+    practiceStartTime = null;
     showView('view-dashboard');
   }
 
@@ -948,62 +1306,132 @@
       currentSentenceIndex++;
       loadPracticeSentenceAtIndex(currentSentenceIndex);
     } else {
-      returnToDashboard();
+      // 마지막 문장에서 버튼을 클릭해 완료한 경우
+      returnToDashboard(true);
     }
   });
 
-  backToDashboard?.addEventListener('click', returnToDashboard);
-  closePracticeBtn?.addEventListener('click', returnToDashboard);
+  closePracticeBtn?.addEventListener('click', () => returnToDashboard(false));
 
-  // ==================== 데일리 퀴즈 상태 변수 및 로직 ====================
+  // ==================== 2. 데일리 퀴즈 로직 ====================
   let currentQuizList = [];
   let currentQuizIndex = 0;
   let isCardFlipped = false;
 
-  function generateQuizProblem(targetItem, allLessons) {
-    const maskedSentence = targetItem.sentence_kr.replace(
-      targetItem.word_kr,
-      `<span class="inline-flex items-center justify-center min-w-[68px] h-10 px-3 mx-1 bg-primary-container/40 text-primary font-headline-md text-headline-md rounded-xl border border-primary/30 shadow-sm align-middle tracking-wider">____</span>`
-    );
+function generateQuizProblem(targetItem, allLessons) {
+  let rawWord = (targetItem.word_kr || '').trim();
+  let targetWord = rawWord.replace(/\(.*\)/g, '').trim();
+  let sentenceKr = targetItem.sentence_kr || '';
 
-    const targetLen = targetItem.word_kr.length;
-    const otherWords = Array.from(
-      new Set(
-        allLessons
-          .filter(l => l.word_kr && l.word_kr.trim() !== "" && l.word_kr !== targetItem.word_kr)
-          .map(l => l.word_kr)
-      )
-    );
+  const maskHtml = `<span class="inline-flex items-center justify-center min-w-[68px] h-10 px-3 mx-1 bg-primary-container/40 text-primary font-headline-md text-headline-md rounded-xl border border-primary/30 shadow-sm align-middle tracking-wider">____</span>`;
 
-    let candidates = otherWords.filter(w => w.length === targetLen);
-    if (candidates.length < 3) {
-      const backup = otherWords.filter(w => Math.abs(w.length - targetLen) === 1);
-      candidates = [...candidates, ...backup];
+  let maskedSentence = sentenceKr;
+
+  // 한글 첫 글자의 초성을 추출하는 헬퍼 함수 (예: '가' -> 'ㄱ', '갑' -> 'ㄱ')
+  const getInitialConsonant = (char) => {
+    if (!char) return '';
+    const code = char.charCodeAt(0) - 44032;
+    if (code < 0 || code > 11172) return char; // 한글이 아닌 경우 그대로 반환
+    const initialList = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+    return initialList[Math.floor(code / 588)];
+  };
+
+  if (targetWord && sentenceKr) {
+    // 1. 단어가 문장에 그대로 포함된 경우 (명사, 조사 등)
+    if (sentenceKr.includes(targetWord)) {
+      maskedSentence = sentenceKr.replace(targetWord, maskHtml);
+    } 
+    else if (sentenceKr.includes(rawWord)) {
+      maskedSentence = sentenceKr.replace(rawWord, maskHtml);
+    } 
+    else {
+      // 2. 활용형(동사/형용사) 어간 추출 및 어절 매칭
+      let stem = targetWord;
+      if (targetWord.endsWith('다')) {
+        stem = targetWord.slice(0, -1); // "하다" -> "하", "가다" -> "가", "크다" -> "크"
+      }
+
+      const stemFirstChar = stem.charAt(0);
+      const stemInitial = getInitialConsonant(stemFirstChar); // 어간의 첫 초성 (예: 'ㄱ', 'ㅎ')
+
+      const words = sentenceKr.split(' ');
+      let matchedIndex = -1;
+
+      for (let i = 0; i < words.length; i++) {
+        const cleanWord = words[i].replace(/[.,?!]/g, '').trim();
+        if (!cleanWord) continue;
+
+        const wordFirstChar = cleanWord.charAt(0);
+        const wordInitial = getInitialConsonant(wordFirstChar);
+
+        // 조건 A: 어간으로 직접 시작함 (예: "만나"서)
+        // 조건 B: 첫 글자의 초성이 같고 음절 유효 범위 내에 있음 (예: "가"다 -> "갑"니다, "하"다 -> "합"니다)
+        if (cleanWord.startsWith(stem) || (stemInitial && stemInitial === wordInitial && stemFirstChar.charCodeAt(0) <= wordFirstChar.charCodeAt(0) + 28)) {
+          matchedIndex = i;
+          break;
+        }
+      }
+
+      if (matchedIndex !== -1) {
+        const targetToken = words[matchedIndex];
+        const punctuation = targetToken.match(/[.,?!]+$/)?.[0] || '';
+        words[matchedIndex] = maskHtml + punctuation;
+        maskedSentence = words.join(' ');
+      } else {
+        console.warn(`[Quiz Warning] 빈칸 매칭 실패: Word("${targetItem.word_kr}") / Sentence("${sentenceKr}")`);
+      }
     }
-
-    const shuffledWrong = candidates.sort(() => 0.5 - Math.random()).slice(0, 3);
-    const choices = [targetItem.word_kr, ...shuffledWrong].sort(() => 0.5 - Math.random());
-
-    return {
-      maskedSentence,
-      correctAnswer: targetItem.word_kr,
-      choices,
-      hintJp: targetItem.word_jp,
-      sentenceJp: targetItem.sentence_jp
-    };
   }
+
+  // 보기(Choices) 생성
+  const targetLen = rawWord.length;
+  const otherWords = Array.from(
+    new Set(
+      allLessons
+        .filter(l => l.word_kr && l.word_kr.trim() !== "" && l.word_kr.trim() !== rawWord)
+        .map(l => l.word_kr.trim())
+    )
+  );
+
+  let candidates = otherWords.filter(w => w.length === targetLen);
+  if (candidates.length < 3) {
+    const backup = otherWords.filter(w => Math.abs(w.length - targetLen) === 1);
+    candidates = [...candidates, ...backup];
+  }
+
+  const shuffledWrong = candidates.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const choices = [rawWord, ...shuffledWrong].sort(() => 0.5 - Math.random());
+
+  return {
+    maskedSentence,
+    correctAnswer: rawWord,
+    choices,
+    hintJp: targetItem.word_jp,
+    sentenceJp: targetItem.sentence_jp
+  };
+}
 
   function renderQuizIndex(index) {
     const total = currentQuizList.length;
 
-    if (total === 0 || index >= total) {
+    // 모든 퀴즈를 다 완료했을 때만 성적 반영
+    if (total > 0 && index >= total) {
       alert("오늘의 퀴즈를 모두 완료했습니다! 🎉");
+      
+      let elapsedMinutes = 5;
+      if (quizStartTime) {
+        const elapsedMs = Date.now() - quizStartTime;
+        elapsedMinutes = Math.max(1, Math.round(elapsedMs / 1000 / 60));
+      }
+      saveTodayLearningData('quiz', elapsedMinutes);
+      clearLearningProgress('quiz', currentLessonId); // 진행 데이터 제거
+
+      quizStartTime = null;
       showView('view-dashboard');
       return;
     }
 
     const problem = currentQuizList[index];
-
     const currentStep = index + 1;
     const percent = Math.round((currentStep / total) * 100);
 
@@ -1040,6 +1468,9 @@
       if (hintBox) hintBox.classList.add('hidden');
     }
 
+    // 현재 퀴즈 문제 진행 인덱스 저장
+    saveLearningProgress('quiz', currentLessonId, index);
+
     const choicesContainer = document.getElementById('quiz-choices-container');
     if (choicesContainer) {
       choicesContainer.innerHTML = '';
@@ -1066,6 +1497,14 @@
     document.getElementById('quiz-bottom-drawer')?.classList.add('hidden');
   }
 
+  function stopQuizAndReturn(isCompleted = false) {
+    if (!isCompleted) {
+      // 완주하지 않고 그냥 나간 경우 성적을 저장하지 않음
+      quizStartTime = null;
+    }
+    showView('view-dashboard');
+  }
+
   document.getElementById('quiz-card-container')?.addEventListener('click', () => {
     const cardInner = document.getElementById('quiz-card-inner');
     isCardFlipped = !isCardFlipped;
@@ -1078,7 +1517,6 @@
 
   function handleChoiceSelect(selectedChoice, correctAnswer, clickedBtn) {
     const drawer = document.getElementById('quiz-bottom-drawer');
-    
     if (selectedChoice === correctAnswer) {
       drawer?.classList.remove('hidden');
     } else {
@@ -1091,37 +1529,10 @@
     renderQuizIndex(currentQuizIndex);
   });
 
+  // 퀴즈 시작 버튼 클릭 로직 보완
   document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
     try {
-      const currentLessonIdNum = Number(currentLessonId || 1);
-
-      let availableLessons = [];
-      if (currentLessonIdNum <= 1) {
-        availableLessons = [1];
-      } else {
-        for (let i = 1; i < currentLessonIdNum; i++) {
-          availableLessons.push(i);
-        }
-      }
-
-      let historyKey = `quizHistory_${currentUser?.ID || 'default'}`;
-      let quizLogs = [];
-      try {
-        quizLogs = JSON.parse(localStorage.getItem(historyKey)) || [];
-      } catch (e) {
-        quizLogs = [];
-      }
-
-      const completedLessonIds = quizLogs.map(log => log.lessonId);
-      let uncompletedLessons = availableLessons.filter(id => !completedLessonIds.includes(id));
-
-      if (uncompletedLessons.length === 0) {
-        quizLogs = [];
-        localStorage.removeItem(historyKey);
-        uncompletedLessons = [...availableLessons];
-      }
-
-      const selectedLessonId = uncompletedLessons[Math.floor(Math.random() * uncompletedLessons.length)];
+      const selectedLessonId = Number(currentLessonId || 1);
 
       const lessonItems = (lessonsData || []).filter(
         l => Number(l.lesson_id) === selectedLessonId && l.word_kr && l.word_kr.trim() !== ""
@@ -1132,14 +1543,17 @@
         return;
       }
 
-      quizLogs.push({
-        timestamp: new Date().toISOString(),
-        lessonId: selectedLessonId
-      });
-      localStorage.setItem(historyKey, JSON.stringify(quizLogs));
-
       currentQuizList = lessonItems.map(item => generateQuizProblem(item, lessonsData || []));
-      currentQuizIndex = 0;
+      
+      quizStartTime = Date.now();
+
+      // 저장된 진행 기록 확인
+      const savedProgress = getLearningProgress('quiz', selectedLessonId);
+      if (savedProgress && typeof savedProgress.currentIndex === 'number' && savedProgress.currentIndex < currentQuizList.length) {
+        currentQuizIndex = savedProgress.currentIndex;
+      } else {
+        currentQuizIndex = 0;
+      }
 
       const titleObj = getBookAndLessonTitle(currentUser?.course || "1a", selectedLessonId);
       currentLessonDisplayTitle = `${titleObj.bookName} • 제 ${titleObj.lessonNum}과 (복습 퀴즈)`;
@@ -1152,8 +1566,256 @@
     }
   });
 
+  // ==========================================
+  // VIEW 5: 주간 성과 데이터 동적 연동 로직
+  // ==========================================
+function renderWeeklyStatsView() {
+    // ----------------------------------------------------
+    // [추가] 현재 학생 코스(레벨) 태그 동적 연동
+    // ----------------------------------------------------
+    const courseTag = document.getElementById('achievement-course-tag');
+    if (courseTag) {
+      const userCourse = currentUser?.course || "1a";
+      const { bookName } = getBookAndLessonTitle(userCourse, currentLessonId || 1);
+      courseTag.innerText = `${bookName} · 주간 성취도 (週間達成度)`;
+    }
+
+    const today = new Date();
+    const currentDay = today.getDay(); // 0: 일, 1: 월, ... 6: 토
+    
+    const distanceToMonday = currentDay === 0 ? -6 : 1 - currentDay;
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + distanceToMonday);
+
+    const daysOfWeek = ['월', '화', '수', '목', '금'];
+    const daysOfWeekJa = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日'];
+
+    const storedData = JSON.parse(localStorage.getItem('weeklyLearningData') || '{}');
+
+    let totalMinutes = 0;
+    let completedTasksCount = 0;
+    let activeDaysSet = new Set();
+    let streakCount = 0;
+    let isStreakBroken = false;
+
+    const rowsContainer = document.querySelector('[data-purpose="weekly-matrix-table"] .divide-y');
+    if (!rowsContainer) return;
+
+    rowsContainer.innerHTML = '';
+
+    for (let i = 0; i < 5; i++) {
+      const targetDate = new Date(monday);
+      targetDate.setDate(monday.getDate() + i);
+
+      const year = targetDate.getFullYear();
+      const monthStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+      const dateStr = String(targetDate.getDate()).padStart(2, '0');
+      const dateKey = `${year}-${monthStr}-${dateStr}`;
+
+      const monthNum = targetDate.getMonth() + 1;
+      const dayNum = targetDate.getDate();
+      const dayKr = daysOfWeek[i];
+      const dayJa = daysOfWeekJa[i];
+
+      const dayData = storedData[dateKey] || {
+        readingDone: false,
+        readingTime: 0,
+        quizDone: false,
+        quizTime: 0
+      };
+
+      if (dayData.readingDone) {
+        completedTasksCount++;
+        totalMinutes += (dayData.readingTime || 0);
+        activeDaysSet.add(dateKey);
+      }
+      if (dayData.quizDone) {
+        completedTasksCount++;
+        totalMinutes += (dayData.quizTime || 0);
+        activeDaysSet.add(dateKey);
+      }
+
+      const hasLearnedToday = dayData.readingDone || dayData.quizDone;
+      if (hasLearnedToday && !isStreakBroken) {
+        streakCount++;
+      } else {
+        isStreakBroken = true;
+      }
+
+      const createStatusCellHtml = (isDone, timeSpent) => {
+        if (isDone) {
+          return `
+            <div class="col-span-4 flex flex-col items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-0.5 shadow-xs">
+                <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <span class="text-[10px] font-semibold text-emerald-800">${timeSpent || 0}분 소요</span>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="col-span-4 flex flex-col items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center mb-0.5 shadow-xs">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" fill="#FEF3C7" r="10" stroke="#F59E0B" stroke-width="1.5"></circle>
+                  <circle cx="9" cy="10" fill="#78350F" r="1.2"></circle>
+                  <circle cx="15" cy="10" fill="#78350F" r="1.2"></circle>
+                  <path d="M9.5 16C10.5 14.5 13.5 14.5 14.5 16" stroke="#78350F" stroke-linecap="round" stroke-width="1.3"></path>
+                  <path d="M16 11.5C16 12.5 15.3 13.5 14.8 13.5C14.3 13.5 14 12.8 14.5 11.8C14.9 11.2 16 11 16 11.5Z" fill="#38BDF8"></path>
+                </svg>
+              </div>
+              <span class="text-[10px] font-medium text-slate-400">미학습 (未学習)</span>
+            </div>
+          `;
+        }
+      };
+
+      const rowBgClass = (!dayData.readingDone && !dayData.quizDone) ? 'bg-amber-50/20' : '';
+      const rowHtml = `
+        <div class="grid grid-cols-12 px-3 py-3 items-center hover:bg-slate-50/50 transition-colors ${rowBgClass}">
+          <div class="col-span-4">
+            <span class="font-bold text-slate-800 text-[13px] block">${monthNum}월 ${dayNum}일 (${dayKr})</span>
+            <span class="text-[10px] text-slate-400">${monthStr}/${dateStr} ${dayJa}</span>
+          </div>
+          ${createStatusCellHtml(dayData.readingDone, dayData.readingTime)}
+          ${createStatusCellHtml(dayData.quizDone, dayData.quizTime)}
+        </div>
+      `;
+
+      rowsContainer.insertAdjacentHTML('beforeend', rowHtml);
+    }
+
+    const percentage = Math.round((completedTasksCount / 10) * 100);
+    const progressBar = document.getElementById('achievement-progress-bar');
+    const progressPercentText = document.getElementById('achievement-progress-percent');
+    if (progressBar) progressBar.style.width = `${percentage}%`;
+    if (progressPercentText) progressPercentText.innerText = `${percentage}%`;
+
+    const daysIndicator = document.querySelector('#view-weekly-stats .font-label-bold.text-primary');
+    if (daysIndicator) daysIndicator.innerText = `${activeDaysSet.size} / 5일`;
+
+    const hours = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
+    const timeFormatted = hours > 0 ? `${hours}시간 ${mins}분` : `${mins}분`;
+    const totalTimeElement = document.querySelector('[data-purpose="summary-card"] .text-lg.font-bold.text-slate-800');
+    if (totalTimeElement) totalTimeElement.innerText = timeFormatted;
+
+    const streakElement = document.querySelector('[data-purpose="summary-card"] .text-lg.font-bold.text-amber-600');
+    if (streakElement) streakElement.innerText = `${streakCount}일 달성`;
+  }
+
+  document.getElementById('nav-weekly-stats')?.addEventListener('click', () => {
+    renderWeeklyStatsView();
+    showView('view-weekly-stats');
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderWeeklyStatsView();
+  });
+
+  // 스크린샷 생성 및 레포트 제출
+  async function handleReportSubmit() {
+    if (typeof html2canvas === 'undefined') {
+      alert("화면 캡처 라이브러리가 로드되지 않았습니다. 페이지를 새로고침 후 다시 시도해 주세요.");
+      return;
+    }
+
+    const btn = document.getElementById('submit-report-btn');
+    const btnLabel = document.getElementById('btn-label');
+    const flash = document.getElementById('camera-flash');
+    const toast = document.getElementById('submission-toast');
+    const targetArea = document.getElementById('view-weekly-stats');
+    
+    if (!targetArea) {
+      alert("캡처할 화면 영역을 찾을 수 없습니다.");
+      return;
+    }
+
+    if (btn && btn.dataset.submitting === 'true') return;
+    if (btn) btn.dataset.submitting = 'true';
+    
+    if (btnLabel) btnLabel.innerText = '화면 캡처 중... (撮影中)';
+    if (btn) {
+      btn.classList.add('bg-slate-700');
+      btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+    }
+    
+    if (flash) {
+      flash.classList.remove('opacity-0');
+      flash.classList.add('opacity-90');
+      setTimeout(() => {
+        flash.classList.remove('opacity-90');
+        flash.classList.add('opacity-0');
+      }, 120);
+    }
+
+    try {
+      window.scrollTo(0, 0);
+
+      const canvas = await html2canvas(targetArea, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        windowWidth: targetArea.scrollWidth,
+        windowHeight: targetArea.scrollHeight,
+        ignoreElements: (element) => {
+          return element.id === 'submit-report-btn' || 
+                 element.id === 'submission-toast' || 
+                 element.id === 'camera-flash' ||
+                 element.tagName === 'FOOTER';
+        }
+      });
+
+      const image = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      const today = new Date().toISOString().slice(0, 10);
+      
+      link.href = image;
+      link.download = `세종학당_주간학습레포트_${today}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      if (btnLabel) btnLabel.innerText = '캡처 완료! (撮影完了)';
+      if (btn) {
+        btn.classList.remove('bg-slate-700');
+        btn.classList.add('bg-emerald-700');
+      }
+      
+      if (toast) {
+        toast.classList.remove('-translate-y-20', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+      }
+      
+      setTimeout(() => {
+        if (toast) {
+          toast.classList.add('-translate-y-20', 'opacity-0', 'pointer-events-none');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }
+        if (btnLabel) btnLabel.innerText = '레포트 다시 제출 (再提出)';
+        if (btn) {
+          btn.classList.remove('bg-emerald-700');
+          btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+          btn.dataset.submitting = 'false';
+        }
+      }, 3200);
+
+    } catch (error) {
+      console.error("스크린샷 생성 실패:", error);
+      alert("화면 캡처 중 오류가 발생했습니다. 직접 스크린샷을 찍어 제출해 주세요.");
+      if (btnLabel) btnLabel.innerText = '레포트 제출 (レポート提出)';
+      if (btn) {
+        btn.classList.remove('bg-slate-700');
+        btn.classList.add('bg-emerald-600');
+        btn.dataset.submitting = 'false';
+      }
+    }
+  }
+
   // ==================== TTS 및 음성 인식(STT) ====================
-  
   function playTTS(text, rate = 0.8) {
     if ('speechSynthesis' in window && text) {
       window.speechSynthesis.cancel();
@@ -1168,211 +1830,84 @@
   btnAudioNormal?.addEventListener('click', () => playTTS(practiceSentence?.innerText || ''));
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let recognition = null;
-  let isRecording = false;
 
-  if (SpeechRecognition) {
+if (SpeechRecognition) {
     recognition = new SpeechRecognition();
     recognition.lang = 'ko-KR';
-    recognition.interimResults = true;
-    recognition.continuous = false;
 
-    recognition.onstart = () => {
-      isRecording = true;
-      micPulseRing?.classList.remove('opacity-60', 'bg-secondary/20');
-      micPulseRing?.classList.add('opacity-100', 'bg-error/30');
-      micRecordBtn?.classList.remove('bg-secondary');
-      micRecordBtn?.classList.add('bg-error');
+    recognition.onresult = async (event) => {
+      const spokenText = event.results[0][0].transcript;
+      if (practiceRecognizedText) practiceRecognizedText.innerText = `인식된 음성: "${spokenText}"`;
       
-      if (recordCaption) {
-        recordCaption.textContent = '聞いています... (お話しください)';
-        recordCaption.classList.remove('text-secondary');
-        recordCaption.classList.add('text-error');
-      }
-      if (micIcon) micIcon.textContent = 'graphic_eq';
-      if (practiceRecognizedText) practiceRecognizedText.innerText = "음성 인식 중...";
-    };
+      const targetText = practiceSentence?.innerText || "";
+      
+      // 로딩 상태 표시
+      if (practiceMatchBadge) practiceMatchBadge.innerText = "⏳ AI 발음 분석 중...";
+      if (practiceEvalText) practiceEvalText.innerText = "Gemini AI가 연음 법칙 및 발음을 분석하고 있습니다.";
 
-// 💡 수정된 부분: 음성 인식 결과를 정확히 추출하도록 변경
-    recognition.onresult = (event) => {
-      let transcript = '';
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        transcript += event.results[i][0].transcript;
-      }
-      if (practiceRecognizedText && transcript) {
-        practiceRecognizedText.innerText = `"${transcript}"`;
-      }
-    };
+      try {
+        // Vercel Serverless API 호출
+        const response = await fetch('/api/evaluate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            target: targetText,
+            spoken: spokenText
+          })
+        });
 
-    recognition.onerror = () => stopPracticeRecordingUI();
-    
-    // 💡 수정된 부분: undefined 및 예외 문자열 필터링 강화
-    recognition.onend = () => {
-      stopPracticeRecordingUI();
-      const rawText = practiceRecognizedText?.innerText || '';
-      const spokenText = rawText.replace(/"/g, '').trim();
+        const result = await response.json();
 
-      // "undefined", "음성 인식 중", "마이크 버튼" 등의 예외 케이스 및 빈 값 검증
-      if (
-        spokenText &&
-        spokenText !== "undefined" &&
-        !spokenText.includes("음성 인식 중") &&
-        !spokenText.includes("마이크 버튼")
-      ) {
-        evaluatePronunciationAI(practiceSentence?.innerText || '', spokenText);
-      } else {
-        if (practiceRecognizedText) {
-          practiceRecognizedText.innerText = "음성을 인식하지 못했습니다. 다시 시도해 주세요.";
+        if (response.ok && result) {
+          // AI 평가 결과 반영
+          if (practiceMatchBadge) {
+            practiceMatchBadge.innerText = `🎯 일치율 ${result.accuracy_score}%`;
+          }
+          if (practiceEvalText) {
+            // AI 일본어 피드백 + 발음 가이드 표시
+            const guideText = result.pronunciation_guide ? `\n발음 가이드: ${result.pronunciation_guide}` : '';
+            practiceEvalText.innerText = `${result.feedback_ja}${guideText}`;
+          }
+        } else {
+          throw new Error(result.error || '평가 실패');
         }
+      } catch (err) {
+        console.error("발음 평가 API 호출 에러:", err);
+        
+        // API 에러 시 기존 레벤슈타인 거리 유사도 로직으로 Fallback
+        const score = calculateSimilarity(targetText, spokenText);
+        if (practiceMatchBadge) practiceMatchBadge.innerText = `🎯 일치율 ${score}%`;
+        if (practiceEvalText) practiceEvalText.innerText = "AI 연동 오류로 기본 발음 분석 결과가 표시됩니다.";
       }
     };
-  }
 
-  function stopPracticeRecordingUI() {
-    if (isRecording && recognition) {
-      try { recognition.stop(); } catch(e) {}
-    }
-    isRecording = false;
-    micPulseRing?.classList.remove('opacity-100', 'bg-error/30');
-    micPulseRing?.classList.add('opacity-60', 'bg-secondary/20');
-    micRecordBtn?.classList.remove('bg-error');
-    micRecordBtn?.classList.add('bg-secondary');
-    
-    if (recordCaption) {
-      recordCaption.textContent = 'タップして発音をチェック';
-      recordCaption.classList.remove('text-error');
-      recordCaption.classList.add('text-secondary');
-    }
-    if (micIcon) micIcon.textContent = 'mic';
+    recognition.onerror = () => {
+      if (practiceRecognizedText) practiceRecognizedText.innerText = "음성을 인식하지 못했습니다. 다시 시도해 주세요.";
+    };
+
+    recognition.onend = () => {
+      isRecording = false;
+      micPulseRing?.classList.add('hidden');
+      if (recordCaption) recordCaption.innerText = "마이크를 누르고 말하기";
+    };
   }
 
   micRecordBtn?.addEventListener('click', () => {
     if (!recognition) {
-      alert("이 브라우저는 음성 인식을 지원하지 않습니다.");
+      alert("이 브라우저는 음성 인식을 지원하지 않습니다. (Chrome/Safari 권장)");
       return;
     }
+
     if (!isRecording) {
+      isRecording = true;
       recognition.start();
+      micPulseRing?.classList.remove('hidden');
+      if (recordCaption) recordCaption.innerText = "듣고 있습니다...";
     } else {
-      recognition.stop();
+      stopPracticeRecordingUI();
     }
   });
-
-/**
-   * 레벤슈타인 거리(Levenshtein Distance) 알고리즘
-   * 두 문자열 간의 유사도를 0 ~ 100점 사이로 계산합니다.
-   */
-  function calculateSimilarity(str1, str2) {
-    if (!str1 || !str2) return 0;
-    
-    // 공백 및 특수문자 제거 후 비교
-    const s1 = str1.replace(/\s+/g, '').trim();
-    const s2 = str2.replace(/\s+/g, '').trim();
-    
-    if (s1 === s2) return 100;
-    if (s1.length === 0 || s2.length === 0) return 0;
-
-    const track = Array(s2.length + 1).fill(null).map(() =>
-      Array(s1.length + 1).fill(null)
-    );
-
-    for (let i = 0; i <= s1.length; i += 1) track[0][i] = i;
-    for (let j = 0; j <= s2.length; j += 1) track[j][0] = j;
-
-    for (let j = 1; j <= s2.length; j += 1) {
-      for (let i = 1; i <= s1.length; i += 1) {
-        const indicator = s1[i - 1] === s2[j - 1] ? 0 : 1;
-        track[j][i] = Math.min(
-          track[j][i - 1] + 1, // 삽입
-          track[j - 1][i] + 1, // 삭제
-          track[j - 1][i - 1] + indicator // 수정
-        );
-      }
-    }
-
-    const distance = track[s2.length][s1.length];
-    const maxLength = Math.max(s1.length, s2.length);
-    const similarity = ((maxLength - distance) / maxLength) * 100;
-    
-    return Math.max(0, Math.round(similarity));
-  }
-
-  /**
-   * Vercel API 연동 및 레벤슈타인 유사도 평가 함수
-   */
-async function evaluatePronunciationAI(target, spoken) {
-  // 1. 입력값 기본 검증
-  if (!target || !spoken) {
-    if (practiceMatchBadge) practiceMatchBadge.innerHTML = "🎯 0% 一致";
-    if (practiceEvalText) practiceEvalText.innerText = "음성이 정상적으로 인식되지 않았습니다.";
-    return;
-  }
-
-  if (practiceMatchBadge) practiceMatchBadge.innerHTML = "🎯 분석 중...";
-  if (practiceEvalText) practiceEvalText.innerText = "발음을 분석하고 있습니다...";
-
-  // [본인의 Vercel API 주소로 변경하세요]
-  const VERCEL_API_URL = "https://sejong-bongsense.vercel.app/api/evaluate";
-
-  try {
-    const response = await fetch(VERCEL_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ target: target, spoken: spoken })
-    });
-
-    if (!response.ok) throw new Error(`API 오류 (Status: ${response.status})`);
-
-    const data = await response.json();
-    let score = null;
-    let evaluation = null;
-
-    // API 응답 형태 1: { score: 90, evaluation: "..." }
-    if (data && typeof data.score === 'number') {
-      score = data.score;
-      evaluation = data.evaluation;
-    } 
-    // API 응답 형태 2: Gemini / OpenAI 원문 JSON 텍스트 파싱
-    else if (data && data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
-      const rawText = data.candidates[0].content.parts[0].text
-        .replace(/```json/g, '')
-        .replace(/```/g, '')
-        .trim();
-      
-      const parsed = JSON.parse(rawText);
-      score = parsed.score;
-      evaluation = parsed.evaluation;
-    }
-
-    // 파싱 실패 시 fallback
-    if (score === null || score === undefined) {
-      throw new Error("API 응답 구조에서 score를 찾을 수 없습니다.");
-    }
-
-    if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score}% 一致`;
-    if (practiceEvalText) practiceEvalText.innerText = evaluation || "평가가 완료되었습니다.";
-
-  } catch (err) {
-    // 💡 API 실패, 네트워크 에러, 파싱 에러 발생 시 자바스크립트 유사도 알고리즘으로 자동 계산
-    console.warn("API 연동 실패로 인해 오프라인 유사도 알고리즘으로 대체합니다:", err);
-
-    const score = calculateSimilarity(target, spoken);
-    let evaluationText = "";
-
-    if (score >= 90) {
-      evaluationText = "발음 정확도: 完璧です！ (완벽합니다!)";
-    } else if (score >= 70) {
-      evaluationText = "발음 정확도: 良好 (아주 잘하셨습니다)";
-    } else if (score >= 40) {
-      evaluationText = "발음 정확도: 惜しいです！ (조금 더 명확히 발음해 보세요)";
-    } else {
-      evaluationText = "발음 정확도: もう一度練習してみましょう (다시 시도해 보세요)";
-    }
-
-    if (practiceMatchBadge) practiceMatchBadge.innerHTML = `🎯 ${score}% 一致`;
-    if (practiceEvalText) practiceEvalText.innerText = evaluationText;
-  }
-}
 </script>
+
 </body>
 </html>
