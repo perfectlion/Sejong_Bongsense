@@ -1847,7 +1847,7 @@ if (SpeechRecognition) {
 
       try {
         // Vercel Serverless API 호출
-        const response = await fetch('/api/evaluate', {
+        const response = await fetch('https://sejong-bongsense.vercel.app/api/evaluate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1856,6 +1856,13 @@ if (SpeechRecognition) {
           })
         });
 
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          const errorText = await response.text();
+          console.error("서버 응답 오류 (HTML 반환):", errorText);
+          throw new Error("Vercel 서버에서 JSON이 아닌 응답을 반환했습니다.");
+        }
+        
         const result = await response.json();
 
         if (response.ok && result) {
