@@ -284,7 +284,7 @@
    "lesson_id": 2,
    "word_kr": "제 (저의)",
    "word_jp": "私の",
-   "sentence_kr": "제 이름은 OO이에요. / 예요. ",
+   "sentence_kr": "제 이름은 OO이에요.",
    "sentence_jp": "私の名前はOOです。"
  },
  {
@@ -298,7 +298,7 @@
  {
    "id": "1a-02-22",
    "lesson_id": 2,
-   "word_kr": "이/가",
+   "word_kr": "이(가)",
    "word_jp": "は",
    "sentence_kr": "학생이 아니에요.",
    "sentence_jp": "学生じゃないですね。"
@@ -394,7 +394,7 @@
  {
    "id": "1a-03-05",
    "lesson_id": 3,
-   "word_kr": "음식(飮食)",
+   "word_kr": "음식",
    "word_jp": "食べ物",
    "sentence_kr": "김치, 비빔밥은 한국 음식입니다.",
    "sentence_jp": "キムチ、ビビンバは韓国料理です。"
@@ -522,7 +522,7 @@
  {
    "id": "1a-03-21",
    "lesson_id": 3,
-   "word_kr": "을/를",
+   "word_kr": "을(를)",
    "word_jp": "を",
    "sentence_kr": "저는 밥을 먹습니다.",
    "sentence_jp": "私はご飯を食べます。"
@@ -690,7 +690,7 @@
  {
    "id": "1a-04-14",
    "lesson_id": 4,
-   "word_kr": "와/과, 하고",
+   "word_kr": "와(과), 하고",
    "word_jp": "と",
    "sentence_kr": "선생님과 학생이 있습니다.",
    "sentence_jp": "先生と学生がいます。"
@@ -1895,7 +1895,7 @@
    "sentence_kr": "사과 하나 주세요.",
    "sentence_jp": "りんごを一つください。"
  },
-{
+  {
    "id": "1a-10-02",
    "lesson_id": 10,
    "word_kr": "둘",
@@ -2538,7 +2538,7 @@
  {
    "id": "1a-13-14",
    "lesson_id": 13,
-   "word_kr": "같이 / 함께",
+   "word_kr": "같이(함께)",
    "word_jp": "一緒に",
    "sentence_kr": "오늘 저녁에 같이 저녁을 먹을 수 있어요?",
    "sentence_jp": "今夜一緒に夕食を食べられますか？"
@@ -3522,9 +3522,9 @@
  {
    "id": "1a-18-21",
    "lesson_id": 18,
-   "word_kr": "극장/영화관",
+   "word_kr": "극장(영화관)",
    "word_jp": "映画館",
-   "sentence_kr": "극장/영화관에서 영화를 봐요.",
+   "sentence_kr": "극장(영화관)에서 영화를 봐요.",
    "sentence_jp": "映画館で映画を見ます。"
  },
  {
@@ -4898,7 +4898,7 @@
  {
    "id": "2a-31-03",
    "lesson_id": 31,
-   "word_kr": "휴대 전화/휴대폰",
+   "word_kr": "휴대 전화(휴대폰)",
    "word_jp": "携帯電話",
    "sentence_kr": "휴대폰이 안 보여요.",
    "sentence_jp": "携帯電話が見えません。"
@@ -6378,7 +6378,7 @@
  {
    "id": "3a-43-06",
    "lesson_id": 43,
-   "word_kr": "기대(하다/되다)",
+   "word_kr": "기대(하다, 되다)",
    "word_jp": "期待",
    "sentence_kr": "이번 시험의 결과가 정말 기대돼요.",
    "sentence_jp": "今回の試験の結果が本当に楽しみです。"
@@ -6466,7 +6466,7 @@
  {
    "id": "3a-43-17",
    "lesson_id": 43,
-   "word_kr": "취직(하다/되다)",
+   "word_kr": "취직(하다, 되다)",
    "word_jp": "就職",
    "sentence_kr": "이번에는 꼭 취직을 하면 좋겠습니다.",
    "sentence_jp": "今回はぜひ就職できたらいいなと思います。"
