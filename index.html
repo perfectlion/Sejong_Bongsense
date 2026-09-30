@@ -1819,9 +1819,11 @@ function renderWeeklyStatsView() {
   function playTTS(text, rate = 0.8) {
     if ('speechSynthesis' in window && text) {
       window.speechSynthesis.cancel();
+      
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ko-KR';
       utterance.rate = rate;
+     
       window.speechSynthesis.speak(utterance);
     }
   }
@@ -1834,8 +1836,43 @@ function renderWeeklyStatsView() {
 if (SpeechRecognition) {
     recognition = new SpeechRecognition();
     recognition.lang = 'ko-KR';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
+  // ----------------------------------------------------------
+  // 음성 인식 시작
+  // ----------------------------------------------------------
+
+    recognition.onstart = () => {
+  
+      console.log('🎤 음성 인식 시작');
+  
+      isRecording = true;
+  
+      // 마이크 애니메이션
+      micPulseRing?.classList.remove('hidden');
+  
+      // 버튼 문구 변경
+      if (recordCaption) {
+        recordCaption.innerText = '듣고 있어요';
+      }
+  
+      // 버튼 아이콘 변경
+      if (micIcon) {
+        micIcon.innerText = 'mic_off';
+      }
+  
+      // 이전 결과 초기화
+      if (practiceRecognizedText) {
+        practiceRecognizedText.innerText = '말씀해 주세요...';
+      }
+    };
+
+  
     recognition.onresult = async (event) => {
+      console.log('🎤 음성 인식 결과:', event);
+      
       const spokenText = event.results[0][0].transcript;
       if (practiceRecognizedText) practiceRecognizedText.innerText = `인식된 음성: "${spokenText}"`;
       
@@ -1888,32 +1925,259 @@ if (SpeechRecognition) {
       }
     };
 
-    recognition.onerror = () => {
-      if (practiceRecognizedText) practiceRecognizedText.innerText = "음성을 인식하지 못했습니다. 다시 시도해 주세요.";
-    };
+     // ----------------------------------------------------------
+  // 음성 인식 오류
+  // ----------------------------------------------------------
 
-    recognition.onend = () => {
-      isRecording = false;
-      micPulseRing?.classList.add('hidden');
-      if (recordCaption) recordCaption.innerText = "마이크를 누르고 말하기";
-    };
+  recognition.onerror = (event) => {
+
+    console.error(
+      "🎤 SpeechRecognition 오류:",
+      event.error
+    );
+
+
+    isRecording = false;
+
+    micPulseRing?.classList.add('hidden');
+
+
+    // 버튼 원상복구
+    if (recordCaption) {
+      recordCaption.innerText =
+        "마이크를 누르고 말하기";
+    }
+
+    if (micIcon) {
+      micIcon.innerText = "mic";
+    }
+
+
+    let message =
+      "음성 인식에 실패했습니다. 다시 시도해 주세요.";
+
+
+    switch (event.error) {
+
+      // ------------------------------------------------------
+      // 마이크 권한 거부
+      // ------------------------------------------------------
+
+      case "not-allowed":
+
+        message =
+          "마이크 사용 권한이 없습니다. 브라우저 설정에서 마이크를 허용해 주세요.";
+
+        break;
+
+
+      // ------------------------------------------------------
+      // 음성 인식 서비스 사용 불가
+      // ------------------------------------------------------
+
+      case "service-not-allowed":
+
+        message =
+          "이 브라우저에서는 음성 인식 서비스를 사용할 수 없습니다.";
+
+        break;
+
+
+      // ------------------------------------------------------
+      // 마이크 자체 사용 불가
+      // ------------------------------------------------------
+
+      case "audio-capture":
+
+        message =
+          "마이크를 사용할 수 없습니다. 다른 앱에서 마이크를 사용 중인지 확인해 주세요.";
+
+        break;
+
+
+      // ------------------------------------------------------
+      // 네트워크 문제
+      // ------------------------------------------------------
+
+      case "network":
+
+        message =
+          "음성 인식 서버에 연결할 수 없습니다. 인터넷 연결을 확인해 주세요.";
+
+        break;
+
+
+      // ------------------------------------------------------
+      // 아무 말도 하지 않음
+      // ------------------------------------------------------
+
+      case "no-speech":
+
+        message =
+          "음성이 감지되지 않았습니다. 마이크에 대고 다시 말씀해 주세요.";
+
+        break;
+
+
+      // ------------------------------------------------------
+      // 사용자가 중지
+      // ------------------------------------------------------
+
+      case "aborted":
+
+        message =
+          "음성 인식이 중단되었습니다.";
+
+        break;
+    }
+
+
+    if (practiceRecognizedText) {
+      practiceRecognizedText.innerText = message;
+    }
+  };
+
+
+  // ----------------------------------------------------------
+  // 음성 인식 종료
+  // ----------------------------------------------------------
+
+  recognition.onend = () => {
+
+    console.log('🎤 음성 인식 종료');
+
+    isRecording = false;
+
+    micPulseRing?.classList.add('hidden');
+
+
+    // 버튼 원상복구
+    if (recordCaption) {
+      recordCaption.innerText =
+        "마이크를 누르고 말하기";
+    }
+
+    if (micIcon) {
+      micIcon.innerText = "mic";
+    }
+  };
+
+} else {
+
+  // ----------------------------------------------------------
+  // 음성 인식을 지원하지 않는 브라우저
+  // ----------------------------------------------------------
+
+  console.warn(
+    "이 브라우저에서는 SpeechRecognition을 지원하지 않습니다."
+  );
+
+  if (micRecordBtn) {
+
+    micRecordBtn.addEventListener('click', () => {
+
+      alert(
+        "이 브라우저에서는 음성 인식을 지원하지 않습니다.\n\nChrome 또는 Safari의 최신 버전을 사용해 주세요."
+      );
+
+    });
+
+  }
+}
+
+
+// ============================================================
+// 마이크 버튼
+// ============================================================
+
+micRecordBtn?.addEventListener('click', () => {
+
+  // 음성 인식 API 자체가 없는 경우
+  if (!recognition) {
+
+    alert(
+      "이 브라우저에서는 음성 인식을 지원하지 않습니다.\n\nChrome 또는 Safari의 최신 버전을 사용해 주세요."
+    );
+
+    return;
   }
 
-  micRecordBtn?.addEventListener('click', () => {
-    if (!recognition) {
-      alert("이 브라우저는 음성 인식을 지원하지 않습니다. (Chrome/Safari 권장)");
-      return;
+
+  // ----------------------------------------------------------
+  // 현재 녹음 중
+  // ----------------------------------------------------------
+
+  if (isRecording) {
+
+    console.log("🎤 사용자가 음성 인식을 중지했습니다.");
+
+    try {
+
+      recognition.stop();
+
+    } catch (error) {
+
+      console.error(
+        "recognition.stop() 오류:",
+        error
+      );
+
+      isRecording = false;
+
+      micPulseRing?.classList.add('hidden');
+
+      if (recordCaption) {
+        recordCaption.innerText =
+          "마이크를 누르고 말하기";
+      }
+
+      if (micIcon) {
+        micIcon.innerText = "mic";
+      }
     }
 
-    if (!isRecording) {
-      isRecording = true;
-      recognition.start();
-      micPulseRing?.classList.remove('hidden');
-      if (recordCaption) recordCaption.innerText = "듣고 있습니다...";
-    } else {
-      stopPracticeRecordingUI();
+    return;
+  }
+
+
+  // ----------------------------------------------------------
+  // 음성 인식 시작
+  // ----------------------------------------------------------
+
+  try {
+
+    console.log("🎤 음성 인식 시작 요청");
+
+    recognition.start();
+
+  } catch (error) {
+
+    console.error(
+      "recognition.start() 오류:",
+      error
+    );
+
+    isRecording = false;
+
+    micPulseRing?.classList.add('hidden');
+
+    if (recordCaption) {
+      recordCaption.innerText =
+        "마이크를 누르고 말하기";
     }
-  });
+
+    if (micIcon) {
+      micIcon.innerText = "mic";
+    }
+
+    if (practiceRecognizedText) {
+      practiceRecognizedText.innerText =
+        "마이크를 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.";
+    }
+  }
+
+});
+  
 </script>
 
 </body>
