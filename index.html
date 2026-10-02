@@ -132,6 +132,9 @@
     .hidden-view {
       display: none !important;
     }
+
+    /* 아이폰 터치 반응 개선 (더블탭 확대 지연 제거) */
+    button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
   
     /* 카드 뒤집기 3D 효과 */
     .perspective-1000 {
@@ -150,7 +153,8 @@
 </head>
 <body class="bg-surface text-on-surface flex flex-col min-h-screen">
 
-  <!-- ==================== VIEW 1: 로그인 화면 ==================== -->
+
+  <!-- ==================== VIEW 1: 로그인 ==================== -->
 <main id="view-login" class="flex flex-col relative w-full bg-surface min-h-screen items-center justify-center">
   <!-- py-space-xl을 py-space-md로 변경하여 작은 화면에서 상하 여백 축소 -->
   <div class="flex flex-col w-full px-space-md py-space-md items-center justify-center">
@@ -213,7 +217,8 @@
     </div>
   </main>
 
-<!-- ==================== VIEW 2: 대시보드 화면 ==================== -->
+
+<!-- ==================== VIEW 2: 대시보드 ==================== -->
   <div id="view-dashboard" class="hidden-view flex flex-col min-h-screen w-full">
     
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
@@ -327,14 +332,20 @@
           <span class="material-symbols-outlined text-[24px] mb-0.5" style="font-variation-settings: 'FILL' 1;">school</span>
           <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">今日の学習</span>
         </a>
-        <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group" href="#" onclick="alert('복습 모드 준비 중입니다.')">
+        <!-- 復習モード (복습 모드) -->
+        <a id="nav-review-mode" 
+           class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group cursor-pointer" 
+           href="javascript:void(0);" 
+           onclick="openReviewMode()">
           <span class="material-symbols-outlined text-[24px] mb-0.5">replay</span>
           <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">復習モード</span>
         </a>
+        
+        <!-- 学習記録 (주간 성과) -->
         <a id="nav-weekly-stats" 
            class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group cursor-pointer" 
            href="javascript:void(0);" 
-           onclick="document.getElementById('view-dashboard').classList.add('hidden-view'); document.getElementById('view-weekly-stats').classList.remove('hidden-view');">
+           >
           <span class="material-symbols-outlined text-[24px] mb-0.5">monitoring</span>
           <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">学習記録</span>
         </a>
@@ -342,7 +353,8 @@
     </nav>
   </div>
 
-  <!-- ==================== VIEW 3: 말하기 학습 화면 ==================== -->
+
+  <!-- ==================== VIEW 3: 읽기학습 ==================== -->
   <div id="view-practice" class="hidden-view flex flex-col min-h-screen w-full bg-surface">
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
       <div class="h-16 px-gutter flex items-center justify-between">
@@ -458,7 +470,8 @@
     </main>
   </div>
       
-<!-- ==================== VIEW 4: 데일리 퀴즈 학습 화면 ==================== -->
+
+<!-- ==================== VIEW 4: 퀴즈학습 ==================== -->
 <div id="view-quiz" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
   
   <!-- Header -->
@@ -578,7 +591,7 @@
 
 </div>
 
-<!-- ==================== VIEW 5: 주간 성과 화면 ==================== -->
+<!-- ==================== VIEW 5: 주간성과 ==================== -->
 <div id="view-weekly-stats" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
   
   <!-- Header (VIEW 3, VIEW 4와 동일한 구조) -->
@@ -848,11 +861,48 @@
 </div>
 </div>
 
+</div>
 
-</main>
+<!-- ==================== VIEW 6: 전체복습 ==================== -->
+<div id="view-review" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+  
+  <!-- Header (VIEW 5와 동일한 fixed 구조) -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <!-- ID를 back-from-review 로 변경 및 onclick 연결 -->
+        <button id="back-from-review" onclick="goBackToDashboard()" aria-label="戻る" class="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 rounded-full active:scale-95 text-on-surface transition-transform cursor-pointer" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="font-headline-sm text-headline-sm text-primary tracking-tight">세종학당 봉센세</span>
+          </div>
+          <span class="font-kana-subtext text-kana-subtext text-on-surface-variant line-clamp-1 leading-tight">Review Mode</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <img class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="./images/default-avatar.png" alt="Profile" />
+      </div>
+    </div>
+  </header>
 
-</body>
-</html>
+  <!-- Main Content (fixed 헤더 아래에서 시작하도록 pt-20, pb-28 설정) -->
+  <main class="flex flex-col relative w-full pt-20 pb-28 px-4 max-w-md mx-auto flex-grow gap-4">
+    
+    <!-- 1. 상단 레벨 선택 가로 스크롤 덱 -->
+    <div id="review-level-tabs" class="flex gap-2 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4">
+      <!-- JavaScript가 4개 레벨 버튼을 동적으로 생성합니다 -->
+    </div>
+
+    <!-- 2. 선택된 레벨의 1과~20과 단원 리스트 -->
+    <div id="review-lesson-list" class="flex flex-col gap-3">
+      <!-- JavaScript가 20개 단원 카드를 동적으로 생성합니다 -->
+    </div>
+
+  </main>
+
+</div>
 
 <script>
   // ==================== 데이터 및 상태 관리 ====================
@@ -877,15 +927,35 @@
   let practiceStartTime = null;
   let quizStartTime = null;
 
+  // 복습 모드 및 화면 상태
+  let currentSelectedLevel = '1a';
+  // JSON 진도와 복습 선택은 별개입니다. 기존 currentLesson* 변수는 열린 콘텐츠만 나타냅니다.
+  let userProgress = null;
+  let reviewSelection = null;
+  let activeViewId = 'view-login';
+  const viewHistory = [];
+
   // Gemini API 설정
   const GEMINI_MODEL = "gemini-1.5-flash";
 
+  // 복습 모드 레벨 데이터
+  const reviewLevels = [
+    { id: '1a', title: '초급 1 🌱', subTitle: '1과 ~ 20과', minId: 1, maxId: 20 },
+    { id: '2a', title: '초급 2 🌿', subTitle: '21과 ~ 40과', minId: 21, maxId: 40 },
+    { id: '3a', title: '중급 1 🌸', subTitle: '41과 ~ 60과', minId: 41, maxId: 60 },
+    { id: '4a', title: '중급 2 🌟', subTitle: '61과 ~ 80과', minId: 61, maxId: 80 }
+  ];
+
   // ==================== DOM 요소 참조 ====================
+  // 1. View (화면 전환)
   const viewLogin = document.getElementById('view-login');
   const viewDashboard = document.getElementById('view-dashboard');
   const viewPractice = document.getElementById('view-practice');
   const viewStats = document.getElementById('view-weekly-stats');
+  const viewReviewMode = document.getElementById('view-review');
+  const viewQuiz = document.getElementById('view-quiz');
 
+  // 2. 로그인 관련
   const loginForm = document.getElementById('login-form');
   const userIdInput = document.getElementById('user-id');
   const userPwInput = document.getElementById('user-pw');
@@ -894,6 +964,7 @@
   const loginSpinner = document.getElementById('login-spinner');
   const loginErrorMsg = document.getElementById('login-error-msg');
 
+  // 3. 대시보드 관련
   const welcomeTitle = document.getElementById('welcome-title');
   const logoutBtn = document.getElementById('logout-btn');
   const goPracticeBtn = document.getElementById('go-practice-btn');
@@ -901,6 +972,11 @@
   const cardLessonTag = document.getElementById('card-lesson-tag');
   const targetSentenceElem = document.getElementById('target-sentence');
 
+  // 4. 전체 복습 모드 관련
+  const reviewLevelTabs = document.getElementById('review-level-tabs');
+  const reviewLessonList = document.getElementById('review-lesson-list');
+
+  // 5. 연습 화면(Practice) 공통 & 네비게이션
   const backToDashboard = document.getElementById('back-to-dashboard');
   const closePracticeBtn = document.getElementById('close-practice-btn');
   const practiceStageTitle = document.getElementById('practice-stage-title');
@@ -909,13 +985,15 @@
   const practiceProgressBar = document.getElementById('practice-progress-bar');
   const practiceStepIndicator = document.getElementById('practice-step-indicator');
 
+  // 6. 연습 화면 하단 컨트롤 & 오디오
   const btnNextSentence = document.getElementById('btn-next-sentence');
   const nextBtnText = document.getElementById('next-btn-text');
   const nextBtnIcon = document.getElementById('next-btn-icon');
-
   const topTtsBtn = document.getElementById('top-tts-btn');
   const btnAudioNormal = document.getElementById('btn-audio-normal');
+  const btnAudioSlow = document.getElementById('btn-audio-slow');
 
+  // 7. 마이크 / 음성 인식 & 평가
   const micRecordBtn = document.getElementById('mic-record-btn');
   const micPulseRing = document.getElementById('mic-pulse-ring');
   const recordCaption = document.getElementById('record-caption');
@@ -923,6 +1001,69 @@
   const practiceRecognizedText = document.getElementById('practice-recognized-text');
   const practiceMatchBadge = document.getElementById('practice-match-badge');
   const practiceEvalText = document.getElementById('practice-eval-text');
+
+  // ==================== 뷰 전환 공통 함수 ====================
+  function showView(targetViewId, recordHistory = true) {
+    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz', 'view-weekly-stats', 'view-review'];
+    const target = document.getElementById(targetViewId);
+    if (!views.includes(targetViewId) || !target) return;
+
+    if (targetViewId === 'view-login' || activeViewId === 'view-login') {
+      viewHistory.length = 0;
+    } else if (recordHistory && activeViewId !== targetViewId) {
+      viewHistory.push(activeViewId);
+    }
+    if (activeViewId === 'view-practice' && targetViewId !== activeViewId) {
+      stopPracticeRecordingUI();
+      practiceStartTime = null;
+    }
+    if (activeViewId === 'view-quiz' && targetViewId !== activeViewId) quizStartTime = null;
+    if (targetViewId !== activeViewId && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+
+    views.forEach(id => document.getElementById(id)?.classList.add('hidden-view'));
+    target.classList.remove('hidden-view');
+    activeViewId = targetViewId;
+    if (targetViewId === 'view-dashboard' && currentUser) setupDashboardUI(currentUser);
+    if (targetViewId === 'view-review') renderReviewScreen();
+    window.scrollTo(0, 0);
+  }
+
+  function goBackView() {
+    const targetViewId = viewHistory.pop();
+    if (targetViewId) showView(targetViewId, false);
+  }
+
+  // 현재 열람 콘텐츠의 표시 정보를 만듭니다. JSON에는 값을 추가하거나 쓰지 않습니다.
+  function getContentSelection(lessonId) {
+    const id = Number(lessonId);
+    const level = reviewLevels.find(l => id >= l.minId && id <= l.maxId) || reviewLevels[0];
+    const { bookName, lessonNum } = getBookAndLessonTitle(level.id, id);
+    const item = curriculumData.find(c => Number(c.lesson_id) === id);
+    return {
+      lessonId: id,
+      course: level.id,
+      title: `${bookName} • 제 ${lessonNum}과${item?.title ? ` (${item.title})` : ''}`,
+      sentence: item?.title_sentences || '오늘의 한국어 문장을 연습해보세요.'
+    };
+  }
+
+  function selectContent(selection) {
+    currentLessonId = selection.lessonId;
+    currentLessonDisplayTitle = selection.title;
+  }
+
+  function resolveContentSelection(levelOrLessonId, lessonNum) {
+    if (activeViewId === 'view-review') {
+      const lessonId = typeof lessonNum !== 'undefined'
+        ? getActualLessonId(levelOrLessonId, lessonNum)
+        : Number(levelOrLessonId);
+      reviewSelection = getContentSelection(lessonId);
+      return reviewSelection;
+    }
+    // 대시보드에서는 복습에서 사용했던 값을 참조하지 않습니다.
+    setupDashboardUI(currentUser);
+    return userProgress;
+  }
 
   // ==================== 주간 데이터 및 학습 진행상태 저장 헬퍼 함수 ====================
   
@@ -1030,36 +1171,6 @@
     if (togglePwIcon) togglePwIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
   });
 
-  function showView(targetViewId) {
-    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz', 'view-weekly-stats'];
-    views.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.add('hidden-view');
-    });
-
-    const target = document.getElementById(targetViewId);
-    if (target) {
-      target.classList.remove('hidden-view');
-      window.scrollTo(0, 0);
-    } else {
-      console.error(`VIEW ID를 찾을 수 없습니다: ${targetViewId}`);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('back-to-dashboard')?.addEventListener('click', () => {
-      returnToDashboard(false); // 미완료로 복귀
-    });
-
-    document.getElementById('back-from-stats')?.addEventListener('click', () => {
-      showView('view-dashboard');
-    });
-    
-    document.getElementById('back-from-quiz')?.addEventListener('click', () => {
-      stopQuizAndReturn(false); // 미완료로 복귀
-    });
-  });
-
   async function loadAllDatabases() {
     try {
       const [uRes, sRes, lRes, cRes] = await Promise.all([
@@ -1079,13 +1190,15 @@
       console.error("JSON 로드 중 오류 발생:", err);
     }
   }
-  loadAllDatabases();
 
   function checkAutoLogin() {
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
       try {
-        currentUser = JSON.parse(savedUser);
+        const saved = JSON.parse(savedUser);
+        currentUser = usersData.find(u => String(u.ID).toLowerCase() === String(saved.ID).toLowerCase());
+        if (!currentUser) throw new Error('사용자 정보가 없습니다.');
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
         setupDashboardUI(currentUser);
         showView('view-dashboard');
       } catch (e) {
@@ -1146,20 +1259,10 @@
       userProfileImgs.forEach(img => { img.src = photoUrl; });
     }
 
-    currentLessonId = getLessonIdForUser(user.course || "1a");
-    const currItem = curriculumData.find(c => c.lesson_id === currentLessonId);
-    const { bookName, lessonNum } = getBookAndLessonTitle(user.course || "1a", currentLessonId);
-
-    if (currItem) {
-      currentLessonDisplayTitle = `${bookName} · 제 ${lessonNum}과 (${currItem.title})`;
-      currentTargetSentence = currItem.title_sentences || "학습 문장이 준비되어 있습니다.";
-    } else {
-      currentLessonDisplayTitle = `${bookName} · 제 ${lessonNum}과`;
-      currentTargetSentence = "오늘의 한국어 문장을 연습해보세요.";
-    }
-
-    if (cardLessonTag) cardLessonTag.innerText = currentLessonDisplayTitle;
-    if (targetSentenceElem) targetSentenceElem.innerText = currentTargetSentence;
+    userProgress = getContentSelection(getLessonIdForUser(user.course || '1a'));
+    currentTargetSentence = userProgress.sentence;
+    if (cardLessonTag) cardLessonTag.innerText = userProgress.title;
+    if (targetSentenceElem) targetSentenceElem.innerText = userProgress.sentence;
   }
 
   loginForm?.addEventListener('submit', (e) => {
@@ -1190,43 +1293,16 @@
 
   logoutBtn?.addEventListener('click', () => {
     currentUser = null;
+    userProgress = null;
+    reviewSelection = null;
     localStorage.removeItem('currentUser');
     if (userIdInput) userIdInput.value = '';
     if (userPwInput) userPwInput.value = '';
     showView('view-login');
   });
 
-  // ==================== 1. 읽기 학습 모드 ====================
-  goPracticeBtn?.addEventListener('click', () => {
-    const targetId = Number(currentLessonId);
-
-    lessonSentencesList = lessonsData
-      .filter(l => Number(l.lesson_id) === targetId && l.sentence_kr && l.sentence_kr.trim() !== "")
-      .map(l => ({
-        sentence: l.sentence_kr,
-        translation: l.sentence_jp || "자연스러운 회화를 연습합니다."
-      }));
-
-    if (lessonSentencesList.length === 0) {
-      lessonSentencesList = [{ 
-        sentence: currentTargetSentence || "저는 한국 사람이에요.", 
-        translation: "자연스러운 회화를 연습합니다." 
-      }];
-    }
-
-    practiceStartTime = Date.now();
-
-    // 이전에 풀다 만 진행 상태 확인
-    const savedProgress = getLearningProgress('reading', targetId);
-    if (savedProgress && typeof savedProgress.currentIndex === 'number' && savedProgress.currentIndex < lessonSentencesList.length) {
-      currentSentenceIndex = savedProgress.currentIndex;
-    } else {
-      currentSentenceIndex = 0;
-    }
-
-    loadPracticeSentenceAtIndex(currentSentenceIndex);
-    showView('view-practice');
-  });
+  // ==================== VIEW 3: 읽기학습 ====================
+  goPracticeBtn?.addEventListener('click', () => startReadingPractice());
 
   function loadPracticeSentenceAtIndex(index) {
     if (index < lessonSentencesList.length) {
@@ -1298,7 +1374,7 @@
     }
 
     practiceStartTime = null;
-    showView('view-dashboard');
+    goBackView();
   }
 
   btnNextSentence?.addEventListener('click', () => {
@@ -1313,10 +1389,11 @@
 
   closePracticeBtn?.addEventListener('click', () => returnToDashboard(false));
 
-  // ==================== 2. 데일리 퀴즈 로직 ====================
+  // ==================== VIEW 4: 퀴즈학습 ====================
   let currentQuizList = [];
   let currentQuizIndex = 0;
   let isCardFlipped = false;
+  let isRandomQuizMode = false; // true: 대시보드 랜덤 퀴즈 / false: 전체복습 특정 과 퀴즈
 
 function generateQuizProblem(targetItem, allLessons) {
   let rawWord = (targetItem.word_kr || '').trim();
@@ -1425,9 +1502,10 @@ function generateQuizProblem(targetItem, allLessons) {
       }
       saveTodayLearningData('quiz', elapsedMinutes);
       clearLearningProgress('quiz', currentLessonId); // 진행 데이터 제거
+      if (isRandomQuizMode) markRandomQuizDone(currentLessonId); // 랜덤 퀴즈: 푼 과로 기록
 
       quizStartTime = null;
-      showView('view-dashboard');
+      goBackView();
       return;
     }
 
@@ -1502,7 +1580,7 @@ function generateQuizProblem(targetItem, allLessons) {
       // 완주하지 않고 그냥 나간 경우 성적을 저장하지 않음
       quizStartTime = null;
     }
-    showView('view-dashboard');
+    goBackView();
   }
 
   document.getElementById('quiz-card-container')?.addEventListener('click', () => {
@@ -1530,58 +1608,19 @@ function generateQuizProblem(targetItem, allLessons) {
   });
 
   // 퀴즈 시작 버튼 클릭 로직 보완
-  document.getElementById('go-quiz-btn')?.addEventListener('click', () => {
-    try {
-      const selectedLessonId = Number(currentLessonId || 1);
+  document.getElementById('go-quiz-btn')?.addEventListener('click', () => startQuizForLesson());
 
-      const lessonItems = (lessonsData || []).filter(
-        l => Number(l.lesson_id) === selectedLessonId && l.word_kr && l.word_kr.trim() !== ""
-      );
-
-      if (lessonItems.length === 0) {
-        alert(`제 ${selectedLessonId}과에 해당하는 퀴즈 데이터가 없습니다.`);
-        return;
-      }
-
-      currentQuizList = lessonItems.map(item => generateQuizProblem(item, lessonsData || []));
-      
-      quizStartTime = Date.now();
-
-      // 저장된 진행 기록 확인
-      const savedProgress = getLearningProgress('quiz', selectedLessonId);
-      if (savedProgress && typeof savedProgress.currentIndex === 'number' && savedProgress.currentIndex < currentQuizList.length) {
-        currentQuizIndex = savedProgress.currentIndex;
-      } else {
-        currentQuizIndex = 0;
-      }
-
-      const titleObj = getBookAndLessonTitle(currentUser?.course || "1a", selectedLessonId);
-      currentLessonDisplayTitle = `${titleObj.bookName} • 제 ${titleObj.lessonNum}과 (복습 퀴즈)`;
-
-      renderQuizIndex(currentQuizIndex);
-      showView('view-quiz');
-
-    } catch (err) {
-      console.error("퀴즈 진입 도중 오류 발생:", err);
-    }
-  });
-
-  // ==========================================
-  // VIEW 5: 주간 성과 데이터 동적 연동 로직
-  // ==========================================
-function renderWeeklyStatsView() {
-    // ----------------------------------------------------
-    // [추가] 현재 학생 코스(레벨) 태그 동적 연동
-    // ----------------------------------------------------
+  // =========================== VIEW 5: 주간성과======================
+  function renderWeeklyStatsView() {
     const courseTag = document.getElementById('achievement-course-tag');
     if (courseTag) {
       const userCourse = currentUser?.course || "1a";
-      const { bookName } = getBookAndLessonTitle(userCourse, currentLessonId || 1);
+      const { bookName } = getBookAndLessonTitle(userCourse, userProgress?.lessonId || getLessonIdForUser(userCourse));
       courseTag.innerText = `${bookName} · 주간 성취도 (週間達成度)`;
     }
 
     const today = new Date();
-    const currentDay = today.getDay(); // 0: 일, 1: 월, ... 6: 토
+    const currentDay = today.getDay();
     
     const distanceToMonday = currentDay === 0 ? -6 : 1 - currentDay;
     const monday = new Date(today);
@@ -1618,10 +1657,7 @@ function renderWeeklyStatsView() {
       const dayJa = daysOfWeekJa[i];
 
       const dayData = storedData[dateKey] || {
-        readingDone: false,
-        readingTime: 0,
-        quizDone: false,
-        quizTime: 0
+        readingDone: false, readingTime: 0, quizDone: false, quizTime: 0
       };
 
       if (dayData.readingDone) {
@@ -1705,15 +1741,6 @@ function renderWeeklyStatsView() {
     const streakElement = document.querySelector('[data-purpose="summary-card"] .text-lg.font-bold.text-amber-600');
     if (streakElement) streakElement.innerText = `${streakCount}일 달성`;
   }
-
-  document.getElementById('nav-weekly-stats')?.addEventListener('click', () => {
-    renderWeeklyStatsView();
-    showView('view-weekly-stats');
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    renderWeeklyStatsView();
-  });
 
   // 스크린샷 생성 및 레포트 제출
   async function handleReportSubmit() {
@@ -1815,369 +1842,510 @@ function renderWeeklyStatsView() {
     }
   }
 
+
+  // ================ VIEW 6: 전체복습 ================
+  function getActualLessonId(levelId, lessonNum) {
+    const lvl = reviewLevels.find(l => l.id === levelId) || reviewLevels[0];
+    return lvl.minId + (Number(lessonNum) - 1);
+  }
+
+  // 대시보드(메인 화면)로 돌아가는 함수
+  function goBackToDashboard() {
+    goBackView();
+  }
+  
+  function openReviewMode() {
+    showView('view-review');
+  }
+
+  function changeReviewLevel(levelId) {
+    currentSelectedLevel = levelId;
+    renderReviewScreen();
+  }
+
+  function renderReviewScreen() {
+    const tabsContainer = document.getElementById('review-level-tabs');
+    const listContainer = document.getElementById('review-lesson-list');
+
+    if (!tabsContainer || !listContainer) return;
+
+    tabsContainer.innerHTML = reviewLevels.map(lvl => {
+      const isActive = lvl.id === currentSelectedLevel;
+      const btnClass = isActive 
+        ? 'bg-primary text-on-primary font-bold shadow-md scale-105' 
+        : 'bg-surface-container text-on-surface hover:bg-surface-container-high';
+
+      return `
+        <button type="button" 
+                onclick="changeReviewLevel('${lvl.id}')"
+                class="flex-shrink-0 flex flex-col items-center justify-center py-2.5 px-4 rounded-xl transition-all ${btnClass}">
+          <span class="text-label-lg whitespace-nowrap">${lvl.title}</span>
+          <span class="text-[11px] opacity-80 whitespace-nowrap">${lvl.subTitle}</span>
+        </button>
+      `;
+    }).join('');
+
+    let listHtml = '';
+    for (let i = 1; i <= 20; i++) {
+      listHtml += `
+        <div class="flex flex-col p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 shadow-xs gap-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md bg-primary/10 text-primary font-bold text-[12px] flex items-center justify-center">${i}</span>
+            <span class="font-bold text-on-surface text-body-md">제 ${i}과 학습</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 pt-1">
+            <button type="button" onclick="startReadingPractice('${currentSelectedLevel}', ${i})" class="flex items-center justify-center gap-1 py-2 px-1 rounded-lg bg-surface-container-highest text-primary font-bold text-[12px] cursor-pointer">
+              <span class="material-symbols-outlined text-[16px]">menu_book</span>
+              <span>읽기연습</span>
+            </button>
+            <button type="button" onclick="startQuizForLesson('${currentSelectedLevel}', ${i})" class="flex items-center justify-center gap-1 py-2 px-1 rounded-lg bg-surface-container-high text-tertiary font-bold text-[12px] cursor-pointer">
+              <span class="material-symbols-outlined text-[16px]">quiz</span>
+              <span>단어퀴즈</span>
+            </button>
+            <button type="button" onclick="alert('준비 중입니다.')" class="flex items-center justify-center gap-1 py-2 px-1 rounded-lg bg-outline-variant/20 text-on-surface-variant/60 font-bold text-[12px] cursor-pointer">
+              <span class="material-symbols-outlined text-[16px]">campaign</span>
+              <span>단어연습</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+    listContainer.innerHTML = listHtml;
+  }
+
+  function startReadingPractice(levelOrLessonId, lessonNum) {
+    const selection = resolveContentSelection(levelOrLessonId, lessonNum);
+    if (!selection) return;
+    const targetLessonId = selection.lessonId;
+
+    const allLessons = lessonsData || [];
+    lessonSentencesList = allLessons
+      .filter(l => Number(l.lesson_id) === targetLessonId && l.sentence_kr && l.sentence_kr.trim() !== "")
+      .map(l => ({
+        sentence: l.sentence_kr,
+        translation: l.sentence_jp || "자연스러운 회화를 연습합니다."
+      }));
+
+    if (lessonSentencesList.length === 0) {
+      if (activeViewId === 'view-review') {
+        alert(`제 ${targetLessonId}과에 해당하는 읽기 데이터가 없습니다.`);
+        return;
+      }
+      lessonSentencesList = [{ sentence: selection.sentence, translation: '자연스러운 회화를 연습합니다.' }];
+    }
+
+    selectContent(selection);
+    practiceStartTime = Date.now();
+
+    const savedProgress = getLearningProgress('reading', targetLessonId);
+    if (savedProgress && Number.isInteger(savedProgress.currentIndex) && savedProgress.currentIndex >= 0 && savedProgress.currentIndex < lessonSentencesList.length) {
+      currentSentenceIndex = savedProgress.currentIndex;
+    } else {
+      currentSentenceIndex = 0;
+    }
+
+    loadPracticeSentenceAtIndex(currentSentenceIndex);
+    showView('view-practice');
+  }
+
+  // ==================== 퀴즈: 대시보드용 '랜덤 과 뽑기' 도우미 ====================
+  // 저장 위치는 브라우저(localStorage)이며, JSON 파일 구조는 건드리지 않습니다.
+  //  - quizPick_학생ID : 지금 풀고 있는(또는 풀 예정인) 랜덤 과 번호 (중간에 나가도 같은 과로 이어풀기)
+  //  - quizUsed_학생ID : 이번 라운드에서 이미 끝까지 푼 과 번호 목록
+  function getRandomQuizLessonId() {
+    const userId = currentUser?.ID || 'default';
+    const pickKey = `quizPick_${userId}`;
+    const usedKey = `quizUsed_${userId}`;
+
+    // 이번 주 진도 과 (예: 초급2-6과 = 26)
+    const maxId = getLessonIdForUser(currentUser?.course || '1a');
+
+    // 퀴즈 데이터가 실제로 있는 과 번호만 모읍니다.
+    const lessonsWithQuiz = new Set(
+      (lessonsData || [])
+        .filter(l => l.word_kr && l.word_kr.trim() !== "")
+        .map(l => Number(l.lesson_id))
+    );
+    const pool = [];
+    for (let id = 1; id <= maxId; id++) {
+      if (lessonsWithQuiz.has(id)) pool.push(id);
+    }
+    if (pool.length === 0) return null;
+
+    // 1) 풀다가 나간 과가 있으면 그 과를 그대로 이어서 보여줍니다.
+    const savedPick = Number(localStorage.getItem(pickKey));
+    if (savedPick && pool.includes(savedPick)) return savedPick;
+
+    // 2) 이미 푼 과를 뺀 나머지 중에서 랜덤으로 뽑습니다.
+    let used = [];
+    try { used = JSON.parse(localStorage.getItem(usedKey) || '[]'); } catch (e) { used = []; }
+    if (!Array.isArray(used)) used = [];
+
+    let remaining = pool.filter(id => !used.includes(id));
+
+    // 3) 모든 과를 한 번씩 풀었다면 기록을 비우고 처음부터 다시 시작합니다.
+    if (remaining.length === 0) {
+      used = [];
+      localStorage.setItem(usedKey, JSON.stringify(used));
+      remaining = pool.slice();
+    }
+
+    const pick = remaining[Math.floor(Math.random() * remaining.length)];
+    localStorage.setItem(pickKey, String(pick));
+    return pick;
+  }
+
+  // 퀴즈를 끝까지 풀었을 때 호출: '푼 과' 목록에 추가하고, 이어풀기용 기록은 지웁니다.
+  function markRandomQuizDone(lessonId) {
+    const userId = currentUser?.ID || 'default';
+    const usedKey = `quizUsed_${userId}`;
+    let used = [];
+    try { used = JSON.parse(localStorage.getItem(usedKey) || '[]'); } catch (e) { used = []; }
+    if (!Array.isArray(used)) used = [];
+    if (!used.includes(Number(lessonId))) used.push(Number(lessonId));
+    localStorage.setItem(usedKey, JSON.stringify(used));
+    localStorage.removeItem(`quizPick_${userId}`);
+  }
+
+  function startQuizForLesson(levelOrLessonId, lessonNum) {
+    let selection;
+    if (activeViewId === 'view-review') {
+      // VIEW 6 전체복습: 학생이 고른 과를 그대로 보여줍니다. (랜덤 아님)
+      isRandomQuizMode = false;
+      selection = resolveContentSelection(levelOrLessonId, lessonNum);
+    } else {
+      // VIEW 2 대시보드: 1과 ~ 이번 주 진도 과 중에서 랜덤으로 한 과를 보여줍니다.
+      isRandomQuizMode = true;
+      const randomLessonId = getRandomQuizLessonId();
+      if (!randomLessonId) {
+        alert("퀴즈 데이터가 없습니다.");
+        return;
+      }
+      selection = getContentSelection(randomLessonId);
+    }
+    if (!selection) return;
+    const targetLessonId = selection.lessonId;
+
+    const allLessons = lessonsData || [];
+    const lessonItems = allLessons.filter(
+      l => Number(l.lesson_id) === targetLessonId && l.word_kr && l.word_kr.trim() !== ""
+    );
+
+    if (lessonItems.length === 0) {
+      alert(`제 ${targetLessonId}과에 해당하는 퀴즈 데이터가 없습니다.`);
+      return;
+    }
+
+    currentQuizList = lessonItems.map(item => generateQuizProblem(item, allLessons));
+    selectContent(selection);
+    quizStartTime = Date.now();
+
+    const savedProgress = getLearningProgress('quiz', targetLessonId);
+    if (savedProgress && Number.isInteger(savedProgress.currentIndex) && savedProgress.currentIndex >= 0 && savedProgress.currentIndex < currentQuizList.length) {
+      currentQuizIndex = savedProgress.currentIndex;
+    } else {
+      currentQuizIndex = 0;
+    }
+
+    renderQuizIndex(currentQuizIndex);
+    showView('view-quiz');
+  }
+
   // ==================== TTS 및 음성 인식(STT) ====================
+  // ---------- 듣기(TTS) : 아이폰 대응 버전 ----------
+  // 아이폰은 마이크(음성 인식)를 쓴 뒤에 소리 재생이 막히는 일이 있어서,
+  //  1) 마이크가 켜져 있으면 먼저 끄고, 2) 한국어 목소리를 직접 지정하고,
+  //  3) 멈춰 있던 소리 엔진을 깨운 뒤(resume) 재생합니다.
+  let currentUtterance = null;   // 재생 중 문장을 붙잡아 둠 (아이폰에서 중간에 끊기는 현상 방지)
+  let ttsTimer = null;
+
+  function getKoreanVoice() {
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    return voices.find(v => v.lang === 'ko-KR')
+        || voices.find(v => (v.lang || '').replace('_', '-').toLowerCase().startsWith('ko'))
+        || null;
+  }
+
   function playTTS(text, rate = 0.8) {
-    if ('speechSynthesis' in window && text) {
-      window.speechSynthesis.cancel();
-      
+    if (!('speechSynthesis' in window) || !text) return;
+    const synth = window.speechSynthesis;
+
+    if (ttsTimer) { clearTimeout(ttsTimer); ttsTimer = null; }
+
+    const speakNow = () => {
+      try { synth.resume(); } catch (e) {}
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ko-KR';
       utterance.rate = rate;
-     
-      window.speechSynthesis.speak(utterance);
+      const koVoice = getKoreanVoice();
+      if (koVoice) utterance.voice = koVoice;
+      utterance.onerror = (e) => console.error('🔊 TTS 오류:', e.error);
+      currentUtterance = utterance;
+      synth.speak(utterance);
+    };
+
+    // 마이크가 켜져 있으면 먼저 끄고 잠시 기다린 뒤 재생
+    if (isRecording) {
+      try { recognition?.abort(); } catch (e) {}
+      resetMicUI();
+      synth.cancel();
+      ttsTimer = setTimeout(speakNow, 300);
+      return;
+    }
+
+    // 이미 소리가 나는 중이면 끄고 잠시 뒤 재생, 아니면 바로 재생
+    if (synth.speaking || synth.pending) {
+      synth.cancel();
+      ttsTimer = setTimeout(speakNow, 150);
+    } else {
+      speakNow();
     }
   }
 
   topTtsBtn?.addEventListener('click', () => playTTS(practiceSentence?.innerText || ''));
   btnAudioNormal?.addEventListener('click', () => playTTS(practiceSentence?.innerText || ''));
 
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  // ---------- 음성 인식 (아이폰 대응 버전) ----------
+  // 핵심 변경점
+  //  1) 페이지가 열릴 때 한 번만 만들던 마이크 객체를 '버튼을 누를 때마다 새로' 만듭니다. (아이폰은 재사용 시 먹통이 되는 경우가 많음)
+  //  2) 아이폰이 '종료 신호'를 안 보내서 버튼이 멈춘 것처럼 보이는 상황을 안전장치(타이머)로 풀어줍니다.
+  //  3) 듣기(TTS) 소리가 재생 중이면 먼저 끄고 나서 마이크를 켭니다.
+  //  4) 눌렀을 때 바로 화면에 반응을 보여주고, 실패 원인을 아이폰 기준으로 안내합니다.
+  const SpeechRecognitionClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const MIC_IDLE_TEXT = '마이크를 누르고 말하기';
+  let recognitionWatchdog = null;
 
-if (SpeechRecognition) {
-    recognition = new SpeechRecognition();
-    recognition.lang = 'ko-KR';
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+  const IPHONE_MIC_HELP =
+    "아이폰 안내:\n" +
+    "1) Safari 브라우저로 열어 주세요. (홈 화면에 추가한 앱이나 일부 앱 내 브라우저에서는 음성 인식이 안 될 수 있어요)\n" +
+    "2) 설정 > 일반 > 키보드 > '받아쓰기'를 켜 주세요.\n" +
+    "3) 설정 > Siri 에서 Siri 기능이 켜져 있는지 확인해 주세요.\n" +
+    "4) 마이크 권한 팝업이 뜨면 '허용'을 눌러 주세요.";
 
-  // ----------------------------------------------------------
-  // 음성 인식 시작
-  // ----------------------------------------------------------
-
-    recognition.onstart = () => {
-  
-      console.log('🎤 음성 인식 시작');
-  
-      isRecording = true;
-  
-      // 마이크 애니메이션
-      micPulseRing?.classList.remove('hidden');
-  
-      // 버튼 문구 변경
-      if (recordCaption) {
-        recordCaption.innerText = '듣고 있어요';
-      }
-  
-      // 버튼 아이콘 변경
-      if (micIcon) {
-        micIcon.innerText = 'mic_off';
-      }
-  
-      // 이전 결과 초기화
-      if (practiceRecognizedText) {
-        practiceRecognizedText.innerText = '말씀해 주세요...';
-      }
-    };
-
-  
-    recognition.onresult = async (event) => {
-      console.log('🎤 음성 인식 결과:', event);
-      
-      const spokenText = event.results[0][0].transcript;
-      if (practiceRecognizedText) practiceRecognizedText.innerText = `인식된 음성: "${spokenText}"`;
-      
-      const targetText = practiceSentence?.innerText || "";
-      
-      // 로딩 상태 표시
-      if (practiceMatchBadge) practiceMatchBadge.innerText = "⏳ AI 발음 분석 중...";
-      if (practiceEvalText) practiceEvalText.innerText = "Gemini AI가 연음 법칙 및 발음을 분석하고 있습니다.";
-
-      try {
-        // Vercel Serverless API 호출
-        const response = await fetch('https://sejong-bongsense.vercel.app/api/evaluate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            target: targetText,
-            spoken: spokenText
-          })
-        });
-
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          const errorText = await response.text();
-          console.error("서버 응답 오류 (HTML 반환):", errorText);
-          throw new Error("Vercel 서버에서 JSON이 아닌 응답을 반환했습니다.");
-        }
-        
-        const result = await response.json();
-
-        if (response.ok && result) {
-          // AI 평가 결과 반영
-          if (practiceMatchBadge) {
-            practiceMatchBadge.innerText = `🎯 일치율 ${result.accuracy_score}%`;
-          }
-          if (practiceEvalText) {
-            // AI 일본어 피드백 + 발음 가이드 표시
-            const guideText = result.pronunciation_guide ? `\n발음 가이드: ${result.pronunciation_guide}` : '';
-            practiceEvalText.innerText = `${result.feedback_ja}${guideText}`;
-          }
-        } else {
-          throw new Error(result.error || '평가 실패');
-        }
-      } catch (err) {
-        console.error("발음 평가 API 호출 에러:", err);
-        
-        // API 에러 시 기존 레벤슈타인 거리 유사도 로직으로 Fallback
-        const score = calculateSimilarity(targetText, spokenText);
-        if (practiceMatchBadge) practiceMatchBadge.innerText = `🎯 일치율 ${score}%`;
-        if (practiceEvalText) practiceEvalText.innerText = "AI 연동 오류로 기본 발음 분석 결과가 표시됩니다.";
-      }
-    };
-
-     // ----------------------------------------------------------
-  // 음성 인식 오류
-  // ----------------------------------------------------------
-
-  recognition.onerror = (event) => {
-
-    console.error(
-      "🎤 SpeechRecognition 오류:",
-      event.error
-    );
-
-
+  function resetMicUI() {
     isRecording = false;
-
+    if (recognitionWatchdog) {
+      clearTimeout(recognitionWatchdog);
+      recognitionWatchdog = null;
+    }
     micPulseRing?.classList.add('hidden');
-
-
-    // 버튼 원상복구
-    if (recordCaption) {
-      recordCaption.innerText =
-        "마이크를 누르고 말하기";
-    }
-
-    if (micIcon) {
-      micIcon.innerText = "mic";
-    }
-
-
-    let message =
-      "음성 인식에 실패했습니다. 다시 시도해 주세요.";
-
-
-    switch (event.error) {
-
-      // ------------------------------------------------------
-      // 마이크 권한 거부
-      // ------------------------------------------------------
-
-      case "not-allowed":
-
-        message =
-          "마이크 사용 권한이 없습니다. 브라우저 설정에서 마이크를 허용해 주세요.";
-
-        break;
-
-
-      // ------------------------------------------------------
-      // 음성 인식 서비스 사용 불가
-      // ------------------------------------------------------
-
-      case "service-not-allowed":
-
-        message =
-          "이 브라우저에서는 음성 인식 서비스를 사용할 수 없습니다.";
-
-        break;
-
-
-      // ------------------------------------------------------
-      // 마이크 자체 사용 불가
-      // ------------------------------------------------------
-
-      case "audio-capture":
-
-        message =
-          "마이크를 사용할 수 없습니다. 다른 앱에서 마이크를 사용 중인지 확인해 주세요.";
-
-        break;
-
-
-      // ------------------------------------------------------
-      // 네트워크 문제
-      // ------------------------------------------------------
-
-      case "network":
-
-        message =
-          "음성 인식 서버에 연결할 수 없습니다. 인터넷 연결을 확인해 주세요.";
-
-        break;
-
-
-      // ------------------------------------------------------
-      // 아무 말도 하지 않음
-      // ------------------------------------------------------
-
-      case "no-speech":
-
-        message =
-          "음성이 감지되지 않았습니다. 마이크에 대고 다시 말씀해 주세요.";
-
-        break;
-
-
-      // ------------------------------------------------------
-      // 사용자가 중지
-      // ------------------------------------------------------
-
-      case "aborted":
-
-        message =
-          "음성 인식이 중단되었습니다.";
-
-        break;
-    }
-
-
-    if (practiceRecognizedText) {
-      practiceRecognizedText.innerText = message;
-    }
-  };
-
-
-  // ----------------------------------------------------------
-  // 음성 인식 종료
-  // ----------------------------------------------------------
-
-  recognition.onend = () => {
-
-    console.log('🎤 음성 인식 종료');
-
-    isRecording = false;
-
-    micPulseRing?.classList.add('hidden');
-
-
-    // 버튼 원상복구
-    if (recordCaption) {
-      recordCaption.innerText =
-        "마이크를 누르고 말하기";
-    }
-
-    if (micIcon) {
-      micIcon.innerText = "mic";
-    }
-  };
-
-} else {
-
-  // ----------------------------------------------------------
-  // 음성 인식을 지원하지 않는 브라우저
-  // ----------------------------------------------------------
-
-  console.warn(
-    "이 브라우저에서는 SpeechRecognition을 지원하지 않습니다."
-  );
-
-  if (micRecordBtn) {
-
-    micRecordBtn.addEventListener('click', () => {
-
-      alert(
-        "이 브라우저에서는 음성 인식을 지원하지 않습니다.\n\nChrome 또는 Safari의 최신 버전을 사용해 주세요."
-      );
-
-    });
-
-  }
-}
-
-
-// ============================================================
-// 마이크 버튼
-// ============================================================
-
-micRecordBtn?.addEventListener('click', () => {
-
-  // 음성 인식 API 자체가 없는 경우
-  if (!recognition) {
-
-    alert(
-      "이 브라우저에서는 음성 인식을 지원하지 않습니다.\n\nChrome 또는 Safari의 최신 버전을 사용해 주세요."
-    );
-
-    return;
+    if (recordCaption) recordCaption.innerText = MIC_IDLE_TEXT;
+    if (micIcon) micIcon.innerText = 'mic';
   }
 
+  // 인식된 문장을 서버(Gemini)로 보내 발음 평가 (기존 로직 그대로)
+  async function evaluateSpokenText(spokenText) {
+    if (practiceRecognizedText) practiceRecognizedText.innerText = `인식된 음성: "${spokenText}"`;
 
-  // ----------------------------------------------------------
-  // 현재 녹음 중
-  // ----------------------------------------------------------
+    const targetText = practiceSentence?.innerText || "";
 
-  if (isRecording) {
-
-    console.log("🎤 사용자가 음성 인식을 중지했습니다.");
+    if (practiceMatchBadge) practiceMatchBadge.innerText = "⏳ AI 발음 분석 중...";
+    if (practiceEvalText) practiceEvalText.innerText = "Gemini AI가 연음 법칙 및 발음을 분석하고 있습니다.";
 
     try {
+      const response = await fetch('https://sejong-bongsense.vercel.app/api/evaluate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          target: targetText,
+          spoken: spokenText
+        })
+      });
 
-      recognition.stop();
-
-    } catch (error) {
-
-      console.error(
-        "recognition.stop() 오류:",
-        error
-      );
-
-      isRecording = false;
-
-      micPulseRing?.classList.add('hidden');
-
-      if (recordCaption) {
-        recordCaption.innerText =
-          "마이크를 누르고 말하기";
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const errorText = await response.text();
+        console.error("서버 응답 오류 (HTML 반환):", errorText);
+        throw new Error("Vercel 서버에서 JSON이 아닌 응답을 반환했습니다.");
       }
 
-      if (micIcon) {
-        micIcon.innerText = "mic";
+      const result = await response.json();
+
+      if (response.ok && result) {
+        if (practiceMatchBadge) {
+          practiceMatchBadge.innerText = `🎯 일치율 ${result.accuracy_score}%`;
+        }
+        if (practiceEvalText) {
+          const guideText = result.pronunciation_guide ? `\n발음 가이드: ${result.pronunciation_guide}` : '';
+          practiceEvalText.innerText = `${result.feedback_ja}${guideText}`;
+        }
+      } else {
+        throw new Error(result.error || '평가 실패');
       }
-    }
+    } catch (err) {
+      console.error("발음 평가 API 호출 에러:", err);
 
-    return;
-  }
-
-
-  // ----------------------------------------------------------
-  // 음성 인식 시작
-  // ----------------------------------------------------------
-
-  try {
-
-    console.log("🎤 음성 인식 시작 요청");
-
-    recognition.start();
-
-  } catch (error) {
-
-    console.error(
-      "recognition.start() 오류:",
-      error
-    );
-
-    isRecording = false;
-
-    micPulseRing?.classList.add('hidden');
-
-    if (recordCaption) {
-      recordCaption.innerText =
-        "마이크를 누르고 말하기";
-    }
-
-    if (micIcon) {
-      micIcon.innerText = "mic";
-    }
-
-    if (practiceRecognizedText) {
-      practiceRecognizedText.innerText =
-        "마이크를 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.";
+      // API 에러 시 기존 레벤슈타인 거리 유사도 로직으로 Fallback
+      const score = calculateSimilarity(targetText, spokenText);
+      if (practiceMatchBadge) practiceMatchBadge.innerText = `🎯 일치율 ${score}%`;
+      if (practiceEvalText) practiceEvalText.innerText = "AI 연동 오류로 기본 발음 분석 결과가 표시됩니다.";
     }
   }
 
-});
-  
+  // 버튼을 누를 때마다 새 음성 인식 객체를 만듭니다.
+  function createRecognition() {
+    const rec = new SpeechRecognitionClass();
+    rec.lang = 'ko-KR';
+    rec.continuous = false;
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+
+    rec.onstart = () => {
+      if (rec !== recognition) return; // 오래된 객체의 신호는 무시
+      console.log('🎤 음성 인식 시작');
+      isRecording = true;
+      micPulseRing?.classList.remove('hidden');
+      if (recordCaption) recordCaption.innerText = '듣고 있어요';
+      if (micIcon) micIcon.innerText = 'mic_off';
+      if (practiceRecognizedText) practiceRecognizedText.innerText = '말씀해 주세요...';
+    };
+
+    rec.onresult = (event) => {
+      if (rec !== recognition) return;
+      console.log('🎤 음성 인식 결과:', event);
+      const spokenText = event.results?.[0]?.[0]?.transcript;
+      resetMicUI();
+      if (!spokenText) {
+        if (practiceRecognizedText) practiceRecognizedText.innerText = '음성이 잘 들리지 않았어요. 다시 시도해 주세요.';
+        return;
+      }
+      evaluateSpokenText(spokenText);
+    };
+
+    rec.onerror = (event) => {
+      if (rec !== recognition) return;
+      console.error("🎤 SpeechRecognition 오류:", event.error);
+      resetMicUI();
+
+      let message = "음성 인식에 실패했습니다. 다시 시도해 주세요.";
+      switch (event.error) {
+        case "not-allowed":
+          message = "마이크 사용 권한이 없습니다. 브라우저(Safari) 설정에서 이 사이트의 마이크를 허용해 주세요.\n\n" + IPHONE_MIC_HELP;
+          break;
+        case "service-not-allowed":
+          message = "이 기기/브라우저에서는 음성 인식 서비스를 사용할 수 없습니다.\n\n" + IPHONE_MIC_HELP;
+          break;
+        case "audio-capture":
+          message = "마이크를 사용할 수 없습니다. 다른 앱에서 마이크를 사용 중인지 확인해 주세요.";
+          break;
+        case "network":
+          message = "음성 인식 서버에 연결할 수 없습니다. 인터넷 연결을 확인해 주세요.";
+          break;
+        case "no-speech":
+          message = "음성이 감지되지 않았습니다. 마이크에 대고 다시 말씀해 주세요.";
+          break;
+        case "aborted":
+          message = "음성 인식이 중단되었습니다. 다시 눌러 주세요.";
+          break;
+      }
+      if (practiceRecognizedText) practiceRecognizedText.innerText = message;
+    };
+
+    rec.onend = () => {
+      if (rec !== recognition) return;
+      console.log('🎤 음성 인식 종료');
+      resetMicUI();
+    };
+
+    return rec;
+  }
+
+  function startRecognition() {
+    // 이전 객체 정리 (새 객체를 먼저 바꿔 끼운 뒤 옛 객체를 중단 → 옛 객체의 신호는 무시됨)
+    const oldRecognition = recognition;
+    recognition = createRecognition();
+    if (oldRecognition) {
+      try { oldRecognition.abort(); } catch (e) {}
+    }
+
+    // 누르자마자 화면에 반응을 보여줍니다. (아이폰은 권한 팝업이 늦게 뜰 수 있음)
+    isRecording = true;
+    if (practiceRecognizedText) practiceRecognizedText.innerText = '🎤 마이크를 준비하고 있어요...';
+    if (micIcon) micIcon.innerText = 'mic_off';
+
+    const begin = () => {
+      try {
+        console.log("🎤 음성 인식 시작 요청");
+        recognition.start();
+      } catch (error) {
+        console.error("recognition.start() 오류:", error);
+        resetMicUI();
+        if (practiceRecognizedText) {
+          practiceRecognizedText.innerText = "마이크를 시작할 수 없습니다. 잠시 후 다시 눌러 주세요.\n\n" + IPHONE_MIC_HELP;
+        }
+        return;
+      }
+
+      // 안전장치: 15초 안에 아무 신호도 없으면 강제로 버튼 상태를 되돌립니다.
+      if (recognitionWatchdog) clearTimeout(recognitionWatchdog);
+      recognitionWatchdog = setTimeout(() => {
+        try { recognition.abort(); } catch (e) {}
+        resetMicUI();
+        if (practiceRecognizedText) practiceRecognizedText.innerText = "음성 인식이 응답하지 않습니다. 버튼을 다시 눌러 주세요.";
+      }, 15000);
+    };
+
+    // 듣기(TTS) 소리가 나는 중이면 끄고, 잠깐 기다린 뒤 마이크를 켭니다.
+    if ('speechSynthesis' in window && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
+      window.speechSynthesis.cancel();
+      setTimeout(begin, 250);
+    } else {
+      begin();
+    }
+  }
+
+  // 마이크 버튼 (이벤트 연결은 한 번만)
+  micRecordBtn?.addEventListener('click', () => {
+    // 이 브라우저에 음성 인식 기능 자체가 없는 경우
+    if (!SpeechRecognitionClass) {
+      alert("이 브라우저에서는 음성 인식을 지원하지 않습니다.\n\n" + IPHONE_MIC_HELP);
+      return;
+    }
+
+    // 녹음 중이면 중지
+    if (isRecording) {
+      console.log("🎤 사용자가 음성 인식을 중지했습니다.");
+      try { recognition?.stop(); } catch (error) { console.error("recognition.stop() 오류:", error); }
+      // 아이폰이 종료 신호를 안 보내는 경우를 대비해 1.5초 뒤 강제 복구
+      setTimeout(() => { if (isRecording) resetMicUI(); }, 1500);
+      return;
+    }
+
+    startRecognition();
+  });
+ 
+
+  // ==================== DOM 완료 초기화 이벤트 리스너 통합 ====================
+  document.addEventListener('DOMContentLoaded', () => {
+    loadAllDatabases();
+
+    document.getElementById('back-to-dashboard')?.addEventListener('click', () => {
+      returnToDashboard(false);
+    });
+
+    document.getElementById('back-from-stats')?.addEventListener('click', () => {
+      goBackView();
+    });
+    
+    document.getElementById('back-from-quiz')?.addEventListener('click', () => {
+      stopQuizAndReturn(false);
+    });
+
+    document.getElementById('go-review-btn')?.addEventListener('click', () => {
+      openReviewMode();
+    });
+
+    document.getElementById('nav-weekly-stats')?.addEventListener('click', () => {
+      renderWeeklyStatsView();
+      showView('view-weekly-stats');
+    });
+
+
+    renderWeeklyStatsView();
+  });
+
+
 </script>
 
 </body>
