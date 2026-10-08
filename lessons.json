@@ -27,7 +27,7 @@
    "id": "1a-01-04",
    "lesson_id": 1,
    "word_kr": "미국",
-   "word_jp": "米国",
+   "word_jp": "アメリカ",
    "sentence_kr": "저는 미국 사람이에요.",
    "sentence_jp": "私はアメリカ人です。"
  },
@@ -77,7 +77,7 @@
    "word_kr": "학생",
    "word_jp": "学生",
    "sentence_kr": "여러분은 학생이에요?",
-   "sentence_jp": "皆さんは学生です。"
+   "sentence_jp": "皆さんは学生ですか？"
  },
  {
    "id": "1a-01-11",
@@ -85,7 +85,7 @@
    "word_kr": "여러분",
    "word_jp": "みなさん",
    "sentence_kr": "여러분은 일본 사람이에요?",
-   "sentence_jp": "あなたは日本人ですか？"
+   "sentence_jp": "皆さんは日本人ですか？"
  },
  {
    "id": "1a-01-12",
@@ -99,7 +99,7 @@
    "id": "1a-01-13",
    "lesson_id": 1,
    "word_kr": "어느",
-   "word_jp": "どこの",
+   "word_jp": "どの",
    "sentence_kr": "어느 나라 사람이에요?",
    "sentence_jp": "どこの国の人ですか？"
  },
@@ -213,7 +213,7 @@
    "word_kr": "가수",
    "word_jp": "歌手",
    "sentence_kr": "언니가 가수예요.",
-   "sentence_jp": "お姉さんは歌手です。"
+   "sentence_jp": "姉は歌手です。"
  },
  {
    "id": "1a-02-12",
@@ -221,7 +221,7 @@
    "word_kr": "배우",
    "word_jp": "俳優",
    "sentence_kr": "형이 배우예요.",
-   "sentence_jp": "お兄さんは俳優です。"
+   "sentence_jp": "兄は俳優です。"
  },
  {
    "id": "1a-02-13",
@@ -229,7 +229,7 @@
    "word_kr": "회사원",
    "word_jp": "会社員",
    "sentence_kr": "어머니가 회사원이에요.",
-   "sentence_jp": "お母さんは会社員です。"
+   "sentence_jp": "母は会社員です。"
  },
  {
    "id": "1a-02-14",
@@ -237,7 +237,7 @@
    "word_kr": "의사",
    "word_jp": "医者",
    "sentence_kr": "아버지가 의사예요.",
-   "sentence_jp": "お父さんは医者です。"
+   "sentence_jp": "父は医者です。"
  },
  {
    "id": "1a-02-15",
@@ -298,16 +298,16 @@
  {
    "id": "1a-02-22",
    "lesson_id": 2,
-   "word_kr": "이",
+   "word_kr": "이(가)",
    "word_jp": "は",
    "sentence_kr": "학생이 아니에요.",
-   "sentence_jp": "学生じゃないですね。"
+   "sentence_jp": "学生ではありません。"
  },
  {
    "id": "1a-02-23",
    "lesson_id": 2,
    "word_kr": "아니다",
-   "word_jp": "ないです",
+   "word_jp": "ではない",
    "sentence_kr": "누나가 아니에요.",
    "sentence_jp": "お姉さんじゃないです。"
  },
@@ -315,9 +315,9 @@
    "id": "1a-02-24",
    "lesson_id": 2,
    "word_kr": "처음",
-   "word_jp": "はじめて",
+   "word_jp": "初めて",
    "sentence_kr": "처음 뵙겠습니다.",
-   "sentence_jp": "始めまして。"
+   "sentence_jp": "初めまして。"
  },
  {
    "id": "1a-02-25",
@@ -356,8 +356,8 @@
    "lesson_id": 2,
    "word_kr": "그리고",
    "word_jp": "そして",
-   "sentence_kr": "아버지는 의사이고 어머니는 회사원이에요.",
-   "sentence_jp": "父は医者で、母は会社員です。"
+   "sentence_kr": "아버지는 의사예요. 그리고 어머니는 회사원이에요.",
+   "sentence_jp": "父は医者です。 そして母は会社員です。"
  },
  {
    "id": "1a-03-01",
@@ -459,7 +459,7 @@
    "id": "1a-03-13",
    "lesson_id": 3,
    "word_kr": "듣다",
-   "word_jp": " 聞く",
+   "word_jp": "聞く",
    "sentence_kr": "한국 노래를 듣습니다.",
    "sentence_jp": "韓国の歌を聞きます。"
  },
@@ -541,7 +541,7 @@
    "word_kr": "아주",
    "word_jp": "とても",
    "sentence_kr": "저는 한국 음식을 아주 좋아합니다.",
-   "sentence_jp": "私は韓国料理が大好きです。"
+   "sentence_jp": "私は韓国料理がとても好きです。"
  },
  {
    "id": "1a-03-24",
@@ -669,7 +669,7 @@
    "word_kr": "넓다",
    "word_jp": "広い",
    "sentence_kr": "회사가 넓습니다.",
-   "sentence_jp": "會社が広いです。"
+   "sentence_jp": "会社が広いです。"
  },
  {
    "id": "1a-04-12",
@@ -771,7 +771,7 @@
    "id": "1a-05-04",
    "lesson_id": 5,
    "word_kr": "맑다",
-   "word_jp": "晴れている",
+   "word_jp": "晴れる",
    "sentence_kr": "하늘이 맑습니다.",
    "sentence_jp": "空が晴れています。"
  },
@@ -779,7 +779,7 @@
    "id": "1a-05-05",
    "lesson_id": 5,
    "word_kr": "흐리다",
-   "word_jp": "曇っている",
+   "word_jp": "曇る",
    "sentence_kr": "하늘이 흐립니다.",
    "sentence_jp": "空が曇っています。"
  },
@@ -803,7 +803,7 @@
    "id": "1a-05-08",
    "lesson_id": 5,
    "word_kr": "오다",
-   "word_jp": "降る, 来る",
+   "word_jp": "来る",
    "sentence_kr": "선생님이 옵니다.",
    "sentence_jp": "先生が来ます。"
  },
@@ -828,7 +828,7 @@
    "lesson_id": 5,
    "word_kr": "따뜻하다",
    "word_jp": "暖かい",
-   "sentence_kr": "날씨가 따듯합니다.",
+   "sentence_kr": "날씨가 따뜻합니다.",
    "sentence_jp": "(天気が)暖かいです。"
  },
  {
@@ -875,7 +875,7 @@
    "id": "1a-05-17",
    "lesson_id": 5,
    "word_kr": "어떻다",
-   "word_jp": "どうである",
+   "word_jp": "どうだ",
    "sentence_kr": "날씨가 어떻습니까?",
    "sentence_jp": "天気はどうですか？"
  },
@@ -1011,7 +1011,7 @@
    "id": "1a-06-15",
    "lesson_id": 6,
    "word_kr": "안녕",
-   "word_jp": "何の問題もなく安らか",
+   "word_jp": "無事",
    "sentence_kr": "안녕히 가세요",
    "sentence_jp": "さようなら"
  },
@@ -1019,7 +1019,7 @@
    "id": "1a-06-16",
    "lesson_id": 6,
    "word_kr": "또",
-   "word_jp": "又",
+   "word_jp": "また",
    "sentence_kr": "또 봐요.",
    "sentence_jp": "また会いましょう。"
  },
@@ -1027,7 +1027,7 @@
    "id": "1a-06-17",
    "lesson_id": 6,
    "word_kr": "보다",
-   "word_jp": "会う",
+   "word_jp": "見る",
    "sentence_kr": "친구를 또 봐요.",
    "sentence_jp": "友達にまた会います。"
  },
@@ -1037,23 +1037,23 @@
    "word_kr": "계시다",
    "word_jp": "いらっしゃる",
    "sentence_kr": "안녕히 계세요.",
-   "sentence_jp": "(見送る相手に)さようなら。"
+   "sentence_jp": "さようなら。"
  },
  {
    "id": "1a-06-19",
    "lesson_id": 6,
    "word_kr": "천만에요",
    "word_jp": "どういたしまして",
-   "sentence_kr": "천만에요",
-   "sentence_jp": "どういたしまして"
+   "sentence_kr": "천만에요.",
+   "sentence_jp": "どういたしまして。"
  },
  {
    "id": "1a-06-20",
    "lesson_id": 6,
    "word_kr": "별 말씀을요",
    "word_jp": "とんでもございません",
-   "sentence_kr": "별 말씀을요",
-   "sentence_jp": "とんでもございません"
+   "sentence_kr": "별 말씀을요.",
+   "sentence_jp": "とんでもございません。"
  },
  {
    "id": "1a-06-21",
@@ -1131,9 +1131,9 @@
    "id": "1a-07-03",
    "lesson_id": 7,
    "word_kr": "기숙사",
-   "word_jp": "寄宿舎",
+   "word_jp": "寮",
    "sentence_kr": "기숙사가 어디입니까?",
-   "sentence_jp": "寄宿舎はどこですか？"
+   "sentence_jp": "寮はどこですか？"
  },
  {
    "id": "1a-07-04",
@@ -1396,7 +1396,7 @@
    "lesson_id": 7,
    "word_kr": "일하다",
    "word_jp": "働く",
-   "sentence_kr": "봉근 씨는 일본회사에서 일해요.",
+   "sentence_kr": "봉근 씨는 일본 회사에서 일해요.",
    "sentence_jp": "봉근さんは日本の会社で働いています。"
  },
  {
@@ -1411,7 +1411,7 @@
    "id": "1a-07-38",
    "lesson_id": 7,
    "word_kr": "마트",
-   "word_jp": "マート",
+   "word_jp": "マートー",
    "sentence_kr": "마트는 은행 옆에 있어요.",
    "sentence_jp": "マートーは銀行の隣にあります。"
  },
@@ -1484,7 +1484,7 @@
    "lesson_id": 8,
    "word_kr": "육",
    "word_jp": "六",
-   "sentence_kr": "육월 육일은 금요일이에요.",
+   "sentence_kr": "유월 육일은 금요일이에요.",
    "sentence_jp": "6月6日は金曜日です。"
  },
  {
@@ -1516,7 +1516,7 @@
    "lesson_id": 8,
    "word_kr": "십",
    "word_jp": "十",
-   "sentence_kr": "십월 십일은 월요일이에요.",
+   "sentence_kr": "시월 십일은 월요일이에요.",
    "sentence_jp": "10月10日は月曜日です。"
  },
  {
@@ -1588,15 +1588,15 @@
    "lesson_id": 8,
    "word_kr": "주말",
    "word_jp": "週末",
-   "sentence_kr": "주말은 회사에 안 가요.",
-   "sentence_jp": "週末は會社へ行きません。"
+   "sentence_kr": "주말에는 회사에 안 가요.",
+   "sentence_jp": "週末は会社へ行きません。"
  },
  {
    "id": "1a-08-20",
    "lesson_id": 8,
    "word_kr": "일",
    "word_jp": "日",
-   "sentence_kr": "12월 25일이에요",
+   "sentence_kr": "12월 25일이에요.",
    "sentence_jp": "12月25日です。"
  },
  {
@@ -1715,7 +1715,7 @@
    "id": "1a-08-35",
    "lesson_id": 8,
    "word_kr": "피곤하다",
-   "word_jp": "疲れる（つかれる）",
+   "word_jp": "疲れる",
    "sentence_kr": "일요일에 너무 피곤했습니다.",
    "sentence_jp": "日曜日はとても疲れました。"
  },
@@ -1748,24 +1748,24 @@
    "lesson_id": 9,
    "word_kr": "수영",
    "word_jp": "水泳",
-   "sentence_kr": "한동서 씨가 수영을 해요.",
-   "sentence_jp": "한동서さんが水泳をしています。"
+   "sentence_kr": "봉근 씨가 수영을 해요.",
+   "sentence_jp": "봉근さんが水泳をしています。"
  },
  {
    "id": "1a-09-03",
    "lesson_id": 9,
    "word_kr": "축구",
    "word_jp": "サッカー",
-   "sentence_kr": "선명덕 씨가 축구를 해요.",
-   "sentence_jp": "선명덕さんがサッカーをしています。"
+   "sentence_kr": "봉근 씨가 축구를 해요.",
+   "sentence_jp": "봉근さんがサッカーをしています。"
  },
  {
    "id": "1a-09-04",
    "lesson_id": 9,
    "word_kr": "농구",
-   "word_jp": "バスケットボール",
-   "sentence_kr": "윤하은 씨가 농구를 해요.",
-   "sentence_jp": "윤하은 さんがバスケをしています。"
+   "word_jp": "バスケ",
+   "sentence_kr": "봉근 씨가 농구를 해요.",
+   "sentence_jp": "봉근 さんがバスケをしています。"
  },
  {
    "id": "1a-09-05",
@@ -1779,17 +1779,17 @@
    "id": "1a-09-06",
    "lesson_id": 9,
    "word_kr": "잘하다",
-   "word_jp": "上手い",
-   "sentence_kr": "이선아 씨는 수영을 잘해요.",
-   "sentence_jp": "이선아さんは水泳が上手です。"
+   "word_jp": "上手だ",
+   "sentence_kr": "봉근 씨는 수영을 잘해요.",
+   "sentence_jp": "봉근さんは水泳が上手です。"
  },
  {
    "id": "1a-09-07",
    "lesson_id": 9,
    "word_kr": "연습",
    "word_jp": "練習",
-   "sentence_kr": "선명덕 씨가 축구 연습을 해요.",
-   "sentence_jp": "선명덕さんがサッカーの練習をしています。"
+   "sentence_kr": "봉근 씨가 축구 연습을 해요.",
+   "sentence_jp": "봉근さんがサッカーの練習をしています。"
  },
  {
    "id": "1a-09-08",
@@ -1803,9 +1803,9 @@
    "id": "1a-09-09",
    "lesson_id": 9,
    "word_kr": "자주",
-   "word_jp": "頻繁に",
+   "word_jp": "よく",
    "sentence_kr": "운동을 자주 해요?",
-   "sentence_jp": "運動を頻繁にしますか？"
+   "sentence_jp": "よく運動をしますか？"
  },
  {
    "id": "1a-09-10",
@@ -1819,9 +1819,9 @@
    "id": "1a-09-11",
    "lesson_id": 9,
    "word_kr": "다시",
-   "word_jp": "もう一度",
+   "word_jp": "また",
    "sentence_kr": "다시 야구를 시작했어요.",
-   "sentence_jp": "もう一度野球を始めました。"
+   "sentence_jp": "また野球を始めました。"
  },
  {
    "id": "1a-09-12",
@@ -1837,7 +1837,7 @@
    "word_kr": "부터",
    "word_jp": "から",
    "sentence_kr": "오늘부터 아침에 운동을 해요.",
-   "sentence_jp": "今日から朝から運動をします。"
+   "sentence_jp": "今日から朝に運動をします。"
  },
  {
    "id": "1a-09-14",
@@ -1901,7 +1901,7 @@
    "word_kr": "둘",
    "word_jp": "二つ",
    "sentence_kr": "하나는 먹고 둘은 남겨 주세요.",
-   "sentence_jp": "1つは食べて、2つは残してください"
+   "sentence_jp": "1つは食べて、2つは残してください。"
  },
  {
    "id": "1a-10-03",
@@ -2091,7 +2091,7 @@
    "id": "1a-10-26",
    "lesson_id": 10,
    "word_kr": "점심",
-   "word_jp": "昼食、お昼",
+   "word_jp": "昼",
    "sentence_kr": "점심에 식당에서 밥을 먹어요.",
    "sentence_jp": "お昼に食堂でご飯を食べます。"
  },
@@ -2123,7 +2123,7 @@
    "id": "1a-10-30",
    "lesson_id": 10,
    "word_kr": "한가하다",
-   "word_jp": "暇です",
+   "word_jp": "暇だ",
    "sentence_kr": "이번 주말에 한가해요.",
    "sentence_jp": "今週末は暇です。"
  },
@@ -2147,7 +2147,7 @@
    "id": "1a-11-03",
    "lesson_id": 11,
    "word_kr": "음료수",
-   "word_jp": " 飲み物",
+   "word_jp": "飲み物",
    "sentence_kr": "음료수를 마실까요?",
    "sentence_jp": "飲み物を飲みましょうか？"
  },
@@ -2164,7 +2164,7 @@
    "lesson_id": 11,
    "word_kr": "인분",
    "word_jp": "人前",
-   "sentence_kr": "비빔밥을 이인분 시킵시다",
+   "sentence_kr": "비빔밥을 2인분 시킵시다.",
    "sentence_jp": "ビビンバを2人前注文しましょう。"
  },
  {
@@ -2173,7 +2173,7 @@
    "word_kr": "주세요",
    "word_jp": "ください",
    "sentence_kr": "불고기 일 인분 주세요.",
-   "sentence_jp": "プルゴギ1人前ください。"
+   "sentence_jp": "プルコギ1人前ください。"
  },
  {
    "id": "1a-11-07",
@@ -2235,7 +2235,7 @@
    "id": "1a-11-14",
    "lesson_id": 11,
    "word_kr": "어때요",
-   "word_jp": "どうですか",
+   "word_jp": "どうですか？",
    "sentence_kr": "김밥은 어때요?",
    "sentence_jp": "キンパプはどうですか？"
  },
@@ -2243,9 +2243,9 @@
    "id": "1a-11-15",
    "lesson_id": 11,
    "word_kr": "배고프다",
-   "word_jp": "腹が減る",
+   "word_jp": "お腹が空く",
    "sentence_kr": "배가 고파서 식당에 가요.",
-   "sentence_jp": "お腹が減るたので食堂に行きます。"
+   "sentence_jp": "お腹が空いたので食堂に行きます。"
  },
  {
    "id": "1a-11-16",
@@ -2259,7 +2259,7 @@
    "id": "1a-12-01",
    "lesson_id": 12,
    "word_kr": "선물",
-   "word_jp": "プレゼント、贈り物",
+   "word_jp": "プレゼント",
    "sentence_kr": "친구에게 선물을 받았어요.",
    "sentence_jp": "友だちからプレゼントをもらいました。"
  },
@@ -2323,7 +2323,7 @@
    "id": "1a-12-09",
    "lesson_id": 12,
    "word_kr": "가게",
-   "word_jp": "店、～屋",
+   "word_jp": "店",
    "sentence_kr": "옷 가게에 손님이 많아요.",
    "sentence_jp": "服屋にお客さんがたくさんいます。"
  },
@@ -2355,7 +2355,7 @@
    "id": "1a-12-13",
    "lesson_id": 12,
    "word_kr": "가격",
-   "word_jp": "価格、値段",
+   "word_jp": "値段",
    "sentence_kr": "가방 가격이 많이 비쌌어요.",
    "sentence_jp": "カバンの値段がとても高かったです。"
  },
@@ -2363,7 +2363,7 @@
    "id": "1a-12-14",
    "lesson_id": 12,
    "word_kr": "쇼핑",
-   "word_jp": "ショッピング, 買い物.",
+   "word_jp": "ショッピング",
    "sentence_kr": "어제는 명동에서 쇼핑을 했어요.",
    "sentence_jp": "昨日は明洞でショッピングをしました。"
  },
@@ -2380,14 +2380,14 @@
    "lesson_id": 12,
    "word_kr": "할인하다",
    "word_jp": "割引する",
-   "sentence_kr": "할인해서 사만 원 입니다.",
+   "sentence_kr": "할인해서 사만 원입니다.",
    "sentence_jp": "値引きして4万ウォンです。"
  },
  {
    "id": "1a-12-17",
    "lesson_id": 12,
    "word_kr": "고르다",
-   "word_jp": "(物)を選ぶ",
+   "word_jp": "選ぶ",
    "sentence_kr": "오렌지 주스를 골랐어요.",
    "sentence_jp": "オレンジジュースを選びました。"
  },
@@ -2395,7 +2395,7 @@
    "id": "1a-12-18",
    "lesson_id": 12,
    "word_kr": "비싸다",
-   "word_jp": "(値段)が高い",
+   "word_jp": "高い",
    "sentence_kr": "원피스가 비싸요.",
    "sentence_jp": "ワンピースが高いです。"
  },
@@ -2420,7 +2420,7 @@
    "lesson_id": 12,
    "word_kr": "어렵다",
    "word_jp": "難しい",
-   "sentence_kr": "한국어 공부가 어려워요",
+   "sentence_kr": "한국어 공부가 어려워요.",
    "sentence_jp": "韓国語の勉強が難しいです。"
  },
  {
@@ -2428,7 +2428,7 @@
    "lesson_id": 12,
    "word_kr": "불다",
    "word_jp": "吹く",
-   "sentence_kr": "바람이 많이 불어요",
+   "sentence_kr": "바람이 많이 불어요.",
    "sentence_jp": "風が強く吹いています。"
  },
  {
@@ -2555,8 +2555,8 @@
    "id": "1a-13-16",
    "lesson_id": 13,
    "word_kr": "찾다",
-   "word_jp": "捜す",
-   "sentence_kr": "맛있는 한국식당을 찾고 있어요.",
+   "word_jp": "探す",
+   "sentence_kr": "맛있는 한국 식당을 찾고 있어요.",
    "sentence_jp": "おいしい韓国食堂を探しています。"
  },
  {
@@ -2708,8 +2708,8 @@
    "lesson_id": 14,
    "word_kr": "예매",
    "word_jp": "予約",
-   "sentence_kr": "비행기표를 예매할 거예요",
-   "sentence_jp": "飛行機のチケットを予約します"
+   "sentence_kr": "비행기 표를 예매할 거예요.",
+   "sentence_jp": "飛行機のチケットを予約するつもりです。"
  },
  {
    "id": "1a-14-18",
@@ -2756,7 +2756,7 @@
    "lesson_id": 14,
    "word_kr": "창문",
    "word_jp": "窓",
-   "sentence_kr": "청소하기 전에 창문을 열어요",
+   "sentence_kr": "청소하기 전에 창문을 열어요.",
    "sentence_jp": "掃除する前に窓を開けます。"
  },
  {
@@ -2771,7 +2771,7 @@
    "id": "1a-14-25",
    "lesson_id": 14,
    "word_kr": "걸다",
-   "word_jp": "掛ける",
+   "word_jp": "かける",
    "sentence_kr": "전화를 걸려고 휴대 전화를 찾고 있어요.",
    "sentence_jp": "電話をかけようと携帯電話を探しています。"
  },
@@ -2803,7 +2803,7 @@
    "id": "1a-14-29",
    "lesson_id": 14,
    "word_kr": "떠나다",
-   "word_jp": "去る",
+   "word_jp": "発つ",
    "sentence_kr": "전주를 떠나기 전에 친구들 선물을 샀습니다.",
    "sentence_jp": "全州を発つ前に友達のプレゼントを買いました。"
  },
@@ -2836,7 +2836,7 @@
    "lesson_id": 15,
    "word_kr": "머리",
    "word_jp": "頭",
-   "sentence_kr": "머리가 아파요",
+   "sentence_kr": "머리가 아파요.",
    "sentence_jp": "頭が痛いです。"
  },
  {
@@ -2844,7 +2844,7 @@
    "lesson_id": 15,
    "word_kr": "목",
    "word_jp": "首",
-   "sentence_kr": "목이 아파요",
+   "sentence_kr": "목이 아파요.",
    "sentence_jp": "首が痛いです。"
  },
  {
@@ -2852,7 +2852,7 @@
    "lesson_id": 15,
    "word_kr": "배",
    "word_jp": "お腹",
-   "sentence_kr": "배가 아파요",
+   "sentence_kr": "배가 아파요.",
    "sentence_jp": "お腹が痛いです。"
  },
  {
@@ -2860,7 +2860,7 @@
    "lesson_id": 15,
    "word_kr": "등",
    "word_jp": "背中",
-   "sentence_kr": "등이 아파요",
+   "sentence_kr": "등이 아파요.",
    "sentence_jp": "背中が痛いです。"
  },
  {
@@ -2868,7 +2868,7 @@
    "lesson_id": 15,
    "word_kr": "팔",
    "word_jp": "腕",
-   "sentence_kr": "팔이 아파요",
+   "sentence_kr": "팔이 아파요.",
    "sentence_jp": " 腕が痛いです。"
  },
  {
@@ -2876,7 +2876,7 @@
    "lesson_id": 15,
    "word_kr": "손",
    "word_jp": "手",
-   "sentence_kr": "손이 아파요",
+   "sentence_kr": "손이 아파요.",
    "sentence_jp": "手が痛いです。"
  },
  {
@@ -2884,7 +2884,7 @@
    "lesson_id": 15,
    "word_kr": "다리",
    "word_jp": "足",
-   "sentence_kr": "다리가 아파요",
+   "sentence_kr": "다리가 아파요.",
    "sentence_jp": "足が痛いです。"
  },
  {
@@ -2892,7 +2892,7 @@
    "lesson_id": 15,
    "word_kr": "발",
    "word_jp": "足",
-   "sentence_kr": "발이 아파요",
+   "sentence_kr": "발이 아파요.",
    "sentence_jp": "足が痛いです。"
  },
  {
@@ -2900,7 +2900,7 @@
    "lesson_id": 15,
    "word_kr": "무릎",
    "word_jp": "膝",
-   "sentence_kr": "무릎이 아파요",
+   "sentence_kr": "무릎이 아파요.",
    "sentence_jp": "膝が痛いです。"
  },
  {
@@ -2908,7 +2908,7 @@
    "lesson_id": 15,
    "word_kr": "손목",
    "word_jp": "手首",
-   "sentence_kr": "손목이 아파요",
+   "sentence_kr": "손목이 아파요.",
    "sentence_jp": "手首が痛いです。"
  },
  {
@@ -2916,7 +2916,7 @@
    "lesson_id": 15,
    "word_kr": "발목",
    "word_jp": "足首",
-   "sentence_kr": "발목이 아파요",
+   "sentence_kr": "발목이 아파요.",
    "sentence_jp": "足首が痛いです。"
  },
  {
@@ -2932,7 +2932,7 @@
    "lesson_id": 15,
    "word_kr": "약국",
    "word_jp": "薬局",
-   "sentence_kr": "약국에서 약을 사요",
+   "sentence_kr": "약국에서 약을 사요.",
    "sentence_jp": "薬局で薬を買います。"
  },
  {
@@ -2940,7 +2940,7 @@
    "lesson_id": 15,
    "word_kr": "아프다",
    "word_jp": "痛い",
-   "sentence_kr": "어제 몸이 아파서 수업에 못갔어요",
+   "sentence_kr": "어제 몸이 아파서 수업에 못 갔어요.",
    "sentence_jp": "昨日、体の調子が悪くて授業に行けませんでした。"
  },
  {
@@ -2949,7 +2949,7 @@
    "word_kr": "스트레스",
    "word_jp": "ストレス",
    "sentence_kr": "언제 스트레스를 받아요?",
-   "sentence_jp": "いつストレスを感じますか？"
+   "sentence_jp": "いつストレスを受けますか？"
  },
  {
    "id": "1a-15-19",
@@ -2972,7 +2972,7 @@
    "lesson_id": 15,
    "word_kr": "걸리다",
    "word_jp": "ひく",
-   "sentence_kr": "감기에 걸려서 병원에 갔어요",
+   "sentence_kr": "감기에 걸려서 병원에 갔어요.",
    "sentence_jp": "風邪をひいて病院に行きました。"
  },
  {
@@ -3020,7 +3020,7 @@
    "lesson_id": 15,
    "word_kr": "바로",
    "word_jp": "すぐ",
-   "sentence_kr": "스트레스를 바로 푸세요",
+   "sentence_kr": "스트레스를 바로 푸세요.",
    "sentence_jp": "ストレスをすぐに解消してください。"
  },
  {
@@ -3036,7 +3036,7 @@
    "lesson_id": 16,
    "word_kr": "교통수단",
    "word_jp": "交通手段",
-   "sentence_kr": "부산까지는 어떤 교통수단을 이용할 거에요?",
+   "sentence_kr": "부산까지는 어떤 교통수단을 이용할 거예요?",
    "sentence_jp": "釜山まではどんな交通手段を利用しますか？"
  },
  {
@@ -3044,7 +3044,7 @@
    "lesson_id": 16,
    "word_kr": "버스",
    "word_jp": "バス",
-   "sentence_kr": "버스를 타고 학교에 가요",
+   "sentence_kr": "버스를 타고 학교에 가요.",
    "sentence_jp": "バスに乗って学校へ行きます。"
  },
  {
@@ -3052,7 +3052,7 @@
    "lesson_id": 16,
    "word_kr": "지하철",
    "word_jp": "地下鉄",
-   "sentence_kr": "지하철을 타고 서울역에 갔어요",
+   "sentence_kr": "지하철을 타고 서울역에 갔어요.",
    "sentence_jp": "地下鉄に乗ってソウル駅に行きました。"
  },
  {
@@ -3068,7 +3068,7 @@
    "lesson_id": 16,
    "word_kr": "배",
    "word_jp": "船",
-   "sentence_kr": "한강에서 배를 탈 수 있어요",
+   "sentence_kr": "한강에서 배를 탈 수 있어요.",
    "sentence_jp": "漢江で船に乗ることができます。"
  },
  {
@@ -3076,7 +3076,7 @@
    "lesson_id": 16,
    "word_kr": "역",
    "word_jp": "駅",
-   "sentence_kr": "역에서 기차표를 샀어요",
+   "sentence_kr": "역에서 기차표를 샀어요.",
    "sentence_jp": "駅で切符を買いました。"
  },
  {
@@ -3084,7 +3084,7 @@
    "lesson_id": 16,
    "word_kr": "정류장",
    "word_jp": "停留場",
-   "sentence_kr": "학교 앞 버스 정류장에서 버스를 타세요",
+   "sentence_kr": "학교 앞 버스 정류장에서 버스를 타세요.",
    "sentence_jp": "学校の前のバス停でバスに乗ってください。"
  },
  {
@@ -3092,7 +3092,7 @@
    "lesson_id": 16,
    "word_kr": "터미널",
    "word_jp": "ターミナル",
-   "sentence_kr": "터미널에서 버스를 타요",
+   "sentence_kr": "터미널에서 버스를 타요.",
    "sentence_jp": "ターミナルでバスに乗ります。"
  },
  {
@@ -3100,7 +3100,7 @@
    "lesson_id": 16,
    "word_kr": "걸어가다",
    "word_jp": "歩いて行く",
-   "sentence_kr": "학교에 걸어가요",
+   "sentence_kr": "학교에 걸어가요.",
    "sentence_jp": "学校へ歩いて行きます。"
  },
  {
@@ -3108,7 +3108,7 @@
    "lesson_id": 16,
    "word_kr": "갈아타다",
    "word_jp": "乗り換える",
-   "sentence_kr": "시청역에서 한 번 갈아타요",
+   "sentence_kr": "시청역에서 한 번 갈아타요.",
    "sentence_jp": "市庁駅で一度乗り換えます。"
  },
  {
@@ -3156,7 +3156,7 @@
    "lesson_id": 16,
    "word_kr": "걸리다",
    "word_jp": "かかる",
-   "sentence_kr": "집에서 회사까지 한시간 걸려요",
+   "sentence_kr": "집에서 회사까지 한 시간 걸려요.",
    "sentence_jp": "家から会社まで1時間かかります。"
  },
  {
@@ -3180,7 +3180,7 @@
    "lesson_id": 16,
    "word_kr": "통장",
    "word_jp": "通帳",
-   "sentence_kr": "통장을 만들고 싶어요",
+   "sentence_kr": "통장을 만들고 싶어요.",
    "sentence_jp": "通帳を作りたいです。"
  },
  {
@@ -3188,14 +3188,14 @@
    "lesson_id": 16,
    "word_kr": "종이",
    "word_jp": "紙",
-   "sentence_kr": "이 종이를 받으십시오",
+   "sentence_kr": "이 종이를 받으십시오.",
    "sentence_jp": "この紙をお受け取りください。"
  },
  {
    "id": "1a-16-21",
    "lesson_id": 16,
    "word_kr": "쯤",
-   "word_jp": "頃",
+   "word_jp": "くらい",
    "sentence_kr": "여기에서 회사까지 30분쯤 걸려요.",
    "sentence_jp": "ここから会社まで30分くらいかかります。"
  },
@@ -3245,7 +3245,7 @@
    "word_kr": "쓰레기통",
    "word_jp": "ゴミ箱",
    "sentence_kr": "휴지는 쓰레기통에 버리세요.",
-   "sentence_jp": "トイレットペーパーはゴミ箱に捨ててください。"
+   "sentence_jp": "ティッシュはゴミ箱に捨ててください。"
  },
  {
    "id": "1a-17-05",
@@ -3276,7 +3276,7 @@
    "lesson_id": 17,
    "word_kr": "이사하다",
    "word_jp": "引っ越す",
-   "sentence_kr": "새집으로 이사해서 기분이 좋아요.",
+   "sentence_kr": "새 집으로 이사해서 기분이 좋아요.",
    "sentence_jp": "新しい家に引っ越して気分がいいです。"
  },
  {
@@ -3428,8 +3428,8 @@
    "lesson_id": 18,
    "word_kr": "머리카락",
    "word_jp": "髪",
-   "sentence_kr": "머리카락이 길어요",
-   "sentence_jp": "髪の毛が長いです"
+   "sentence_kr": "머리카락이 길어요.",
+   "sentence_jp": "髪の毛が長いです。"
  },
  {
    "id": "1a-18-10",
@@ -3437,7 +3437,7 @@
    "word_kr": "산책",
    "word_jp": "散歩",
    "sentence_kr": "한강 공원에서 산책을 해요.",
-   "sentence_jp": "漢江（ハンガン）公園で散歩します。"
+   "sentence_jp": "ハンガン公園で散歩します。"
  },
  {
    "id": "1a-18-11",
@@ -3476,7 +3476,7 @@
    "lesson_id": 18,
    "word_kr": "회관",
    "word_jp": "会館",
-   "sentence_kr": "예술회관에서 여러가지 공연을 해요.",
+   "sentence_kr": "예술회관에서 여러 가지 공연을 해요.",
    "sentence_jp": "芸術会館でいろいろな公演があります。"
  },
  {
@@ -3548,7 +3548,7 @@
    "lesson_id": 18,
    "word_kr": "옛날",
    "word_jp": "昔",
-   "sentence_kr": "박물관에 한국의 옛날 집과 옷을 봤어요.",
+   "sentence_kr": "박물관에서 한국의 옛날 집과 옷을 봤어요.",
    "sentence_jp": "博物館で韓国の昔の家と服を見ました。"
  },
  {
@@ -3578,7 +3578,7 @@
  {
    "id": "1a-18-28",
    "lesson_id": 18,
-   "word_kr": "숫가락",
+   "word_kr": "숟가락",
    "word_jp": "スプーン",
    "sentence_kr": "숟가락으로 국을 먹어요.",
    "sentence_jp": "スプーンでスープを飲みます。"
@@ -3620,7 +3620,7 @@
    "lesson_id": 19,
    "word_kr": "빵집",
    "word_jp": "パン屋",
-   "sentence_kr": "빵집에서 빵을 사고 있어요",
+   "sentence_kr": "빵집에서 빵을 사고 있어요.",
    "sentence_jp": "パン屋でパンを買っています。"
  },
  {
@@ -3644,7 +3644,7 @@
    "lesson_id": 19,
    "word_kr": "빼다",
    "word_jp": "引き出す",
-   "sentence_kr": "내일 통장에 돈을 뺄거에요.",
+   "sentence_kr": "내일 통장에서 돈을 뺄 거에요.",
    "sentence_jp": "明日、通帳からお金を引き出す予定です。"
  },
  {
@@ -3659,7 +3659,7 @@
    "id": "1a-19-06",
    "lesson_id": 19,
    "word_kr": "지하철역",
-   "word_jp": "地下鉄の駅（ちかてつのえき）",
+   "word_jp": "地下鉄の駅",
    "sentence_kr": "지하철역은 어디에 있어요?",
    "sentence_jp": "地下鉄の駅はどこにありますか？"
  },
@@ -3667,7 +3667,7 @@
    "id": "1a-19-07",
    "lesson_id": 19,
    "word_kr": "출구",
-   "word_jp": "出口（でぐち）",
+   "word_jp": "出口",
    "sentence_kr": "1번 출구가 어디예요?",
    "sentence_jp": "1番出口はどこですか？"
  },
@@ -3683,7 +3683,7 @@
    "id": "1a-19-09",
    "lesson_id": 19,
    "word_kr": "나가다",
-   "word_jp": "出る（でる）",
+   "word_jp": "出る",
    "sentence_kr": "3번 출구로 나가세요.",
    "sentence_jp": "3番出口から出てください。"
  },
@@ -3699,15 +3699,15 @@
    "id": "1a-19-11",
    "lesson_id": 19,
    "word_kr": "건너다",
-   "word_jp": "渡る（わたる）",
-   "sentence_kr": "횡단보도를 건너다.",
+   "word_jp": "渡る",
+   "sentence_kr": "횡단보도를 건너요.",
    "sentence_jp": "横断歩道を渡る。"
  },
  {
    "id": "1a-19-12",
    "lesson_id": 19,
    "word_kr": "오른쪽",
-   "word_jp": "右（みぎ）",
+   "word_jp": "右",
    "sentence_kr": "빵집은 학교 오른쪽에 있어요.",
    "sentence_jp": "パン屋は学校の右側にあります。"
  },
@@ -3715,7 +3715,7 @@
    "id": "1a-19-13",
    "lesson_id": 19,
    "word_kr": "왼쪽",
-   "word_jp": "左（ひだり）",
+   "word_jp": "左",
    "sentence_kr": "은행은 학교 왼쪽에 있어요.",
    "sentence_jp": "銀行は学校の左側にあります。"
  },
@@ -3723,7 +3723,7 @@
    "id": "1a-19-14",
    "lesson_id": 19,
    "word_kr": "건너편",
-   "word_jp": "向こう側（むこうがわ）",
+   "word_jp": "向こう側",
    "sentence_kr": "횡단보도 건너편에 버스 정류장이 있어요.",
    "sentence_jp": "横断歩道の向こう側にバス停があります。"
  },
@@ -3764,14 +3764,14 @@
    "lesson_id": 19,
    "word_kr": "백화점",
    "word_jp": "デパート",
-   "sentence_kr": "동생이랑 신발을 사러 백화점에 갈 거예요.",
-   "sentence_jp": "妹（弟）と靴を買いにデパートへ行くつもりです。"
+   "sentence_kr": "남동생이랑 신발을 사러 백화점에 갈 거예요.",
+   "sentence_jp": "弟と靴を買いにデパートへ行くつもりです。"
  },
  {
    "id": "1a-19-20",
    "lesson_id": 19,
    "word_kr": "선배",
-   "word_jp": "先輩（せんぱい）",
+   "word_jp": "先輩",
    "sentence_kr": "선배들이랑 노래방에 갈 거예요.",
    "sentence_jp": "先輩たちとカラオケに行くつもりです。"
  },
@@ -3779,7 +3779,7 @@
    "id": "1a-19-21",
    "lesson_id": 19,
    "word_kr": "후배",
-   "word_jp": "後輩（こうはい）",
+   "word_jp": "後輩",
    "sentence_kr": "후배에게 밥을 사줬어요.",
    "sentence_jp": "後輩にご飯をおごりました。"
  },
@@ -3787,9 +3787,9 @@
    "id": "1a-20-01",
    "lesson_id": 20,
    "word_kr": "보통말",
-   "word_jp": "普通体",
+   "word_jp": "ため口",
    "sentence_kr": "친구에게 보통말을 사용해요.",
-   "sentence_jp": "友達に普通体を使います。"
+   "sentence_jp": "友達にため口を使います。"
  },
  {
    "id": "1a-20-02",
@@ -3836,7 +3836,7 @@
    "lesson_id": 20,
    "word_kr": "댁",
    "word_jp": "お宅",
-   "sentence_kr": "선생님 댁에 갔어요",
+   "sentence_kr": "선생님 댁에 갔어요.",
    "sentence_jp": "先生のお宅に行きました。"
  },
  {
@@ -3860,7 +3860,7 @@
    "lesson_id": 21,
    "word_kr": "기온이 낮다",
    "word_jp": "気温が低い",
-   "sentence_kr": "기온이 낮아서 날씨가 추워요",
+   "sentence_kr": "기온이 낮아서 날씨가 추워요.",
    "sentence_jp": "気温が低いので、寒いです。"
  },
  {
@@ -3876,7 +3876,7 @@
    "lesson_id": 21,
    "word_kr": "태풍",
    "word_jp": "台風",
-   "sentence_kr": "태풍이 와요. 바람이 강하게 불고 비도 많이 내려요",
+   "sentence_kr": "태풍이 와요. 바람이 강하게 불고 비도 많이 내려요.",
    "sentence_jp": "台風が来ます。風が強く吹き、雨もたくさん降ります。"
  },
  {
@@ -3884,7 +3884,7 @@
    "lesson_id": 21,
    "word_kr": "사계절",
    "word_jp": "四季",
-   "sentence_kr": "한국에는 사계절이 있어요. 봄, 여름, 가을, 겨울이에요",
+   "sentence_kr": "한국에는 사계절이 있어요. 봄, 여름, 가을, 겨울이에요.",
    "sentence_jp": "韓国には四季があります。春、夏、秋、冬です。"
  },
  {
@@ -3893,14 +3893,14 @@
    "word_kr": "날씨",
    "word_jp": "天気",
    "sentence_kr": "오늘 날씨가 좋아요.",
-   "sentence_jp": "今日の天気はいいです。"
+   "sentence_jp": "今日、天気がいいです。"
  },
  {
    "id": "2a-21-08",
    "lesson_id": 21,
    "word_kr": "햇빛",
    "word_jp": "日差し",
-   "sentence_kr": "햇빛이 강해요. 땀이 나요",
+   "sentence_kr": "햇빛이 강해요. 땀이 나요.",
    "sentence_jp": "日差しが強いです。汗をかきます。"
  },
  {
@@ -3916,23 +3916,23 @@
    "lesson_id": 21,
    "word_kr": "선선하다",
    "word_jp": "涼しい",
-   "sentence_kr": "가을이 되니까 날씨가 선선해요",
-   "sentence_jp": "秋になると、涼しくなります。"
+   "sentence_kr": "가을이 되니까 날씨가 선선해요.",
+   "sentence_jp": "秋になったので天気が涼しいです。"
  },
  {
    "id": "2a-21-11",
    "lesson_id": 21,
    "word_kr": "쌀쌀하다",
    "word_jp": "肌寒い",
-   "sentence_kr": "날씨가 쌀쌀해요. 옷을 두껍게 입어요",
-   "sentence_jp": "肌寒いです。服を厚く着ます。"
+   "sentence_kr": "날씨가 쌀쌀해요. 옷을 두껍게 입어요.",
+   "sentence_jp": "肌寒いです。厚着をしましょう。"
  },
  {
    "id": "2a-21-12",
    "lesson_id": 21,
    "word_kr": "구름이 끼다",
    "word_jp": "雲がかかる",
-   "sentence_kr": "구름이 껴서 해가 보이지 않아요",
+   "sentence_kr": "구름이 껴서 해가 보이지 않아요.",
    "sentence_jp": "雲がかかって、太陽が見えません。"
  },
  {
@@ -3940,7 +3940,7 @@
    "lesson_id": 21,
    "word_kr": "안개가 끼다",
    "word_jp": "霧がかかる",
-   "sentence_kr": "안개가 껴서 운전할 수 없어요",
+   "sentence_kr": "안개가 껴서 운전할 수 없어요.",
    "sentence_jp": "霧がかかって、運転できません。"
  },
  {
@@ -3948,7 +3948,7 @@
    "lesson_id": 21,
    "word_kr": "바람이 불다",
    "word_jp": "風が吹く",
-   "sentence_kr": "바람이 많이 불어서 날씨가 추워요",
+   "sentence_kr": "바람이 많이 불어서 날씨가 추워요.",
    "sentence_jp": "風が強く吹いて、寒いです。"
  },
  {
@@ -3988,16 +3988,16 @@
    "lesson_id": 22,
    "word_kr": "깨끗하다",
    "word_jp": "きれいだ",
-   "sentence_kr": "거리가 깨끗해요",
+   "sentence_kr": "거리가 깨끗해요.",
    "sentence_jp": "通りがきれいです。"
  },
  {
    "id": "2a-22-05",
    "lesson_id": 22,
    "word_kr": "복잡하다",
-   "word_jp": "複雑だ",
+   "word_jp": "混雑している",
    "sentence_kr": "길이 복잡해요.",
-   "sentence_jp": "道が混んでいます"
+   "sentence_jp": "道が混んでいます。"
  },
  {
    "id": "2a-22-06",
@@ -4013,7 +4013,7 @@
    "word_kr": "외모",
    "word_jp": "外見",
    "sentence_kr": "저는 사람의 외모보다 성격을 더 중요하게 생각해요.",
-   "sentence_jp": "私は人の外見より性格をもっと大切だと思います。"
+   "sentence_jp": "私は人の外見より性格をもっと大切に考えています。"
  },
  {
    "id": "2a-23-02",
@@ -4028,8 +4028,8 @@
    "lesson_id": 23,
    "word_kr": "귀엽다",
    "word_jp": "かわいい",
-   "sentence_kr": "제 동생은 5살이에요. 정말 귀여워요.",
-   "sentence_jp": "私の弟（妹）は5歳です。本当に可愛いです。"
+   "sentence_kr": "제 남동생은 5살이에요. 정말 귀여워요.",
+   "sentence_jp": "私の弟は5歳です。本当に可愛いです。"
  },
  {
    "id": "2a-23-04",
@@ -4052,7 +4052,7 @@
    "lesson_id": 23,
    "word_kr": "까만색",
    "word_jp": "黒色",
-   "sentence_kr": "저는 까만색 바지를 입고 있어요",
+   "sentence_kr": "저는 까만색 바지를 입고 있어요.",
    "sentence_jp": "私は黒いズボンをはいています。"
  },
  {
@@ -4068,15 +4068,15 @@
    "lesson_id": 23,
    "word_kr": "하얀색",
    "word_jp": "白色",
-   "sentence_kr": "제 동생은 하얀색 모자를 좋아해요",
-   "sentence_jp": "私の弟（妹）は白い帽子が好きです。"
+   "sentence_kr": "제 여동생은 하얀색 모자를 좋아해요.",
+   "sentence_jp": "私の妹は白い帽子が好きです。"
  },
  {
    "id": "2a-23-09",
    "lesson_id": 23,
    "word_kr": "파란색",
    "word_jp": "青色",
-   "sentence_kr": "우리형은 파란색 티셔츠를 자주 입어요",
+   "sentence_kr": "우리 형은 파란색 티셔츠를 자주 입어요.",
    "sentence_jp": "兄は青いTシャツをよく着ます。"
  },
  {
@@ -4100,7 +4100,7 @@
    "lesson_id": 24,
    "word_kr": "마트",
    "word_jp": "スーパー",
-   "sentence_kr": "마트에서 장을 보고 음식을 만들어요",
+   "sentence_kr": "마트에서 장을 보고 음식을 만들어요.",
    "sentence_jp": "スーパーで買い物をして、料理を作ります。"
  },
  {
@@ -4108,15 +4108,15 @@
    "lesson_id": 24,
    "word_kr": "공짜",
    "word_jp": "ただ",
-   "sentence_kr": "오늘 사과 5개를 사세요. 그럼 하나는 공짜에요",
-   "sentence_jp": "今日はりんごを5個買ってください。そうすると1つは無料です。"
+   "sentence_kr": "오늘 사과 5개를 사세요. 그럼 하나는 공짜예요.",
+   "sentence_jp": "今日はりんごを5個買ってください。そうすると1つはただです。"
  },
  {
    "id": "2a-24-04",
    "lesson_id": 24,
    "word_kr": "할인",
    "word_jp": "割引",
-   "sentence_kr": "쿠폰으로 할인 받을 수 있어요?",
+   "sentence_kr": "쿠폰으로 할인받을 수 있어요?",
    "sentence_jp": "クーポンで割引を受けられますか。"
  },
  {
@@ -4125,7 +4125,7 @@
    "word_kr": "양념",
    "word_jp": "調味料",
    "sentence_kr": "한국 음식은 양념이 다양해서 맛있어요.",
-   "sentence_jp": "韓国料理は調味料が多様なのでおいしいです。"
+   "sentence_jp": "韓国料理は調味料が多様でおいしいです。"
  },
  {
    "id": "2a-24-06",
@@ -4156,7 +4156,7 @@
    "lesson_id": 24,
    "word_kr": "설탕",
    "word_jp": "砂糖",
-   "sentence_kr": "저는 커피에 설탕을 안 넣어요",
+   "sentence_kr": "저는 커피에 설탕을 안 넣어요.",
    "sentence_jp": "私はコーヒーに砂糖を入れません。"
  },
  {
@@ -4172,7 +4172,7 @@
    "lesson_id": 24,
    "word_kr": "쌀",
    "word_jp": "米",
-   "sentence_kr": "쌀을 씻어서 밥을 지어요",
+   "sentence_kr": "쌀을 씻어서 밥을 지어요.",
    "sentence_jp": "米をといで、ご飯を炊きます。"
  },
  {
@@ -4196,7 +4196,7 @@
    "lesson_id": 24,
    "word_kr": "돼지고기",
    "word_jp": "豚肉",
-   "sentence_kr": "저는 돼지고기 중에서 삼겹살을 제일 좋아해요",
+   "sentence_kr": "저는 돼지고기 중에서 삼겹살을 제일 좋아해요.",
    "sentence_jp": "豚肉の中ではサムギョプサルが一番好きです。"
  },
  {
@@ -4212,7 +4212,7 @@
    "lesson_id": 24,
    "word_kr": "야채",
    "word_jp": "野菜",
-   "sentence_kr": "고기와 야채를 같이 먹어야 해요",
+   "sentence_kr": "고기와 야채를 같이 먹어야 해요.",
    "sentence_jp": "肉と野菜を一緒に食べなければなりません。"
  },
  {
@@ -4236,7 +4236,7 @@
    "lesson_id": 25,
    "word_kr": "주문",
    "word_jp": "注文",
-   "sentence_kr": "저희 주문할게요",
+   "sentence_kr": "저희 주문할게요.",
    "sentence_jp": "注文します。"
  },
  {
@@ -4259,9 +4259,9 @@
    "id": "2a-25-04",
    "lesson_id": 25,
    "word_kr": "포장",
-   "word_jp": "テイクアウト",
-   "sentence_kr": "이 음식을 포장해 주세요",
-   "sentence_jp": "この料理をテイクアウトにしてください。"
+   "word_jp": "持ち帰り",
+   "sentence_kr": "이 음식을 포장해 주세요.",
+   "sentence_jp": "この料理を持ち帰りにしてください。"
  },
  {
    "id": "2a-25-05",
@@ -4284,7 +4284,7 @@
    "lesson_id": 25,
    "word_kr": "숟가락",
    "word_jp": "スプーン",
-   "sentence_kr": "숟가락 좀 바꿔주세요.",
+   "sentence_kr": "숟가락 좀 바꿔 주세요.",
    "sentence_jp": "スプーンを替えてください。"
  },
  {
@@ -4299,9 +4299,9 @@
    "id": "2a-25-09",
    "lesson_id": 25,
    "word_kr": "수저",
-   "word_jp": "食器セット",
-   "sentence_kr": "여기 수저 좀 주세요",
-   "sentence_jp": "箸とスプーンをください。"
+   "word_jp": "スプーンと箸",
+   "sentence_kr": "여기 수저 좀 주세요.",
+   "sentence_jp": "スプーンと箸をください。"
  },
  {
    "id": "2a-25-10",
@@ -4332,7 +4332,7 @@
    "lesson_id": 26,
    "word_kr": "하루",
    "word_jp": "一日",
-   "sentence_kr": "하루 동안 방을 청소해요",
+   "sentence_kr": "하루 동안 방을 청소해요.",
    "sentence_jp": "一日中部屋を掃除します。"
  },
  {
@@ -4340,7 +4340,7 @@
    "lesson_id": 26,
    "word_kr": "이틀",
    "word_jp": "二日",
-   "sentence_kr": "이틀 동안 수영을 배워요",
+   "sentence_kr": "이틀 동안 수영을 배워요.",
    "sentence_jp": "二日間水泳を習います。"
  },
  {
@@ -4364,7 +4364,7 @@
    "lesson_id": 26,
    "word_kr": "해외여행",
    "word_jp": "海外旅行",
-   "sentence_kr": "이번에 해외여행을 갈 거에요.",
+   "sentence_kr": "이번에 해외여행을 갈 거예요.",
    "sentence_jp": "今回は海外旅行に行くつもりです。"
  },
  {
@@ -4388,7 +4388,7 @@
    "lesson_id": 26,
    "word_kr": "경치",
    "word_jp": "景色",
-   "sentence_kr": "경치가 아름다워요",
+   "sentence_kr": "경치가 아름다워요.",
    "sentence_jp": "景色が美しいです。"
  },
  {
@@ -4436,7 +4436,7 @@
    "lesson_id": 27,
    "word_kr": "내과",
    "word_jp": "内科",
-   "sentence_kr": "배가 아파서 내과에 가요",
+   "sentence_kr": "배가 아파서 내과에 가요.",
    "sentence_jp": "お腹が痛くて内科に行きます。"
  },
  {
@@ -4444,7 +4444,7 @@
    "lesson_id": 27,
    "word_kr": "치과",
    "word_jp": "歯科",
-   "sentence_kr": "이를 뽑으러 치과에 가요",
+   "sentence_kr": "이를 뽑으러 치과에 가요.",
    "sentence_jp": "歯を抜きに歯科に行きます。"
  },
  {
@@ -4469,7 +4469,7 @@
    "word_kr": "두통",
    "word_jp": "頭痛",
    "sentence_kr": "스트레스를 받아서 두통이 생겼어요.",
-   "sentence_jp": "ストレスで頭痛がしました。"
+   "sentence_jp": "ストレスを受けて頭痛が起こりました。"
  },
  {
    "id": "2a-27-07",
@@ -4477,7 +4477,7 @@
    "word_kr": "배탈",
    "word_jp": "腹痛",
    "sentence_kr": "매운 음식을 자주 먹어서 배탈이 났어요.",
-   "sentence_jp": "辛い食べ物をよく食べて、お腹をこわしました。"
+   "sentence_jp": "辛い食べ物を頻繁に食べてお腹を壊しました。"
  },
  {
    "id": "2a-27-08",
@@ -4492,7 +4492,7 @@
    "lesson_id": 27,
    "word_kr": "콧물",
    "word_jp": "鼻水",
-   "sentence_kr": "감기에 걸려서 콧물이 나와요",
+   "sentence_kr": "감기에 걸려서 콧물이 나와요.",
    "sentence_jp": "風邪をひいて、鼻水が出ます。"
  },
  {
@@ -4508,8 +4508,8 @@
    "lesson_id": 27,
    "word_kr": "치료",
    "word_jp": "治療",
-   "sentence_kr": "의사 선생님이 치료해 주실 거예요",
-   "sentence_jp": "先生が治療してくださるでしょう。"
+   "sentence_kr": "의사 선생님이 치료해 주실 거예요.",
+   "sentence_jp": "お医者さんが治療してくださるでしょう。"
  },
  {
    "id": "2a-27-12",
@@ -4523,9 +4523,9 @@
    "id": "2a-27-13",
    "lesson_id": 27,
    "word_kr": "소화제",
-   "word_jp": "消化薬",
+   "word_jp": "胃腸薬",
    "sentence_kr": "소화가 잘 안 돼서 소화제를 먹었어요.",
-   "sentence_jp": "消化がよくなくて、消化薬を飲みました。"
+   "sentence_jp": "消化がよくなくて、胃腸薬を飲みました。"
  },
  {
    "id": "2a-27-14",
@@ -4556,7 +4556,7 @@
    "lesson_id": 28,
    "word_kr": "예매",
    "word_jp": "前売り",
-   "sentence_kr": "영화 표는 제가 예매할게요",
+   "sentence_kr": "영화 표는 제가 예매할게요.",
    "sentence_jp": "映画のチケットは私が前もって予約します。"
  },
  {
@@ -4572,7 +4572,7 @@
    "lesson_id": 28,
    "word_kr": "자리",
    "word_jp": "席",
-   "sentence_kr": "자리가 없어요",
+   "sentence_kr": "자리가 없어요.",
    "sentence_jp": "席がありません。"
  },
  {
@@ -4580,7 +4580,7 @@
    "lesson_id": 28,
    "word_kr": "평일",
    "word_jp": "平日",
-   "sentence_kr": "평일이라서 표가 많아요",
+   "sentence_kr": "평일이라서 표가 많아요.",
    "sentence_jp": "平日なので、チケットがたくさんあります。"
  },
  {
@@ -4604,7 +4604,7 @@
    "lesson_id": 28,
    "word_kr": "팔리다",
    "word_jp": "売れる",
-   "sentence_kr": "표가 다 팔렸어요",
+   "sentence_kr": "표가 다 팔렸어요.",
    "sentence_jp": "チケットは売り切れました。"
  },
  {
@@ -4612,8 +4612,8 @@
    "lesson_id": 28,
    "word_kr": "남다",
    "word_jp": "残る",
-   "sentence_kr": "시간이 남았어요",
-   "sentence_jp": "まだ時間があります"
+   "sentence_kr": "시간이 남았어요.",
+   "sentence_jp": "まだ時間があります。"
  },
  {
    "id": "2a-28-09",
@@ -4636,7 +4636,7 @@
    "lesson_id": 28,
    "word_kr": "지루하다",
    "word_jp": "退屈だ",
-   "sentence_kr": "영화가 좀 지루했어요",
+   "sentence_kr": "영화가 좀 지루했어요.",
    "sentence_jp": "映画が少し退屈でした。"
  },
  {
@@ -4676,7 +4676,7 @@
    "lesson_id": 29,
    "word_kr": "낚시",
    "word_jp": "釣り",
-   "sentence_kr": "주말에 낚시하러 갈 거예요",
+   "sentence_kr": "주말에 낚시하러 갈 거예요.",
    "sentence_jp": "週末に釣りに行くつもりです。"
  },
  {
@@ -4699,7 +4699,7 @@
    "id": "2a-29-05",
    "lesson_id": 29,
    "word_kr": "부지런하다",
-   "word_jp": "真面目だ、働き者だ",
+   "word_jp": "勤勉だ",
    "sentence_kr": "정말 부지런하네요.",
    "sentence_jp": "本当に勤勉ですね。"
  },
@@ -4708,7 +4708,7 @@
    "lesson_id": 29,
    "word_kr": "귀찮다",
    "word_jp": "面倒だ",
-   "sentence_kr": "나가기 귀찮아요",
+   "sentence_kr": "나가기 귀찮아요.",
    "sentence_jp": "出かけるのが面倒です。"
  },
  {
@@ -4732,7 +4732,7 @@
    "lesson_id": 29,
    "word_kr": "늘",
    "word_jp": "いつも",
-   "sentence_kr": "늘 한국어 공부를 해요",
+   "sentence_kr": "늘 한국어 공부를 해요.",
    "sentence_jp": "いつも韓国語の勉強をします。"
  },
  {
@@ -4772,7 +4772,7 @@
    "lesson_id": 30,
    "word_kr": "교환학생",
    "word_jp": "交換学生",
-   "sentence_kr": "올해 교환 학생으로 한국에 가요",
+   "sentence_kr": "올해 교환 학생으로 한국에 가요.",
    "sentence_jp": "今年、交換学生として韓国に行きます。"
  },
  {
@@ -4780,7 +4780,7 @@
    "lesson_id": 30,
    "word_kr": "대학원",
    "word_jp": "大学院",
-   "sentence_kr": "대학교를 졸업한 후에 대학원을 갈 거예요.",
+   "sentence_kr": "대학교를 졸업한 후에 대학원에 갈 거예요.",
    "sentence_jp": "大学を卒業した後、大学院に行くつもりです。"
  },
  {
@@ -4804,8 +4804,8 @@
    "lesson_id": 30,
    "word_kr": "학기",
    "word_jp": "学期",
-   "sentence_kr": "방학이 끝나고 학기를 시작했어요.",
-   "sentence_jp": "休みが終わって、学期を始めました。"
+   "sentence_kr": "방학이 끝나고 새 학기를 시작됐어요.",
+   "sentence_jp": "休みが終わって、新学期が始まりました。"
  },
  {
    "id": "2a-30-07",
@@ -4828,7 +4828,7 @@
    "lesson_id": 30,
    "word_kr": "결석하다",
    "word_jp": "欠席する",
-   "sentence_kr": "오늘 아파서 수업에 못 가고 결석했어요",
+   "sentence_kr": "오늘 아파서 수업에 못 가고 결석했어요.",
    "sentence_jp": "今日は具合が悪くて授業に行けず、欠席しました。"
  },
  {
@@ -4844,7 +4844,7 @@
    "lesson_id": 30,
    "word_kr": "성적",
    "word_jp": "成績",
-   "sentence_kr": "열심히 공부해서 좋은 성적을 받았어요",
+   "sentence_kr": "열심히 공부해서 좋은 성적을 받았어요.",
    "sentence_jp": "一生懸命勉強して、いい成績を取りました。"
  },
  {
@@ -4860,7 +4860,7 @@
    "lesson_id": 30,
    "word_kr": "안내문",
    "word_jp": "案内文",
-   "sentence_kr": "학교에 처음 와서 학교생활 안내문을 받았어요",
+   "sentence_kr": "학교에 처음 와서 학교생활 안내문을 받았어요.",
    "sentence_jp": "初めて学校に来て、学校生活の案内をもらいました。"
  },
  {
@@ -4898,9 +4898,9 @@
  {
    "id": "2a-31-03",
    "lesson_id": 31,
-   "word_kr": "휴대 전화(휴대폰)",
+   "word_kr": "휴대 전화",
    "word_jp": "携帯電話",
-   "sentence_kr": "휴대폰이 안 보여요.",
+   "sentence_kr": "휴대 전화가 안 보여요.",
    "sentence_jp": "携帯電話が見えません。"
  },
  {
@@ -4922,18 +4922,18 @@
  {
    "id": "2a-31-06",
    "lesson_id": 31,
-   "word_kr": "잃어 버리다",
+   "word_kr": "잃어버리다",
    "word_jp": "失くす",
-   "sentence_kr": "지갑을 잃어 버렸어요.",
-   "sentence_jp": "傘を失くしてしまいました。"
+   "sentence_kr": "지갑을 잃어버렸어요.",
+   "sentence_jp": "財布をなくしてしまいました。"
  },
  {
    "id": "2a-31-07",
    "lesson_id": 31,
    "word_kr": "찾다",
-   "word_jp": "見つける、探す",
+   "word_jp": "見つける",
    "sentence_kr": "버스 정류장에서 제 우산을 찾았어요.",
-   "sentence_jp": "バス停留所で私の傘を見つけました。"
+   "sentence_jp": "バス停で私の傘を見つけました。"
  },
  {
    "id": "2a-31-08",
@@ -4963,9 +4963,9 @@
    "id": "2a-31-11",
    "lesson_id": 31,
    "word_kr": "적다",
-   "word_jp": "記す",
+   "word_jp": "書く",
    "sentence_kr": "이름을 적으세요.",
-   "sentence_jp": "名前を記してください。"
+   "sentence_jp": "名前を書いてください。"
  },
  {
    "id": "2a-31-12",
@@ -4978,8 +4978,8 @@
  {
    "id": "2a-31-13",
    "lesson_id": 31,
-   "word_kr": "(장소)에 두다",
-   "word_jp": "(場所)に置く",
+   "word_kr": "두다",
+   "word_jp": "置く",
    "sentence_kr": "노트북을 책상에 두고 왔어요.",
    "sentence_jp": "ノートパソコンを机に置いてきました。"
  },
@@ -5018,8 +5018,8 @@
  {
    "id": "2a-31-18",
    "lesson_id": 31,
-   "word_kr": "걸어왔기 때문에",
-   "word_jp": "歩いてきたので",
+   "word_kr": "때문에",
+   "word_jp": "たので",
    "sentence_kr": "집에서 학교까지 걸어왔기 때문에 조금 피곤해요.",
    "sentence_jp": "家から学校まで歩いて来たので少し疲れています。"
  },
@@ -5051,7 +5051,7 @@
    "id": "2a-32-04",
    "lesson_id": 32,
    "word_kr": "돕다",
-   "word_jp": "助ける、手伝う",
+   "word_jp": "助ける",
    "sentence_kr": "제 친구는 다른 사람들을 잘 돕는 사람이에요.",
    "sentence_jp": "私の友だちは他人をよく助ける人です。"
  },
@@ -5061,7 +5061,7 @@
    "word_kr": "화나다",
    "word_jp": "怒る",
    "sentence_kr": "친구가 거짓말을 해서 화났어요.",
-   "sentence_jp": "友だちが嘘をついたので怒りました。"
+   "sentence_jp": "友だちが嘘をついたので腹が立ちました。"
  },
  {
    "id": "2a-32-06",
@@ -5075,7 +5075,7 @@
    "id": "2a-32-07",
    "lesson_id": 32,
    "word_kr": "성향",
-   "word_jp": "性格傾向",
+   "word_jp": "性向",
    "sentence_kr": "사람마다 성향이 달라서 생각도 달라요.",
    "sentence_jp": "人によって性向が違うので考え方も違います。"
  },
@@ -5083,7 +5083,7 @@
    "id": "2a-32-08",
    "lesson_id": 32,
    "word_kr": "착하다",
-   "word_jp": "善良だ、優しい",
+   "word_jp": "優しい",
    "sentence_kr": "저는 착한 사람을 좋아해요.",
    "sentence_jp": "私は優しい人が好きです。"
  },
@@ -5099,9 +5099,9 @@
    "id": "2a-32-10",
    "lesson_id": 32,
    "word_kr": "부지런하다",
-   "word_jp": "勤勉だ、働き者だ",
-   "sentence_kr": "동생은 매일 6시에 일어나는 부지런한 사람이에요.",
-   "sentence_jp": "弟/妹は毎日6時に起きる働き者な人です。"
+   "word_jp": "働き者だ",
+   "sentence_kr": "남동생은 매일 6시에 일어나는 부지런한 사람이에요.",
+   "sentence_jp": "弟は毎日6時に起きる働き者な人です。"
  },
  {
    "id": "2a-32-11",
@@ -5117,13 +5117,13 @@
    "word_kr": "게으르다",
    "word_jp": "怠ける",
    "sentence_kr": "저는 조금 게을러서 친구들보다 숙제를 늦게 시작해요.",
-   "sentence_jp": "私は少し怠け者で友だちより宿題を遅くなってから始めます。"
+   "sentence_jp": "私は少し怠け者で友だちより宿題を始めるのが遅いです。"
  },
  {
    "id": "2a-32-13",
    "lesson_id": 32,
-   "word_kr": "(약속)을 지키다",
-   "word_jp": "約束を守る",
+   "word_kr": "지키다",
+   "word_jp": "守る",
    "sentence_kr": "저는 친구와 한 약속을 꼭 지켜요.",
    "sentence_jp": "私は友だちとした約束を守ります。"
  },
@@ -5132,7 +5132,7 @@
    "lesson_id": 32,
    "word_kr": "성격이 좋다",
    "word_jp": "性格が良い",
-   "sentence_kr": "내 친구는 성격이 아주 좋아요.",
+   "sentence_kr": "제 친구는 성격이 아주 좋아요.",
    "sentence_jp": "私の友だちは性格がとても良いです。"
  },
  {
@@ -5165,7 +5165,7 @@
    "word_kr": "요리",
    "word_jp": "料理",
    "sentence_kr": "누나가 만드는 요리는 모두 맛있어요.",
-   "sentence_jp": "お姉さんが作る料理はどれも美味しいです。"
+   "sentence_jp": "姉が作る料理はどれも美味しいです。"
  },
  {
    "id": "2a-33-05",
@@ -5194,16 +5194,16 @@
  {
    "id": "2a-33-08",
    "lesson_id": 33,
-   "word_kr": "(창문)을 닦다",
-   "word_jp": "(窓)を拭く",
+   "word_kr": "닦다",
+   "word_jp": "拭く",
    "sentence_kr": "오늘 오후에 창문을 닦았어요.",
    "sentence_jp": "今日午後に窓を拭きました。"
  },
  {
    "id": "2a-33-09",
    "lesson_id": 33,
-   "word_kr": "(세탁기)를 돌리다",
-   "word_jp": "(洗濯機)を回す",
+   "word_kr": "돌리다",
+   "word_jp": "回す",
    "sentence_kr": "세탁기를 돌리고 청소를 할 거예요.",
    "sentence_jp": "洗濯機を回して掃除をするつもりです。"
  },
@@ -5220,8 +5220,8 @@
    "lesson_id": 33,
    "word_kr": "집안일을 나누다",
    "word_jp": "家事を分ける",
-   "sentence_kr": "저는 동생과 집안일을 나눠서 해요.",
-   "sentence_jp": "私は弟/妹と家事を分担してします。"
+   "sentence_kr": "저는 여동생과 집안일을 나눠서 해요.",
+   "sentence_jp": "私は妹と家事を分担してします。"
  },
  {
    "id": "2a-33-12",
@@ -5229,7 +5229,7 @@
    "word_kr": "쓰레기를 버리다",
    "word_jp": "ゴミを捨てる",
    "sentence_kr": "휴지통에 쓰레기를 버리세요.",
-   "sentence_jp": "紙くずはゴミ箱に捨ててください。"
+   "sentence_jp": "ゴミ箱にゴミを捨ててください。"
  },
  {
    "id": "2a-33-13",
@@ -5253,7 +5253,7 @@
    "word_kr": "편찮다",
    "word_jp": "具合が悪い",
    "sentence_kr": "할머니께서 편찮으셔서 병원에 다녀오셨어요.",
-   "sentence_jp": "祖母の具合が悪くて病院に行ってきました。"
+   "sentence_jp": "祖母の具合が悪くて病院に行って来られました。"
  },
  {
    "id": "2a-33-16",
@@ -5283,9 +5283,9 @@
    "id": "2a-34-02",
    "lesson_id": 34,
    "word_kr": "편의점",
-   "word_jp": "コンビニエンスストア",
+   "word_jp": "コンビニ",
    "sentence_kr": "저는 편의점에서 일해요.",
-   "sentence_jp": "私はコンビニエンスストアで働いています。"
+   "sentence_jp": "私はコンビニで働いています。"
  },
  {
    "id": "2a-34-03",
@@ -5299,9 +5299,9 @@
    "id": "2a-34-04",
    "lesson_id": 34,
    "word_kr": "목욕탕",
-   "word_jp": "公衆浴場",
+   "word_jp": "お風呂屋",
    "sentence_kr": "찜질방에서 논 후에 목욕탕에 가서 목욕을 했어요.",
-   "sentence_jp": "チムジルバンで遊んだ後に公衆浴場へ行って風呂に入りました。"
+   "sentence_jp": "チムジルバンで遊んだ後にお風呂屋さんへ行って風呂に入りました。"
  },
  {
    "id": "2a-34-05",
@@ -5331,7 +5331,7 @@
    "id": "2a-34-08",
    "lesson_id": 34,
    "word_kr": "이용하다",
-   "word_jp": "利用",
+   "word_jp": "利用する",
    "sentence_kr": "우리 학교의 학생들은 이 자전거를 이용할 수 있어요.",
    "sentence_jp": "わが校の学生たちはこの自転車を利用することができます。"
  },
@@ -5339,7 +5339,7 @@
    "id": "2a-34-09",
    "lesson_id": 34,
    "word_kr": "불편하다",
-   "word_jp": "不便、心地が悪い",
+   "word_jp": "不便だ",
    "sentence_kr": "신발이 불편해서 발이 아파요.",
    "sentence_jp": "靴の履き心地が悪くて足が痛いです。"
  },
@@ -5347,7 +5347,7 @@
    "id": "2a-34-10",
    "lesson_id": 34,
    "word_kr": "편리하다",
-   "word_jp": "便利",
+   "word_jp": "便利だ",
    "sentence_kr": "이 건물에는 엘리베이터가 있어서 편리해요.",
    "sentence_jp": "この建物にはエレベーターがあって便利です。"
  },
@@ -5357,13 +5357,13 @@
    "word_kr": "무료로 이용하다",
    "word_jp": "無料で利用する",
    "sentence_kr": "찜질방을 이용하시면 목욕탕을 무료로 이용할 수 있어요.",
-   "sentence_jp": "チムジルバンを利用すれば公衆浴場は無料で利用できます。"
+   "sentence_jp": "チムジルバンを利用すればお風呂は無料で利用できます。"
  },
  {
    "id": "2a-34-12",
    "lesson_id": 34,
-   "word_kr": "(엘리베이터)를 타다",
-   "word_jp": "(エレベーター)に乗る",
+   "word_kr": "타다",
+   "word_jp": "乗る",
    "sentence_kr": "엘리베이터를 타고 올라가면 아주 편리해요.",
    "sentence_jp": "エレベーターに乗って上がるととても便利です。"
  },
@@ -5403,7 +5403,7 @@
    "id": "2a-35-05",
    "lesson_id": 35,
    "word_kr": "배달",
-   "word_jp": "デリバリー、配達",
+   "word_jp": "配達",
    "sentence_kr": "인터넷으로 배달 음식을 주문할 수 있어요.",
    "sentence_jp": "インターネットでデリバリーフードを注文できます。"
  },
@@ -5421,7 +5421,7 @@
    "word_kr": "현금",
    "word_jp": "現金",
    "sentence_kr": "여행을 가려고 은행에서 현금을 많이 찾았어요.",
-   "sentence_jp": "旅行へ行くために銀行で現金をたくさ ん引き出しました。"
+   "sentence_jp": "旅行へ行くために銀行で現金をたくさん引き出しました。"
  },
  {
    "id": "2a-35-08",
@@ -5451,7 +5451,7 @@
    "id": "2a-35-11",
    "lesson_id": 35,
    "word_kr": "마리",
-   "word_jp": "匹/羽",
+   "word_jp": "羽",
    "sentence_kr": "치킨을 두 마리 시켰어요.",
    "sentence_jp": "チキンを2羽注文しました。"
  },
@@ -5506,8 +5506,8 @@
  {
    "id": "2a-36-01",
    "lesson_id": 36,
-   "word_kr": "옷 종류",
-   "word_jp": "服の種類",
+   "word_kr": "종류",
+   "word_jp": "種類",
    "sentence_kr": "가게에 옷 종류가 다양해서 고르기 어려웠어요.",
    "sentence_jp": "店には服の種類が多くて選ぶのが難しかったです。"
  },
@@ -5540,7 +5540,7 @@
    "lesson_id": 36,
    "word_kr": "티셔츠",
    "word_jp": "Tシャツ",
-   "sentence_kr": "나는 티셔츠가 편해요.",
+   "sentence_kr": "저는 티셔츠가 편해요.",
    "sentence_jp": "私はTシャツが楽です。"
  },
  {
@@ -5556,16 +5556,16 @@
    "lesson_id": 36,
    "word_kr": "코트",
    "word_jp": "コート",
-   "sentence_kr": "날씨가 추워서 오늘은 코트를입었어요.",
-   "sentence_jp": "(天気が)寒いので今日はコートを着ました。"
+   "sentence_kr": "날씨가 추워서 오늘은 코트를 입었어요.",
+   "sentence_jp": "寒いので今日はコートを着ました。"
  },
  {
    "id": "2a-36-08",
    "lesson_id": 36,
    "word_kr": "가격",
-   "word_jp": "価格、値段",
+   "word_jp": "値段",
    "sentence_kr": "이 신발은 가격이 비싸요.",
-   "sentence_jp": "このコートは値段が高いです。"
+   "sentence_jp": "この靴は値段が高いです。"
  },
  {
    "id": "2a-36-09",
@@ -5652,8 +5652,8 @@
    "lesson_id": 37,
    "word_kr": "테니스",
    "word_jp": "テニス",
-   "sentence_kr": "오후에 동생과 테니스를 쳤어요.",
-   "sentence_jp": "午後に弟/妹とテニスをしました。"
+   "sentence_kr": "오후에 여동생과 테니스를 쳤어요.",
+   "sentence_jp": "午後に妹とテニスをしました。"
  },
  {
    "id": "2a-37-04",
@@ -5661,7 +5661,7 @@
    "word_kr": "스케이트",
    "word_jp": "スケート",
    "sentence_kr": "지난 방학에 친구와 스케이트를 탔어요.",
-   "sentence_jp": "前の学期休みに友だちとスケートをしました。"
+   "sentence_jp": "この前の休みに友だちとスケートをしました。"
  },
  {
    "id": "2a-37-05",
@@ -5669,7 +5669,7 @@
    "word_kr": "배드민턴",
    "word_jp": "バドミントン",
    "sentence_kr": "오늘 오빠와 배드민턴을 칠 거예요.",
-   "sentence_jp": "今日お兄さんとバドミントンをするつもりです。"
+   "sentence_jp": "今日兄とバドミントンをするつもりです。"
  },
  {
    "id": "2a-37-06",
@@ -5685,7 +5685,7 @@
    "word_kr": "바이올린",
    "word_jp": "バイオリン",
    "sentence_kr": "저는 10살 때부터 바이올린을 켰어요.",
-   "sentence_jp": "私は10歳の頃からバイオリンを弾きました。"
+   "sentence_jp": "私は10歳の頃からバイオリンを弾いています。"
  },
  {
    "id": "2a-37-08",
@@ -5741,7 +5741,7 @@
    "word_kr": "가족 모임",
    "word_jp": "家族の集まり",
    "sentence_kr": "오늘 어머니 생신이라서 가족 모임이 있어요.",
-   "sentence_jp": "今日お母さんの誕生日なので家族の集まりがあります。"
+   "sentence_jp": "今日母の誕生日なので家族の集まりがあります。"
  },
  {
    "id": "2a-38-04",
@@ -5788,8 +5788,8 @@
    "lesson_id": 38,
    "word_kr": "기쁘다",
    "word_jp": "うれしい",
-   "sentence_kr": "제 동생이 태어나서 아주 기뻐요.",
-   "sentence_jp": "私の弟/妹が生まれてとてもうれしいです。"
+   "sentence_kr": "제 남동생이 태어나서 아주 기뻐요.",
+   "sentence_jp": "私の弟が生まれてとてもうれしいです。"
  },
  {
    "id": "2a-38-10",
@@ -5826,8 +5826,8 @@
  {
    "id": "2a-39-01",
    "lesson_id": 39,
-   "word_kr": "집의 형태",
-   "word_jp": "住宅形態",
+   "word_kr": "형태",
+   "word_jp": "形態",
    "sentence_kr": "나라에 따라 집의 형태가 조금씩 달라요.",
    "sentence_jp": "国によって住宅形態が少しずつ違います。"
  },
@@ -5837,7 +5837,7 @@
    "word_kr": "아파트",
    "word_jp": "マンション",
    "sentence_kr": "고향에서는 가족들과 아파트에 살았어요.",
-   "sentence_jp": "故郷では家族とアパートに住んでいました。"
+   "sentence_jp": "故郷では家族とマンションに住んでいました。"
  },
  {
    "id": "2a-39-03",
@@ -5853,13 +5853,13 @@
    "word_kr": "하숙집",
    "word_jp": "下宿屋",
    "sentence_kr": "매일 아침 하숙집 아줌마가 한국 음식을 만들어 줘요.",
-   "sentence_jp": "毎朝下宿屋のおばさんが韓国料理を作ってくれます。"
+   "sentence_jp": "毎朝下宿のおばさんが韓国料理を作ってくれます。"
  },
  {
    "id": "2a-39-05",
    "lesson_id": 39,
-   "word_kr": "집의 구조",
-   "word_jp": "家の構造",
+   "word_kr": "구조",
+   "word_jp": "構造",
    "sentence_kr": "집의 구조를 잘 보고 방을 선택했어요.",
    "sentence_jp": "家の構造をよく見て部屋を選びました。"
  },
@@ -5933,14 +5933,14 @@
    "word_kr": "계획",
    "word_jp": "計画",
    "sentence_kr": "이번 방학에 특별한 계획이 있어요.",
-   "sentence_jp": "今度の学期休みに特別な計画があります。"
+   "sentence_jp": "今度の休みに特別な計画があります。"
  },
  {
    "id": "2a-40-03",
    "lesson_id": 40,
    "word_kr": "초대권",
    "word_jp": "招待券",
-   "sentence_kr": "친구에게 받은 초대권으로공연을 봤어요.",
+   "sentence_kr": "친구에게 받은 초대권으로 공연을 봤어요.",
    "sentence_jp": "友だちにもらった招待券で公演を見ました。"
  },
  {
@@ -5949,7 +5949,7 @@
    "word_kr": "연극 공연",
    "word_jp": "演劇公演",
    "sentence_kr": "이번 주말에는 친구와 연극 공연을 볼 거예요.",
-   "sentence_jp": "今週末には友だちと演劇公演を見ます。"
+   "sentence_jp": "今週末には友だちと演劇公演を見るつもりです。"
  },
  {
    "id": "2a-40-05",
@@ -5957,7 +5957,7 @@
    "word_kr": "거절하다",
    "word_jp": "断る",
    "sentence_kr": "친구가 저의 부탁을 거절해서 섭섭했어요.",
-   "sentence_jp": "友だちが私の頼みを断って残念に 思いました。"
+   "sentence_jp": "友だちが私の頼みを断って残念に思いました。"
  },
  {
    "id": "2a-40-06",
@@ -5965,7 +5965,7 @@
    "word_kr": "구경하다",
    "word_jp": "見物する",
    "sentence_kr": "우리 오늘 같이 꽃을 구경하러 갈래요?",
-   "sentence_jp": "私たち今日お花見に一緒に行きませんか?"
+   "sentence_jp": "今日一緒にお花見に行きませんか？"
  },
  {
    "id": "2a-40-07",
@@ -5994,7 +5994,7 @@
  {
    "id": "2a-40-10",
    "lesson_id": 40,
-   "word_kr": "마중을 나가다",
+   "word_kr": "마중 나가다",
    "word_jp": "迎えに行く",
    "sentence_kr": "공항에 친구를 마중 나가려고 해요.",
    "sentence_jp": "空港に友達を迎えに行こうと思います。"
@@ -6013,7 +6013,7 @@
    "word_kr": "동아리",
    "word_jp": "サークル",
    "sentence_kr": "우리 동아리는 한국 전통 노래를 배우는 동아리예요.",
-   "sentence_jp": "私たちの サークルは韓国の伝統的な歌を習うサークルです。"
+   "sentence_jp": "私たちのサークルは韓国の伝統的な歌を習うサークルです。"
  },
  {
    "id": "3a-41-02",
@@ -6021,7 +6021,7 @@
    "word_kr": "동창",
    "word_jp": "同級生",
    "sentence_kr": "초등학교 동창을 만나서 함께 밥을 먹었어요.",
-   "sentence_jp": "小学校の同級生(同窓)に会って、一緒にご飯を食べました。"
+   "sentence_jp": "小学校の同級生に会って、一緒にご飯を食べました。"
  },
  {
    "id": "3a-41-03",
@@ -6037,7 +6037,7 @@
    "word_kr": "동호회",
    "word_jp": "同好会",
    "sentence_kr": "요즘 주말마다 스키 동호회 사람들과 스키를 타요.",
-   "sentence_jp": "最近、週末ごとにスキー同好会の人たちとスキーを滑ります(乗ります)。"
+   "sentence_jp": "最近、週末ごとにスキー同好会の人たちとスキーを滑ります。"
  },
  {
    "id": "3a-41-05",
@@ -6045,7 +6045,7 @@
    "word_kr": "송별회",
    "word_jp": "送別会",
    "sentence_kr": "다음 달에 고향에 돌아가는 친구에게 송별회를 해 줬어요.",
-   "sentence_jp": "来月、実家(故郷)に帰る友達に送別会をしてあげました。"
+   "sentence_jp": "来月、故郷に帰る友達に送別会をしてあげました。"
  },
  {
    "id": "3a-41-06",
@@ -6053,7 +6053,7 @@
    "word_kr": "신입",
    "word_jp": "新入",
    "sentence_kr": "이번에 새로 들어온 신입 회원은 모두 2명입니다.",
-   "sentence_jp": "* 今回新しく 入ってきた新入会員は全部で2名(2人)です。"
+   "sentence_jp": "今回新しく入ってきた新入会員は全部で2名です。"
  },
  {
    "id": "3a-41-07",
@@ -6074,10 +6074,10 @@
  {
    "id": "3a-41-09",
    "lesson_id": 41,
-   "word_kr": "가입(하다)",
-   "word_jp": "加入(する)",
+   "word_kr": "가입하다",
+   "word_jp": "加入する",
    "sentence_kr": "이 모임에 가입을 하려면 어떻게 해야 해요?",
-   "sentence_jp": "この集まり(会)に加入するにはどうすればいいですか？"
+   "sentence_jp": "この集まりに加入するにはどうすればいいですか？"
  },
  {
    "id": "3a-41-10",
@@ -6098,18 +6098,18 @@
  {
    "id": "3a-41-12",
    "lesson_id": 41,
-   "word_kr": "공지(하다)",
+   "word_kr": "공지하다",
    "word_jp": "告知する",
    "sentence_kr": "선생님께서 시험 일정을 공지해 주셨어요.",
-   "sentence_jp": "先生が試験日程を告知して(知らせて)くださいました。"
+   "sentence_jp": "先生が試験日程を告知してくださいました。"
  },
  {
    "id": "3a-41-13",
    "lesson_id": 41,
    "word_kr": "그룹",
    "word_jp": "グループ",
-   "sentence_kr": "2학년 그룹이 먼저 출발하면 우리 3학년 그룹이 따라 가겠습니다.",
-   "sentence_jp": "2年生グループが先に出発したら、私たちの3年生グループがついていきます(後から行きます)。"
+   "sentence_kr": "2학년 그룹이 먼저 출발하면 우리 3학년 그룹이 따라가겠습니다.",
+   "sentence_jp": "2年生グループが先に出発したら、私たちの3年生グループがついていきます。"
  },
  {
    "id": "3a-41-14",
@@ -6125,15 +6125,15 @@
    "word_kr": "모이다",
    "word_jp": "集まる",
    "sentence_kr": "축구하고 싶은 사람들은 토요일 10시까지 운동장에 모이세요.",
-   "sentence_jp": "サッカーをしたい人たちは土曜日の10時までにグラウンド(運動場)に集まってください。"
+   "sentence_jp": "サッカーをしたい人たちは土曜日の10時までに運動場に集まってください。"
  },
  {
    "id": "3a-41-16",
    "lesson_id": 41,
-   "word_kr": "모집(하다)",
-   "word_jp": "募集(する)",
+   "word_kr": "모집하다",
+   "word_jp": "募集する",
    "sentence_kr": "보통 3월에 동아리 신입 회원을 모집해요.",
-   "sentence_jp": "* 普通(通常)3月にサークルの新入会員を募集します。"
+   "sentence_jp": "普通3月にサークルの新入会員を募集します。"
  },
  {
    "id": "3a-41-17",
@@ -6141,15 +6141,15 @@
    "word_kr": "목록",
    "word_jp": "リスト",
    "sentence_kr": "장을 보기 전에 사고 싶은 물건의 목록을 적었어요.",
-   "sentence_jp": "買い物(買い出し)をする前に買いたい物のリストを書き(メモし)ました。"
+   "sentence_jp": "買い物をする前に買いたい物のリストを書きました。"
  },
  {
    "id": "3a-41-18",
    "lesson_id": 41,
    "word_kr": "신청서",
-   "word_jp": "申請書、申込書",
+   "word_jp": "申込書",
    "sentence_kr": "동아리에 들어오고 싶은 분은 신청서에 이름과 연락처를 써 주세요.",
-   "sentence_jp": "サークルに入りたい方は申込書(申請書)に名前と連絡先を書いてください。"
+   "sentence_jp": "サークルに入りたい方は申込書に名前と連絡先を書いてください。"
  },
  {
    "id": "3a-41-19",
@@ -6157,7 +6157,7 @@
    "word_kr": "정기적",
    "word_jp": "定期的",
    "sentence_kr": "우리 동아리는 한 달에 한 번 정기적으로 모임을 해요.",
-   "sentence_jp": "私たちのサークルは月に1回、定期的に集まり(定例会)を行います。"
+   "sentence_jp": "私たちのサークルは月に1回、定期的に集まりを行います。"
  },
  {
    "id": "3a-41-20",
@@ -6165,7 +6165,7 @@
    "word_kr": "활동",
    "word_jp": "活動",
    "sentence_kr": "앞으로 동호회 활동에 열심히 참여해 주세요.",
-   "sentence_jp": "これから同好会の活動に熱心に参加(積極的にお付き合い)してください。"
+   "sentence_jp": "これから同好会の活動に熱心に参加してください。"
  },
  {
    "id": "3a-41-21",
@@ -6173,13 +6173,13 @@
    "word_kr": "회비",
    "word_jp": "会費",
    "sentence_kr": "우리 모임의 회비는 30,000원입니다.",
-   "sentence_jp": "私たちの集まり(会)の会費は30,000ウォンです。"
+   "sentence_jp": "私たちの集まりの会費は30,000ウォンです。"
  },
  {
    "id": "3a-42-01",
    "lesson_id": 42,
-   "word_kr": "결혼(하다)",
-   "word_jp": "婚姻(する)",
+   "word_kr": "결혼하다",
+   "word_jp": "結婚する",
    "sentence_kr": "대한 씨와 미카 씨는 3년 전에 결혼했어요.",
    "sentence_jp": "デハンさんとミカさんは3年前に結婚しました。"
  },
@@ -6205,7 +6205,7 @@
    "word_kr": "소개팅",
    "word_jp": "合コン",
    "sentence_kr": "저는 소개팅에서 지금의 여자 친구를 만났어요.",
-   "sentence_jp": "私は紹介デート（合コン）で今の彼女に出会いました。"
+   "sentence_jp": "私は紹介デートで今の彼女に出会いました。"
  },
  {
    "id": "3a-42-05",
@@ -6213,7 +6213,7 @@
    "word_kr": "연인",
    "word_jp": "恋人",
    "sentence_kr": "남산은 연인들이 데이트를 하는 장소로 유명해요.",
-   "sentence_jp": "南山（ナムサン）は恋人たちがデートをする場所として有名です。"
+   "sentence_jp": "ナムサンは恋人たちがデートをする場所として有名です。"
  },
  {
    "id": "3a-42-06",
@@ -6242,24 +6242,24 @@
  {
    "id": "3a-42-09",
    "lesson_id": 42,
-   "word_kr": "고백(하다)",
-   "word_jp": "告白(する)",
+   "word_kr": "고백하다",
+   "word_jp": "告白する",
    "sentence_kr": "친구에게 제가 실수한 것을 고백했어요.",
-   "sentence_jp": "友達に自分が失敗したことを打ち明けました（告白しました）。"
+   "sentence_jp": "友達に自分が失敗したことを打ち告白しました。"
  },
  {
    "id": "3a-42-10",
    "lesson_id": 42,
-   "word_kr": "고생(하다)",
-   "word_jp": "苦労(する)",
+   "word_kr": "고생하다",
+   "word_jp": "苦労する",
    "sentence_kr": "우리 부모님께서는 젊었을 때 고생을 많이 하셨어요.",
    "sentence_jp": "私の両親は若い頃、とても苦労されました。"
  },
  {
    "id": "3a-42-11",
    "lesson_id": 42,
-   "word_kr": "기념(하다)",
-   "word_jp": "記念(する)",
+   "word_kr": "기념하다",
+   "word_jp": "記念する",
    "sentence_kr": "결혼 10주년 기념으로 여행을 다녀왔어요.",
    "sentence_jp": "結婚10周年記念で旅行に行ってきました。"
  },
@@ -6308,8 +6308,8 @@
    "lesson_id": 42,
    "word_kr": "영원히",
    "word_jp": "永遠に",
-   "sentence_kr": "우리의 아름다운 추억을영원히 기억할게요.",
-   "sentence_jp": "私たちの美しい思い出を永遠に覚えています。"
+   "sentence_kr": "우리의 아름다운 추억을 영원히 기억할게요.",
+   "sentence_jp": "私たちの美しい思い出を永遠に覚えていますね。"
  },
  {
    "id": "3a-42-18",
@@ -6365,7 +6365,7 @@
    "word_kr": "예정",
    "word_jp": "予定",
    "sentence_kr": "다음 달에 휴가를 떠날 예정이에요.",
-   "sentence_jp": "来月、休暇を取る（旅行に出かける）予定です。"
+   "sentence_jp": "来月、休暇に出かける予定です。"
  },
  {
    "id": "3a-43-05",
@@ -6373,12 +6373,12 @@
    "word_kr": "짜다",
    "word_jp": "立てる",
    "sentence_kr": "휴가 계획은 다 짰어요?",
-   "sentence_jp": " 休暇の計画は全部組みましたか（立てましたか）？"
+   "sentence_jp": " 休暇の計画は全部立てましたか？"
  },
  {
    "id": "3a-43-06",
    "lesson_id": 43,
-   "word_kr": "기대(하다, 되다)",
+   "word_kr": "기대되다",
    "word_jp": "期待",
    "sentence_kr": "이번 시험의 결과가 정말 기대돼요.",
    "sentence_jp": "今回の試験の結果が本当に楽しみです。"
@@ -6386,10 +6386,10 @@
  {
    "id": "3a-43-07",
    "lesson_id": 43,
-   "word_kr": "기도(하다)",
+   "word_kr": "기도하다",
    "word_jp": "祈る",
-   "sentence_kr": " 친구가 하루 빨리 병이 낫기를 신에게 기도했어요.",
-   "sentence_jp": "友達の一日も早い病気が治ることを神に祈りました。"
+   "sentence_kr": " 친구가 하루빨리 병이 낫기를 신에게 기도했어요.",
+   "sentence_jp": "友達の病気が一日も早く治ることを神に祈りました。"
  },
  {
    "id": "3a-43-08",
@@ -6405,7 +6405,7 @@
    "word_kr": "목표",
    "word_jp": "目標",
    "sentence_kr": "목표를 높게 세우는 일은 중요해요.",
-   "sentence_jp": "目標を高く立てる（掲げる）ことは重要です。"
+   "sentence_jp": "目標を高く立てることは重要です。"
  },
  {
    "id": "3a-43-10",
@@ -6429,7 +6429,7 @@
    "word_kr": "빌다",
    "word_jp": "祈る",
    "sentence_kr": "올해에는 모두가 건강하시기를 빌어요.",
-   "sentence_jp": "今年は皆さんが健康でいらっしゃることをお祈리します。"
+   "sentence_jp": "今年は皆さんが健康でいらっしゃることをお祈りします。"
  },
  {
    "id": "3a-43-13",
@@ -6437,7 +6437,7 @@
    "word_kr": "소원",
    "word_jp": "願い",
    "sentence_kr": "배를 타고 여행을 하는 것이 제 소원이에요.",
-   "sentence_jp": " 船に乗って旅行をすることが私の願い（夢）です。"
+   "sentence_jp": " 船に乗って旅行をすることが私の願いです。"
  },
  {
    "id": "3a-43-14",
@@ -6453,7 +6453,7 @@
    "word_kr": "이루어지다",
    "word_jp": "叶う",
    "sentence_kr": "어려워도 계속 노력하면 소원이 이루어질 거예요.",
-   "sentence_jp": " 難しくても努力し続ければ、願いは叶うはずです。"
+   "sentence_jp": "難しくても努力し続ければ、願いは叶うはずです。"
  },
  {
    "id": "3a-43-16",
@@ -6461,21 +6461,21 @@
    "word_kr": "장래",
    "word_jp": "将来",
    "sentence_kr": "그 학생의 장래가 기대됩니다.",
-   "sentence_jp": " その 学生の将来が楽しみです（期待されます）。"
+   "sentence_jp": "その 学生の将来が楽しみです。"
  },
  {
    "id": "3a-43-17",
    "lesson_id": 43,
-   "word_kr": "취직(하다)",
-   "word_jp": "就職",
+   "word_kr": "취직하다",
+   "word_jp": "就職する",
    "sentence_kr": "이번에는 꼭 취직을 하면 좋겠습니다.",
    "sentence_jp": "今回はぜひ就職できたらいいなと思います。"
  },
  {
    "id": "3a-43-18",
    "lesson_id": 43,
-   "word_kr": "후회(하다)",
-   "word_jp": "後悔",
+   "word_kr": "후회하다",
+   "word_jp": "後悔する",
    "sentence_kr": "나중에 후회하고 싶지 않아서 열심히 노력하고 있어요.",
    "sentence_jp": "後で後悔したくないので、一生懸命努力しています。"
  },
@@ -6498,10 +6498,10 @@
  {
    "id": "3a-44-02",
    "lesson_id": 44,
-   "word_kr": "결심(하다)",
-   "word_jp": "決心",
+   "word_kr": "결심하다",
+   "word_jp": "決心する",
    "sentence_kr": "올해부터는 매일 운동을 하기로 결심했어요.",
-   "sentence_jp": "今年からは毎日運動することに決 職しました。"
+   "sentence_jp": "今年からは毎日運動することに決心しました。"
  },
  {
    "id": "3a-44-03",
@@ -6532,8 +6532,8 @@
    "lesson_id": 44,
    "word_kr": "부러워하다",
    "word_jp": "羨ましがる",
-   "sentence_kr": "내 동생은 친구의 새 노트북을 보고 무척 부러워했다.",
-   "sentence_jp": "私の弟（妹）は友達の新しいノートパソコンを見て、とてもうらやましがった。"
+   "sentence_kr": "내 여동생은 친구의 새 노트북을 보고 무척 부러워했다.",
+   "sentence_jp": "私の妹は友達の新しいノートパソコンを見て、とてもうらやましがった。"
  },
  {
    "id": "3a-44-07",
@@ -6549,7 +6549,7 @@
    "word_kr": "솜씨",
    "word_jp": "腕前",
    "sentence_kr": "우리 어머니는 음식 솜씨가 좋으세요.",
-   "sentence_jp": "うちの母は料理の手際が良いです。"
+   "sentence_jp": "うちの母は料理の腕前が良いです。"
  },
  {
    "id": "3a-44-09",
@@ -6605,7 +6605,7 @@
    "word_kr": "직접",
    "word_jp": "直接",
    "sentence_kr": "이건 제가 직접 만든 비누예요. 한번 써 보세요.",
-   "sentence_jp": "これは私が直接作った石鹸です。一度使ってみてください。"
+   "sentence_jp": "これは私が手作りした石鹸です。一度使ってみてください。"
  },
  {
    "id": "3a-44-16",
@@ -6627,7 +6627,7 @@
    "id": "3a-44-18",
    "lesson_id": 44,
    "word_kr": "최선을 다하다",
-   "word_jp": "最善を尽す",
+   "word_jp": "最善を尽くす",
    "sentence_kr": "우리 팀은 최선을 다했지만 이번 경기에 졌다.",
    "sentence_jp": "私たちのチームは最善を尽くしたが、今回の試合に負けた。"
  },
@@ -6642,8 +6642,8 @@
  {
    "id": "3a-45-02",
    "lesson_id": 45,
-   "word_kr": "관찰(하다)",
-   "word_jp": "観察",
+   "word_kr": "관찰하다",
+   "word_jp": "観察する",
    "sentence_kr": "꽃이 피는 과정을 자세히 관찰하고 매일 관찰 일기를 썼다.",
    "sentence_jp": "花が咲く過程を詳しく観察して、毎日観察日記を書いた。"
  },
@@ -6661,7 +6661,7 @@
    "word_kr": "분위기",
    "word_jp": "雰囲気",
    "sentence_kr": "방에 꽃이 있으니까 분위기가 환해졌다.",
-   "sentence_jp": "部屋に花があるので雰囲かが明るくなった。"
+   "sentence_jp": "部屋に花があるので雰囲気が明るくなった。"
  },
  {
    "id": "3a-45-05",
@@ -6669,7 +6669,7 @@
    "word_kr": "살펴보다",
    "word_jp": "よく見る",
    "sentence_kr": "의사가 환자의 상처를 살펴보았다.",
-   "sentence_jp": "医師が患者の傷口を診察した（確かめた）。"
+   "sentence_jp": "医師が患者の傷口を診察した。"
  },
  {
    "id": "3a-45-06",
@@ -6701,7 +6701,7 @@
    "word_kr": "장면",
    "word_jp": "場面",
    "sentence_kr": "그 드라마의 마지막 장면은 정말 감동적이었어요.",
-   "sentence_jp": "そのドラマの最後の場面（シーン）は本当に感動的でした。"
+   "sentence_jp": "そのドラマの最後の場面は本当に感動的でした。"
  },
  {
    "id": "3a-45-10",
@@ -6739,17 +6739,17 @@
    "id": "3a-45-14",
    "lesson_id": 45,
    "word_kr": "신나다",
-   "word_jp": "わくわくする",
+   "word_jp": "うきうきする",
    "sentence_kr": "바닷가에 간 아이들은 바다에 들어가기도 전에 이미 신난 모습이었다.",
    "sentence_jp": "海辺に行った子どもたちは、海に入る前からすでに楽しそうな様子だった。"
  },
  {
    "id": "3a-45-15",
    "lesson_id": 45,
-   "word_kr": "실망(하다)",
-   "word_jp": "失望",
+   "word_kr": "실망하다",
+   "word_jp": "失望する",
    "sentence_kr": "좋아하는 가수의 공연이 취소되어 리사 씨가 크게 실망했다.",
-   "sentence_jp": "好きな歌手の公演がキャンセルになり、リサさんは大きく失望した（がっかりした）。"
+   "sentence_jp": "好きな歌手の公演がキャンセルになり、リサさんは大きく失望した。"
  },
  {
    "id": "3a-45-16",
@@ -6797,7 +6797,7 @@
    "word_kr": "환상적",
    "word_jp": "幻想的",
    "sentence_kr": "그 뮤지컬은 무대는 물론이고 배우들의 노래와 춤도 정말 환상적이었다.",
-   "sentence_jp": "そのミュージカルは舞台はもちろん、俳優たちの歌と踊りも本当に幻想的だった（素晴らしかった）。"
+   "sentence_jp": "そのミュージカルは舞台はもちろん、俳優たちの歌と踊りも本当に幻想的だった。"
  },
  {
    "id": "3a-45-22",
@@ -6810,8 +6810,8 @@
  {
    "id": "3a-46-01",
    "lesson_id": 46,
-   "word_kr": "게임(하다)",
-   "word_jp": "ゲーム（をする）",
+   "word_kr": "게임하다",
+   "word_jp": "ゲームをする",
    "sentence_kr": "요즘 휴대 전화로 게임을 하는 사람들이 많아요.",
    "sentence_jp": "最近、携帯電話でゲームをする人が多いです。"
  },
@@ -6834,7 +6834,7 @@
  {
    "id": "3a-46-04",
    "lesson_id": 46,
-   "word_kr": "수집(하다)",
+   "word_kr": "수집하다",
    "word_jp": "収集する",
    "sentence_kr": "우리 아버지는 취미로 우표를 수집해요.",
    "sentence_jp": "うちの父は趣味で切手を収集しています。"
@@ -6869,14 +6869,14 @@
    "word_kr": "자전거",
    "word_jp": "自転車",
    "sentence_kr": "주말마다 자전거 동호회 회원들과 자전거를 타요.",
-   "sentence_jp": "週末ごとに自転車サークルの会員たちと自転車に乗ります。"
+   "sentence_jp": "週末ごとに自転車同好会の会員たちと自転車に乗ります。"
  },
  {
    "id": "3a-46-09",
    "lesson_id": 46,
    "word_kr": "조깅",
    "word_jp": "ジョギング",
-   "sentence_kr": "매일 아침 한강 공원에서조깅을 해요.",
+   "sentence_kr": "매일 아침 한강 공원에서 조깅을 해요.",
    "sentence_jp": "毎日朝、漢江公園でジョギングをします。"
  },
  {
@@ -6906,7 +6906,7 @@
  {
    "id": "3a-46-13",
    "lesson_id": 46,
-   "word_kr": "시청(하다)",
+   "word_kr": "시청하다",
    "word_jp": "視聴する",
    "sentence_kr": "우리 가족은 저녁 식사 후에 거실에서 드라마를 시청해요.",
    "sentence_jp": "私たちの家族は夕食後、リビングでドラマを視聴します。"
@@ -6925,7 +6925,7 @@
    "word_kr": "여가 시간",
    "word_jp": "余暇時間",
    "sentence_kr": "여가 시간에는 책을 읽거나 음악을 들어요.",
-   "sentence_jp": "余暇時間（暇な時間）には本を読んだり音楽を聞いたりします。"
+   "sentence_jp": "余暇時間には本を読んだり音楽を聞いたりします。"
  },
  {
    "id": "3a-46-16",
@@ -6939,9 +6939,9 @@
    "id": "3a-46-17",
    "lesson_id": 46,
    "word_kr": "자격증",
-   "word_jp": "資格",
+   "word_jp": "資格証",
    "sentence_kr": "커피가 좋아서 공부를 시작했다가 바리스타 자격증까지 땄어요.",
-   "sentence_jp": "コーヒーが好きで勉強を始めたのですが、バリスタの資格まで取りました。"
+   "sentence_jp": "コーヒーが好きで勉強を始めたのですが、バリスタの資格証まで取りました。"
  },
  {
    "id": "3a-46-18",
@@ -6954,7 +6954,7 @@
  {
    "id": "3a-46-19",
    "lesson_id": 46,
-   "word_kr": "제작(하다)",
+   "word_kr": "제작하다",
    "word_jp": "制作する",
    "sentence_kr": "저는 행사 계획을 짜고 가영 씨는 포스터를 제작했어요.",
    "sentence_jp": "私はイベントの計画を立てて、カヨンさんがポスターを制作しました。"
@@ -6970,7 +6970,7 @@
  {
    "id": "3a-46-21",
    "lesson_id": 46,
-   "word_kr": "촬영(하다)",
+   "word_kr": "촬영하다",
    "word_jp": "撮影する",
    "sentence_kr": "이 영상은 내가 직접 촬영한 거야.",
    "sentence_jp": "この映像は私が直接撮影したものだよ。"
@@ -6986,8 +6986,8 @@
  {
  "id": "3a-47-01",
  "lesson_id": 47,
- "word_kr": "긴장(하다/되다)",
- "word_jp": "緊張（する）",
+ "word_kr": "긴장되다",
+ "word_jp": "緊張する",
  "sentence_kr": "말하기 시험을 볼 때 너무 긴장이 되어 제대로 대답하지 못했다.",
  "sentence_jp": "スピーキングテストを受ける時、緊張しすぎてうまく答えられなかった。"
  },
@@ -7003,22 +7003,22 @@
  "id": "3a-47-03",
  "lesson_id": 47,
  "word_kr": "마음대로",
- "word_jp": "思い通りに・自由に",
+ "word_jp": "思い通りに",
  "sentence_kr": "뷔페에 가면 음식을 마음대로 골라 먹을 수 있다.",
  "sentence_jp": "ビュッフェに行けば、料理を自由に選んで食べることができる。"
  },
  {
  "id": "3a-47-04",
  "lesson_id": 47,
- "word_kr": "목욕(하다)",
- "word_jp": "入浴（する）",
+ "word_kr": "목욕하다",
+ "word_jp": "入浴する",
  "sentence_kr": "따뜻한 물로 목욕을 해서 기분이 상쾌하다.",
  "sentence_jp": "温かいお湯でお風呂に入ったので気分がさっぱりしている。"
  },
  {
  "id": "3a-47-05",
  "lesson_id": 47,
- "word_kr": "불안(하다/되다)",
+ "word_kr": "불안하다",
  "word_jp": "不安（だ）",
  "sentence_kr": "집의 가스레인지를 끄지 않고 나온 것 같아 지금 매우 불안해요.",
  "sentence_jp": "家のガスコンロを消さずに出てきたようで、今とても不安です。"
@@ -7029,7 +7029,7 @@
  "word_kr": "상담",
  "word_jp": "相談",
  "sentence_kr": "나는 선생님께 상담을 받으려고 시간 약속을 했다.",
- "sentence_jp": "私は先生に相談に乗ってもらおうと約束をした。"
+ "sentence_jp": "私は先生に相談に乗ってもらう約束をした。"
  },
  {
  "id": "3a-47-07",
@@ -7066,16 +7066,16 @@
  {
  "id": "3a-47-11",
  "lesson_id": 47,
- "word_kr": "우울(하다)",
- "word_jp": "憂鬱（だ）",
+ "word_kr": "우울하다",
+ "word_jp": "憂鬱だ",
  "sentence_kr": "비도 오고 약속도 취소돼서 기분이 우울해요.",
  "sentence_jp": "雨も降るし約束もキャンセルされて気分が憂鬱です。"
  },
  {
  "id": "3a-47-12",
  "lesson_id": 47,
- "word_kr": "치료(하다)",
- "word_jp": "治療（する）",
+ "word_kr": "치료하다",
+ "word_jp": "治療する",
  "sentence_kr": "나는 어제 갑자기 이가 아파서 병원에 가서 치료를 받았다.",
  "sentence_jp": "私は昨日急に歯が痛くなって、病院に行って治療を受けた。"
  },
@@ -7115,7 +7115,7 @@
  "id": "3a-47-17",
  "lesson_id": 47,
  "word_kr": "구경거리",
- "word_jp": "見もの・見どころ",
+ "word_jp": "見どころ",
  "sentence_kr": "이 축제에는 재미있는 구경거리가 많네요.",
  "sentence_jp": "このお祭りには面白い見ものが多いですね。"
  },
@@ -7155,15 +7155,15 @@
  "id": "3a-47-22",
  "lesson_id": 47,
  "word_kr": "휴양지",
- "word_jp": "保養地・リゾート地",
+ "word_jp": "保養地",
  "sentence_kr": "이번 여행은 관광지가 아니라 휴양지에 가서 푹 쉬고 싶다.",
  "sentence_jp": "今回の旅行は観光地ではなく保養地に行ってゆっくり休みたい。"
  },
  {
  "id": "3a-48-01",
  "lesson_id": 48,
- "word_kr": "다운로드(하다)",
- "word_jp": "ダウンロード（する）",
+ "word_kr": "다운로드하다",
+ "word_jp": "ダウンロードする",
  "sentence_kr": "온라인 수업 교재는 자료실에서 다운로드해 주세요.",
  "sentence_jp": "オンライン授業の教材は資料室からダウンロードしてください。"
  },
@@ -7178,10 +7178,10 @@
  {
  "id": "3a-48-03",
  "lesson_id": 48,
- "word_kr": "등록(하다)",
- "word_jp": "登録（する）",
+ "word_kr": "등록하다",
+ "word_jp": "登録する",
  "sentence_kr": "인터넷 카페에서 활동하려면 먼저 회원 등록을 해야 합니다.",
- "sentence_jp": "インターネットカフェ（コミュニティ）で活動するには、まず会員登録をしなければなりません。"
+ "sentence_jp": "ネットカフェで活動するには、まず会員登録をしなければなりません。"
  },
  {
  "id": "3a-48-04",
@@ -7194,8 +7194,8 @@
  {
  "id": "3a-48-05",
  "lesson_id": 48,
- "word_kr": "발전(하다)",
- "word_jp": "発展（する）",
+ "word_kr": "발전하다",
+ "word_jp": "発展する",
  "sentence_kr": "과학의 발전으로 사람들의 생활이 편리해졌어요.",
  "sentence_jp": "科学の発展によって人々の生活が便利になりました。"
  },
@@ -7210,15 +7210,15 @@
  {
  "id": "3a-48-07",
  "lesson_id": 48,
- "word_kr": "업로드(하다)",
- "word_jp": "アップロード（する）",
+ "word_kr": "업로드하다",
+ "word_jp": "アップロードする",
  "sentence_kr": "이번 행사 사진은 홈페이지에 업로드했으니 확인해 보세요.",
  "sentence_jp": "今回のイベント写真はホームページにアップロードしたので確認してみてください。"
  },
  {
  "id": "3a-48-08",
  "lesson_id": 48,
- "word_kr": "에스엔에스(SNS)",
+ "word_kr": "에스엔에스",
  "word_jp": "SNS",
  "sentence_kr": "사람들은 멀리 떨어져 있는 사람과 에스엔에스를 통해서 소식을 주고받는다.",
  "sentence_jp": "人々は遠く離れている人とSNSを通じて近況をやりとりする。"
@@ -7243,7 +7243,7 @@
  "id": "3a-48-11",
  "lesson_id": 48,
  "word_kr": "올리다",
- "word_jp": "載せる・投稿する",
+ "word_jp": "載せる",
  "sentence_kr": "신입 회원 모집 글은 대한 씨가 홈페이지에 올려 주세요.",
  "sentence_jp": "新規会員募集の案内文はデハンさんがホームページに載せてください。"
  },
@@ -7258,24 +7258,24 @@
  {
  "id": "3a-48-13",
  "lesson_id": 48,
- "word_kr": "기록(하다)",
- "word_jp": "記録（する）",
- "sentence_kr": "오늘 회의 내용을 기록하여로 드라이브를 가려고 해요.",
+ "word_kr": "기록하다",
+ "word_jp": "記録する",
+ "sentence_kr": "오늘 회의 내용을 기록하려고 해요.",
  "sentence_jp": "今日の会議の内容を記録しておこうと思います。"
  },
  {
  "id": "3a-48-14",
  "lesson_id": 48,
- "word_kr": "녹화(하다)",
- "word_jp": "録画（する）",
+ "word_kr": "녹화하다",
+ "word_jp": "録画する",
  "sentence_kr": "리사는 제주도를 여행하는 모습을 녹화해서 여행 동영상을 만들었다.",
  "sentence_jp": "リサは済州島を旅行する姿を録画して旅行の動画を作った。"
  },
  {
  "id": "3a-48-15",
  "lesson_id": 48,
- "word_kr": "삭제(하다)",
- "word_jp": "削除（する）",
+ "word_kr": "삭제하다",
+ "word_jp": "削除する",
  "sentence_kr": "필요 없는 파일들은 컴퓨터에서 삭제하는 것이 좋다.",
  "sentence_jp": "不要なファイルはパソコンから削除するほうがよい。"
  },
@@ -7283,22 +7283,22 @@
  "id": "3a-48-16",
  "lesson_id": 48,
  "word_kr": "영상",
- "word_jp": "動画・映像",
+ "word_jp": "映像",
  "sentence_kr": "리사는 자신의 일상생활을 영상으로 찍어 남기는 것을 좋아한다.",
  "sentence_jp": "リサは自分の日常生活を動画に撮って残すのが好きだ。"
  },
  {
  "id": "3a-48-17",
  "lesson_id": 48,
- "word_kr": "저장(하다)",
- "word_jp": "保存（する）",
+ "word_kr": "저장하다",
+ "word_jp": "保存する",
  "sentence_kr": "아이가 어릴 때 찍은 사진들을 컴퓨터에 저장했어요.",
  "sentence_jp": "子どもが幼い頃に撮った写真をパソコンに保存しました。"
  },
  {
  "id": "3a-48-18",
  "lesson_id": 48,
- "word_kr": "피시(PC)방",
+ "word_kr": "피시방",
  "word_jp": "ネットカフェ",
  "sentence_kr": "어제는 친구들과 함께 피시방에서 게임을 했어요.",
  "sentence_jp": "昨日は友達と一緒にネットカフェでゲームをしました。"
@@ -7306,7 +7306,7 @@
  {
  "id": "3a-48-19",
  "lesson_id": 48,
- "word_kr": "고장(이) 나다",
+ "word_kr": "고장나다",
  "word_jp": "故障する",
  "sentence_kr": "어제부터 컴퓨터가 고장 나서 인터넷이 안 돼요.",
  "sentence_jp": "昨日からパソコンが故障してインターネットが使えません。"
@@ -7355,7 +7355,7 @@
  "id": "3a-49-06",
  "lesson_id": 49,
  "word_kr": "조용하다",
- "word_jp": "静かだ・おとなしい",
+ "word_jp": "おとなしい",
  "sentence_kr": "제 친구는 조용한 성격이지만 저랑 있을 때는 말을 많이 해요.",
  "sentence_jp": "私の友達はおとなしい性格ですが、私といる時はよくしゃべります。"
  },
@@ -7372,8 +7372,8 @@
  "lesson_id": 49,
  "word_kr": "유머가 있다",
  "word_jp": "ユーモアがある",
- "sentence_kr": "제 동생은 유머가 있어서 재미있는 이야기를 잘해요",
- "sentence_jp": "私の弟（妹）はユーモアがあって面白い話が上手です。"
+ "sentence_kr": "제 남동생은 유머가 있어서 재미있는 이야기를 잘해요.",
+ "sentence_jp": "私の弟はユーモアがあって面白い話が上手です。"
  },
  {
  "id": "3a-49-09",
@@ -7386,8 +7386,8 @@
  {
  "id": "3a-49-10",
  "lesson_id": 49,
- "word_kr": "(안경, 반지) 끼다",
- "word_jp": "（眼鏡・指輪を）かける・はめる",
+ "word_kr": "끼다",
+ "word_jp": "かける",
  "sentence_kr": "나타샤 씨는 눈이 나빠서 안경을 껴요.",
  "sentence_jp": "ナターシャさんは目が悪くて眼鏡をかけています。"
  },
@@ -7395,39 +7395,39 @@
  "id": "3a-49-11",
  "lesson_id": 49,
  "word_kr": "단정하다",
- "word_jp": "きちんとしている・身ぎれいだ",
+ "word_jp": "きちんとしている",
  "sentence_kr": "나타샤 씨는 언제나 옷을 단정하게 입어요.",
  "sentence_jp": "ナターシャさんはいつも服をきちんときれいに着ています。"
  },
  {
  "id": "3a-49-12",
  "lesson_id": 49,
- "word_kr": "(가방) 들다",
- "word_jp": "（バッグを）持つ",
+ "word_kr": "들다",
+ "word_jp": "持つ",
  "sentence_kr": "저는 오늘 검은색 가방을 들 거예요.",
  "sentence_jp": "私は今日、黒いバッグを持ちます。"
  },
  {
  "id": "3a-49-13",
  "lesson_id": 49,
- "word_kr": "(넥타이, 스카프) 매다",
- "word_jp": "（ネクタイ・スカーフを）締める・巻く",
+ "word_kr": "매다",
+ "word_jp": "締める",
  "sentence_kr": "민국 씨가 파란색 넥타이를 매고 있어요.",
  "sentence_jp": "ミングクさんが青いネクタイを締めています。"
  },
  {
  "id": "3a-49-14",
  "lesson_id": 49,
- "word_kr": "(안경, 모자, 우산) 쓰다",
- "word_jp": "（眼鏡・帽子・傘を）かける・かぶる・さす",
+ "word_kr": "쓰다",
+ "word_jp": "さす",
  "sentence_kr": "빨간색 우산을 쓰고 있는 사람이 가영 씨예요.",
  "sentence_jp": "赤い傘をさしている人がカヨンさんです。"
  },
  {
  "id": "3a-49-15",
  "lesson_id": 49,
- "word_kr": "(시계, 팔찌) 차다",
- "word_jp": "（時計・ブレスレットを）つける",
+ "word_kr": "차다",
+ "word_jp": "つける",
  "sentence_kr": "부부가 같은 시계를 차고 있다.",
  "sentence_jp": "夫婦が同じ時計をつけている。"
  },
@@ -7453,7 +7453,7 @@
  "word_kr": "액세서리를 하다",
  "word_jp": "アクセサリーをつける",
  "sentence_kr": "리사 씨는 예쁜 귀걸이와 목걸이를 하고 있어요.",
- "sentence_jp": "リサさんはかわいいピアス（イヤリング）とネックレスをつけています。"
+ "sentence_jp": "リサさんはかわいいピアスとネックレスをつけています。"
  },
  {
  "id": "3a-50-01",
@@ -7482,9 +7482,9 @@
  {
  "id": "3a-50-04",
  "lesson_id": 50,
- "word_kr": "(악기를)다루다",
- "word_jp": "（楽器を）弾く・扱う",
- "sentence_kr": "나타샤 씨는 무슨 악기를 다룰수 있어요?",
+ "word_kr": "다루다",
+ "word_jp": "弾く・扱う",
+ "sentence_kr": "나타샤 씨는 무슨 악기를 다룰 수 있어요?",
  "sentence_jp": "ナターシャさんはどんな楽器を弾くことができますか？"
  },
  {
@@ -7492,14 +7492,14 @@
  "lesson_id": 50,
  "word_kr": "재능",
  "word_jp": "才能",
- "sentence_kr": "지훈 씨는외국어에 재능이 있어서 여러 나라의 말을 할수 있어요.",
+ "sentence_kr": "지훈 씨는 외국어에 재능이 있어서 여러 나라의 말을 할 수 있어요.",
  "sentence_jp": "ジフンさんは外国語の才能があって、いろんな国の言葉を話せます。"
  },
  {
  "id": "3a-50-06",
  "lesson_id": 50,
- "word_kr": "집중(하다)",
- "word_jp": "集中（する）",
+ "word_kr": "집중하다",
+ "word_jp": "集中する",
  "sentence_kr": "저는 공부를 할 때 주변이 시끄러우면 집중이 안 돼요.",
  "sentence_jp": "私は勉強する時、周りがうるさいと集中できません。"
  },
@@ -7531,7 +7531,7 @@
  "id": "3a-50-10",
  "lesson_id": 50,
  "word_kr": "마음씨",
- "word_jp": "気立て・心根",
+ "word_jp": "気立て",
  "sentence_kr": "샤오위 씨는 어려운 사람을 보면 도와주는 착한 마음씨를 가졌어요.",
  "sentence_jp": "シャオユーさんは困っている人を見ると助けてあげる優しい心の持ち主です。"
  },
@@ -7547,7 +7547,7 @@
  "id": "3a-50-12",
  "lesson_id": 50,
  "word_kr": "부족하다",
- "word_jp": "足りない・至らない",
+ "word_jp": "足りない",
  "sentence_kr": "저는 아직 부족한 점이 많습니다. 많이 도와주세요.",
  "sentence_jp": "私はまだ至らない点が多いです。いろいろと助けてください。"
  },
@@ -7555,7 +7555,7 @@
  "id": "3a-50-13",
  "lesson_id": 50,
  "word_kr": "서투르다",
- "word_jp": "苦手だ・下手だ",
+ "word_jp": "下手だ",
  "sentence_kr": "사비나는 한국말이 서툴러서 실수할 때가 있다.",
  "sentence_jp": "サビナは韓国語が下手で失敗することがある。"
  },
@@ -7563,7 +7563,7 @@
  "id": "3a-50-14",
  "lesson_id": 50,
  "word_kr": "성실하다",
- "word_jp": "誠実だ・まじめだ",
+ "word_jp": "まじめだ",
  "sentence_kr": "후안 씨는 성실해서 회사에 한 번도 지각한 적이 없어요.",
  "sentence_jp": "フアンさんはまじめなので、会社に一度も遅刻したことがありません。"
  },
@@ -7578,8 +7578,8 @@
  {
  "id": "3a-50-16",
  "lesson_id": 50,
- "word_kr": "존경(하다)",
- "word_jp": "尊敬（する）",
+ "word_kr": "존경하다",
+ "word_jp": "尊敬する",
  "sentence_kr": "명숙 씨는 가족들에게서 사랑과 존경을 받고 있어요.",
  "sentence_jp": "ミョンスクさんは家族から愛され、尊敬されています。"
  },
@@ -7621,7 +7621,7 @@
  "word_kr": "수박",
  "word_jp": "スイカ",
  "sentence_kr": "날씨가 더우니까 시원한 수박을 먹읍시다.",
- "sentence_jp": "天気が暑いから、冷たいスイカを食べましょう。"
+ "sentence_jp": "天気が暑いので、冷たいスイカを食べましょう"
  },
  {
  "id": "3a-51-04",
@@ -7661,7 +7661,7 @@
  "word_kr": "당근",
  "word_jp": "ニンジン",
  "sentence_kr": "어머니는 매일 아침에 당근 주스를 만들어 주세요.",
- "sentence_jp": "お母さんは毎朝ニンジンジュースを作ってくれます。"
+ "sentence_jp": "母は毎朝ニンジンジュースを作ってくれます。"
  },
  {
  "id": "3a-51-09",
@@ -7701,7 +7701,7 @@
  "word_kr": "신선하다",
  "word_jp": "新鮮だ",
  "sentence_kr": "할아버지께서 직접 기르신 채소가 아주 신선해요.",
- "sentence_jp": "おじいちゃんが自分で育てられた野菜がとても新鮮です。"
+ "sentence_jp": "祖父が自分で育てた野菜がとても新鮮です。"
  },
  {
  "id": "3a-51-14",
@@ -7740,14 +7740,14 @@
  "lesson_id": 51,
  "word_kr": "새우",
  "word_jp": "エビ",
- "sentence_kr": "제 동생은 새우가 들어간 음식은 다 좋아해요.",
- "sentence_jp": "私の弟（妹）はエビが入った料理なら何でも好きです。"
+ "sentence_kr": "제 여동생은 새우가 들어간 음식은 다 좋아해요.",
+ "sentence_jp": "私の妹はエビが入った料理なら何でも好きです。"
  },
  {
  "id": "3a-51-19",
  "lesson_id": 51,
  "word_kr": "싱싱하다",
- "word_jp": "生きがいい・新鮮だ",
+ "word_jp": "新鮮だ",
  "sentence_kr": "시장에서 사 온 생선이 아주 싱싱해요.",
  "sentence_jp": "市場で買ってきた魚がとても新鮮です。"
  },
@@ -7765,7 +7765,7 @@
  "word_kr": "조개",
  "word_jp": "貝",
  "sentence_kr": "칼국수에 조개를 넣으면 국물이 시원해요.",
- "sentence_jp": "カルグクスに貝を入れるとスープがすっきりして美味しいです。"
+ "sentence_jp": "カルグクスに貝を入れるとスープがさっぱりして美味しいです。"
  },
  {
  "id": "3a-51-22",
@@ -7795,7 +7795,7 @@
  "id": "3a-52-03",
  "lesson_id": 52,
  "word_kr": "분식집",
- "word_jp": "軽食屋（粉食店）",
+ "word_jp": "軽食屋",
  "sentence_kr": "가영 씨는 떡볶이와 김밥을 좋아해서 분식집에 자주 가요.",
  "sentence_jp": "カヨンさんはトッポッキとキンパが好きなので粉食店によく行きます。"
  },
@@ -7843,23 +7843,23 @@
  "id": "3a-52-09",
  "lesson_id": 52,
  "word_kr": "한식당",
- "word_jp": "韓国料理屋",
+ "word_jp": "韓国料理店",
  "sentence_kr": "요즘은 외국에도 한국 음식을 파는 한식당이 많이 생겼어요.",
- "sentence_jp": "最近は海外にも韓国料理を売る韓国料理屋がたくさんできました。"
+ "sentence_jp": "最近は海外にも韓国料理を売る韓国料理店がたくさんできました。"
  },
  {
  "id": "3a-52-10",
  "lesson_id": 52,
  "word_kr": "만족스럽다",
  "word_jp": "満足がいく",
- "sentence_kr": "작가는 만족스러운 나올 때까지 사진을 찍었다.",
- "sentence_jp": "作家は満足のいく写真が撮れるまで写真を撮った。"
+ "sentence_kr": "작가는 만족스러운 사진이 나올 때까지 사진을 찍었다.",
+ "sentence_jp": "写真家は満足のいく写真が撮れるまで写真を撮りました。"
  },
  {
  "id": "3a-52-11",
  "lesson_id": 52,
  "word_kr": "부담스럽다",
- "word_jp": "重荷だ・気兼ねする",
+ "word_jp": "負担だ",
  "sentence_kr": "친구가 비싼 선물을 줘서 부담스러워요.",
  "sentence_jp": "友達が高価なプレゼントをくれて気が引けます。"
  },
@@ -7869,7 +7869,7 @@
  "word_kr": "불만족스럽다",
  "word_jp": "不満だ",
  "sentence_kr": "그 식당은 음식 맛은 좋았지만 서비스가 불만족스러웠어요.",
- "sentence_jp": "その食堂は料理の味は良かったですが、サービスが不満でした。"
+ "sentence_jp": "その食堂は料理の味は良かったですが、サービスが不満足でした。"
  },
  {
  "id": "3a-52-13",
@@ -7891,7 +7891,7 @@
  "id": "3a-52-15",
  "lesson_id": 52,
  "word_kr": "저렴하다",
- "word_jp": "手頃だ・安い",
+ "word_jp": "手頃だ",
  "sentence_kr": "이 식당은 음식 가격이 저렴해서 학생들에게 인기가 많아요.",
  "sentence_jp": "この食堂は料理の値段が手頃で学生に人気があります。"
  },
@@ -7899,7 +7899,7 @@
  "id": "3a-52-16",
  "lesson_id": 52,
  "word_kr": "지저분하다",
- "word_jp": "散らかっている・汚い",
+ "word_jp": "散らかっている",
  "sentence_kr": "며칠 동안 청소를 못 해서 방이 지저분해요.",
  "sentence_jp": "何日も掃除ができなくて部屋が散らかっています。"
  },
@@ -7947,9 +7947,9 @@
  "id": "3a-53-03",
  "lesson_id": 53,
  "word_kr": "찜",
- "word_jp": "蒸し物・煮込み",
+ "word_jp": "蒸し料理",
  "sentence_kr": "저는 찜 요리 중에서 해물찜을 가장 좋아해요.",
- "sentence_jp": "私は蒸し料理の中で海鮮蒸し（ヘムルチム）が一番好きです。"
+ "sentence_jp": "私は蒸し料理の中で海鮮蒸しが一番好きです。"
  },
  {
  "id": "3a-53-04",
@@ -7979,7 +7979,7 @@
  "id": "3a-53-07",
  "lesson_id": 53,
  "word_kr": "다듬다",
- "word_jp": "下ごしらえする・整える",
+ "word_jp": "下ごしらえする",
  "sentence_kr": "요리를 시작하기 전에 채소를 미리 다듬어야 해요.",
  "sentence_jp": "料理を始める前に、野菜をあらかじめ下ごしらえしなければなりません。"
  },
@@ -7989,7 +7989,7 @@
  "word_kr": "다지다",
  "word_jp": "みじん切りにする",
  "sentence_kr": "한국 음식에는 다진 마늘이 많이 들어갑니다.",
- "sentence_jp": "韓国料理には刻みニンニク（おろしニンニク）が多く入ります。"
+ "sentence_jp": "韓国料理には刻みニンニクが多く入ります。"
  },
  {
  "id": "3a-53-09",
@@ -8011,7 +8011,7 @@
  "id": "3a-53-11",
  "lesson_id": 53,
  "word_kr": "부치다",
- "word_jp": "焼く・炒める（油を引いて平たく）",
+ "word_jp": "焼く",
  "sentence_kr": "한국에서는 명절에 여러 종류의 전을 부쳐서 먹는다.",
  "sentence_jp": "韓国では名節にいろいろな種類のチヂミを焼いて食べる。"
  },
@@ -8019,7 +8019,7 @@
  "id": "3a-53-12",
  "lesson_id": 53,
  "word_kr": "불리다",
- "word_jp": "ふやかす・水につける",
+ "word_jp": "水につける",
  "sentence_kr": "밥을 짓기 전에 쌀을 물에 불려야 더 맛이 좋아요.",
  "sentence_jp": "ご飯を炊く前にお米を水につけておくとより美味しいです。"
  },
@@ -8043,7 +8043,7 @@
  "id": "3a-53-15",
  "lesson_id": 53,
  "word_kr": "썰다",
- "word_jp": "切る・刻む",
+ "word_jp": "切る",
  "sentence_kr": "김치찌개에 돼지고기를 썰어서 넣으세요.",
  "sentence_jp": "キムチチゲに豚肉を切って入れてください。"
  },
@@ -8051,7 +8051,7 @@
  "id": "3a-53-16",
  "lesson_id": 53,
  "word_kr": "익히다",
- "word_jp": "火を通す・熟れさせる",
+ "word_jp": "火を通す",
  "sentence_kr": "감자는 푹 익혀야 부드러워져요.",
  "sentence_jp": "ジャガイモはじっくり火を通さないと柔らかくなりません。"
  },
@@ -8061,7 +8061,7 @@
  "word_kr": "자르다",
  "word_jp": "切る",
  "sentence_kr": "어머니는 갈비를 먹기 좋게 잘라서 주셨어요.",
- "sentence_jp": "お母さんはカルビを食べやすく切ってくれました。"
+ "sentence_jp": "母はカルビを食べやすく切ってくれました。"
  },
  {
  "id": "3a-53-18",
@@ -8098,8 +8098,8 @@
  {
  "id": "3a-54-02",
  "lesson_id": 54,
- "word_kr": "변경(하다/되다)",
- "word_jp": "変更（する）",
+ "word_kr": "변경하다",
+ "word_jp": "変更する",
  "sentence_kr": "주말에 여행을 가려고 했는데 급한 일이 생겨서 계획을 변경했어요.",
  "sentence_jp": "週末に旅行に行こうとしましたが、急用ができて計画を変更しました。"
  },
@@ -8117,7 +8117,7 @@
  "word_kr": "여행 경비",
  "word_jp": "旅行経費",
  "sentence_kr": "해외여행을 가려면 여행 경비가 많이 든다.",
- "sentence_jp": "海外旅行に行くには旅行経費が多くかかる。"
+ "sentence_jp": "海外旅行に行くには旅行経費がたくさんかかります。"
  },
  {
  "id": "3a-54-05",
@@ -8154,8 +8154,8 @@
  {
  "id": "3a-54-09",
  "lesson_id": 54,
- "word_kr": "추가(하다/되다)",
- "word_jp": "追加（する）",
+ "word_kr": "추가하다",
+ "word_jp": "追加する",
  "sentence_kr": "여기 삼겹살 1인분 더 추가해 주세요.",
  "sentence_jp": "すみません、サムギョプサルをもう1人前追加してください。"
  },
@@ -8163,7 +8163,7 @@
  "id": "3a-54-10",
  "lesson_id": 54,
  "word_kr": "겨울철",
- "word_jp": "冬場・冬季",
+ "word_jp": "冬場",
  "sentence_kr": "추운 겨울철에는 감기에 걸리기 쉬워요.",
  "sentence_jp": "寒い冬の時期には風邪を引きやすいです。"
  },
@@ -8171,7 +8171,7 @@
  "id": "3a-54-11",
  "lesson_id": 54,
  "word_kr": "비수기",
- "word_jp": "閑散期・オフシーズン",
+ "word_jp": "オフシーズン",
  "sentence_kr": "비수기에는 비행기 표 값이 성수기보다 훨씬 싸요.",
  "sentence_jp": "オフシーズンは飛行機のチケット代がハイシーズンよりずっと安いです。"
  },
@@ -8179,7 +8179,7 @@
  "id": "3a-54-12",
  "lesson_id": 54,
  "word_kr": "성수기",
- "word_jp": "繁忙期・ハイシーズン",
+ "word_jp": "ハイシーズン",
  "sentence_kr": "여행 성수기에는 어디에 가나 사람들이 많아요.",
  "sentence_jp": "旅行のハイシーズンにはどこへ行っても人が多いです。"
  },
@@ -8187,7 +8187,7 @@
  "id": "3a-54-13",
  "lesson_id": 54,
  "word_kr": "여름철",
- "word_jp": "夏場・夏季",
+ "word_jp": "夏場",
  "sentence_kr": "여름철에는 날씨가 더워서 음식이 쉽게 상한다.",
  "sentence_jp": "夏の時期は天気が暑くて食べ物が傷みやすい。"
  },
@@ -8195,7 +8195,7 @@
  "id": "3a-54-14",
  "lesson_id": 54,
  "word_kr": "여름휴가",
- "word_jp": "夏休み・夏季休暇",
+ "word_jp": "夏休み",
  "sentence_kr": "이번에 가족들과 바닷가로 여름휴가를 다녀왔어요.",
  "sentence_jp": "今回、家族と一緒に海辺へ夏休みに行ってきました。"
  },
@@ -8219,7 +8219,7 @@
  "id": "3a-55-02",
  "lesson_id": 55,
  "word_kr": "민박집",
- "word_jp": "民泊・民宿",
+ "word_jp": "民宿",
  "sentence_kr": "바닷가 근처 저렴한 민박집에서 하룻밤을 잤다.",
  "sentence_jp": "海辺の近くの手頃な民宿で一晩泊まった。"
  },
@@ -8227,7 +8227,7 @@
  "id": "3a-55-03",
  "lesson_id": 55,
  "word_kr": "숙소",
- "word_jp": "宿泊先・宿",
+ "word_jp": "宿泊先",
  "sentence_kr": "휴가철에는 숙소를 잡기가 어려워요.",
  "sentence_jp": "休暇シーズンには宿を取るのが難しいです。"
  },
@@ -8237,7 +8237,7 @@
  "word_kr": "시설",
  "word_jp": "施設",
  "sentence_kr": "이 콘도에는 수영장, 헬스장 등 다양한 시설이 있다.",
- "sentence_jp": "このリゾートマンションにはプール、ジムなど様々な施設がある。"
+ "sentence_jp": "このコンドミニアムにはプール、ジムなど様々な施設がある。"
  },
  {
  "id": "3a-55-05",
@@ -8277,7 +8277,7 @@
  "word_kr": "체크아웃",
  "word_jp": "チェックアウト",
  "sentence_kr": "오전에 호텔에서 체크아웃을 한 다음 택시를 타고 공항으로 갔다.",
- "sentence_jp": "午前中にホテルでチェックアウトをした後、タクシーに乗って空港へ向かった。"
+ "sentence_jp": "午前中にホテルでチェックアウトをした後、タクシーに乗って空港へ行きました。"
  },
  {
  "id": "3a-55-10",
@@ -8285,7 +8285,7 @@
  "word_kr": "체크인",
  "word_jp": "チェックイン",
  "sentence_kr": "숙소에 도착해서 제일 먼저 체크인을 하고 객실 열쇠를 받았다.",
- "sentence_jp": "宿に到着して一番にチェックインをして客室の鍵を受け取った。"
+ "sentence_jp": "宿に到着してまずチェックインをして客室の鍵を受け取りました。"
  },
  {
  "id": "3a-55-11",
@@ -8331,7 +8331,7 @@
  "id": "3a-55-16",
  "lesson_id": 55,
  "word_kr": "머물다",
- "word_jp": "滞在する・とどまる",
+ "word_jp": "滞在する",
  "sentence_kr": "이번 여름휴가에는 시골에 있는 외할머니 댁에서 며칠 머물 거예요.",
  "sentence_jp": "今年の夏休みには田舎にある母方の祖母の家に数日滞在する予定です。"
  },
@@ -8371,15 +8371,15 @@
  "id": "3a-55-21",
  "lesson_id": 55,
  "word_kr": "혜택",
- "word_jp": "割引・特典",
+ "word_jp": "特典",
  "sentence_kr": "여행 비수기에는 호텔에서 다양한 할인 혜택을 받을 수 있다.",
  "sentence_jp": "旅行のオフシーズンにはホテルで多様な割引特典を受けることができる。"
  },
  {
    "id": "3a-56-01",
    "lesson_id": 56,
-   "word_kr": "귀국(하다)",
-   "word_jp": "帰国（する）",
+   "word_kr": "귀국하다",
+   "word_jp": "帰国する",
    "sentence_kr": "언니가 10년간의 유학 생활을 마치고 내일 귀국해요.",
    "sentence_jp": "姉が10年間の留学生活を終えて明日帰国します。"
  },
@@ -8419,9 +8419,9 @@
    "id": "3a-56-06",
    "lesson_id": 56,
    "word_kr": "손잡이",
-   "word_jp": "つり革",
+   "word_jp": "手すり",
    "sentence_kr": "달리는 버스 안에서는 넘어지지 않도록 손잡이를 꽉 잡으세요.",
-   "sentence_jp": "走るバスの中では転ばないようにつり革をしっかり握ってください。"
+   "sentence_jp": "走るバスの中では転ばないように手すりをしっかり握ってください。"
  },
  {
    "id": "3a-56-07",
@@ -8450,8 +8450,8 @@
  {
    "id": "3a-56-10",
    "lesson_id": 56,
-   "word_kr": "입국(하다)",
-   "word_jp": "入国（する）",
+   "word_kr": "입국하다",
+   "word_jp": "入国する",
    "sentence_kr": "친구가 오후 12시 비행기로 입국할 거예요.",
    "sentence_jp": "友達が午後12時の飛行機で入国する予定です。"
  },
@@ -8459,23 +8459,23 @@
    "id": "3a-56-11",
    "lesson_id": 56,
    "word_kr": "챙기다",
-   "word_jp": "準備する",
+   "word_jp": "まとめる",
    "sentence_kr": "여행 가방을 챙겨서 일찍 공항으로 갔어요.",
    "sentence_jp": "スーツケースを準備して早く空港へ向かいました。"
  },
  {
    "id": "3a-56-12",
    "lesson_id": 56,
-   "word_kr": "출국(하다)",
-   "word_jp": "出国（する）",
+   "word_kr": "출국하다",
+   "word_jp": "出国する",
    "sentence_kr": "이번 주 월요일에 출국해서 주말에 돌아올 예정이에요.",
    "sentence_jp": "今週の月曜日に出国して週末に戻ってくる予定です。"
  },
  {
    "id": "3a-56-13",
    "lesson_id": 56,
-   "word_kr": "탑승(하다)",
-   "word_jp": "搭乗（する）",
+   "word_kr": "탑승하다",
+   "word_jp": "搭乗する",
    "sentence_kr": "비행기가 곧 출발하니까 빨리 탑승해야 해요.",
    "sentence_jp": "飛行機がまもなく出発するので早く搭乗しなければなりません。"
  },
@@ -8485,7 +8485,7 @@
    "word_kr": "겉옷",
    "word_jp": "上着",
    "sentence_kr": "밤에 추울까 봐 겉옷도 하나 넣었어요.",
-   "sentence_jp": "夜に寒いかと思って上着も1着入れました。"
+   "sentence_jp": "夜に寒いかと思って上着も1枚入れました。"
  },
  {
    "id": "3a-56-15",
@@ -8499,9 +8499,9 @@
    "id": "3a-56-16",
    "lesson_id": 56,
    "word_kr": "비상금",
-   "word_jp": "非常金",
+   "word_jp": "非常用のお金",
    "sentence_kr": "쯔엉 씨는 갑자기 문제가 생겼을 때 쓸 수 있도록 비상금을 준비해 두었어요.",
-   "sentence_jp": "チュオンさんは急に問題が起きた時に使えるよう、非常金を用意しておきました。"
+   "sentence_jp": "チュオンさんは急に問題が起きた時に使えるよう、非常用のお金を用意しておきました。"
  },
  {
    "id": "3a-56-17",
@@ -8597,7 +8597,7 @@
    "word_kr": "진하다",
    "word_jp": "濃い",
    "sentence_kr": "진한 파란색 바지에는 흰색 티셔츠가 잘 어울려요.",
-   "sentence_jp": "濃い青色のズボン에는 白いTシャツがよく似合います。"
+   "sentence_jp": "濃い青色のズボンには白いTシャツがよく似合います。"
  },
  {
    "id": "3a-57-08",
@@ -8653,7 +8653,7 @@
    "word_kr": "물방울무늬",
    "word_jp": "ドット柄",
    "sentence_kr": "파란 물방울이 그려진 물방울무늬 우산을 샀어요.",
-   "sentence_jp": "青い水玉が描かれたドット柄の傘を買いました。"
+   "sentence_jp": "青い水玉模様の傘を買いました。"
  },
  {
    "id": "3a-57-15",
@@ -8661,7 +8661,7 @@
    "word_kr": "줄무늬",
    "word_jp": "ストライプ柄",
    "sentence_kr": "저는 빨간 줄무늬가 있는 넥타이가 마음에 들어요.",
-   "sentence_jp": "私は赤いストライプが入ったネクタイが気に入っています。"
+   "sentence_jp": "私は赤いストライプ柄のネクタイが気に入っています。"
  },
  {
    "id": "3a-57-16",
@@ -8690,7 +8690,7 @@
  {
    "id": "3a-57-19",
    "lesson_id": 57,
-   "word_kr": "를 잠그다",
+   "word_kr": "잠그다",
    "word_jp": "閉める",
    "sentence_kr": "추우니까 지퍼를 잠그세요.",
    "sentence_jp": "寒いからファスナーを閉めてください。"
@@ -8698,7 +8698,7 @@
  {
    "id": "3a-57-20",
    "lesson_id": 57,
-   "word_kr": "를 채우다",
+   "word_kr": "채우다",
    "word_jp": "留める",
    "sentence_kr": "셔츠의 단추를 다 채우면 단정해 보인다.",
    "sentence_jp": "シャツのボタンを全部留めるときちんとして見える。"
@@ -8725,7 +8725,7 @@
    "word_kr": "가전제품",
    "word_jp": "家電製品",
    "sentence_kr": "텔레비전, 세탁기 같은 가전제품은 오래돼서 이사할 때 바꿔야겠어요.",
-   "sentence_jp": "テレビや洗濯機のような家電製品は古くなったので、引っ越しの時に買い替えなければなりません。"
+   "sentence_jp": "テレビや洗濯機のような家電製品は古くなったので、引っ越しの時に買い替えようと思います。"
  },
  {
    "id": "3a-58-04",
@@ -8749,7 +8749,7 @@
    "word_kr": "식탁",
    "word_jp": "食卓",
    "sentence_kr": "우리 가족은 식구가 많아서 큰 식탁을 써요.",
-   "sentence_jp": "うちの家族は人数が多いので大きな食卓を使っています。"
+   "sentence_jp": "うちの家族は人数が多いので大きなダイニングテーブルを使っています。"
  },
  {
    "id": "3a-58-07",
@@ -8757,15 +8757,15 @@
    "word_kr": "에어컨",
    "word_jp": "エアコン",
    "sentence_kr": "후안 씨, 방이 너무 더운데 에어컨 좀 켜 주세요.",
-   "sentence_jp": "フアンさん、部屋がとても暑いのでエアコンをつけてください。"
+   "sentence_jp": "フアンさん、部屋がとても暑いのでエアコンをちょっとつけてください。"
  },
  {
    "id": "3a-58-08",
    "lesson_id": 58,
    "word_kr": "옷장",
-   "word_jp": "クローゼット",
+   "word_jp": "タンス",
    "sentence_kr": "내 방 옷장에는 옷이 가득해요.",
-   "sentence_jp": "私の部屋のクローゼットには服がいっぱいです。"
+   "sentence_jp": "私の部屋のタンスには服がいっぱいです。"
  },
  {
    "id": "3a-58-09",
@@ -8850,8 +8850,8 @@
  {
    "id": "3a-58-19",
    "lesson_id": 58,
-   "word_kr": "할인(하다/되다)",
-   "word_jp": "割引（する）",
+   "word_kr": "할인되다",
+   "word_jp": "割引する",
    "sentence_kr": "가구 할인점에 가면 소파를 할인된 가격에 살 수 있습니다.",
    "sentence_jp": "家具のアウトレットに行けばソファを割引された価格で買えます。"
  },
@@ -8917,7 +8917,7 @@
    "word_kr": "뵙다",
    "word_jp": "お目にかかる",
    "sentence_kr": "부모님을 오랫동안 뵙지 못해서 다음 방학 때는 꼭 집에 가려고 해요.",
-   "sentence_jp": "両親に長い間お会いできていないので、次の休みには必ず実家に帰ろうと思います。"
+   "sentence_jp": "両親に長い間お会いできていないので、次の休みには必ず家に帰ろうと思います。"
  },
  {
    "id": "3a-59-08",
@@ -8933,7 +8933,7 @@
    "word_kr": "성함",
    "word_jp": "お名前",
    "sentence_kr": "제 어머니 성함은 이명숙입니다.",
-   "sentence_jp": "私の母のお名前はイ・ミョンスクです。"
+   "sentence_jp": "私の母の名は이명숙です。"
  },
  {
    "id": "3a-59-10",
@@ -8981,28 +8981,28 @@
    "word_kr": "인간관계",
    "word_jp": "人間関係",
    "sentence_kr": "정우는 인간관계가 좋아서 주변에 친구들이 많다.",
-   "sentence_jp": "ジョンウは人間関係が円満で周りに友達が多い."
+   "sentence_jp": "ジョンウは人間関係が円満で周りに友達が多いです。"
  },
  {
    "id": "3a-59-16",
    "lesson_id": 59,
-   "word_kr": "조언(하다)",
-   "word_jp": "アドバイス（する）",
+   "word_kr": "조언하다",
+   "word_jp": "アドバイスする",
    "sentence_kr": "나는 평소에 도움을 필요로 하는 친구들에게 조언을 많이 해 주는 편이다.",
    "sentence_jp": "私は普段、助けを必要としている友達によくアドバイスをしてあげる方だ。"
  },
  {
    "id": "3a-59-17",
    "lesson_id": 59,
-   "word_kr": "충고(하다)",
-   "word_jp": "忠告（する）",
+   "word_kr": "충고하다",
+   "word_jp": "忠告する",
    "sentence_kr": "언니는 내가 다른 사람에게 실수하지 않게 자주 충고를 해 준다.",
    "sentence_jp": "姉は私が他の人に失礼なことをしないよう、よく忠告をしてくれる。"
  },
  {
    "id": "3a-59-18",
    "lesson_id": 59,
-   "word_kr": "피해를 주다/입다",
+   "word_kr": "피해를 주다",
    "word_jp": "迷惑をかける",
    "sentence_kr": "다른 사람과 함께 이용하는 장소에서는 남에게 피해를 주지 않게 조심해야 한다.",
    "sentence_jp": "他の人と一緒に利用する場所では、他人に迷惑をかけないよう気をつけなければならない。"
@@ -9012,24 +9012,24 @@
    "lesson_id": 59,
    "word_kr": "혼나다",
    "word_jp": "叱られる",
-   "sentence_kr": "동생은 숙제를 안 해서 어머니께 혼났어요.",
-   "sentence_jp": "弟（妹）は宿題をしなくてお母さんに叱られました。"
+   "sentence_kr": "여동생은 숙제를 안 해서 어머니께 혼났어요.",
+   "sentence_jp": "妹は宿題をしなくてお母さんに叱られました。"
  },
  {
    "id": "3a-59-20",
    "lesson_id": 59,
    "word_kr": "혼내다",
    "word_jp": "叱る",
-   "sentence_kr": "어머니는 숙제를 안 한 동생을 혼냈어요.",
-   "sentence_jp": "お母さんは宿題をしなかった弟（妹）を叱りました。"
+   "sentence_kr": "어머니는 숙제를 안 한 여동생을 혼냈어요.",
+   "sentence_jp": "お母さんは宿題をしなかった妹を叱りました。"
  },
  {
    "id": "3a-60-01",
    "lesson_id": 60,
    "word_kr": "과장",
    "word_jp": "課長",
-   "sentence_kr": "박과장은 사원들을 가족처럼 잘 챙겨 준다.",
-   "sentence_jp": "パク課長は社員たちを家族のようによく気遣ってくれる。"
+   "sentence_kr": "박 과장은 사원들을 가족처럼 잘 챙겨 준다.",
+   "sentence_jp": "パク課長は社員たちを家族のようによく気遣ってくれます。"
  },
  {
    "id": "3a-60-02",
@@ -9052,7 +9052,7 @@
    "lesson_id": 60,
    "word_kr": "부장",
    "word_jp": "部長",
-   "sentence_kr": "김철수 씨는 과장이 된지 일 년 만에 부장으로 고속으로 승진했다.",
+   "sentence_kr": "김철수 씨는 과장이 된 지 일 년 만에 부장으로 고속으로 승진했다.",
    "sentence_jp": "キム・チョルスさんは課長になってわずか1年で部長へ高速昇進した。"
  },
  {
@@ -9100,7 +9100,7 @@
    "lesson_id": 60,
    "word_kr": "번역",
    "word_jp": "翻訳",
-   "sentence_kr": "미카 씨는 회사에서 일본어를 한국어로 번역 하는 일을 해요.",
+   "sentence_kr": "미카 씨는 회사에서 일본어를 한국어로 번역하는 일을 해요.",
    "sentence_jp": "ミカさんは会社で日本語を韓国語に翻訳する仕事をしています。"
  },
  {
@@ -9108,7 +9108,7 @@
    "lesson_id": 60,
    "word_kr": "보고서",
    "word_jp": "報告書",
-   "sentence_kr": "작년 사업에 대한 내용을 정리하여 부장님께 보고서를 제출했다",
+   "sentence_kr": "작년 사업에 대한 내용을 정리하여 부장님께 보고서를 제출했다.",
    "sentence_jp": "昨年の事業に関する内容を整理して部長に報告書を提出した。"
  },
  {
@@ -9124,7 +9124,7 @@
    "lesson_id": 60,
    "word_kr": "의논하다",
    "word_jp": "相談する",
-   "sentence_kr": "문제를 해결하기 위해서는 혼자서 생각하는 것보다 여러사람과 의논하는 것이 더 좋아요.",
+   "sentence_kr": "문제를 해결하기 위해서는 혼자서 생각하는 것보다 여러 사람과 의논하는 것이 더 좋아요.",
    "sentence_jp": "問題を解決するためには一人で考えるより多くの人と相談するほうがよいです。"
  },
  {
@@ -9149,7 +9149,7 @@
    "word_kr": "회의록",
    "word_jp": "議事録",
    "sentence_kr": "오늘 회의 때 제가 발표를 할 테니 김 대리는 회의록을 써 주세요.",
-   "sentence_jp": "今日の会議で私が発表をするので、キム代理は議事録を書いてください。"
+   "sentence_jp": "今日の会議で私が発表をするので、キム代理は議事録を作成してください。"
  },
  {
    "id": "3a-60-17",
@@ -9189,6 +9189,3278 @@
    "word_kr": "화상 회의",
    "word_jp": "オンライン会議",
    "sentence_kr": "요즘은 외국에 직접 가지 않고 외국 회사와 주로 화상 회의를 한다.",
-   "sentence_jp": "最近は海外に直接行かず、現地の会社と主にオンライン会議を行う。"
- }
+   "sentence_jp": "最近は海外に直接行かず、海外の会社と主にオンライン会議を行います。"
+ },
+   {
+    "id": "4a-61-01",
+    "lesson_id": 61,
+    "word_kr": "무덥다",
+    "word_jp": "蒸し暑い",
+    "sentence_kr": "날씨가 무더워서 가만히 있어도 땀이 난다.",
+    "sentence_jp": "蒸し暑くてじっとしていても汗が出る。"
+  },
+  {
+    "id": "4a-61-02",
+    "lesson_id": 61,
+    "word_kr": "영상",
+    "word_jp": "氷点上",
+    "sentence_kr": "오늘 아침 기온은 영상 15도입니다.",
+    "sentence_jp": "今朝の気温は氷点上15度です。"
+  },
+  {
+    "id": "4a-61-03",
+    "lesson_id": 61,
+    "word_kr": "영하",
+    "word_jp": "氷点下",
+    "sentence_kr": "내일 아침부터는 영하 10도 이하로 기온이 내려가겠습니다.",
+    "sentence_jp": "明日の朝からは氷点下10度以下に気温が下がる見込みです。"
+  },
+  {
+    "id": "4a-61-04",
+    "lesson_id": 61,
+    "word_kr": "최고 기온",
+    "word_jp": "最高気温",
+    "sentence_kr": "오늘 최고 기온은 영상 35도까지 올라가서 매우 덥겠습니다.",
+    "sentence_jp": "今日の最高気温は35度まで上がって非常に暑くなる見込みです。"
+  },
+  {
+    "id": "4a-61-05",
+    "lesson_id": 61,
+    "word_kr": "최저 기온",
+    "word_jp": "最低気温",
+    "sentence_kr": "오늘은 최저 기온이 영하 10도까지 내려가서 아주 춥겠습니다.",
+    "sentence_jp": "今日は最低気温が氷点下10度まで下がってとても寒くなる見込みです。"
+  },
+  {
+    "id": "4a-61-06",
+    "lesson_id": 61,
+    "word_kr": "포근하다",
+    "word_jp": "あたたかい",
+    "sentence_kr": "오늘은 기온이 올라가 춥지 않고 포근한 날씨예요.",
+    "sentence_jp": "今日は気温が上がって寒くなく、あたたかい天気です。"
+  },
+  {
+    "id": "4a-61-07",
+    "lesson_id": 61,
+    "word_kr": "화창하다",
+    "word_jp": "のどかだ",
+    "sentence_kr": "오늘은 날씨도 화창하고 공기도 맑다.",
+    "sentence_jp": "今日は天気ものどかで空気も澄んでいる。"
+  },
+  {
+    "id": "4a-61-08",
+    "lesson_id": 61,
+    "word_kr": "날이 풀리다",
+    "word_jp": "寒さが和らぐ",
+    "sentence_kr": "봄이 되어 날이 풀리니까 야외활동 하는 사람들이 많아졌어.",
+    "sentence_jp": "春になって寒さが和らいだので、アウトドアを楽しむ人が増えたよ。"
+  },
+  {
+    "id": "4a-61-09",
+    "lesson_id": 61,
+    "word_kr": "눈이 쌓이다",
+    "word_jp": "雪が積もる",
+    "sentence_kr": "눈이 많이 쌓이면 눈사람을 만들 수 있어요.",
+    "sentence_jp": "雪がたくさん積もれば雪だるまを作ることができます。"
+  },
+  {
+    "id": "4a-61-10",
+    "lesson_id": 61,
+    "word_kr": "소나기가 그치다",
+    "word_jp": "夕立がやむ",
+    "sentence_kr": "소나기가 그치니까 공기가 시원해지더라.",
+    "sentence_jp": "にわか雨がやんだら空気が涼しくなったよ。"
+  },
+  {
+    "id": "4a-61-11",
+    "lesson_id": 61,
+    "word_kr": "습도가 높다",
+    "word_jp": "湿度が高い",
+    "sentence_kr": "비가 많이 오는 장마기간에는 습도가 높습니다.",
+    "sentence_jp": "雨がたくさん降る梅雨の時期には湿度が高いです。"
+  },
+  {
+    "id": "4a-61-12",
+    "lesson_id": 61,
+    "word_kr": "일교차가 크다",
+    "word_jp": "寒暖差が大きい",
+    "sentence_kr": "일교차가 큰 날씨에는 감기에 걸리기 쉬워요.",
+    "sentence_jp": "寒暖差が大きい気候では風邪を引きやすいです。"
+  },
+  {
+    "id": "4a-61-13",
+    "lesson_id": 61,
+    "word_kr": "폭설이 내리다",
+    "word_jp": "大雪が降る",
+    "sentence_kr": "폭설이 내려서 기차가 안 다녀요.",
+    "sentence_jp": "大雪が降って電車が走っていません。"
+  },
+  {
+    "id": "4a-61-14",
+    "lesson_id": 61,
+    "word_kr": "폭우가 내리다",
+    "word_jp": "豪雨が降る",
+    "sentence_kr": "폭우가 내려서 지하 주차장에 물이 들어왔어요.",
+    "sentence_jp": "豪雨が降って地下駐車場に水が入ってきました。"
+  },
+  {
+    "id": "4a-61-15",
+    "lesson_id": 61,
+    "word_kr": "꽃샘추위",
+    "word_jp": "花冷え",
+    "sentence_kr": "3월 말까지는 눈도 오고 꽃샘추위가 계속 된다.",
+    "sentence_jp": "3月末までは雪も降り、花冷えが続く。"
+  },
+  {
+    "id": "4a-61-16",
+    "lesson_id": 61,
+    "word_kr": "열대야",
+    "word_jp": "熱帯夜",
+    "sentence_kr": "열대야에는 더워서 잠을 잘 못 자요.",
+    "sentence_jp": "熱帯夜には暑くてよく眠れません。"
+  },
+  {
+    "id": "4a-61-17",
+    "lesson_id": 61,
+    "word_kr": "나들이를 가다",
+    "word_jp": "お出かけする",
+    "sentence_kr": "우리는 도시락을 싸서 공원으로 나들이를 가기로 했어요.",
+    "sentence_jp": "私たちはお弁当を作って公園へお出かけすることにしました。"
+  },
+  {
+    "id": "4a-61-18",
+    "lesson_id": 61,
+    "word_kr": "단풍이 들다",
+    "word_jp": "紅葉する",
+    "sentence_kr": "지난주부터 설악산에 단풍이 들기 시작했다.",
+    "sentence_jp": "先週から雪岳山が紅葉し始めた。"
+  },
+  {
+    "id": "4a-61-19",
+    "lesson_id": 61,
+    "word_kr": "더위를 식히다",
+    "word_jp": "暑さをしのぐ",
+    "sentence_kr": "한여름 더위를 식혀 주는 음식으로는 팥빙수가 있습니다.",
+    "sentence_jp": "真夏の暑さをしのいでくれる食べ物としては小豆かき氷があります。"
+  },
+  {
+    "id": "4a-61-20",
+    "lesson_id": 61,
+    "word_kr": "더위를 타다",
+    "word_jp": "暑さに弱い",
+    "sentence_kr": "저는 더위를 너무 많이 타서 여름을 정말 싫어해요.",
+    "sentence_jp": "私はとても暑がりなので夏が本当に嫌いです。"
+  },
+  {
+    "id": "4a-61-21",
+    "lesson_id": 61,
+    "word_kr": "물놀이를 하다",
+    "word_jp": "水遊びをする",
+    "sentence_kr": "우리는 강에서 물놀이를 하고 왔어요.",
+    "sentence_jp": "私たちは川で水遊びをしてきました。"
+  },
+  {
+    "id": "4a-61-22",
+    "lesson_id": 61,
+    "word_kr": "자외선이 강하다",
+    "word_jp": "紫外線が強い",
+    "sentence_kr": "자외선이 강한 날에는 야외 활동을 줄이세요.",
+    "sentence_jp": "紫外線が強い日には屋外活動を控えてください。"
+  },
+  {
+    "id": "4a-61-23",
+    "lesson_id": 61,
+    "word_kr": "잠을 설치다",
+    "word_jp": "寝苦しい",
+    "sentence_kr": "모기 때문에 잠을 설치었어요.",
+    "sentence_jp": "蚊のせいで寝苦しくて熟睡できませんでした。"
+  },
+  {
+    "id": "4a-61-24",
+    "lesson_id": 61,
+    "word_kr": "추위를 타다",
+    "word_jp": "寒さに弱い",
+    "sentence_kr": "추위를 타서 겨울에는 좀처럼 외출을 하지 않아요.",
+    "sentence_jp": "寒がりなので冬にはめったに外出しません。"
+  },
+  {
+    "id": "4a-62-01",
+    "lesson_id": 62,
+    "word_kr": "개발되다",
+    "word_jp": "開発される",
+    "sentence_kr": "아파트가 생기면서 주변이 많이 개발되었다.",
+    "sentence_jp": "マンションができるにつれて周辺がかなり開発された。"
+  },
+  {
+    "id": "4a-62-02",
+    "lesson_id": 62,
+    "word_kr": "근교",
+    "word_jp": "近郊",
+    "sentence_kr": "주말에 서울 근교로 놀러 가자.",
+    "sentence_jp": "週末にソウル近郊へ遊びに行こう。"
+  },
+  {
+    "id": "4a-62-03",
+    "lesson_id": 62,
+    "word_kr": "대도시",
+    "word_jp": "大都市",
+    "sentence_kr": "서울특별시는 한국에서 제일 큰 대도시이다.",
+    "sentence_jp": "ソウル特別市は韓国で一番大きな大都市だ。"
+  },
+  {
+    "id": "4a-62-04",
+    "lesson_id": 62,
+    "word_kr": "명소",
+    "word_jp": "名所",
+    "sentence_kr": "경주는 가봐야 할 명소들이 많다.",
+    "sentence_jp": "慶州は行ってみるべき名所が多い。"
+  },
+  {
+    "id": "4a-62-05",
+    "lesson_id": 62,
+    "word_kr": "수도권",
+    "word_jp": "首都圏",
+    "sentence_kr": "수도권에는 서울로 출퇴근을 하는 사람들이 많이 산다.",
+    "sentence_jp": "首都圏にはソウルへ通勤・通学する人が多く住んでいる。"
+  },
+  {
+    "id": "4a-62-06",
+    "lesson_id": 62,
+    "word_kr": "시골",
+    "word_jp": "田舎",
+    "sentence_kr": "방학에는 시골에 있는 할머니 댁에 놀러 갈 거야.",
+    "sentence_jp": "休みには田舎にあるおばあちゃんの家に遊びに行くつもりだ。"
+  },
+  {
+    "id": "4a-62-07",
+    "lesson_id": 62,
+    "word_kr": "인구",
+    "word_jp": "人口",
+    "sentence_kr": "서울은 한국에서 인구가 가장 많은 도시이다.",
+    "sentence_jp": "ソウルは韓国で人口が最も多い都市だ。"
+  },
+  {
+    "id": "4a-62-08",
+    "lesson_id": 62,
+    "word_kr": "지방",
+    "word_jp": "地方",
+    "sentence_kr": "서울과 지방을 오가면서 장사를 했다.",
+    "sentence_jp": "ソウルと地方を行き来しながら商売をした。"
+  },
+  {
+    "id": "4a-62-09",
+    "lesson_id": 62,
+    "word_kr": "인심이 좋다",
+    "word_jp": "情が深い",
+    "sentence_kr": "이 식당 주인은 인심이 좋아서 늘 음식을 가득 담아 준다.",
+    "sentence_jp": "この店の店主は情が深くて、いつも料理を大盛りにしてくれる。"
+  },
+  {
+    "id": "4a-62-10",
+    "lesson_id": 62,
+    "word_kr": "공공시설",
+    "word_jp": "公共施設",
+    "sentence_kr": "공공시설을 깨끗이 사용합시다.",
+    "sentence_jp": "公共施設をきれいに使いましょう。"
+  },
+  {
+    "id": "4a-62-11",
+    "lesson_id": 62,
+    "word_kr": "교육시설",
+    "word_jp": "教育施設",
+    "sentence_kr": "아이들이 많은 지역은 학교, 도서관 등 교육 시설이 많아야 한다.",
+    "sentence_jp": "子どもの多い地域は学校や図書館などの教育施設が多くなければならない。"
+  },
+  {
+    "id": "4a-62-12",
+    "lesson_id": 62,
+    "word_kr": "문화시설",
+    "word_jp": "文化施設",
+    "sentence_kr": "극장, 미술관 같은 문화 시설을 더 많이 짓겠습니다.",
+    "sentence_jp": "劇場や美術館のような文化施設をもっとたくさん建てます。"
+  },
+  {
+    "id": "4a-62-13",
+    "lesson_id": 62,
+    "word_kr": "복잡하다",
+    "word_jp": "ごった返す",
+    "sentence_kr": "도시는 사람과 차가 많아서 너무 복잡하다.",
+    "sentence_jp": "都市は人と車が多くてとても混雑している。"
+  },
+  {
+    "id": "4a-62-14",
+    "lesson_id": 62,
+    "word_kr": "편의시설",
+    "word_jp": "利便施設",
+    "sentence_kr": "요즘 쇼핑센터는 영화관, 미용실, 음식점 등 편의 시설도 같이 있는 경우가 많다.",
+    "sentence_jp": "最近のショッピングセンターは映画館や美容院、飲食店などの利便施設も併設されていることが多い。"
+  },
+  {
+    "id": "4a-62-15",
+    "lesson_id": 62,
+    "word_kr": "한가하다",
+    "word_jp": "閑散としている",
+    "sentence_kr": "방학 동안에는 학생들이 없어서 학교가 한가하다.",
+    "sentence_jp": "休みの間は学生がいないので学校が閑散としている。"
+  },
+  {
+    "id": "4a-62-16",
+    "lesson_id": 62,
+    "word_kr": "도심을 벗어나다",
+    "word_jp": "都心を離れる",
+    "sentence_kr": "도심을 벗어나면 차가 적어서 공기가 좋다.",
+    "sentence_jp": "都心を離れると車が少なくて空気がよい。"
+  },
+  {
+    "id": "4a-62-17",
+    "lesson_id": 62,
+    "word_kr": "삶의 질이 높다",
+    "word_jp": "生活の質が高い",
+    "sentence_kr": "근처에 편의 시설이 많고 공원도 있어서 삶의 질이 높다.",
+    "sentence_jp": "近所に利便施設が多く公園もあるため生活の質が高い。"
+  },
+  {
+    "id": "4a-62-18",
+    "lesson_id": 62,
+    "word_kr": "잘 갖추어지다",
+    "word_jp": "完備されている",
+    "sentence_kr": "부산은 관광객이 많아 관광 시설이 잘 갖추어져 있다.",
+    "sentence_jp": "釜山は観光客が多く、観光施設がよく整っている。"
+  },
+  {
+    "id": "4a-62-19",
+    "lesson_id": 62,
+    "word_kr": "접근성이 좋다",
+    "word_jp": "アクセスがよい",
+    "sentence_kr": "이 호텔은 역 근처에 있어서 접근성이 좋아요.",
+    "sentence_jp": "このホテルは駅の近くにあるのでアクセスがよいです。"
+  },
+  {
+    "id": "4a-62-20",
+    "lesson_id": 62,
+    "word_kr": "휴식을 취하다",
+    "word_jp": "休息をとる",
+    "sentence_kr": "산책하다가 근처 벤치에서 휴식을 취했다.",
+    "sentence_jp": "散歩の途中で近くのベンチに座って休息をとった。"
+  },
+  {
+    "id": "4a-63-01",
+    "lesson_id": 63,
+    "word_kr": "거주하다",
+    "word_jp": "居住する",
+    "sentence_kr": "부모님은 같은 집에서 30년 넘게 거주하셨다.",
+    "sentence_jp": "両親は同じ家に30年以上居住された。"
+  },
+  {
+    "id": "4a-63-02",
+    "lesson_id": 63,
+    "word_kr": "경비실",
+    "word_jp": "警備室",
+    "sentence_kr": "문밖에서 이상한 소리가 나서 경비실에 연락했다.",
+    "sentence_jp": "ドアの外から変な音がしたので警備室に連絡した。"
+  },
+  {
+    "id": "4a-63-03",
+    "lesson_id": 63,
+    "word_kr": "고층",
+    "word_jp": "高層",
+    "sentence_kr": "아파트 고층에 살면 경치를 한눈에 볼 수 있다.",
+    "sentence_jp": "マンションの高層階に住むと景色を一望できる。"
+  },
+  {
+    "id": "4a-63-04",
+    "lesson_id": 63,
+    "word_kr": "낡다",
+    "word_jp": "古びる",
+    "sentence_kr": "이 가방은 오래 써서 많이 낡았다.",
+    "sentence_jp": "このバッグは長く使ったのでずいぶん古びてしまった。"
+  },
+  {
+    "id": "4a-63-05",
+    "lesson_id": 63,
+    "word_kr": "보안 시설",
+    "word_jp": "セキュリティ施設",
+    "sentence_kr": "이 건물은 보안 시설이 잘 되어 있어서 안전하다.",
+    "sentence_jp": "この建物はセキュリティ設備が整っていて安全だ。"
+  },
+  {
+    "id": "4a-63-06",
+    "lesson_id": 63,
+    "word_kr": "부동산",
+    "word_jp": "不動産屋",
+    "sentence_kr": "이사할 집을 찾을 때는 부동산에 가서 알아보세요.",
+    "sentence_jp": "引っ越し先の家を探すときは不動産屋に行って調べてみてください。"
+  },
+  {
+    "id": "4a-63-07",
+    "lesson_id": 63,
+    "word_kr": "실외",
+    "word_jp": "屋外",
+    "sentence_kr": "수영장이 실외에 있어서 여름에만 사용한다.",
+    "sentence_jp": "プールが屋外にあるので夏にだけ利用する。"
+  },
+  {
+    "id": "4a-63-08",
+    "lesson_id": 63,
+    "word_kr": "오피스텔",
+    "word_jp": "オフィステル",
+    "sentence_kr": "오피스텔은 집으로 사용해도 되고 사무실로 사용해도 된다.",
+    "sentence_jp": "オフィステルは住居として使っても事務所として使ってもよい。"
+  },
+  {
+    "id": "4a-63-09",
+    "lesson_id": 63,
+    "word_kr": "저층",
+    "word_jp": "低層",
+    "sentence_kr": "우리 집은 아파트 저층이라서 엘리베이터 대신 주로 계단을 이용한다.",
+    "sentence_jp": "私の家はマンションの低層階なのでエレベーターの代わりに主に階段を使う。"
+  },
+  {
+    "id": "4a-63-10",
+    "lesson_id": 63,
+    "word_kr": "전망이 좋다",
+    "word_jp": "見晴らしがよい",
+    "sentence_kr": "높은 층에 살면 전망이 좋다.",
+    "sentence_jp": "高い階に住むと見晴らしがよい。"
+  },
+  {
+    "id": "4a-63-11",
+    "lesson_id": 63,
+    "word_kr": "집을 구하다",
+    "word_jp": "部屋を探す",
+    "sentence_kr": "혼자 살게 돼서 집을 구해야 한다.",
+    "sentence_jp": "一人暮らしをすることになったので部屋を探さなければならない。"
+  },
+  {
+    "id": "4a-63-12",
+    "lesson_id": 63,
+    "word_kr": "계약서",
+    "word_jp": "契約書",
+    "sentence_kr": "어제 부동산에 가서 계약서를 작성했어요.",
+    "sentence_jp": "昨日不動産屋に行って契約書を作成しました。"
+  },
+  {
+    "id": "4a-63-13",
+    "lesson_id": 63,
+    "word_kr": "계약하다",
+    "word_jp": "契約する",
+    "sentence_kr": "새로 살 집을 어제 계약했어요.",
+    "sentence_jp": "新しく住む家を昨日契約しました。"
+  },
+  {
+    "id": "4a-63-14",
+    "lesson_id": 63,
+    "word_kr": "관리비",
+    "word_jp": "管理費",
+    "sentence_kr": "이번 달에는 엘리베이터를 수리해서 아파트 관리비가 많이 나왔다.",
+    "sentence_jp": "今月はエレベーターを修理したのでマンションの管理費が高くついた。"
+  },
+  {
+    "id": "4a-63-15",
+    "lesson_id": 63,
+    "word_kr": "난방비",
+    "word_jp": "暖房費",
+    "sentence_kr": "겨울에는 다른 계절보다 난방비가 많이 나온다.",
+    "sentence_jp": "冬は他の季節よりも暖房費が多くかかる。"
+  },
+  {
+    "id": "4a-63-16",
+    "lesson_id": 63,
+    "word_kr": "보증금",
+    "word_jp": "保証金",
+    "sentence_kr": "이 집은 보증금 1000만 원에 월세 40만 원입니다.",
+    "sentence_jp": "この家は保証金1000万ウォンに家賃40万ウォンです。"
+  },
+  {
+    "id": "4a-63-17",
+    "lesson_id": 63,
+    "word_kr": "월세",
+    "word_jp": "月払い家賃",
+    "sentence_kr": "한 달에 50만 원을 내고 이 집에 월세로 살고 있다.",
+    "sentence_jp": "月に50万ウォンを払ってこの家に月払いで住んでいる。"
+  },
+  {
+    "id": "4a-63-18",
+    "lesson_id": 63,
+    "word_kr": "자취",
+    "word_jp": "一人暮らし",
+    "sentence_kr": "이번에 자취를 하게 되어 집을 구해야 한다.",
+    "sentence_jp": "今度一人暮らしをすることになって家を探さなければならない。"
+  },
+  {
+    "id": "4a-63-19",
+    "lesson_id": 63,
+    "word_kr": "전세",
+    "word_jp": "伝貰",
+    "sentence_kr": "전세로 살면 매달 월세를 내지 않아도 돼요.",
+    "sentence_jp": "チョンセ（保証金預託賃貸）で住めば毎月家賃を払わなくてもいいです。"
+  },
+  {
+    "id": "4a-64-01",
+    "lesson_id": 64,
+    "word_kr": "가구점",
+    "word_jp": "家具屋",
+    "sentence_kr": "가구점에 가서 침대하고 책상을 샀어요.",
+    "sentence_jp": "家具屋に行ってベッドと机を買いました。"
+  },
+  {
+    "id": "4a-64-02",
+    "lesson_id": 64,
+    "word_kr": "배치하다",
+    "word_jp": "配置する",
+    "sentence_kr": "책상을 침대 옆이 아니라 창문 앞에 배치해 보세요.",
+    "sentence_jp": "机をベッドの横ではなく窓の前に配置してみてください。"
+  },
+  {
+    "id": "4a-64-03",
+    "lesson_id": 64,
+    "word_kr": "붙박이장",
+    "word_jp": "造り付けタンス",
+    "sentence_kr": "이 방에는 붙박이장이 있어서 옷장을 살 필요가 없어요.",
+    "sentence_jp": "この部屋にはクローゼットが備え付けられているのでタンスを買う必要がありません。"
+  },
+  {
+    "id": "4a-64-04",
+    "lesson_id": 64,
+    "word_kr": "서랍장",
+    "word_jp": "引き出しチェスト",
+    "sentence_kr": "속옷을 넣을 서랍장이 필요해요.",
+    "sentence_jp": "下着を入れるチェストが必要です。"
+  },
+  {
+    "id": "4a-64-05",
+    "lesson_id": 64,
+    "word_kr": "설치하다",
+    "word_jp": "設置する",
+    "sentence_kr": "이사 간 집에 에어컨을 두 대 설치했어요.",
+    "sentence_jp": "引っ越した家にエアコンを2台設置しました。"
+  },
+  {
+    "id": "4a-64-06",
+    "lesson_id": 64,
+    "word_kr": "수납하다",
+    "word_jp": "収納する",
+    "sentence_kr": "방에 옷장, 서랍장 등 수납할 수 있는 가구들을 놓았다.",
+    "sentence_jp": "部屋にクローゼットやチェストなど収納できる家具を置いた。"
+  },
+  {
+    "id": "4a-64-07",
+    "lesson_id": 64,
+    "word_kr": "조명",
+    "word_jp": "照明",
+    "sentence_kr": "거실이 어두워서 조명을 밝은 것으로 바꿨어요.",
+    "sentence_jp": "リビングが暗いので照明を明るいものに取り替えました。"
+  },
+  {
+    "id": "4a-64-08",
+    "lesson_id": 64,
+    "word_kr": "구조",
+    "word_jp": "間取り",
+    "sentence_kr": "집 공사를 하면서 부엌 구조를 바꿀 계획이다.",
+    "sentence_jp": "リフォームをしながら台所の構造を変える予定だ。"
+  },
+  {
+    "id": "4a-64-09",
+    "lesson_id": 64,
+    "word_kr": "깔다",
+    "word_jp": "敷く",
+    "sentence_kr": "방이 추우면 두꺼운 카펫을 깔면 된다.",
+    "sentence_jp": "部屋が寒いなら分厚いカーペットを敷けばよい。"
+  },
+  {
+    "id": "4a-64-10",
+    "lesson_id": 64,
+    "word_kr": "꾸미다",
+    "word_jp": "飾る",
+    "sentence_kr": "벽에 그림을 걸어서 방을 예쁘게 꾸몄다.",
+    "sentence_jp": "壁に絵を掛けて部屋をきれいに飾った。"
+  },
+  {
+    "id": "4a-64-11",
+    "lesson_id": 64,
+    "word_kr": "바닥",
+    "word_jp": "床",
+    "sentence_kr": "바닥이 차가워서 카펫을 깔았어요.",
+    "sentence_jp": "床が冷たいのでカーペットを敷きました。"
+  },
+  {
+    "id": "4a-64-12",
+    "lesson_id": 64,
+    "word_kr": "벽지",
+    "word_jp": "壁紙",
+    "sentence_kr": "제 방 벽지를 바꾸고 싶어요.",
+    "sentence_jp": "自分の部屋の壁紙を張り替えたいです。"
+  },
+  {
+    "id": "4a-64-13",
+    "lesson_id": 64,
+    "word_kr": "비좁다",
+    "word_jp": "手狭だ",
+    "sentence_kr": "가구가 너무 많아서 방이 비좁아 보인다.",
+    "sentence_jp": "家具が多すぎて部屋が手狭に見える。"
+  },
+  {
+    "id": "4a-64-14",
+    "lesson_id": 64,
+    "word_kr": "아기자기하다",
+    "word_jp": "愛らしい",
+    "sentence_kr": "이 가게에는 작고 아기자기한 물건이 많아요.",
+    "sentence_jp": "この店には小さくて愛らしい雑貨がたくさんあります。"
+  },
+  {
+    "id": "4a-64-15",
+    "lesson_id": 64,
+    "word_kr": "커튼",
+    "word_jp": "カーテン",
+    "sentence_kr": "햇빛이 들어오지 않게 커튼 좀 쳐 주세요.",
+    "sentence_jp": "日差しが入らないようにカーテンを閉めてください。"
+  },
+  {
+    "id": "4a-64-16",
+    "lesson_id": 64,
+    "word_kr": "현관",
+    "word_jp": "玄関",
+    "sentence_kr": "한국 사람은 현관에 신발을 벗어 놓는다.",
+    "sentence_jp": "韓国人は玄関に靴を脱いでおく。"
+  },
+  {
+    "id": "4a-64-17",
+    "lesson_id": 64,
+    "word_kr": "볕이 들다",
+    "word_jp": "日が当たる",
+    "sentence_kr": "정원에 볕이 잘 들어서 나무와 꽃이 잘 자란다.",
+    "sentence_jp": "庭によく日が当たるので木や花がよく育つ。"
+  },
+  {
+    "id": "4a-64-18",
+    "lesson_id": 64,
+    "word_kr": "이불을 덮다",
+    "word_jp": "布団を掛ける",
+    "sentence_kr": "새 이불을 덮으니 잠이 잘 온다.",
+    "sentence_jp": "新しい布団を掛けるとよく眠れる。"
+  },
+  {
+    "id": "4a-65-01",
+    "lesson_id": 65,
+    "word_kr": "기르다",
+    "word_jp": "飼う",
+    "sentence_kr": "저는 강아지를 세 마리 기르고 있어요.",
+    "sentence_jp": "私は子犬を3匹飼っています。"
+  },
+  {
+    "id": "4a-65-02",
+    "lesson_id": 65,
+    "word_kr": "반려동물",
+    "word_jp": "ペット",
+    "sentence_kr": "개와 고양이는 사람들이 가장 많이 키우는 반려동물이다.",
+    "sentence_jp": "犬と猫は人々が最も多く飼っているペットだ。"
+  },
+  {
+    "id": "4a-65-03",
+    "lesson_id": 65,
+    "word_kr": "보호소",
+    "word_jp": "保護施設",
+    "sentence_kr": "이 동물 보호소에는 길 잃은 강아지 30마리가 있어요.",
+    "sentence_jp": "この動物保護施設には迷子の子犬が30匹います。"
+  },
+  {
+    "id": "4a-65-04",
+    "lesson_id": 65,
+    "word_kr": "보호하다",
+    "word_jp": "保護する",
+    "sentence_kr": "어제 강아지를 잃어버렸는데 다행히 근처 가게 주인이 보호하고 있었어요.",
+    "sentence_jp": "昨日子犬を迷子にしてしまったのですが、幸い近所の店の店主が保護してくれていました。"
+  },
+  {
+    "id": "4a-65-05",
+    "lesson_id": 65,
+    "word_kr": "사랑스럽다",
+    "word_jp": "愛らしい",
+    "sentence_kr": "아기가 자는 모습은 정말 사랑스럽다.",
+    "sentence_jp": "赤ちゃんが寝ている姿は本当に愛らしい。"
+  },
+  {
+    "id": "4a-65-06",
+    "lesson_id": 65,
+    "word_kr": "산책시키다",
+    "word_jp": "散歩させる",
+    "sentence_kr": "저녁을 먹고 강아지를 산책시켰다.",
+    "sentence_jp": "夕飯を食べて子犬を散歩させた。"
+  },
+  {
+    "id": "4a-65-07",
+    "lesson_id": 65,
+    "word_kr": "심리적",
+    "word_jp": "心理的",
+    "sentence_kr": "동물을 키우면 아이들에게 심리적으로 큰 도움이 된다.",
+    "sentence_jp": "動物を飼うと子どもたちにとって心理的に大きな助けになる。"
+  },
+  {
+    "id": "4a-65-08",
+    "lesson_id": 65,
+    "word_kr": "쓰다듬다",
+    "word_jp": "なでる",
+    "sentence_kr": "고양이가 너무 귀여워서 머리를 쓰다듬어 주었다.",
+    "sentence_jp": "猫がとてもかわいくて頭をなでてあげた。"
+  },
+  {
+    "id": "4a-65-09",
+    "lesson_id": 65,
+    "word_kr": "유기 동물",
+    "word_jp": "捨てられた動物",
+    "sentence_kr": "길에 버려진 유기 동물들을 보면 이 번호로 전화해 주세요.",
+    "sentence_jp": "道に捨てられた動物を見かけたらこの番号へお電話ください。"
+  },
+  {
+    "id": "4a-65-10",
+    "lesson_id": 65,
+    "word_kr": "주인",
+    "word_jp": "飼い主",
+    "sentence_kr": "이 개 주인은 누구예요?",
+    "sentence_jp": "この犬の飼い主は誰ですか？"
+  },
+  {
+    "id": "4a-65-11",
+    "lesson_id": 65,
+    "word_kr": "짖다",
+    "word_jp": "吠える",
+    "sentence_kr": "이 집 개는 사람이 지나가면 항상 크게 짖는다.",
+    "sentence_jp": "この家の犬は人が通りかかるといつも激しく吠える。"
+  },
+  {
+    "id": "4a-65-12",
+    "lesson_id": 65,
+    "word_kr": "고양이가 울다",
+    "word_jp": "猫が鳴く",
+    "sentence_kr": "고양이가 배가 고픈지 나한테 와서 울더라고.",
+    "sentence_jp": "猫がお腹をすかせたのか私のところに来て鳴いていたよ。"
+  },
+  {
+    "id": "4a-65-13",
+    "lesson_id": 65,
+    "word_kr": "가꾸다",
+    "word_jp": "手入れする",
+    "sentence_kr": "잘 가꾸어 놓은 정원에서 아이들과 강아지가 뛰놀고 있다.",
+    "sentence_jp": "よく手入れされた庭で子どもたちと子犬が駆け回っている。"
+  },
+  {
+    "id": "4a-65-14",
+    "lesson_id": 65,
+    "word_kr": "농장",
+    "word_jp": "農園",
+    "sentence_kr": "할아버지께서는 시골에서 사과 농장을 하신다.",
+    "sentence_jp": "おじいさんは田舎でリンゴ農園を営んでおられる。"
+  },
+  {
+    "id": "4a-65-15",
+    "lesson_id": 65,
+    "word_kr": "선인장",
+    "word_jp": "サボテン",
+    "sentence_kr": "선인장은 물을 자주 주지 않아도 되어서 기르기 편하다.",
+    "sentence_jp": "サボテンは頻繁に水をやらなくてもよいので育てるのが楽だ。"
+  },
+  {
+    "id": "4a-65-16",
+    "lesson_id": 65,
+    "word_kr": "재배하다",
+    "word_jp": "栽培する",
+    "sentence_kr": "할머니께서는 배추를 직접 재배해서 드신다.",
+    "sentence_jp": "おばあさんは白菜を自分で栽培して召し上がる。"
+  },
+  {
+    "id": "4a-65-17",
+    "lesson_id": 65,
+    "word_kr": "정성껏",
+    "word_jp": "心を込めて",
+    "sentence_kr": "가족을 위해서 정성껏 음식을 만들었다.",
+    "sentence_jp": "家族のために心を込めて料理を作った。"
+  },
+  {
+    "id": "4a-65-18",
+    "lesson_id": 65,
+    "word_kr": "화분",
+    "word_jp": "植木鉢",
+    "sentence_kr": "오늘 시장에서 꽃을 사다가 화분에 심었다.",
+    "sentence_jp": "今日市場で花を買ってきて植木鉢に植えた。"
+  },
+  {
+    "id": "4a-65-19",
+    "lesson_id": 65,
+    "word_kr": "열매가 열리다",
+    "word_jp": "実がなる",
+    "sentence_kr": "이번 여름에도 복숭아나무에 열매가 열렸다.",
+    "sentence_jp": "この夏もモモの木に実がなった。"
+  },
+  {
+    "id": "4a-66-01",
+    "lesson_id": 66,
+    "word_kr": "계곡",
+    "word_jp": "渓谷",
+    "sentence_kr": "그 산의 계곡은 물이 맑고 깨끗해서 사람들이 물놀이를 많이 한다.",
+    "sentence_jp": "その山の渓谷は水が澄んで清らかなので、多くの人が水遊びをする。"
+  },
+  {
+    "id": "4a-66-02",
+    "lesson_id": 66,
+    "word_kr": "동서남북",
+    "word_jp": "東西南北",
+    "sentence_kr": "여기는 동서남북으로 길이 나 있다.",
+    "sentence_jp": "ここは東西南北に道が延びている。"
+  },
+  {
+    "id": "4a-66-03",
+    "lesson_id": 66,
+    "word_kr": "바위",
+    "word_jp": "岩",
+    "sentence_kr": "저 산에는 바위가 많아서 등산할 때 위험하다.",
+    "sentence_jp": "あの山は岩が多くて登山するときに危険だ。"
+  },
+  {
+    "id": "4a-66-04",
+    "lesson_id": 66,
+    "word_kr": "사막",
+    "word_jp": "砂漠",
+    "sentence_kr": "사막에는 비가 많이 내리지 않아서 동물과 식물이 살기 어렵다.",
+    "sentence_jp": "砂漠には雨があまり降らないので動植物が生息しにくい。"
+  },
+  {
+    "id": "4a-66-05",
+    "lesson_id": 66,
+    "word_kr": "산속",
+    "word_jp": "山の中",
+    "sentence_kr": "산속에서 길을 잃으면 위험하니까 잘 따라오세요.",
+    "sentence_jp": "山の中で道に迷うと危険ですからしっかりついてきてください。"
+  },
+  {
+    "id": "4a-66-06",
+    "lesson_id": 66,
+    "word_kr": "육지",
+    "word_jp": "陸地",
+    "sentence_kr": "배를 타고 한참을 가니 드디어 육지가 보였다.",
+    "sentence_jp": "船に乗ってしばらく進むとついに陸地が見えた。"
+  },
+  {
+    "id": "4a-66-07",
+    "lesson_id": 66,
+    "word_kr": "지형",
+    "word_jp": "地形",
+    "sentence_kr": "한국의 지형은 동쪽이 높고 서쪽이 낮다.",
+    "sentence_jp": "韓国の地形は東が高く西が低い。"
+  },
+  {
+    "id": "4a-66-08",
+    "lesson_id": 66,
+    "word_kr": "폭포",
+    "word_jp": "滝",
+    "sentence_kr": "폭포에서 떨어지는 물소리가 정말 컸다.",
+    "sentence_jp": "滝から落ちる水音が本当に大きかった。"
+  },
+  {
+    "id": "4a-66-09",
+    "lesson_id": 66,
+    "word_kr": "해돋이",
+    "word_jp": "日の出",
+    "sentence_kr": "새해 첫 해돋이를 보러 온 사람들이 바닷가에 많았다.",
+    "sentence_jp": "新年初の日の出を見に来た人が海岸にたくさんいた。"
+  },
+  {
+    "id": "4a-66-10",
+    "lesson_id": 66,
+    "word_kr": "화산",
+    "word_jp": "火山",
+    "sentence_kr": "화산이 폭발해서 근처에 살던 사람들이 모두 안전한 곳으로 피했다.",
+    "sentence_jp": "火山が噴火して近くに住んでいた人たちが皆安全な場所へ避難した。"
+  },
+  {
+    "id": "4a-66-11",
+    "lesson_id": 66,
+    "word_kr": "해안",
+    "word_jp": "海岸",
+    "sentence_kr": "해안을 따라 음식점들이 길게 자리 잡고 있다.",
+    "sentence_jp": "海岸沿いに飲食店がずらりと並んでいる。"
+  },
+  {
+    "id": "4a-66-12",
+    "lesson_id": 66,
+    "word_kr": "농업이 발달하다",
+    "word_jp": "農業が発達している",
+    "sentence_kr": "농업이 발달한 나라에서는 쌀과 채소가 싸다.",
+    "sentence_jp": "農業が発達した国では米や野菜が安い。"
+  },
+  {
+    "id": "4a-66-13",
+    "lesson_id": 66,
+    "word_kr": "강수량",
+    "word_jp": "降水量",
+    "sentence_kr": "올해는 비가 안 와서 다른 해에 비해 강수량이 적습니다.",
+    "sentence_jp": "今年は雨が降らず、例年に比べて降水量が少ないです。"
+  },
+  {
+    "id": "4a-66-14",
+    "lesson_id": 66,
+    "word_kr": "건조하다",
+    "word_jp": "乾燥している",
+    "sentence_kr": "날씨가 건조하면 산불이 나기 쉽다.",
+    "sentence_jp": "空気が乾燥していると山火事が起きやすい。"
+  },
+  {
+    "id": "4a-66-15",
+    "lesson_id": 66,
+    "word_kr": "기후",
+    "word_jp": "気候",
+    "sentence_kr": "우리 고향은 일 년 내내 기후가 따뜻해서 살기 좋다.",
+    "sentence_jp": "私の故郷は一年中気候が温暖で暮らしやすい。"
+  },
+  {
+    "id": "4a-66-16",
+    "lesson_id": 66,
+    "word_kr": "뚜렷하다",
+    "word_jp": "はっきりしている",
+    "sentence_kr": "한국은 사계절이 뚜렷하게 구분되어 봄, 여름, 가을, 겨울의 풍경이 제각각 다르다.",
+    "sentence_jp": "韓国は四季が明確に分かれており、春夏秋冬の風景がそれぞれ異なる。"
+  },
+  {
+    "id": "4a-66-17",
+    "lesson_id": 66,
+    "word_kr": "서늘하다",
+    "word_jp": "ひんやりしている",
+    "sentence_kr": "산속 깊이 들어가니까 공기가 서늘해서 긴 옷을 꺼내 입었다.",
+    "sentence_jp": "山奥深くに入ると空気がひんやりしていたので長袖を取り出して着た。"
+  },
+  {
+    "id": "4a-66-18",
+    "lesson_id": 66,
+    "word_kr": "습하다",
+    "word_jp": "じめじめしている",
+    "sentence_kr": "장마가 시작되면서 습한 날씨가 계속되고 있다.",
+    "sentence_jp": "梅雨に入って湿気の多い天気が続いている。"
+  },
+  {
+    "id": "4a-66-19",
+    "lesson_id": 66,
+    "word_kr": "열대기후",
+    "word_jp": "熱帯気候",
+    "sentence_kr": "비가 많이 오고 더운 열대기후에서는 다양한 과일을 먹을 수 있다.",
+    "sentence_jp": "雨が多くて暑い熱帯気候では多様な果物を食べることができる。"
+  },
+  {
+    "id": "4a-66-20",
+    "lesson_id": 66,
+    "word_kr": "가뭄이 들다",
+    "word_jp": "干ばつになる",
+    "sentence_kr": "이 지역에 비가 오랫동안 내리지 않아 가뭄이 들었다.",
+    "sentence_jp": "この地域に雨が長らく降らず干ばつになった。"
+  },
+  {
+    "id": "4a-66-21",
+    "lesson_id": 66,
+    "word_kr": "날씨가 변덕스럽다",
+    "word_jp": "天気が変わりやすい",
+    "sentence_kr": "날씨가 변덕스러워서 외출할 때 어떤 옷을 입어야 할지 모르겠어요.",
+    "sentence_jp": "天気が変わりやすくて外出時にどんな服を着るべきか分かりません。"
+  },
+  {
+    "id": "4a-66-22",
+    "lesson_id": 66,
+    "word_kr": "홍수가 나다",
+    "word_jp": "洪水が起きる",
+    "sentence_kr": "심한 폭우 때문에 강이 넘쳐서 홍수가 났습니다.",
+    "sentence_jp": "激しい豪雨のために川が氾濫して洪水が起きました。"
+  },
+  {
+    "id": "4a-67-01",
+    "lesson_id": 67,
+    "word_kr": "경쟁",
+    "word_jp": "競争",
+    "sentence_kr": "큰 회사는 들어가고 싶어 하는 사람이 많아서 취직 경쟁이 심하다.",
+    "sentence_jp": "大企業は入りたがる人が多いため就職競争が激しい。"
+  },
+  {
+    "id": "4a-67-02",
+    "lesson_id": 67,
+    "word_kr": "공개하다",
+    "word_jp": "公開する",
+    "sentence_kr": "다음 주에 시험 결과를 공개할 예정입니다.",
+    "sentence_jp": "来週、試験結果を公開する予定です。"
+  },
+  {
+    "id": "4a-67-03",
+    "lesson_id": 67,
+    "word_kr": "대기업",
+    "word_jp": "大手企業",
+    "sentence_kr": "저는 우리나라에서 제일 큰 대기업에 취직하기 위해 열심히 공부하고 있어요.",
+    "sentence_jp": "私は韓国で最も大きい大手企業に就職するため熱心に勉強しています。"
+  },
+  {
+    "id": "4a-67-04",
+    "lesson_id": 67,
+    "word_kr": "보수",
+    "word_jp": "報酬",
+    "sentence_kr": "우리 회사는 일이 많은 대신에 보수가 많다.",
+    "sentence_jp": "うちの会社は仕事が多い代わりに報酬が高い。"
+  },
+  {
+    "id": "4a-67-05",
+    "lesson_id": 67,
+    "word_kr": "입사(하다)",
+    "word_jp": "入社（する）",
+    "sentence_kr": "저는 20년 전에 이 회사에 입사해서 지금까지 일하고 있습니다.",
+    "sentence_jp": "私は20年前にこの会社に入社して今まで働いています。"
+  },
+  {
+    "id": "4a-67-06",
+    "lesson_id": 67,
+    "word_kr": "중소기업",
+    "word_jp": "中小企業",
+    "sentence_kr": "우리 아버지는 작은 중소기업의 사장이십니다.",
+    "sentence_jp": "私の父は小さな中小企業の社長です。"
+  },
+  {
+    "id": "4a-67-07",
+    "lesson_id": 67,
+    "word_kr": "지원서",
+    "word_jp": "応募書類",
+    "sentence_kr": "입학 지원서는 금요일까지 학교로 보내면 됩니다.",
+    "sentence_jp": "入学願書は金曜日までに学校へ送ればよいです。"
+  },
+  {
+    "id": "4a-67-08",
+    "lesson_id": 67,
+    "word_kr": "지원자",
+    "word_jp": "志望者",
+    "sentence_kr": "이번에 우리 회사 지원자가 1000명이 넘었습니다.",
+    "sentence_jp": "今回、我が社の志望者が1000人を超えました。"
+  },
+  {
+    "id": "4a-67-09",
+    "lesson_id": 67,
+    "word_kr": "지원(하다)",
+    "word_jp": "志望（する）",
+    "sentence_kr": "그 회사에 지원하기 위해 홈페이지에 들어가 보았어요.",
+    "sentence_jp": "その会社に応募するためにホームページを見てみました。"
+  },
+  {
+    "id": "4a-67-10",
+    "lesson_id": 67,
+    "word_kr": "취업(하다)",
+    "word_jp": "就職（する）",
+    "sentence_kr": "민국이는 대학을 졸업하고 1년 만에 취업에 성공했다.",
+    "sentence_jp": "ミングクは大学を卒業して1年で就職に成功した。"
+  },
+  {
+    "id": "4a-67-11",
+    "lesson_id": 67,
+    "word_kr": "적성에 맞다",
+    "word_jp": "適性に合う",
+    "sentence_kr": "아이들을 좋아해서 가르치는 일이 제 적성에 맞아요.",
+    "sentence_jp": "子どもが好きなので教える仕事が自分の適性に合っています。"
+  },
+  {
+    "id": "4a-67-12",
+    "lesson_id": 67,
+    "word_kr": "전공을 살리다",
+    "word_jp": "専攻を活かす",
+    "sentence_kr": "제 전공을 살릴 수 있는 직장에서 일하고 싶어요.",
+    "sentence_jp": "自分の専攻を活かせる職場で働きたいです。"
+  },
+  {
+    "id": "4a-67-13",
+    "lesson_id": 67,
+    "word_kr": "답변하다",
+    "word_jp": "回答する",
+    "sentence_kr": "질문에는 짧고 간단하게 답변해 주십시오.",
+    "sentence_jp": "質問には短く簡潔に回答してください。"
+  },
+  {
+    "id": "4a-67-14",
+    "lesson_id": 67,
+    "word_kr": "면접관",
+    "word_jp": "面接官",
+    "sentence_kr": "면접관이 어려운 질문을 해도 당황하지 않는 것이 중요하다.",
+    "sentence_jp": "面接官が難しい質問をしてきても動揺しないことが大切だ。"
+  },
+  {
+    "id": "4a-67-15",
+    "lesson_id": 67,
+    "word_kr": "복장",
+    "word_jp": "服装",
+    "sentence_kr": "면접을 볼 때는 복장이 단정해야 한다.",
+    "sentence_jp": "面接を受けるときは服装がきちんとしていなければならない。"
+  },
+  {
+    "id": "4a-67-16",
+    "lesson_id": 67,
+    "word_kr": "선호하다",
+    "word_jp": "好む",
+    "sentence_kr": "저는 사람을 많이 만나는 일을 선호해요.",
+    "sentence_jp": "私は人と多く接する仕事を好みます。"
+  },
+  {
+    "id": "4a-67-17",
+    "lesson_id": 67,
+    "word_kr": "솔직하다",
+    "word_jp": "率直だ",
+    "sentence_kr": "모르면 모른다고 솔직하게 대답하는 것이 더 나아요.",
+    "sentence_jp": "分からないなら分からないと率直に答えるほうがよいです。"
+  },
+  {
+    "id": "4a-67-18",
+    "lesson_id": 67,
+    "word_kr": "자유롭다",
+    "word_jp": "自由だ",
+    "sentence_kr": "우리 회사는 출퇴근 시간을 자유롭게 선택할 수 있다.",
+    "sentence_jp": "うちの会社は出退勤時間を自由に選ぶことができる。"
+  },
+  {
+    "id": "4a-67-19",
+    "lesson_id": 67,
+    "word_kr": "면접을 보다",
+    "word_jp": "面接を受ける",
+    "sentence_kr": "1차 시험에 합격해서 오늘 면접을 보러 가요.",
+    "sentence_jp": "1次試験に合格したので今日面接を受けに行きます。"
+  },
+  {
+    "id": "4a-68-01",
+    "lesson_id": 68,
+    "word_kr": "경력",
+    "word_jp": "経歴",
+    "sentence_kr": "제가 기자로서 일한 경력이 올해로 10년이 되었어요.",
+    "sentence_jp": "私が記者として働いたキャリアは今年で10年になりました。"
+  },
+  {
+    "id": "4a-68-02",
+    "lesson_id": 68,
+    "word_kr": "근무(하다)",
+    "word_jp": "勤務（する）",
+    "sentence_kr": "김 부장은 15년 동안 한 회사에 근무하고 있다.",
+    "sentence_jp": "金部長は15年間ひとつの会社に勤務している。"
+  },
+  {
+    "id": "4a-68-03",
+    "lesson_id": 68,
+    "word_kr": "부서",
+    "word_jp": "部署",
+    "sentence_kr": "우리 부서는 직원을 뽑고 교육시키는 일을 하고 있어요.",
+    "sentence_jp": "私たちの部署は社員を採用して研修する業務を担当しています。"
+  },
+  {
+    "id": "4a-68-04",
+    "lesson_id": 68,
+    "word_kr": "불평불만",
+    "word_jp": "不平不満",
+    "sentence_kr": "주변에 대해 불평불만을 자주 이야기하는 사람은 동료들과 잘 어울리기 힘들다.",
+    "sentence_jp": "周囲に対して不平不満をよく口にする人は同僚たちとうまく打ち解けにくい。"
+  },
+  {
+    "id": "4a-68-05",
+    "lesson_id": 68,
+    "word_kr": "속상하다",
+    "word_jp": "悔しい",
+    "sentence_kr": "이번 입사 시험에 떨어져서 정말 속상해요.",
+    "sentence_jp": "今回の採用試験に落ちて本当に悔しくて残念です。"
+  },
+  {
+    "id": "4a-68-06",
+    "lesson_id": 68,
+    "word_kr": "야근(하다)",
+    "word_jp": "残業（する）",
+    "sentence_kr": "저는 요즘 일이 많아서 매일 밤 9시까지 야근을 하고 있어요.",
+    "sentence_jp": "私は最近仕事が多くて毎晩9時まで残業をしています。"
+  },
+  {
+    "id": "4a-68-07",
+    "lesson_id": 68,
+    "word_kr": "적응하다",
+    "word_jp": "適応する",
+    "sentence_kr": "저는 유학 생활에 적응하는데 시간이 좀 걸렸어요.",
+    "sentence_jp": "私は留学生活に適応するのに少し時間がかかりました。"
+  },
+  {
+    "id": "4a-68-08",
+    "lesson_id": 68,
+    "word_kr": "조직 생활",
+    "word_jp": "組織生活",
+    "sentence_kr": "학교나 회사 등에서 조직 생활을 할 때는 지켜야 할 규칙이 있다.",
+    "sentence_jp": "学校や会社などで集団生活を送るときは守るべきルールがある。"
+  },
+  {
+    "id": "4a-68-09",
+    "lesson_id": 68,
+    "word_kr": "회식(하다)",
+    "word_jp": "飲み会（をする）",
+    "sentence_kr": "어제 우리 회사 동료들과 퇴근 후에 회사 앞 식당에서 회식을 했어요.",
+    "sentence_jp": "昨日会社の同僚たちと退社後に会社前の飲食店で飲み会をしました。"
+  },
+  {
+    "id": "4a-68-10",
+    "lesson_id": 68,
+    "word_kr": "(경력)을 쌓다",
+    "word_jp": "積む",
+    "sentence_kr": "정우 씨는 여러 나라를 여행하면서 많은 경험을 쌓았어요.",
+    "sentence_jp": "ジョンウさんは様々な国を旅行しながら多くの経験を積みました。"
+  },
+  {
+    "id": "4a-68-11",
+    "lesson_id": 68,
+    "word_kr": "거래처",
+    "word_jp": "取引先",
+    "sentence_kr": "오늘은 오후에 거래처를 방문했다가 바로 퇴근할게요.",
+    "sentence_jp": "今日は午後に取引先を訪問してから直帰しますね。"
+  },
+  {
+    "id": "4a-68-12",
+    "lesson_id": 68,
+    "word_kr": "담당하다",
+    "word_jp": "担当する",
+    "sentence_kr": "저는 우리 언어 교육원에서 중급 한국어 교육을 담당하고 있습니다.",
+    "sentence_jp": "私は当語学教育院で中級韓国語教育を担当しています。"
+  },
+  {
+    "id": "4a-68-13",
+    "lesson_id": 68,
+    "word_kr": "맡다",
+    "word_jp": "引き受ける",
+    "sentence_kr": "내가 맡은 일을 동료들이 도와줘서 빨리 끝낼 수 있었다.",
+    "sentence_jp": "自分の担当業務を同僚が手伝ってくれたので早く終わらせることができた。"
+  },
+  {
+    "id": "4a-68-14",
+    "lesson_id": 68,
+    "word_kr": "업무",
+    "word_jp": "業務",
+    "sentence_kr": "새로운 직원이 들어오면서 내 업무가 반으로 줄었다.",
+    "sentence_jp": "新しい社員が入ってきたことで私の業務が半分に減った。"
+  },
+  {
+    "id": "4a-68-15",
+    "lesson_id": 68,
+    "word_kr": "지시하다",
+    "word_jp": "指示する",
+    "sentence_kr": "부장님이 김 대리에게 오늘 회의록을 작성하라고 지시했다.",
+    "sentence_jp": "部長が金代理に今日の議事録を作成するよう指示した。"
+  },
+  {
+    "id": "4a-68-16",
+    "lesson_id": 68,
+    "word_kr": "처리하다",
+    "word_jp": "処理する",
+    "sentence_kr": "그 직원은 항상 일을 꼼꼼하게 처리해서 실수가 없다.",
+    "sentence_jp": "その社員はいつも仕事を几帳面に処理するのでミスがない。"
+  },
+  {
+    "id": "4a-68-17",
+    "lesson_id": 68,
+    "word_kr": "해결(하다/되다)",
+    "word_jp": "解決（する）",
+    "sentence_kr": "문제가 생겼을 때 여러 사람이 함께 고민하면 빨리 해결할 수 있다.",
+    "sentence_jp": "問題が起きたとき多くの人が一緒に考えれば早く解決できる。"
+  },
+  {
+    "id": "4a-68-18",
+    "lesson_id": 68,
+    "word_kr": "성과를 내다",
+    "word_jp": "成果を上げる",
+    "sentence_kr": "이번 달에 우리 부서가 좋은 성과를 내서 사장님께서 특별히 우리 사람들에게 휴가를 주셨다.",
+    "sentence_jp": "今月うちの部署が良い成果を上げたため社長が特別に私たちに休暇をくださった。"
+  },
+  {
+    "id": "4a-68-19",
+    "lesson_id": 68,
+    "word_kr": "(능력)을 인정받다",
+    "word_jp": "認められる",
+    "sentence_kr": "후안은 한국어 실력을 인정받아 한국 회사에 취직하게 되었다.",
+    "sentence_jp": "フアンは韓国語の実力を認められて韓国企業に就職することになった。"
+  },
+  {
+    "id": "4a-68-20",
+    "lesson_id": 68,
+    "word_kr": "(기회)가 주어지다",
+    "word_jp": "与えられる",
+    "sentence_kr": "부서가 바뀌면서 나에게 새로운 업무가 주어졌다.",
+    "sentence_jp": "部署が変わったことで私に新しい業務が与えられた。"
+  },
+  {
+    "id": "4a-69-01",
+    "lesson_id": 69,
+    "word_kr": "고속 열차",
+    "word_jp": "高速鉄道",
+    "sentence_kr": "KTX는 고속 열차라서 서울에서 부산까지 2시간 40분이면 도착한다.",
+    "sentence_jp": "KTXは高速鉄道なのでソウルから釜山まで2時間40分で到着する。"
+  },
+  {
+    "id": "4a-69-02",
+    "lesson_id": 69,
+    "word_kr": "교통 카드",
+    "word_jp": "交通系ICカード",
+    "sentence_kr": "지하철이나 버스는 교통 카드로 요금을 낼 수 있다.",
+    "sentence_jp": "地下鉄やバスは交通系ICカードで運賃を支払うことができる。"
+  },
+  {
+    "id": "4a-69-03",
+    "lesson_id": 69,
+    "word_kr": "(지하철) 노선",
+    "word_jp": "路線",
+    "sentence_kr": "이 버스가 어디를 거쳐 가는지 노선을 정확히 알아보고 타세요.",
+    "sentence_jp": "このバスがどこを経由するのか路線を正確に確認してから乗ってください。"
+  },
+  {
+    "id": "4a-69-04",
+    "lesson_id": 69,
+    "word_kr": "막차",
+    "word_jp": "終電",
+    "sentence_kr": "집으로 가는 버스 막차를 놓쳐서 택시를 탔다.",
+    "sentence_jp": "家に帰る最終バスを逃してタクシーに乗った。"
+  },
+  {
+    "id": "4a-69-05",
+    "lesson_id": 69,
+    "word_kr": "방면",
+    "word_jp": "方面",
+    "sentence_kr": "정우는 서울역에서 인천 방면으로 가는 지하철을 탔다.",
+    "sentence_jp": "ジョンウはソウル駅から仁川方面へ向かう地下鉄に乗った。"
+  },
+  {
+    "id": "4a-69-06",
+    "lesson_id": 69,
+    "word_kr": "운행(하다/되다)",
+    "word_jp": "運行（する）",
+    "sentence_kr": "지하철은 밤 12시까지 운행된다.",
+    "sentence_jp": "地下鉄は夜の12時まで運行されている。"
+  },
+  {
+    "id": "4a-69-07",
+    "lesson_id": 69,
+    "word_kr": "첫차",
+    "word_jp": "始発",
+    "sentence_kr": "부산행 KTX 첫차는 서울역에서 5시 15분에 출발한다.",
+    "sentence_jp": "釜山行きKTXの始発はソウル駅を5時15分に出発する。"
+  },
+  {
+    "id": "4a-69-08",
+    "lesson_id": 69,
+    "word_kr": "환승하다",
+    "word_jp": "乗り換える",
+    "sentence_kr": "나는 버스를 타고 지하철역 앞에 내려서 다시 지하철로 환승하여 출근한다.",
+    "sentence_jp": "私はバスに乗って地下鉄駅の前で降り、再び地下鉄に乗り換えて通勤する。"
+  },
+  {
+    "id": "4a-69-09",
+    "lesson_id": 69,
+    "word_kr": "(기계)에 대다",
+    "word_jp": "かざす",
+    "sentence_kr": "버스에 올라탄 후 교통 카드를 기계에 대면 자동으로 요금이 결제된다.",
+    "sentence_jp": "バスに乗車した後、交通カードを端末にかざすと自動で運賃が決済される。"
+  },
+  {
+    "id": "4a-69-10",
+    "lesson_id": 69,
+    "word_kr": "과속(하다)",
+    "word_jp": "スピード違反（する）",
+    "sentence_kr": "빗길에 과속하면 사고가 날 수 있으니까 천천히 운전하세요.",
+    "sentence_jp": "雨の道でスピードを出しすぎると事故が起きるおそれがあるのでゆっくり運転してください。"
+  },
+  {
+    "id": "4a-69-11",
+    "lesson_id": 69,
+    "word_kr": "대로",
+    "word_jp": "大通り",
+    "sentence_kr": "버스가 좁은 도로를 벗어나 대로로 나갔다.",
+    "sentence_jp": "バスが狭い道路を抜けて大通りに出た。"
+  },
+  {
+    "id": "4a-69-12",
+    "lesson_id": 69,
+    "word_kr": "어기다",
+    "word_jp": "破る",
+    "sentence_kr": "나는 어제 학교 규칙을 어겨서 선생님께 혼이 났다.",
+    "sentence_jp": "私は昨日校則を破って先生に叱られた。"
+  },
+  {
+    "id": "4a-69-13",
+    "lesson_id": 69,
+    "word_kr": "우회전",
+    "word_jp": "右折",
+    "sentence_kr": "요 앞 횡단보도에서 우회전 해 주세요.",
+    "sentence_jp": "この先の横断歩道で右折してください。"
+  },
+  {
+    "id": "4a-69-14",
+    "lesson_id": 69,
+    "word_kr": "위반(하다)",
+    "word_jp": "違反（する）",
+    "sentence_kr": "차를 운전하다가 횡단보도에서 교통 신호를 위반해서 벌금을 냈다.",
+    "sentence_jp": "車を運転中、横断歩道で交通信号に違反して反則金を払った。"
+  },
+  {
+    "id": "4a-69-15",
+    "lesson_id": 69,
+    "word_kr": "전용",
+    "word_jp": "専用",
+    "sentence_kr": "이 도로는 자동차 전용이어서 자전거는 못 다닌다.",
+    "sentence_jp": "この道路は自動車専用なので自転車は通れない。"
+  },
+  {
+    "id": "4a-69-16",
+    "lesson_id": 69,
+    "word_kr": "정지(하다)",
+    "word_jp": "停止（する）",
+    "sentence_kr": "내 친구는 사고를 내서 운전면허가 정지됐다.",
+    "sentence_jp": "私の友達は事故を起こして運転免許が停止になった。"
+  },
+  {
+    "id": "4a-69-17",
+    "lesson_id": 69,
+    "word_kr": "제한 속도",
+    "word_jp": "制限速度",
+    "sentence_kr": "학교 앞이니까 제한 속도를 꼭 지켜 주세요.",
+    "sentence_jp": "学校の前ですから制限速度を必ず守ってください。"
+  },
+  {
+    "id": "4a-69-18",
+    "lesson_id": 69,
+    "word_kr": "좌회전",
+    "word_jp": "左折",
+    "sentence_kr": "다리를 건너서 좌회전을 하면 경찰서가 있어요.",
+    "sentence_jp": "橋を渡って左折すると警察署があります。"
+  },
+  {
+    "id": "4a-69-19",
+    "lesson_id": 69,
+    "word_kr": "차선",
+    "word_jp": "車線",
+    "sentence_kr": "옆에서 달리던 차가 차선을 넘어와서 사고가 났어요.",
+    "sentence_jp": "隣を走っていた車が車線をはみ出してきて事故が起きました。"
+  },
+  {
+    "id": "4a-69-20",
+    "lesson_id": 69,
+    "word_kr": "안전띠를 매다",
+    "word_jp": "シートベルトを締める",
+    "sentence_kr": "자동차에 탈 때에는 먼저 안전띠를 매세요.",
+    "sentence_jp": "車に乗るときはまずシートベルトを締めてください。"
+  },
+  {
+    "id": "4a-70-01",
+    "lesson_id": 70,
+    "word_kr": "고장",
+    "word_jp": "土地",
+    "sentence_kr": "우리 고장은 물이 맑고 산이 높아 옛날부터 휴양지로 유명하다.",
+    "sentence_jp": "私たちの土地は水が清らかで山が高く、昔から保養地として有名だ。"
+  },
+  {
+    "id": "4a-70-02",
+    "lesson_id": 70,
+    "word_kr": "댐",
+    "word_jp": "ダム",
+    "sentence_kr": "댐이 세워진 후 그 지역은 더 이상 홍수 피해를 입지 않게 되었다.",
+    "sentence_jp": "ダムが造られてからその地域はこれ以上水害を受けなくなった。"
+  },
+  {
+    "id": "4a-70-03",
+    "lesson_id": 70,
+    "word_kr": "둘러싸이다",
+    "word_jp": "囲まれる",
+    "sentence_kr": "우리 고향은 산으로 둘러싸여 있어 경치는 좋지만 교통이 불편하다.",
+    "sentence_jp": "私の故郷は山に囲まれていて景色はよいが交通が不便だ。"
+  },
+  {
+    "id": "4a-70-04",
+    "lesson_id": 70,
+    "word_kr": "상류",
+    "word_jp": "上流",
+    "sentence_kr": "상류에서 흘러온 물이 이곳에서 동서로 갈라진다.",
+    "sentence_jp": "上流から流れてきた水がここで東西に分かれる。"
+  },
+  {
+    "id": "4a-70-05",
+    "lesson_id": 70,
+    "word_kr": "지리",
+    "word_jp": "土地勘",
+    "sentence_kr": "지난주에 여행을 갔는데 그곳 지리를 잘 몰라서 길을 잃어버렸다.",
+    "sentence_jp": "先週旅行に行ったが現地の地理をよく知らず道に迷ってしまった。"
+  },
+  {
+    "id": "4a-70-06",
+    "lesson_id": 70,
+    "word_kr": "하류",
+    "word_jp": "下流",
+    "sentence_kr": "우리 마을은 금강 하류에 위치해 있다.",
+    "sentence_jp": "私たちの村は錦江の下流に位置している。"
+  },
+  {
+    "id": "4a-70-07",
+    "lesson_id": 70,
+    "word_kr": "항구",
+    "word_jp": "港",
+    "sentence_kr": "아버지를 태운 배가 항구로 들어왔다.",
+    "sentence_jp": "父を乗せた船が港に入ってきた。"
+  },
+  {
+    "id": "4a-70-08",
+    "lesson_id": 70,
+    "word_kr": "해수욕장",
+    "word_jp": "海水浴場",
+    "sentence_kr": "작년 여름에 제주도 해수욕장에 가서 친구들과 수영도 하고 사진도 찍었어요.",
+    "sentence_jp": "去年の夏に済州島の海水浴場へ行って友達と泳いだり写真を撮ったりしました。"
+  },
+  {
+    "id": "4a-70-09",
+    "lesson_id": 70,
+    "word_kr": "흙",
+    "word_jp": "土",
+    "sentence_kr": "사비나는 흙을 화분에 담고 그 위에 씨를 뿌렸다.",
+    "sentence_jp": "サビナは土を植木鉢に入れてその上に種をまいた。"
+  },
+  {
+    "id": "4a-70-10",
+    "lesson_id": 70,
+    "word_kr": "공업",
+    "word_jp": "工業",
+    "sentence_kr": "내 고향은 대표적인 공업 도시로서 곳곳에 공장이 많다.",
+    "sentence_jp": "私の故郷は代表的な工業都市で、あちこちに工場が多い。"
+  },
+  {
+    "id": "4a-70-11",
+    "lesson_id": 70,
+    "word_kr": "구매(하다)",
+    "word_jp": "購入（する）",
+    "sentence_kr": "가전제품을 구매하기 전에 우선 인터넷으로 가격 비교부터 해 보세요.",
+    "sentence_jp": "家電製品を購入する前にまずネットで価格比較からしてみてください。"
+  },
+  {
+    "id": "4a-70-12",
+    "lesson_id": 70,
+    "word_kr": "낭비(하다/되다)",
+    "word_jp": "浪費（する）",
+    "sentence_kr": "중요하지 않은 일에 시간을 낭비하지 말아라.",
+    "sentence_jp": "重要でないことに時間を浪費してはいけないよ。"
+  },
+  {
+    "id": "4a-70-13",
+    "lesson_id": 70,
+    "word_kr": "농산물",
+    "word_jp": "農産物",
+    "sentence_kr": "그 시장에 가면 전국에서 나는 농산물을 다 볼 수 있다.",
+    "sentence_jp": "その市場に行けば全国で採れる農産物をすべて見ることができる。"
+  },
+  {
+    "id": "4a-70-14",
+    "lesson_id": 70,
+    "word_kr": "무역(하다)",
+    "word_jp": "貿易（する）",
+    "sentence_kr": "동생은 고향과 외국을 오가면서 커피 무역을 하고 있다.",
+    "sentence_jp": "弟は故郷と外国を行き来しながらコーヒーの貿易をしている。"
+  },
+  {
+    "id": "4a-70-15",
+    "lesson_id": 70,
+    "word_kr": "상업",
+    "word_jp": "商業",
+    "sentence_kr": "이 지역은 예전부터 상업이 발달하여 크고 작은 회사가 많이 모여 있다.",
+    "sentence_jp": "この地域は昔から商業が発達しており大小の会社が多く集まっている。"
+  },
+  {
+    "id": "4a-70-16",
+    "lesson_id": 70,
+    "word_kr": "생산(하다/되다)",
+    "word_jp": "生産（する）",
+    "sentence_kr": "이 지역에서 생산되는 딸기는 특히 달고 맛이 좋아요.",
+    "sentence_jp": "この地域で生産されるイチゴは特に甘くて味がよいです。"
+  },
+  {
+    "id": "4a-70-17",
+    "lesson_id": 70,
+    "word_kr": "소비(하다/되다)",
+    "word_jp": "消費（する）",
+    "sentence_kr": "경제가 어려워지면 사람들이 소비를 덜 하게 된다.",
+    "sentence_jp": "経済が苦しくなると人々は消費を手控えるようになる。"
+  },
+  {
+    "id": "4a-70-18",
+    "lesson_id": 70,
+    "word_kr": "수입(하다/되다)",
+    "word_jp": "輸入（する）",
+    "sentence_kr": "이 소파는 해외에서 수입한 거라서 가격이 아주 비싸다.",
+    "sentence_jp": "このソファは海外から輸入したものなので価格が非常に高い。"
+  },
+  {
+    "id": "4a-70-19",
+    "lesson_id": 70,
+    "word_kr": "수출(하다/되다)",
+    "word_jp": "輸出（する）",
+    "sentence_kr": "우리 회사에서는 전 세계에 휴대 전화를 수출한다.",
+    "sentence_jp": "我が社では全世界へ携帯電話を輸出している。"
+  },
+  {
+    "id": "4a-70-20",
+    "lesson_id": 70,
+    "word_kr": "절약(하다/되다)",
+    "word_jp": "節約（する）",
+    "sentence_kr": "저는 용돈을 절약해서 어머니 생신 선물을 사드렸다.",
+    "sentence_jp": "私はお小遣いを節約して母の誕生日プレゼントを買ってさしあげた。"
+  },
+  {
+    "id": "4a-70-21",
+    "lesson_id": 70,
+    "word_kr": "특산물",
+    "word_jp": "特産品",
+    "sentence_kr": "어머니가 여행을 갔다 오시면서 그 지역의 특산물을 사오셨다.",
+    "sentence_jp": "母が旅行から帰ってくるときにその地域の特産品を買ってきた。"
+  },
+  {
+    "id": "4a-71-01",
+    "lesson_id": 71,
+    "word_kr": "계좌 번호",
+    "word_jp": "口座番号",
+    "sentence_kr": "계좌 번호를 알려 주시면 입금해 드릴게요.",
+    "sentence_jp": "口座番号を教えてくださればお振込みいたします。"
+  },
+  {
+    "id": "4a-71-02",
+    "lesson_id": 71,
+    "word_kr": "대출",
+    "word_jp": "ローン",
+    "sentence_kr": "부족한 돈은 은행에서 대출을 받아서 해결했어요.",
+    "sentence_jp": "足りないお金は銀行から融資を受けて解決しました。"
+  },
+  {
+    "id": "4a-71-03",
+    "lesson_id": 71,
+    "word_kr": "송금(하다)",
+    "word_jp": "送金（する）",
+    "sentence_kr": "친구가 밥값을 모두 계산해서 친구에게 돈을 송금해 줬어요.",
+    "sentence_jp": "友達が食事代を全額払ってくれたので友達にお金を送金してあげました。"
+  },
+  {
+    "id": "4a-71-04",
+    "lesson_id": 71,
+    "word_kr": "수수료",
+    "word_jp": "手数料",
+    "sentence_kr": "수수료를 내면 필요한 서류 준비와 일을 대신 해 줘요.",
+    "sentence_jp": "手数料を払えば必要な書類の準備や手続きを代行してくれます。"
+  },
+  {
+    "id": "4a-71-05",
+    "lesson_id": 71,
+    "word_kr": "예금(하다)",
+    "word_jp": "預金（する）",
+    "sentence_kr": "부모님께 용돈을 받으면 돈을 모으기 위해 예금 통장에 넣어요.",
+    "sentence_jp": "両親からお小遣いをもらったらお金を貯めるために預金通帳に入れます。"
+  },
+  {
+    "id": "4a-71-06",
+    "lesson_id": 71,
+    "word_kr": "이자",
+    "word_jp": "利息",
+    "sentence_kr": "통장에 돈을 입금해 놓으면 이자가 생기는 거 알고 있어요?",
+    "sentence_jp": "通帳にお金を預けておくと利息が付くことを知っていますか。"
+  },
+  {
+    "id": "4a-71-07",
+    "lesson_id": 71,
+    "word_kr": "인터넷 뱅킹(하다)",
+    "word_jp": "ネットバンキング",
+    "sentence_kr": "인터넷 뱅킹을 하면 빠르고 편하게 은행 업무를 볼 수 있어서 좋아.",
+    "sentence_jp": "ネットバンキングを使えば素早く便利に銀行手続きができて便利だよ。"
+  },
+  {
+    "id": "4a-71-08",
+    "lesson_id": 71,
+    "word_kr": "입금(하다)",
+    "word_jp": "入金（する）",
+    "sentence_kr": "오늘 오후까지 돈이 입금되면 물건을 보내드릴게요.",
+    "sentence_jp": "今日の午後までにお金が入金されれば商品を発送いたします。"
+  },
+  {
+    "id": "4a-71-09",
+    "lesson_id": 71,
+    "word_kr": "출금(하다)",
+    "word_jp": "出金（する）",
+    "sentence_kr": "현금이 필요해서 ATM에서 출금했어요.",
+    "sentence_jp": "現金が必要だったのでATMから引き出しました。"
+  },
+  {
+    "id": "4a-71-10",
+    "lesson_id": 71,
+    "word_kr": "환율",
+    "word_jp": "為替レート",
+    "sentence_kr": "외국 생활을 할 때는 환율을 자주 확인해야 해요.",
+    "sentence_jp": "海外生活をするときは為替レートをこまめに確認しなければなりません。"
+  },
+  {
+    "id": "4a-71-11",
+    "lesson_id": 71,
+    "word_kr": "환전(하다)",
+    "word_jp": "両替（する）",
+    "sentence_kr": "고향에 돌아갈 때 한국 돈을 고향 돈으로 환전했어요.",
+    "sentence_jp": "故郷へ帰るときに韓国のお金を母国の通貨に両替しました。"
+  },
+  {
+    "id": "4a-71-12",
+    "lesson_id": 71,
+    "word_kr": "개설(하다/되다)",
+    "word_jp": "開設（する）",
+    "sentence_kr": "통장을 개설하면 새로운 계좌 번호를 사용할 수 있어요.",
+    "sentence_jp": "口座を開設すれば新しい口座番号を使うことができます。"
+  },
+  {
+    "id": "4a-71-13",
+    "lesson_id": 71,
+    "word_kr": "공과금",
+    "word_jp": "公共料金",
+    "sentence_kr": "물하고 전기를 조금 써서 그런지 공과금이 적게 나왔어요.",
+    "sentence_jp": "水道や電気をあまり使わなかったせいか公共料金が安く済みました。"
+  },
+  {
+    "id": "4a-71-14",
+    "lesson_id": 71,
+    "word_kr": "문의(하다)",
+    "word_jp": "問い合わせる",
+    "sentence_kr": "은행에 전화해서 통장을 만들 때 뭐가 필요한지 문의했어요.",
+    "sentence_jp": "銀行に電話して口座を作るときに何が必要か問い合わせました。"
+  },
+  {
+    "id": "4a-71-15",
+    "lesson_id": 71,
+    "word_kr": "발급(하다)",
+    "word_jp": "発行（する）",
+    "sentence_kr": "성적표는 학교에서 발급해 줘요.",
+    "sentence_jp": "成績表は学校で発行してくれます。"
+  },
+  {
+    "id": "4a-71-16",
+    "lesson_id": 71,
+    "word_kr": "번호표",
+    "word_jp": "番号札",
+    "sentence_kr": "은행에 가면 제일 먼저 하는 일이 번호표를 받는 거예요.",
+    "sentence_jp": "銀行に行ったら真っ先にすることは番号札を取ることです。"
+  },
+  {
+    "id": "4a-71-17",
+    "lesson_id": 71,
+    "word_kr": "서명(하다)",
+    "word_jp": "署名（する）",
+    "sentence_kr": "서류를 모두 작성하시면 서류 아래에 서명해 주세요.",
+    "sentence_jp": "書類をすべて記入されましたら書類の下部に署名してください。"
+  },
+  {
+    "id": "4a-71-18",
+    "lesson_id": 71,
+    "word_kr": "신분증",
+    "word_jp": "身分証明書",
+    "sentence_kr": "은행에서 통장을 만들 때 신분증을 가져가야 해요.",
+    "sentence_jp": "銀行で口座を作るときは身分証明書を持参しなければなりません。"
+  },
+  {
+    "id": "4a-71-19",
+    "lesson_id": 71,
+    "word_kr": "증명서",
+    "word_jp": "証明書",
+    "sentence_kr": "졸업증명서로 나의 졸업을 증명할 수 있어요.",
+    "sentence_jp": "卒業証明書で自分の卒業を証明できます。"
+  },
+  {
+    "id": "4a-71-20",
+    "lesson_id": 71,
+    "word_kr": "창구",
+    "word_jp": "窓口",
+    "sentence_kr": "은행에는 예금 업무와 대출 업무를 보는 창구가 따로 있어요.",
+    "sentence_jp": "銀行には預金手続きと融資手続きを担当する窓口が分かれています。"
+  },
+  {
+    "id": "4a-72-01",
+    "lesson_id": 72,
+    "word_kr": "내용물",
+    "word_jp": "中身",
+    "sentence_kr": "상자에 들어 있는 내용물이 무엇입니까?",
+    "sentence_jp": "箱に入っている中身は何ですか。"
+  },
+  {
+    "id": "4a-72-02",
+    "lesson_id": 72,
+    "word_kr": "발송(하다/되다)",
+    "word_jp": "発送（する）",
+    "sentence_kr": "행사 일정에 대한 안내 메일을 발송했습니다.",
+    "sentence_jp": "イベント日程に関する案内メールを発送しました。"
+  },
+  {
+    "id": "4a-72-03",
+    "lesson_id": 72,
+    "word_kr": "소포",
+    "word_jp": "小包",
+    "sentence_kr": "부산에 있는 친구에게 생일 선물을 소포로 보냈다.",
+    "sentence_jp": "釜山にいる友達へ誕生日プレゼントを小包で送った。"
+  },
+  {
+    "id": "4a-72-04",
+    "lesson_id": 72,
+    "word_kr": "우편물",
+    "word_jp": "郵便物",
+    "sentence_kr": "우체국 직원이 우편물을 종류에 따라 편지, 소포 등으로 나누고 있다.",
+    "sentence_jp": "郵便局の職員が郵便物を種類に応じて手紙や小包などに仕分けている。"
+  },
+  {
+    "id": "4a-72-05",
+    "lesson_id": 72,
+    "word_kr": "재다",
+    "word_jp": "測る",
+    "sentence_kr": "상자의 무게를 저울로 쟀다.",
+    "sentence_jp": "箱の重さを秤で測った。"
+  },
+  {
+    "id": "4a-72-06",
+    "lesson_id": 72,
+    "word_kr": "접수하다",
+    "word_jp": "受け付ける",
+    "sentence_kr": "대학교 입학 신청서를 우편으로 접수할 수 있습니다.",
+    "sentence_jp": "大学の入学願書を郵送で受け付けることができます。"
+  },
+  {
+    "id": "4a-72-07",
+    "lesson_id": 72,
+    "word_kr": "항공편",
+    "word_jp": "航空便",
+    "sentence_kr": "미국에 사는 동생이 항공편으로 라면을 보내 달라고 했어요.",
+    "sentence_jp": "アメリカに住む弟が航空便でラーメンを送ってほしいと頼んできました。"
+  },
+  {
+    "id": "4a-72-08",
+    "lesson_id": 72,
+    "word_kr": "국제 우편",
+    "word_jp": "国際郵便",
+    "sentence_kr": "국제 우편을 이용하면 다른 나라에 소포를 보낼 수 있다.",
+    "sentence_jp": "国際郵便を利用すれば他国へ小包を送ることができる。"
+  },
+  {
+    "id": "4a-72-09",
+    "lesson_id": 72,
+    "word_kr": "등기 우편",
+    "word_jp": "書留郵便",
+    "sentence_kr": "등기 우편은 배달 과정을 확인할 수 있어서 중요한 서류를 보낼 때 이용하면 좋습니다.",
+    "sentence_jp": "書留郵便は配達状況を確認できるため重要な書類を送るときに利用するとよいです。"
+  },
+  {
+    "id": "4a-72-10",
+    "lesson_id": 72,
+    "word_kr": "우편 번호",
+    "word_jp": "郵便番号",
+    "sentence_kr": "편지를 부칠 때 주소와 함께 우편 번호도 적어야 한다.",
+    "sentence_jp": "手紙を出すときは住所とともに郵便番号も書かなければならない。"
+  },
+  {
+    "id": "4a-72-11",
+    "lesson_id": 72,
+    "word_kr": "늦어지다",
+    "word_jp": "遅れる",
+    "sentence_kr": "안개 때문에 비행기 출발 시간이 늦어진다고 해요.",
+    "sentence_jp": "霧のせいで飛行機の出発時間が遅れるそうです。"
+  },
+  {
+    "id": "4a-72-12",
+    "lesson_id": 72,
+    "word_kr": "물품",
+    "word_jp": "品物",
+    "sentence_kr": "배달하는 과정에서 물품에 문제가 생기면 교환해 드립니다.",
+    "sentence_jp": "配達の過程で品物に問題が生じた場合は交換いたします。"
+  },
+  {
+    "id": "4a-72-13",
+    "lesson_id": 72,
+    "word_kr": "반송(하다/되다)",
+    "word_jp": "返送（する）",
+    "sentence_kr": "주소가 잘못된 우편물은 보낸 사람에게 다시 반송된다.",
+    "sentence_jp": "住所が誤っている郵便物は差出人へ再び返送される。"
+  },
+  {
+    "id": "4a-72-14",
+    "lesson_id": 72,
+    "word_kr": "발송인",
+    "word_jp": "差出人",
+    "sentence_kr": "소포 상자에 발송인의 주소와 전화번호를 써 주세요.",
+    "sentence_jp": "小包の箱に差出人の住所と電話番号を書いてください。"
+  },
+  {
+    "id": "4a-72-15",
+    "lesson_id": 72,
+    "word_kr": "배송(하다/되다)",
+    "word_jp": "配送（する）",
+    "sentence_kr": "무거운 물건일수록 배송하는 데 비용이 많이 들어요.",
+    "sentence_jp": "重い荷物ほど配送にかかる費用が高くなります。"
+  },
+  {
+    "id": "4a-72-16",
+    "lesson_id": 72,
+    "word_kr": "부서지다",
+    "word_jp": "壊れる",
+    "sentence_kr": "유리로 된 물건은 부서지기 쉬우니 조심해서 사용해야 한다.",
+    "sentence_jp": "ガラス製品は壊れやすいので注意して扱わなければならない。"
+  },
+  {
+    "id": "4a-72-17",
+    "lesson_id": 72,
+    "word_kr": "이내",
+    "word_jp": "以内",
+    "sentence_kr": "집에서 택시를 타면 회사까지 10분 이내에 도착합니다.",
+    "sentence_jp": "家からタクシーに乗れば会社まで10分以内に到着します。"
+  },
+  {
+    "id": "4a-72-18",
+    "lesson_id": 72,
+    "word_kr": "집배원",
+    "word_jp": "配達員",
+    "sentence_kr": "우체국 집배원이 집으로 소포를 배달해 줬다.",
+    "sentence_jp": "郵便局の配達員が家へ小包を届けてくれた。"
+  },
+  {
+    "id": "4a-72-19",
+    "lesson_id": 72,
+    "word_kr": "택배",
+    "word_jp": "宅配便",
+    "sentence_kr": "인터넷 쇼핑몰에서 주문한 상품이 택배로 배달됐어요.",
+    "sentence_jp": "ネット通販で注文した商品が宅配便で届きました。"
+  },
+  {
+    "id": "4a-73-01",
+    "lesson_id": 73,
+    "word_kr": "갑작스럽다",
+    "word_jp": "突然だ",
+    "sentence_kr": "갑작스럽게 내린 많은 비로 강물이 넘쳤어요.",
+    "sentence_jp": "突然降った大雨で川の水が氾濫しました。"
+  },
+  {
+    "id": "4a-73-02",
+    "lesson_id": 73,
+    "word_kr": "발견(하다/되다)",
+    "word_jp": "発見（する）",
+    "sentence_kr": "정우 씨가 제일 먼저 다친 사람을 발견했어요.",
+    "sentence_jp": "ジョンウさんが真っ先に負傷者を発見しました。"
+  },
+  {
+    "id": "4a-73-03",
+    "lesson_id": 73,
+    "word_kr": "밝히다",
+    "word_jp": "究明する",
+    "sentence_kr": "경찰은 사고의 원인을 밝히기 위해 노력하고 있다.",
+    "sentence_jp": "警察は事故の原因を究明するために努めている。"
+  },
+  {
+    "id": "4a-73-04",
+    "lesson_id": 73,
+    "word_kr": "부상",
+    "word_jp": "負傷",
+    "sentence_kr": "축구 선수가 경기 중에 부상을 당해서 경기장 밖으로 나갔다.",
+    "sentence_jp": "サッカー選手が試合中に負傷してピッチの外へ出た。"
+  },
+  {
+    "id": "4a-73-05",
+    "lesson_id": 73,
+    "word_kr": "불길이 번지다",
+    "word_jp": "火の手が広がる",
+    "sentence_kr": "불길이 번져서 세 시간 만에 산이 모두 다 탔다.",
+    "sentence_jp": "火の手が広がって3時間で山が全焼した。"
+  },
+  {
+    "id": "4a-73-06",
+    "lesson_id": 73,
+    "word_kr": "불길이 잡히다",
+    "word_jp": "火の勢いが収まる",
+    "sentence_kr": "소방관들이 노력한 끝에 세 시간 만에 불길이 잡혔다.",
+    "sentence_jp": "消防士たちの奮闘の末に3時間で火の勢いが収まった。"
+  },
+  {
+    "id": "4a-73-07",
+    "lesson_id": 73,
+    "word_kr": "오랜 시간",
+    "word_jp": "長時間",
+    "sentence_kr": "병원에 사람이 많아서 오랜 시간 기다렸다.",
+    "sentence_jp": "病院に人が多くて長時間待たされた。"
+  },
+  {
+    "id": "4a-73-08",
+    "lesson_id": 73,
+    "word_kr": "원인",
+    "word_jp": "原因",
+    "sentence_kr": "화재 원인은 담배꽁초로 확인되었습니다.",
+    "sentence_jp": "火災の原因はタバコの吸い殻と確認されました。"
+  },
+  {
+    "id": "4a-73-09",
+    "lesson_id": 73,
+    "word_kr": "직후",
+    "word_jp": "直後",
+    "sentence_kr": "사고가 난 직후에 정신을 잃었어요.",
+    "sentence_jp": "事故が起きた直後に意識を失いました。"
+  },
+  {
+    "id": "4a-73-10",
+    "lesson_id": 73,
+    "word_kr": "폭우",
+    "word_jp": "豪雨",
+    "sentence_kr": "폭우가 내리면 강물이 넘칠 수 있으니 조심하세요.",
+    "sentence_jp": "豪雨が降ると川が増水するおそれがあるので気をつけてください。"
+  },
+  {
+    "id": "4a-73-11",
+    "lesson_id": 73,
+    "word_kr": "함부로",
+    "word_jp": "むやみに",
+    "sentence_kr": "이 비밀은 다른 사람한테 함부로 말하면 안 돼.",
+    "sentence_jp": "この秘密は他の人にむやみに話してはだめだよ。"
+  },
+  {
+    "id": "4a-73-12",
+    "lesson_id": 73,
+    "word_kr": "현장",
+    "word_jp": "現場",
+    "sentence_kr": "조사가 끝날 때까지 사건 현장의 물건을 건드리면 안 돼요.",
+    "sentence_jp": "調査が終わるまで事件現場の物に触れてはいけません。"
+  },
+  {
+    "id": "4a-73-13",
+    "lesson_id": 73,
+    "word_kr": "화재 신고",
+    "word_jp": "火災通報",
+    "sentence_kr": "화재 신고를 받고 바로 소방차가 출발했다.",
+    "sentence_jp": "火災の通報を受けてすぐに消防車が出動した。"
+  },
+  {
+    "id": "4a-73-14",
+    "lesson_id": 73,
+    "word_kr": "구조(하다/되다)",
+    "word_jp": "救助（する）",
+    "sentence_kr": "소방대원 덕분에 무사히 구조되었다.",
+    "sentence_jp": "消防隊員のおかげで無事に救助された。"
+  },
+  {
+    "id": "4a-73-15",
+    "lesson_id": 73,
+    "word_kr": "깊이",
+    "word_jp": "水深",
+    "sentence_kr": "강의 깊이가 깊으니 들어가지 마세요.",
+    "sentence_jp": "川の水深が深いので入らないでください。"
+  },
+  {
+    "id": "4a-73-16",
+    "lesson_id": 73,
+    "word_kr": "대처",
+    "word_jp": "対処",
+    "sentence_kr": "사고가 났을 때는 빠른 대처가 중요해요.",
+    "sentence_jp": "事故が起きたときは素早い対処が肝心です。"
+  },
+  {
+    "id": "4a-73-17",
+    "lesson_id": 73,
+    "word_kr": "대피(하다)",
+    "word_jp": "避難（する）",
+    "sentence_kr": "불이 나면 크게 밖으로 대피하세요.",
+    "sentence_jp": "火事になったら速やかに外へ避難してください。"
+  },
+  {
+    "id": "4a-73-18",
+    "lesson_id": 73,
+    "word_kr": "비상구",
+    "word_jp": "非常口",
+    "sentence_kr": "비상구 앞에 자전거를 세워 놓으면 안 돼요.",
+    "sentence_jp": "非常口の前に自転車を止めておいてはいけません。"
+  },
+  {
+    "id": "4a-73-19",
+    "lesson_id": 73,
+    "word_kr": "소리치다",
+    "word_jp": "大声を上げる",
+    "sentence_kr": "사고가 났을 때는 크게 소리쳐서 사람들에게 알려야 해.",
+    "sentence_jp": "事故が起きたときは大声を上げて人々に知らせなければならないよ。"
+  },
+  {
+    "id": "4a-73-20",
+    "lesson_id": 73,
+    "word_kr": "안정을 되찾다",
+    "word_jp": "落ち着きを取り戻す",
+    "sentence_kr": "환자가 안정을 되찾고 회복 중이에요.",
+    "sentence_jp": "患者が落ち着きを取り戻して回復に向かっています。"
+  },
+  {
+    "id": "4a-73-21",
+    "lesson_id": 73,
+    "word_kr": "요청(하다)",
+    "word_jp": "要請（する）",
+    "sentence_kr": "사람이 물에 빠졌을 때는 안전 요원에게 도움을 요청하세요.",
+    "sentence_jp": "人がおぼれたときは警備員に助けを要請してください。"
+  },
+  {
+    "id": "4a-73-22",
+    "lesson_id": 73,
+    "word_kr": "이상이 느껴지다",
+    "word_jp": "異変を感じる",
+    "sentence_kr": "산에서 내려오다가 발목에 이상이 느껴져서 병원으로 갔다.",
+    "sentence_jp": "山を下りる途中で足首に異変を感じて病院へ行った。"
+  },
+  {
+    "id": "4a-73-23",
+    "lesson_id": 73,
+    "word_kr": "자신이 있다",
+    "word_jp": "自信がある",
+    "sentence_kr": "수영에 자신이 있다고 해서 깊은 곳에 들어가면 안 돼.",
+    "sentence_jp": "泳ぎに自信があるからといって深い所に入ってはいけないよ。"
+  },
+  {
+    "id": "4a-74-01",
+    "lesson_id": 74,
+    "word_kr": "곧다",
+    "word_jp": "まっすぐだ",
+    "sentence_kr": "의자에 앉을 때는 허리를 곧게 세우세요.",
+    "sentence_jp": "椅子に座るときは背筋をまっすぐ伸ばしてください。"
+  },
+  {
+    "id": "4a-74-02",
+    "lesson_id": 74,
+    "word_kr": "근육",
+    "word_jp": "筋肉",
+    "sentence_kr": "운동을 열심히 해서 팔에 근육이 생겼다.",
+    "sentence_jp": "熱心に運動して腕に筋肉がついた。"
+  },
+  {
+    "id": "4a-74-03",
+    "lesson_id": 74,
+    "word_kr": "등",
+    "word_jp": "背中",
+    "sentence_kr": "다리가 아파서 벽에 등을 기대고 앉아 있었다.",
+    "sentence_jp": "足が痛くて壁に背中をもたれて座っていた。"
+  },
+  {
+    "id": "4a-74-04",
+    "lesson_id": 74,
+    "word_kr": "뭉치다",
+    "word_jp": "凝る",
+    "sentence_kr": "바닥에서 잤더니 어깨 근육이 뭉쳐서 팔을 움직이기 힘들어요.",
+    "sentence_jp": "床で寝たら肩の筋肉が凝って腕を動かしにくいです。"
+  },
+  {
+    "id": "4a-74-05",
+    "lesson_id": 74,
+    "word_kr": "발목",
+    "word_jp": "足首",
+    "sentence_kr": "굽이 높은 구두를 신고 걷다가 넘어져서 발목을 다쳤어요.",
+    "sentence_jp": "ヒールの高い靴を履いて歩いていて転び、足首を痛めました。"
+  },
+  {
+    "id": "4a-74-06",
+    "lesson_id": 74,
+    "word_kr": "발바닥",
+    "word_jp": "足の裏",
+    "sentence_kr": "깨진 유리 조각을 밟아서 발바닥을 다쳤어요.",
+    "sentence_jp": "割れたガラスの破片を踏んで足の裏を怪我しました。"
+  },
+  {
+    "id": "4a-74-07",
+    "lesson_id": 74,
+    "word_kr": "삐다",
+    "word_jp": "くじく",
+    "sentence_kr": "동생이 무거운 물건을 들다가 허리를 삐었다.",
+    "sentence_jp": "弟が重い物を持ち上げようとして腰を痛めた。"
+  },
+  {
+    "id": "4a-74-08",
+    "lesson_id": 74,
+    "word_kr": "손목",
+    "word_jp": "手首",
+    "sentence_kr": "손목에 시계와 팔찌를 찼어요.",
+    "sentence_jp": "手首に時計とブレスレットをつけました。"
+  },
+  {
+    "id": "4a-74-09",
+    "lesson_id": 74,
+    "word_kr": "엉덩이",
+    "word_jp": "お尻",
+    "sentence_kr": "딱딱한 의자에 앉아 있었더니 엉덩이가 아파요.",
+    "sentence_jp": "硬い椅子に座っていたらお尻が痛いです。"
+  },
+  {
+    "id": "4a-74-10",
+    "lesson_id": 74,
+    "word_kr": "자세",
+    "word_jp": "姿勢",
+    "sentence_kr": "농구를 할 때는 공을 던지는 자세가 중요하다.",
+    "sentence_jp": "バスケットボールをするときはボールを投げる姿勢が重要だ。"
+  },
+  {
+    "id": "4a-74-11",
+    "lesson_id": 74,
+    "word_kr": "지치다",
+    "word_jp": "バテる",
+    "sentence_kr": "마라톤을 할 때 처음부터 빨리 뛰면 금방 지쳐서 오래 달릴 수 없어요.",
+    "sentence_jp": "マラソンをするときに最初から飛ばすとすぐにバテて長く走れません。"
+  },
+  {
+    "id": "4a-74-12",
+    "lesson_id": 74,
+    "word_kr": "팔꿈치",
+    "word_jp": "肘",
+    "sentence_kr": "스케이트를 타기 전에 무릎과 팔꿈치에 보호대를 하세요.",
+    "sentence_jp": "スケートを滑る前に膝と肘にプロテクターをつけてください。"
+  },
+  {
+    "id": "4a-74-13",
+    "lesson_id": 74,
+    "word_kr": "허벅지",
+    "word_jp": "太もも",
+    "sentence_kr": "등산을 다녀오고 나서 허벅지를 마사지했어요.",
+    "sentence_jp": "登山に行ってきてから太ももをマッサージしました。"
+  },
+  {
+    "id": "4a-74-14",
+    "lesson_id": 74,
+    "word_kr": "굽히다",
+    "word_jp": "曲げる",
+    "sentence_kr": "한국에서는 윗사람에게 허리를 굽혀 인사를 한다.",
+    "sentence_jp": "韓国では目上の人に腰をかがめてお辞儀をする。"
+  },
+  {
+    "id": "4a-74-15",
+    "lesson_id": 74,
+    "word_kr": "단계",
+    "word_jp": "段階",
+    "sentence_kr": "태권도는 배우는 단계에 따라 허리띠의 색깔이 다르다.",
+    "sentence_jp": "テコンドーは習得段階に応じて帯の色が異なる。"
+  },
+  {
+    "id": "4a-74-16",
+    "lesson_id": 74,
+    "word_kr": "돌리다",
+    "word_jp": "回す",
+    "sentence_kr": "손목과 발목을 돌리면서 준비 운동을 했다.",
+    "sentence_jp": "手首と足首を回しながら準備運動をした。"
+  },
+  {
+    "id": "4a-74-17",
+    "lesson_id": 74,
+    "word_kr": "동작",
+    "word_jp": "動作",
+    "sentence_kr": "춤을 완벽하게 추기 위해서 같은 동작을 여러 번 연습했다.",
+    "sentence_jp": "ダンスを完璧に踊るために同じ動作を何度も練習した。"
+  },
+  {
+    "id": "4a-74-18",
+    "lesson_id": 74,
+    "word_kr": "벌리다",
+    "word_jp": "広げる",
+    "sentence_kr": "내 동생은 잠을 잘 때 입을 벌리고 잔다.",
+    "sentence_jp": "私の弟は寝るときに口を開けて寝る。"
+  },
+  {
+    "id": "4a-74-19",
+    "lesson_id": 74,
+    "word_kr": "본격적",
+    "word_jp": "本格的",
+    "sentence_kr": "탁구를 취미로 쳤는데 경기에 나가고 싶어져서 본격적으로 배워 보려고 해요.",
+    "sentence_jp": "卓球を趣味でやっていましたが大会に出たくなり、本格的に習ってみようと思います。"
+  },
+  {
+    "id": "4a-74-20",
+    "lesson_id": 74,
+    "word_kr": "뻗다",
+    "word_jp": "伸ばす",
+    "sentence_kr": "높은 곳에 올려놓은 물건을 꺼내려고 팔을 뻗었다.",
+    "sentence_jp": "高い所に置いてある物を取り出そうと腕を伸ばした。"
+  },
+  {
+    "id": "4a-74-21",
+    "lesson_id": 74,
+    "word_kr": "스트레칭",
+    "word_jp": "ストレッチ",
+    "sentence_kr": "축구 선수가 경기 전에 스트레칭을 하며 몸을 풀고 있다.",
+    "sentence_jp": "サッカー選手が試合前にストレッチをして体をほぐしている。"
+  },
+  {
+    "id": "4a-74-22",
+    "lesson_id": 74,
+    "word_kr": "엎드리다",
+    "word_jp": "うつぶせる",
+    "sentence_kr": "공부를 하다가 피곤해서 책상 위에 엎드려 잠이 들었다.",
+    "sentence_jp": "勉強していて疲れたので机につっぷして眠り込んでしまった。"
+  },
+  {
+    "id": "4a-74-23",
+    "lesson_id": 74,
+    "word_kr": "펴다",
+    "word_jp": "伸ばす",
+    "sentence_kr": "손가락을 접었다가 펴 보세요.",
+    "sentence_jp": "指を曲げてから伸ばしてみてください。"
+  },
+  {
+    "id": "4a-74-24",
+    "lesson_id": 74,
+    "word_kr": "근력 운동",
+    "word_jp": "筋トレ",
+    "sentence_kr": "근육이 있는 몸을 만들기 위해 근력 운동을 하고 있어요.",
+    "sentence_jp": "筋肉質な体を作るために筋トレをしています。"
+  },
+  {
+    "id": "4a-75-01",
+    "lesson_id": 75,
+    "word_kr": "늘어나다",
+    "word_jp": "増える",
+    "sentence_kr": "날씨가 좋아지면서 관광객이 전보다 많이 늘어났다.",
+    "sentence_jp": "天気が良くなるにつれて観光客が以前よりずいぶん増えた。"
+  },
+  {
+    "id": "4a-75-02",
+    "lesson_id": 75,
+    "word_kr": "복통",
+    "word_jp": "腹痛",
+    "sentence_kr": "상한 음식을 먹고 복통이 생겨서 병원에 다녀왔어.",
+    "sentence_jp": "傷んだ物を食べて腹痛を起こし、病院へ行ってきたよ。"
+  },
+  {
+    "id": "4a-75-03",
+    "lesson_id": 75,
+    "word_kr": "불면증",
+    "word_jp": "不眠症",
+    "sentence_kr": "지연이는 요즘 불면증 때문에 밤에 잠을 못 잔다.",
+    "sentence_jp": "ジヨンは最近不眠症のせいで夜に眠れない。"
+  },
+  {
+    "id": "4a-75-04",
+    "lesson_id": 75,
+    "word_kr": "악화(되다)",
+    "word_jp": "悪化（する）",
+    "sentence_kr": "약을 먹었지만 몸 상태가 나아지지 않고 더 악화되었어요.",
+    "sentence_jp": "薬を飲みましたが体調は良くならずさらに悪化しました。"
+  },
+  {
+    "id": "4a-75-05",
+    "lesson_id": 75,
+    "word_kr": "암",
+    "word_jp": "がん",
+    "sentence_kr": "담배를 피우면 폐에 암이 생길 확률이 높아진대요.",
+    "sentence_jp": "タバコを吸うと肺がんになる確率が高くなるそうです。"
+  },
+  {
+    "id": "4a-75-06",
+    "lesson_id": 75,
+    "word_kr": "예방(하다)",
+    "word_jp": "予防（する）",
+    "sentence_kr": "감기를 예방하려면 비타민을 먹고 몸을 따뜻하게 해야 해요.",
+    "sentence_jp": "風邪を予防するにはビタミンを摂って体を温めなければなりません。"
+  },
+  {
+    "id": "4a-75-07",
+    "lesson_id": 75,
+    "word_kr": "체중",
+    "word_jp": "体重",
+    "sentence_kr": "운동도 안 하고 밤에 음식을 많이 먹었더니 체중이 늘었다.",
+    "sentence_jp": "運動もせず夜にたくさん食べたので体重が増えた。"
+  },
+  {
+    "id": "4a-75-08",
+    "lesson_id": 75,
+    "word_kr": "카페인",
+    "word_jp": "カフェイン",
+    "sentence_kr": "콜라나 녹차에도 카페인이 들어있다고 해요.",
+    "sentence_jp": "コーラや緑茶にもカフェインが含まれているそうです。"
+  },
+  {
+    "id": "4a-75-09",
+    "lesson_id": 75,
+    "word_kr": "통증",
+    "word_jp": "痛み",
+    "sentence_kr": "허리 통증이 심해서 오래 앉아 있을 수가 없어요.",
+    "sentence_jp": "腰の痛みがひどくて長く座っていることができません。"
+  },
+  {
+    "id": "4a-75-10",
+    "lesson_id": 75,
+    "word_kr": "해소하다",
+    "word_jp": "解消する",
+    "sentence_kr": "사비나는 친구와 노래방에서 노래를 부르면서 스트레스를 해소했다.",
+    "sentence_jp": "サビナは友達とカラオケで歌いながらストレスを発散した。"
+  },
+  {
+    "id": "4a-75-11",
+    "lesson_id": 75,
+    "word_kr": "효과",
+    "word_jp": "効果",
+    "sentence_kr": "약을 먹었더니 효과가 금방 나타나서 이제 아무렇지도 않아요.",
+    "sentence_jp": "薬を飲んだら効果がすぐに出て、もう何ともありません。"
+  },
+  {
+    "id": "4a-75-12",
+    "lesson_id": 75,
+    "word_kr": "개선(하다)",
+    "word_jp": "改善（する）",
+    "sentence_kr": "식생활을 개선하면 건강이 좋아지는 걸 느낄 수 있을 거예요.",
+    "sentence_jp": "食生活を改善すれば健康になるのを実感できるはずです。"
+  },
+  {
+    "id": "4a-75-13",
+    "lesson_id": 75,
+    "word_kr": "대표적",
+    "word_jp": "代表的",
+    "sentence_kr": "토마토는 대표적인 건강식품이에요.",
+    "sentence_jp": "トマトは代表的な健康食品です。"
+  },
+  {
+    "id": "4a-75-14",
+    "lesson_id": 75,
+    "word_kr": "방지(하다)",
+    "word_jp": "防止（する）",
+    "sentence_kr": "시험공부를 하는데 졸려서 졸음을 방지하는 껌을 씹었어요.",
+    "sentence_jp": "試験勉強中に眠くなったので眠気を防止するガムを噛みました。"
+  },
+  {
+    "id": "4a-75-15",
+    "lesson_id": 75,
+    "word_kr": "불규칙",
+    "word_jp": "不規則",
+    "sentence_kr": "잠을 자는 시간이 불규칙하면 건강에 안 좋아요.",
+    "sentence_jp": "睡眠時間が不規則だと健康によくありません。"
+  },
+  {
+    "id": "4a-75-16",
+    "lesson_id": 75,
+    "word_kr": "삼키다",
+    "word_jp": "飲み込む",
+    "sentence_kr": "급하게 먹지 말고 천천히 꼭꼭 씹어서 삼켜.",
+    "sentence_jp": "慌てて食べないで、ゆっくりよく噛んで飲み込みなさい。"
+  },
+  {
+    "id": "4a-75-17",
+    "lesson_id": 75,
+    "word_kr": "식습관",
+    "word_jp": "食習慣",
+    "sentence_kr": "몸이 건강해지려면 운동도 중요하지만 식습관도 함께 관리해야 한다.",
+    "sentence_jp": "体を健康にするには運動も大事だが食生活も一緒に管理しなければならない。"
+  },
+  {
+    "id": "4a-75-18",
+    "lesson_id": 75,
+    "word_kr": "올바르다",
+    "word_jp": "正しい",
+    "sentence_kr": "올바른 자세로 운동을 해야 다치지 않아요.",
+    "sentence_jp": "正しい姿勢で運動してこそ怪我をしません。"
+  },
+  {
+    "id": "4a-75-19",
+    "lesson_id": 75,
+    "word_kr": "제때",
+    "word_jp": "決まった時間",
+    "sentence_kr": "약을 제때 먹지 않으면 병이 잘 낫지 않아요.",
+    "sentence_jp": "薬を時間どおりに飲まないと病気がなかなか治りません。"
+  },
+  {
+    "id": "4a-76-01",
+    "lesson_id": 76,
+    "word_kr": "말리다",
+    "word_jp": "乾かす",
+    "sentence_kr": "젖은 수건을 빨래줄에 걸어 햇볕에 말렸다.",
+    "sentence_jp": "濡れたタオルを物干しロープに掛けて日差しで乾かした。"
+  },
+  {
+    "id": "4a-76-02",
+    "lesson_id": 76,
+    "word_kr": "먼지",
+    "word_jp": "ホコリ",
+    "sentence_kr": "오랫동안 청소를 안 했더니 책장 위에 먼지가 하얗게 쌓였다.",
+    "sentence_jp": "長らく掃除をしなかったので本棚の上にホコリが白く積もっていた。"
+  },
+  {
+    "id": "4a-76-03",
+    "lesson_id": 76,
+    "word_kr": "살균(하다/되다)",
+    "word_jp": "殺菌（する）",
+    "sentence_kr": "그릇을 끓는 물에 삶아서 살균해 주는 것이 좋다.",
+    "sentence_jp": "器を熱湯で煮沸して殺菌するのがよい。"
+  },
+  {
+    "id": "4a-76-04",
+    "lesson_id": 76,
+    "word_kr": "소독(하다/되다)",
+    "word_jp": "消毒（する）",
+    "sentence_kr": "상처를 치료하기 전에 먼저 소독을 해야 한다.",
+    "sentence_jp": "傷口を処置する前にまず消毒をしなければならない。"
+  },
+  {
+    "id": "4a-76-05",
+    "lesson_id": 76,
+    "word_kr": "수도꼭지",
+    "word_jp": "蛇口",
+    "sentence_kr": "수도꼭지를 잠갔는데도 물이 뚝뚝 떨어져서 수리 기사를 불렀다.",
+    "sentence_jp": "蛇口を閉めたのに水がポタポタ落ちるので修理業者を呼んだ。"
+  },
+  {
+    "id": "4a-76-06",
+    "lesson_id": 76,
+    "word_kr": "오염(되다)",
+    "word_jp": "汚染（される）",
+    "sentence_kr": "사람들이 버린 쓰레기 때문에 강이 오염되어 많은 물고기가 죽었다.",
+    "sentence_jp": "人々が捨てたゴミのせいで川が汚染され多くの魚が死んだ。"
+  },
+  {
+    "id": "4a-76-07",
+    "lesson_id": 76,
+    "word_kr": "위생적",
+    "word_jp": "衛生的",
+    "sentence_kr": "외출 후에 손을 깨끗이 닦는 것이 위생적이다.",
+    "sentence_jp": "外出した後に手をきれいに洗うのが衛生的だ。"
+  },
+  {
+    "id": "4a-76-08",
+    "lesson_id": 76,
+    "word_kr": "음식 찌꺼기",
+    "word_jp": "生ゴミ",
+    "sentence_kr": "설거지를 한 후에 음식 찌꺼기를 모아 음식물 쓰레기통에 버렸다.",
+    "sentence_jp": "皿洗いをした後、生ゴミを集めて生ゴミ専用のゴミ箱に捨てた。"
+  },
+  {
+    "id": "4a-76-09",
+    "lesson_id": 76,
+    "word_kr": "제거(하다/되다)",
+    "word_jp": "除去（する）",
+    "sentence_kr": "커피 가루를 냉장고에 넣어 두면 습기와 냄새를 제거할 수 있다.",
+    "sentence_jp": "コーヒーの粉を冷蔵庫に入れておくと湿気と臭いを取り除くことができる。"
+  },
+  {
+    "id": "4a-76-10",
+    "lesson_id": 76,
+    "word_kr": "조리(하다/되다)",
+    "word_jp": "調理（する）",
+    "sentence_kr": "간장으로 닭고기를 맛있게 조리하는 방법을 알려 주세요.",
+    "sentence_jp": "醤油で鶏肉をおいしく調理する方法を教えてください。"
+  },
+  {
+    "id": "4a-76-11",
+    "lesson_id": 76,
+    "word_kr": "감염(되다)",
+    "word_jp": "感染（する）",
+    "sentence_kr": "체력이 떨어지면 질병에 감염되기 쉽다.",
+    "sentence_jp": "体力が落ちると病気に感染しやすくなる。"
+  },
+  {
+    "id": "4a-76-12",
+    "lesson_id": 76,
+    "word_kr": "눈병",
+    "word_jp": "眼病",
+    "sentence_kr": "눈병에 걸려서 눈이 빨개졌어요.",
+    "sentence_jp": "目の病気にかかって目が充血してしまいました。"
+  },
+  {
+    "id": "4a-76-13",
+    "lesson_id": 76,
+    "word_kr": "발열",
+    "word_jp": "発熱",
+    "sentence_kr": "발열 증상이 심해서 온몸이 뜨겁다.",
+    "sentence_jp": "発熱の症状がひどくて体中が熱い。"
+  },
+  {
+    "id": "4a-76-14",
+    "lesson_id": 76,
+    "word_kr": "수칙",
+    "word_jp": "ルール",
+    "sentence_kr": "기숙사에서 여러 사람과 잘 지내려면 생활 수칙을 지켜야 한다.",
+    "sentence_jp": "寮で多くの人と円滑に暮らすには生活ルールを守らなければならない。"
+  },
+  {
+    "id": "4a-76-15",
+    "lesson_id": 76,
+    "word_kr": "식중독",
+    "word_jp": "食中毒",
+    "sentence_kr": "상한 음식을 먹고 식중독에 걸려서 배가 무척 아프다.",
+    "sentence_jp": "傷んだ物を食べて食中毒になり、お腹がひどく痛む。"
+  },
+  {
+    "id": "4a-76-16",
+    "lesson_id": 76,
+    "word_kr": "예방 접종",
+    "word_jp": "予防接種",
+    "sentence_kr": "독감에 걸리지 않기 위해 예방 접종을 했다.",
+    "sentence_jp": "インフルエンザにかからないように予防接種を受けた。"
+  },
+  {
+    "id": "4a-76-17",
+    "lesson_id": 76,
+    "word_kr": "전염(되다)",
+    "word_jp": "うつる",
+    "sentence_kr": "동생에게 전염돼서 저도 눈병에 걸렸어요.",
+    "sentence_jp": "弟からうつされて私も目の病気にかかりました。"
+  },
+  {
+    "id": "4a-76-18",
+    "lesson_id": 76,
+    "word_kr": "접촉(하다/되다)",
+    "word_jp": "接触（する）",
+    "sentence_kr": "이 병은 환자와 접촉해도 옮지 않으니 걱정하지 마세요.",
+    "sentence_jp": "この病気は患者と接触してもうつりませんのでご安心ください。"
+  },
+  {
+    "id": "4a-76-19",
+    "lesson_id": 76,
+    "word_kr": "침",
+    "word_jp": "唾液",
+    "sentence_kr": "엄마가 손수건을 꺼내 침을 흘리는 아기의 입을 닦아 주었다.",
+    "sentence_jp": "母親がハンカチを取り出してよだれを垂らす赤ちゃんの口元を拭いてあげた。"
+  },
+  {
+    "id": "4a-76-20",
+    "lesson_id": 76,
+    "word_kr": "퍼지다",
+    "word_jp": "広がる",
+    "sentence_kr": "부엌에서 형이 끓이는 김치찌개 냄새가 거실까지 퍼졌다.",
+    "sentence_jp": "台所で兄が作っているキムチチゲの匂いがリビングまで広がった。"
+  },
+  {
+    "id": "4a-76-21",
+    "lesson_id": 76,
+    "word_kr": "마스크를 착용하다",
+    "word_jp": "マスクをつける",
+    "sentence_kr": "날씨가 추워서 털모자와 마스크를 착용하고 외출했다.",
+    "sentence_jp": "寒かったのでニット帽とマスクをつけて外出した。"
+  },
+  {
+    "id": "4a-77-01",
+    "lesson_id": 77,
+    "word_kr": "간지럽다",
+    "word_jp": "かゆい",
+    "sentence_kr": "모기에 물린 데가 아주 간지러워요.",
+    "sentence_jp": "蚊に刺されたところがとてもかゆいです。"
+  },
+  {
+    "id": "4a-77-02",
+    "lesson_id": 77,
+    "word_kr": "근육통",
+    "word_jp": "筋肉痛",
+    "sentence_kr": "운동을 3시간 동안 했더니 근육통이 생겨서 팔하고 다리가 아파요.",
+    "sentence_jp": "3時間も運動したため筋肉痛になって腕と足が痛いです。"
+  },
+  {
+    "id": "4a-77-03",
+    "lesson_id": 77,
+    "word_kr": "몸살",
+    "word_jp": "体のだるさ",
+    "sentence_kr": "몸살이 나서 온몸이 안 아픈 데가 없어요.",
+    "sentence_jp": "悪寒を伴う風邪を引いて体中痛くないところがありません。"
+  },
+  {
+    "id": "4a-77-04",
+    "lesson_id": 77,
+    "word_kr": "부러지다",
+    "word_jp": "折れる",
+    "sentence_kr": "태풍 때문에 나뭇가지가 부러져서 길에 떨어져 있어요.",
+    "sentence_jp": "台風のせいで木の枝が折れて道に落ちています。"
+  },
+  {
+    "id": "4a-77-05",
+    "lesson_id": 77,
+    "word_kr": "쑤시다",
+    "word_jp": "うずく",
+    "sentence_kr": "어제 등산을 했더니 무릎이 쑤셔서 잠을 잘 수가 없다.",
+    "sentence_jp": "昨日登山をしたら膝が痛んで眠ることができない。"
+  },
+  {
+    "id": "4a-77-06",
+    "lesson_id": 77,
+    "word_kr": "증상",
+    "word_jp": "症状",
+    "sentence_kr": "추운 곳에 오래 있었더니 감기 증상이 심해졌어요.",
+    "sentence_jp": "寒い所に長くいたら風邪の症状が悪化しました。"
+  },
+  {
+    "id": "4a-77-07",
+    "lesson_id": 77,
+    "word_kr": "질병",
+    "word_jp": "病気",
+    "sentence_kr": "충분한 운동을 통해서 질병을 예방할 수 있어요.",
+    "sentence_jp": "十分な運動を通じて病気を予防することができます。"
+  },
+  {
+    "id": "4a-77-08",
+    "lesson_id": 77,
+    "word_kr": "토하다",
+    "word_jp": "吐く",
+    "sentence_kr": "어젯밤에 밤새 토하고 설사도 했어요.",
+    "sentence_jp": "昨夜は一晩中吐いたり下痢をしたりしました。"
+  },
+  {
+    "id": "4a-77-09",
+    "lesson_id": 77,
+    "word_kr": "피부병",
+    "word_jp": "皮膚病",
+    "sentence_kr": "피부병 때문에 가려워서 긁었더니 피부가 빨개졌어요.",
+    "sentence_jp": "皮膚病のせいでかゆくてかいたら肌が赤くなってしまいました。"
+  },
+  {
+    "id": "4a-77-10",
+    "lesson_id": 77,
+    "word_kr": "현상",
+    "word_jp": "現象",
+    "sentence_kr": "여름에 열대야 현상이 나타나면 잠을 못 자는 사람들이 많아요.",
+    "sentence_jp": "夏に熱帯夜現象が起きると眠れない人が増えます。"
+  },
+  {
+    "id": "4a-77-11",
+    "lesson_id": 77,
+    "word_kr": "말기",
+    "word_jp": "末期",
+    "sentence_kr": "우리 옆집 아저씨는 치료가 힘든 말기 암 환자이지만 희망을 잃지 않고 있다.",
+    "sentence_jp": "隣のおじさんは治療の難しい末期がんの患者だが希望を失っていない。"
+  },
+  {
+    "id": "4a-77-12",
+    "lesson_id": 77,
+    "word_kr": "변화(하다)",
+    "word_jp": "変化（する）",
+    "sentence_kr": "9월에는 계절의 변화를 느낄 수 있어요.",
+    "sentence_jp": "9月には季節の移り変わりを感じることができます。"
+  },
+  {
+    "id": "4a-77-13",
+    "lesson_id": 77,
+    "word_kr": "보건실",
+    "word_jp": "保健室",
+    "sentence_kr": "수업 시간에 배가 아파서 보건실에 가서 누워 있었다.",
+    "sentence_jp": "授業中にお腹が痛くなり保健室に行って横になっていた。"
+  },
+  {
+    "id": "4a-77-14",
+    "lesson_id": 77,
+    "word_kr": "부작용",
+    "word_jp": "副作用",
+    "sentence_kr": "약을 개발할 때는 부작용을 최대한 줄이는 것이 중요하다.",
+    "sentence_jp": "薬を開発するときは副作用を極力抑えることが重要だ。"
+  },
+  {
+    "id": "4a-77-15",
+    "lesson_id": 77,
+    "word_kr": "불가능(하다)",
+    "word_jp": "不可能（だ）",
+    "sentence_kr": "저는 불가능한 상황이어도 포기하지 않고 해결 방법을 고민해요.",
+    "sentence_jp": "私は不可能な状況であっても諦めずに解決策を模索します。"
+  },
+  {
+    "id": "4a-77-16",
+    "lesson_id": 77,
+    "word_kr": "불확실(하다)",
+    "word_jp": "不確かだ",
+    "sentence_kr": "많은 청년들이 불확실한 미래 때문에 걱정을 한다.",
+    "sentence_jp": "多くの若者が不透明な未来のせいで不安を抱いている。"
+  },
+  {
+    "id": "4a-77-17",
+    "lesson_id": 77,
+    "word_kr": "사망(하다)",
+    "word_jp": "死亡（する）",
+    "sentence_kr": "친구 아버지의 사망 소식을 듣고 바로 찾아갔어요.",
+    "sentence_jp": "友達の父親の訃報を聞いてすぐに駆けつけました。"
+  },
+  {
+    "id": "4a-77-18",
+    "lesson_id": 77,
+    "word_kr": "중독(되다)",
+    "word_jp": "依存症になる",
+    "sentence_kr": "담배나 술을 끊기 힘든 이유는 중독이 되기 때문이에요.",
+    "sentence_jp": "タバコや酒をやめるのが難しい理由は依存してしまうからです。"
+  },
+  {
+    "id": "4a-77-19",
+    "lesson_id": 77,
+    "word_kr": "진료(하다)",
+    "word_jp": "診療（を受ける）",
+    "sentence_kr": "사비나는 2시에 진료를 예약해서 병원에 간다고 했어요.",
+    "sentence_jp": "サビナは2時に診療の予約をしたので病院へ行くと言っていました。"
+  },
+  {
+    "id": "4a-77-20",
+    "lesson_id": 77,
+    "word_kr": "처방(하다)",
+    "word_jp": "処方（する）",
+    "sentence_kr": "이 약은 의사에게 처방을 받아야 약국에서 살 수 있어요.",
+    "sentence_jp": "この薬は医師に処方してもらって初めて薬局で買えます。"
+  },
+  {
+    "id": "4a-77-21",
+    "lesson_id": 77,
+    "word_kr": "초기",
+    "word_jp": "初期",
+    "sentence_kr": "임신 초기에는 심한 운동을 하지 않는 것이 좋다.",
+    "sentence_jp": "妊娠初期には激しい運動を控えるのがよい。"
+  },
+  {
+    "id": "4a-78-01",
+    "lesson_id": 78,
+    "word_kr": "과학",
+    "word_jp": "科学",
+    "sentence_kr": "과학 수업을 듣고 지구가 태양 주위를 돈다는 사실을 알게 됐다.",
+    "sentence_jp": "理科の授業を受けて地球が太陽の周りを回っている事実を知った。"
+  },
+  {
+    "id": "4a-78-02",
+    "lesson_id": 78,
+    "word_kr": "교재",
+    "word_jp": "教材",
+    "sentence_kr": "한국어를 잘하는 친구가 나에게 '세종한국어' 교재를 추천해 줬다.",
+    "sentence_jp": "韓国語の上手な友達が私に『世宗韓国語』の教材を薦めてくれた。"
+  },
+  {
+    "id": "4a-78-03",
+    "lesson_id": 78,
+    "word_kr": "기말고사",
+    "word_jp": "期末試験",
+    "sentence_kr": "이번 학기 마지막 시험인 기말고사를 잘 보기 위해 열심히 공부했다.",
+    "sentence_jp": "今学期最後の試験である期末試験で良い点を取るため熱心に勉強した。"
+  },
+  {
+    "id": "4a-78-04",
+    "lesson_id": 78,
+    "word_kr": "깨닫다",
+    "word_jp": "気付く",
+    "sentence_kr": "나는 책을 읽으면서 예전에는 몰랐던 사실을 깨닫게 되었다.",
+    "sentence_jp": "私は本を読みながら以前は知らなかった事実に気付かされた。"
+  },
+  {
+    "id": "4a-78-05",
+    "lesson_id": 78,
+    "word_kr": "담임",
+    "word_jp": "担任",
+    "sentence_kr": "이번에 2학년 3반을 맡은 담임 선생님은 무척 친절하시다.",
+    "sentence_jp": "今回2年3組を受け持つ担任の先生はとても優しい。"
+  },
+  {
+    "id": "4a-78-06",
+    "lesson_id": 78,
+    "word_kr": "발표회",
+    "word_jp": "発表会",
+    "sentence_kr": "우리 동아리는 발표회에서 댄스 공연을 했다.",
+    "sentence_jp": "私たちのサークルは発表会でダンスの公演をした。"
+  },
+  {
+    "id": "4a-78-07",
+    "lesson_id": 78,
+    "word_kr": "성적표",
+    "word_jp": "成績表",
+    "sentence_kr": "시험 성적이 나빠서 다른 사람에게 성적표를 보여 주기가 부끄럽다.",
+    "sentence_jp": "試験の点数が悪くて他人に成績表を見せるのが恥ずかしい。"
+  },
+  {
+    "id": "4a-78-08",
+    "lesson_id": 78,
+    "word_kr": "실시하다",
+    "word_jp": "実施する",
+    "sentence_kr": "보건소에서 어린이를 대상으로 독감 예방 접종을 실시하였다.",
+    "sentence_jp": "保健所で子どもを対象にインフルエンザの予防接種を実施した。"
+  },
+  {
+    "id": "4a-78-09",
+    "lesson_id": 78,
+    "word_kr": "입시",
+    "word_jp": "受験",
+    "sentence_kr": "내 동생은 대학 입시를 준비하느라고 매일 밤늦게까지 공부한다.",
+    "sentence_jp": "私の弟は大学受験の準備のために毎晩遅くまで勉強している。"
+  },
+  {
+    "id": "4a-78-10",
+    "lesson_id": 78,
+    "word_kr": "재학생",
+    "word_jp": "在校生",
+    "sentence_kr": "우리 학교에서 공부하는 재학생은 모두 200명이다.",
+    "sentence_jp": "私たちの学校で学んでいる在校生は全員で200人だ。"
+  },
+  {
+    "id": "4a-78-11",
+    "lesson_id": 78,
+    "word_kr": "중간고사",
+    "word_jp": "中間試験",
+    "sentence_kr": "오늘 공부한 내용까지 다음 주 중간고사에 나옵니다.",
+    "sentence_jp": "今日勉強した内容までが来週の中間試験に出題されます。"
+  },
+  {
+    "id": "4a-78-12",
+    "lesson_id": 78,
+    "word_kr": "강조(하다/되다)",
+    "word_jp": "強調（する）",
+    "sentence_kr": "선생님께서 수학 시간에 중요한 공식이라고 몇 번이나 강조하셨어.",
+    "sentence_jp": "先生が数学の時間に重要な公式だと何度も強調されたよ。"
+  },
+  {
+    "id": "4a-78-13",
+    "lesson_id": 78,
+    "word_kr": "교양",
+    "word_jp": "教養",
+    "sentence_kr": "교양이 있는 사람은 예의 바르게 행동한다.",
+    "sentence_jp": "教養のある人は礼儀正しく振る舞う。"
+  },
+  {
+    "id": "4a-78-14",
+    "lesson_id": 78,
+    "word_kr": "수준",
+    "word_jp": "水準",
+    "sentence_kr": "과학 기술의 수준이 높아질수록 사람들의 생활이 편리해진다.",
+    "sentence_jp": "科学技術の水準が上がるほど人々の生活は便利になる。"
+  },
+  {
+    "id": "4a-78-15",
+    "lesson_id": 78,
+    "word_kr": "암기(하다)",
+    "word_jp": "暗記（する）",
+    "sentence_kr": "나는 한국어 단어를 매일 스무 개씩 암기하고 있다.",
+    "sentence_jp": "私は韓国語の単語を毎日20個ずつ暗記している。"
+  },
+  {
+    "id": "4a-78-16",
+    "lesson_id": 78,
+    "word_kr": "유리하다",
+    "word_jp": "有利だ",
+    "sentence_kr": "농구는 팔과 다리가 긴 사람에게 유리한 운동이다.",
+    "sentence_jp": "バスケットボールは手足の長い人に有利なスポーツだ。"
+  },
+  {
+    "id": "4a-78-17",
+    "lesson_id": 78,
+    "word_kr": "인격",
+    "word_jp": "人格",
+    "sentence_kr": "우리 학교의 교장 선생님은 인격이 훌륭한 분이시다.",
+    "sentence_jp": "私たちの学校の校長先生は人格の優れた方だ。"
+  },
+  {
+    "id": "4a-78-18",
+    "lesson_id": 78,
+    "word_kr": "지도(하다)",
+    "word_jp": "指導（する）",
+    "sentence_kr": "배구 선수였던 어머니는 지금은 학교 배구부에서 학생들을 지도하신다.",
+    "sentence_jp": "バレーボール選手だった母は今、学校のバレーボール部で生徒たちを指導している。"
+  },
+  {
+    "id": "4a-78-19",
+    "lesson_id": 78,
+    "word_kr": "지식",
+    "word_jp": "知識",
+    "sentence_kr": "나는 독서를 하면서 많은 지식을 쌓았다.",
+    "sentence_jp": "私は読書を通じて多くの知識を身につけた。"
+  },
+  {
+    "id": "4a-78-20",
+    "lesson_id": 78,
+    "word_kr": "평생",
+    "word_jp": "生涯",
+    "sentence_kr": "할아버지는 평생 시골에서 농사를 지으셨어요.",
+    "sentence_jp": "祖父は生涯田舎で農業を営まれました。"
+  },
+  {
+    "id": "4a-79-01",
+    "lesson_id": 79,
+    "word_kr": "간섭(하다)",
+    "word_jp": "口出し（する）",
+    "sentence_kr": "아이의 일에 부모가 너무 간섭하는 것은 좋지 않아요.",
+    "sentence_jp": "子どものことに親が過度に口出しするのはよくありません。"
+  },
+  {
+    "id": "4a-79-02",
+    "lesson_id": 79,
+    "word_kr": "개인 교습",
+    "word_jp": "個人レッスン",
+    "sentence_kr": "저는 일주일에 한 번씩 수영장에 가서 수영 개인 교습을 받고 있어요.",
+    "sentence_jp": "私は週に1回プールへ行って水泳の個人レッスンを受けています。"
+  },
+  {
+    "id": "4a-79-03",
+    "lesson_id": 79,
+    "word_kr": "교훈",
+    "word_jp": "教訓",
+    "sentence_kr": "이번 일로 나는 무슨 일이 있어도 거짓말은 하면 안 된다는 교훈을 얻었다.",
+    "sentence_jp": "今回の件で私は何があっても嘘をついてはならないという教訓を得た。"
+  },
+  {
+    "id": "4a-79-04",
+    "lesson_id": 79,
+    "word_kr": "기초",
+    "word_jp": "基礎",
+    "sentence_kr": "우리 선생님은 기초부터 하나하나 가르쳐 줘서 정말 좋아요.",
+    "sentence_jp": "私たちの先生は基礎から一つひとつ教えてくれるので本当にありがたいです。"
+  },
+  {
+    "id": "4a-79-05",
+    "lesson_id": 79,
+    "word_kr": "도전(하다)",
+    "word_jp": "挑戦（する）",
+    "sentence_kr": "만 원으로 일주일 살기! 여러분도 할 수 있습니다. 지금 도전해 보세요.",
+    "sentence_jp": "1万ウォンで1週間生活！皆さんもできます。今すぐ挑戦してみてください。"
+  },
+  {
+    "id": "4a-79-06",
+    "lesson_id": 79,
+    "word_kr": "조기",
+    "word_jp": "早期",
+    "sentence_kr": "예술을 전공하려면 조기에 시작해야 한다고 한다.",
+    "sentence_jp": "芸術を専攻するなら早期に始めるべきだと言われている。"
+  },
+  {
+    "id": "4a-79-07",
+    "lesson_id": 79,
+    "word_kr": "창의적",
+    "word_jp": "独創적",
+    "sentence_kr": "리사 씨는 창의적이어서 다른 사람들이 생각해 내지 못하는 아이디어를 많이 내요.",
+    "sentence_jp": "リサさんは独創的で他の人が思いつかないアイデアをたくさん出します。"
+  },
+  {
+    "id": "4a-79-08",
+    "lesson_id": 79,
+    "word_kr": "평균",
+    "word_jp": "平均",
+    "sentence_kr": "이번 기말 고사의 국어, 수학, 영어 세 과목 평균을 내 보니 80점이었다.",
+    "sentence_jp": "今回の期末試験の国語・数学・英語の3科目の平均を出してみたら80点だった。"
+  },
+  {
+    "id": "4a-79-09",
+    "lesson_id": 79,
+    "word_kr": "학문",
+    "word_jp": "学問",
+    "sentence_kr": "정우는 학문을 더 연구하기 위해 대학원에 진학했다.",
+    "sentence_jp": "ジョンウは学問をさらに追究するため大学院に進学した。"
+  },
+  {
+    "id": "4a-79-10",
+    "lesson_id": 79,
+    "word_kr": "감소(하다)",
+    "word_jp": "減少（する）",
+    "sentence_kr": "요즘 사람들이 아이를 많이 낳지 않아서 인구가 감소하고 있다.",
+    "sentence_jp": "近頃人々があまり子どもを産まないため人口が減少している。"
+  },
+  {
+    "id": "4a-79-11",
+    "lesson_id": 79,
+    "word_kr": "강사",
+    "word_jp": "講師",
+    "sentence_kr": "나는 학원에서 수학을 가르치는 강사이다.",
+    "sentence_jp": "私は塾で数学を教えている講師だ。"
+  },
+  {
+    "id": "4a-79-12",
+    "lesson_id": 79,
+    "word_kr": "논리적",
+    "word_jp": "論理的",
+    "sentence_kr": "변호사는 논리적인 말로 다른 사람을 설득할 수 있어야 한다.",
+    "sentence_jp": "弁護士は論理的な言葉で他者を説得できなければならない。"
+  },
+  {
+    "id": "4a-79-13",
+    "lesson_id": 79,
+    "word_kr": "늘리다",
+    "word_jp": "伸ばす",
+    "sentence_kr": "저는 한국어 실력을 늘리려고 한국 친구들과 매일 이야기하고 있어요.",
+    "sentence_jp": "私は韓国語の実力を伸ばそうと韓国人の友達と毎日話しています。"
+  },
+  {
+    "id": "4a-79-14",
+    "lesson_id": 79,
+    "word_kr": "만점",
+    "word_jp": "満点",
+    "sentence_kr": "이번 시험은 모든 과목에서 만점을 받았어요.",
+    "sentence_jp": "今回の試験は全科目で満点を取りました。"
+  },
+  {
+    "id": "4a-79-15",
+    "lesson_id": 79,
+    "word_kr": "실천(하다)",
+    "word_jp": "実践（する）",
+    "sentence_kr": "계획은 그만 세우고 이제 실천을 해 보는 건 어때?",
+    "sentence_jp": "計画ばかり立てていないでそろそろ実践してみるのはどう？"
+  },
+  {
+    "id": "4a-79-16",
+    "lesson_id": 79,
+    "word_kr": "의욕",
+    "word_jp": "意欲",
+    "sentence_kr": "선생님께 칭찬을 받았더니 더 열심히 공부하고 싶은 의욕이 생겼어요.",
+    "sentence_jp": "先生に褒められたらもっと熱心に勉強したいという意欲が湧きました。"
+  },
+  {
+    "id": "4a-79-17",
+    "lesson_id": 79,
+    "word_kr": "자신감",
+    "word_jp": "自信",
+    "sentence_kr": "민국이는 자신감이 넘치는 표정으로 면접장에 들어갔다.",
+    "sentence_jp": "ミングクは自信に満ちた表情で面接室に入った。"
+  },
+  {
+    "id": "4a-79-18",
+    "lesson_id": 79,
+    "word_kr": "필기",
+    "word_jp": "ノート取り",
+    "sentence_kr": "정우는 강의를 들으면서 노트에 열심히 필기를 했다.",
+    "sentence_jp": "ジョンウは講義を聴きながらノートに熱心にメモを取った。"
+  },
+  {
+    "id": "4a-79-19",
+    "lesson_id": 79,
+    "word_kr": "향상(되다)",
+    "word_jp": "向上（する）",
+    "sentence_kr": "한 학기 동안 열심히 공부했더니 지난 학기에 비해서 성적이 많이 향상되었다.",
+    "sentence_jp": "1学期間真面目に勉強したおかげで前学期に比べて成績が大きく向上した。"
+  },
+  {
+    "id": "4a-80-01",
+    "lesson_id": 80,
+    "word_kr": "건축",
+    "word_jp": "建築",
+    "sentence_kr": "이곳은 다음 달부터 아파트를 짓는 건축 공사가 시작됩니다.",
+    "sentence_jp": "ここは来月からマンションを建てる建築工事が始まります。"
+  },
+  {
+    "id": "4a-80-02",
+    "lesson_id": 80,
+    "word_kr": "금융",
+    "word_jp": "金融",
+    "sentence_kr": "은행과 같은 금융 기관에서 예금, 대출과 같은 서비스를 제공한다.",
+    "sentence_jp": "銀行のような金融機関で預金や融資といったサービスを提供する。"
+  },
+  {
+    "id": "4a-80-03",
+    "lesson_id": 80,
+    "word_kr": "대체(하다/되다)",
+    "word_jp": "代替（する）",
+    "sentence_kr": "이번 평가는 시험 대신 과제로 대체하겠습니다.",
+    "sentence_jp": "今回の評価は試験の代わりに課題で代替します。"
+  },
+  {
+    "id": "4a-80-04",
+    "lesson_id": 80,
+    "word_kr": "분류(하다/되다)",
+    "word_jp": "分類（する）",
+    "sentence_kr": "도서관에는 책들이 주제에 따라 분류되어 있다.",
+    "sentence_jp": "図書館には本がテーマ別に分類されている。"
+  },
+  {
+    "id": "4a-80-05",
+    "lesson_id": 80,
+    "word_kr": "산업",
+    "word_jp": "産業",
+    "sentence_kr": "통신 산업의 발달로 멀리 있는 사람과 연락하기 편해졌다.",
+    "sentence_jp": "通信産業の発達により遠くにいる人と連絡を取りやすくなった。"
+  },
+  {
+    "id": "4a-80-06",
+    "lesson_id": 80,
+    "word_kr": "운반(하다/되다)",
+    "word_jp": "運搬（する）",
+    "sentence_kr": "민국에게 내 짐을 자동차로 우리 집까지 운반해 달라고 부탁했다.",
+    "sentence_jp": "ミングクに私の荷物を車で自宅まで運んでくれるよう頼んだ。"
+  },
+  {
+    "id": "4a-80-07",
+    "lesson_id": 80,
+    "word_kr": "유통",
+    "word_jp": "流通",
+    "sentence_kr": "해산물은 생산지에서 판매 장소까지 가는 유통 과정에서 상하기 쉬우므로 주의해야 한다.",
+    "sentence_jp": "魚介類は産地から販売場所に至る流通段階で傷みやすいため注意が必要だ。"
+  },
+  {
+    "id": "4a-80-08",
+    "lesson_id": 80,
+    "word_kr": "이롭다",
+    "word_jp": "良い",
+    "sentence_kr": "잠을 충분히 자는 것이 건강에 이롭다.",
+    "sentence_jp": "睡眠を十分にとるのが健康に良い。"
+  },
+  {
+    "id": "4a-80-09",
+    "lesson_id": 80,
+    "word_kr": "인력",
+    "word_jp": "人材",
+    "sentence_kr": "새로운 약을 개발하기 위해서는 돈과 전문적인 인력이 많이 필요하다.",
+    "sentence_jp": "新薬を開発するためには資金と専門的な人材が多数必要だ。"
+  },
+  {
+    "id": "4a-80-10",
+    "lesson_id": 80,
+    "word_kr": "인공 지능",
+    "word_jp": "人工知能",
+    "sentence_kr": "과학자들은 인간의 지식과 능력을 가진 인공 지능 로봇을 만들고자 한다.",
+    "sentence_jp": "科学者たちは人間の知識と能力を備えた人工知能ロボットを作ろうとしている。"
+  },
+  {
+    "id": "4a-80-11",
+    "lesson_id": 80,
+    "word_kr": "가치",
+    "word_jp": "価値",
+    "sentence_kr": "경주에는 역사적으로 가치가 높은 건물들이 많다.",
+    "sentence_jp": "慶州には歴史的に価値の高い建造物が多い。"
+  },
+  {
+    "id": "4a-80-12",
+    "lesson_id": 80,
+    "word_kr": "근로자",
+    "word_jp": "労働者",
+    "sentence_kr": "이 회사에서 근로자들을 위해 출퇴근 버스를 운행하고 있다.",
+    "sentence_jp": "この会社では労働者のために通勤バスを運行している。"
+  },
+  {
+    "id": "4a-80-13",
+    "lesson_id": 80,
+    "word_kr": "기술자",
+    "word_jp": "技術者",
+    "sentence_kr": "우리 누나는 컴퓨터 기술자인데 컴퓨터 프로그램을 개발하는 일을 하고 있다.",
+    "sentence_jp": "私の姉はコンピュータの技術者でプログラムを開発する仕事をしている。"
+  },
+  {
+    "id": "4a-80-14",
+    "lesson_id": 80,
+    "word_kr": "분석(하다/되다)",
+    "word_jp": "分析（する）",
+    "sentence_kr": "과학자들이 지구의 온도가 높아지는 원인을 분석하고 있다.",
+    "sentence_jp": "科学者たちが地球の気温が上昇している原因を分析している。"
+  },
+  {
+    "id": "4a-80-15",
+    "lesson_id": 80,
+    "word_kr": "사무직",
+    "word_jp": "事務職",
+    "sentence_kr": "사무직 직원들은 실내에서 주로 컴퓨터나 서류를 보며 일한다.",
+    "sentence_jp": "事務職の社員は屋内で主にパソコンや書類を見ながら業務を行う。"
+  },
+  {
+    "id": "4a-80-16",
+    "lesson_id": 80,
+    "word_kr": "사업가",
+    "word_jp": "実業家",
+    "sentence_kr": "친구는 인터넷 쇼핑몰을 만들어 의류를 판매하는 사업가가 됐다.",
+    "sentence_jp": "友達はネット通販を立ち上げて衣類を販売する実業家になった。"
+  },
+  {
+    "id": "4a-80-17",
+    "lesson_id": 80,
+    "word_kr": "실현(하다/되다)",
+    "word_jp": "実現（する）",
+    "sentence_kr": "나의 꿈을 실현하기 위해 최선을 다하고 있습니다.",
+    "sentence_jp": "自分の夢を実現するために最善を尽くしています。"
+  },
+  {
+    "id": "4a-80-18",
+    "lesson_id": 80,
+    "word_kr": "연구원",
+    "word_jp": "研究員",
+    "sentence_kr": "라면 회사 연구원은 새로운 맛을 찾기 위해 다양한 양념을 연구했다.",
+    "sentence_jp": "ラーメン会社の研究員は新しい味を求めて多様な調味料を研究した。"
+  },
+  {
+    "id": "4a-80-19",
+    "lesson_id": 80,
+    "word_kr": "예술가",
+    "word_jp": "芸術家",
+    "sentence_kr": "예술가는 창의적인 생각과 끊임없는 연습이 필요하다.",
+    "sentence_jp": "芸術家は独創的な発想と絶え間ない鍛錬が求められる。"
+  },
+  {
+    "id": "4a-80-20",
+    "lesson_id": 80,
+    "word_kr": "전문직",
+    "word_jp": "専門職",
+    "sentence_kr": "나는 커서 의사나 변호사와 같은 전문직을 직업으로 갖고 싶다.",
+    "sentence_jp": "私は大人になったら医師や弁護士のような専門職に就きたい。"
+  },
+  {
+    "id": "4a-80-21",
+    "lesson_id": 80,
+    "word_kr": "진로를 정하다",
+    "word_jp": "進路を決める",
+    "sentence_kr": "대학 졸업 후에 대학원에 갈지 취직을 할지 진로를 정해야 한다.",
+    "sentence_jp": "大学卒業後に大学院へ進むか就職するか進路を決めなければならない。"
+  }
 ]
