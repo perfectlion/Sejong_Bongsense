@@ -1,7 +1,6 @@
 [
  {
    "ID": "shion.usui",
-   "PW": "shion",
    "Name": "시온",
    "language": "jp",
    "course": "2a",
@@ -9,7 +8,6 @@
  },
  {
    "ID": "yuko.onozuka",
-   "PW": "yuko",
    "Name": "유나",
    "language": "jp",
    "course": "2a",
@@ -17,7 +15,6 @@
  },
  {
    "ID": "risa.aritsugi",
-   "PW": "risa",
    "Name": "이서",
    "language": "jp",
    "course": "2a",
@@ -25,7 +22,6 @@
  },
  {
    "ID": "juka.nagata",
-   "PW": "juka",
    "Name": "수영",
    "language": "jp",
    "course": "2a",
@@ -33,7 +29,6 @@
  },
  {
    "ID": "nobuko.toyama",
-   "PW": "nobuko",
    "Name": "민영",
    "language": "jp",
    "course": "2a",
@@ -41,7 +36,6 @@
  },
  {
    "ID": "mie.suzuki",
-   "PW": "mie",
    "Name": "미주",
    "language": "jp",
    "course": "3a",
@@ -49,7 +43,6 @@
  },
  {
    "ID": "ken.inoue",
-   "PW": "ken",
    "Name": "현성",
    "language": "jp",
    "course": "3a",
@@ -57,7 +50,6 @@
  },
  {
    "ID": "yutaka.taguchi",
-   "PW": "yutaka",
    "Name": "준호",
    "language": "jp",
    "course": "3a",
@@ -65,7 +57,6 @@
  },
  {
    "ID": "chiyuki.tomikawa",
-   "PW": "chiyuki",
    "Name": "소희",
    "language": "jp",
    "course": "3a",
@@ -73,7 +64,6 @@
  },
  {
    "ID": "nao.okada",
-   "PW": "nao",
    "Name": "채영",
    "language": "jp",
    "course": "3a",
@@ -81,7 +71,6 @@
  },
  {
    "ID": "naoko.mori",
-   "PW": "naoko",
    "Name": "현주",
    "language": "jp",
    "course": "1a",
@@ -89,7 +78,6 @@
  },
  {
    "ID": "shiran.wang",
-   "PW": "shiran",
    "Name": "시연",
    "language": "jp",
    "course": "1a",
@@ -97,7 +85,6 @@
  },
  {
    "ID": "fuminori.saijo",
-   "PW": "fuminori",
    "Name": "후니",
    "language": "jp",
    "course": "1a",
@@ -105,7 +92,6 @@
  },
  {
    "ID": "kozue.makiyama",
-   "PW": "kozue",
    "Name": "안나",
    "language": "jp",
    "course": "1a",
@@ -113,7 +99,6 @@
  },
  {
    "ID": "hiromi.takahashi",
-   "PW": "hiromi",
    "Name": "해미",
    "language": "jp",
    "course": "1a",
@@ -121,7 +106,6 @@
  },
  {
    "ID": "ayaka.ohashi",
-   "PW": "ayaka",
    "Name": "아야카",
    "language": "jp",
    "course": "4a",
@@ -129,7 +113,6 @@
  },
  {
    "ID": "bongkeun.choi",
-   "PW": "bongkeun",
    "Name": "봉근",
    "language": "kr",
    "course": "",
@@ -137,7 +120,6 @@
  },
  {
    "ID": "sunghwan.jo",
-   "PW": "sunghwan",
    "Name": "성환",
    "language": "kr",
    "course": "",
