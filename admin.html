@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>봉센세 교사용 관리 화면</title>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script>
+  // ★★★ index.html 의 FIREBASE_CONFIG 와 같은 값을 그대로 붙여 넣으세요 ★★★
+  const FIREBASE_CONFIG = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    appId: ""
+  };
+  const TEACHER_EMAIL = 'bongkeun.choi@bongsense.com'; // 교사 계정 (Firestore 규칙의 이메일과 같아야 함)
+  const EMAIL_DOMAIN = '@bongsense.com';               // index.html 의 FIREBASE_EMAIL_DOMAIN 과 같은 값
+</script>
+<style>
+  :root{
+    --bg:#F4F6FC; --card:#FFFFFF; --text:#141B34; --muted:#5B6178; --line:#E3E7F3;
+    --primary:#2B50E6; --onprimary:#fff; --ok:#0B8F6A; --okbg:#D8F5EA; --bad:#C4421E; --badbg:#FFE3D9; --chip:#EEF1FA;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0E1322; --card:#1C2339; --text:#E1E4F5; --muted:#A9AEC4; --line:#2E3752;
+      --primary:#B7C4FF; --onprimary:#002A78; --ok:#6EE7B7; --okbg:rgba(52,211,153,.2); --bad:#FFB59C; --badbg:rgba(255,120,80,.18); --chip:#2A3250;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Sans KR','Noto Sans JP',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+  .hidden{display:none !important}
+  .wrap{max-width:1280px;margin:0 auto;padding:16px}
+  h1{font-size:20px;margin:0}
+  .sub{color:var(--muted);font-size:12px}
+  .card{background:var(--card);border-radius:18px;box-shadow:0 1px 2px rgba(20,27,52,.05),0 8px 24px -8px rgba(20,27,52,.12)}
+  button,select,input{font:inherit;color:inherit}
+  .btn{border:0;border-radius:12px;padding:10px 14px;background:var(--chip);color:var(--text);font-weight:700;cursor:pointer}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:var(--primary);color:var(--onprimary)}
+  /* 로그인 */
+  #login-card{max-width:380px;margin:12vh auto 0;padding:28px}
+  #login-card label{display:block;font-size:12px;color:var(--muted);margin:14px 0 6px}
+  #login-card input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+  .err{color:var(--bad);font-size:13px;margin-top:12px;white-space:pre-line}
+  /* 상단 */
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .controls select{padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+  .weeknav{display:flex;align-items:center;gap:6px}
+  .weeknav .label{font-weight:700;min-width:170px;text-align:center;font-size:14px}
+  /* 요약 */
+  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+  .stat{padding:16px}
+  .stat .num{font-size:26px;font-weight:800;color:var(--primary)}
+  .stat .cap{font-size:12px;color:var(--muted);margin-top:2px}
+  .stat.warn .num{color:var(--bad)}
+  /* 표 */
+  .tablewrap{overflow-x:auto;border-radius:18px}
+  table{border-collapse:separate;border-spacing:0;width:100%;min-width:1040px;font-size:13px}
+  th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{position:sticky;top:0;background:var(--card);font-size:12px;color:var(--muted);z-index:2}
+  th:first-child,td:first-child{position:sticky;left:0;background:var(--card);text-align:left;padding-left:14px;z-index:1;min-width:130px}
+  th:first-child{z-index:3}
+  tr.zero td{background:var(--badbg)}
+  tr.zero td:first-child{background:var(--badbg)}
+  .name{font-weight:700}
+  .idtxt{font-size:11px;color:var(--muted)}
+  .chip{display:inline-block;min-width:26px;padding:3px 6px;margin:1px;border-radius:8px;background:var(--chip);color:var(--muted);font-size:11px;font-weight:700}
+  .chip.ok{background:var(--okbg);color:var(--ok)}
+  .chip.future{opacity:.45}
+  .score{font-weight:800}
+  .bad{color:var(--bad);font-weight:700}
+  .nodata{font-size:11px;color:var(--bad);font-weight:700}
+  .note{color:var(--muted);font-size:12px;margin:12px 4px;line-height:1.6}
+  #banner{margin-bottom:12px;padding:12px 14px;border-radius:12px;background:var(--badbg);color:var(--bad);font-size:13px;white-space:pre-line}
+</style>
+</head>
+<body>
+
+<!-- 로그인 -->
+<div id="login-view" class="wrap hidden">
+  <form id="login-card" class="card" autocomplete="on">
+    <h1>교사용 관리 화면</h1>
+    <div class="sub">先生用の管理画面 · 세종학당 봉센세</div>
+    <label for="adm-id">아이디 (또는 이메일)</label>
+    <input id="adm-id" type="text" autocomplete="username" autocapitalize="none" spellcheck="false">
+    <label for="adm-pw">비밀번호</label>
+    <input id="adm-pw" type="password" autocomplete="current-password">
+    <button id="adm-login-btn" class="btn primary" type="submit" style="width:100%;margin-top:18px">로그인</button>
+    <div id="login-err" class="err hidden"></div>
+  </form>
+</div>
+
+<!-- 권한 없음 -->
+<div id="deny-view" class="wrap hidden">
+  <div class="card" style="max-width:420px;margin:12vh auto 0;padding:28px;text-align:center">
+    <h1>접근 권한이 없습니다</h1>
+    <p class="sub" style="margin:12px 0 18px">이 화면은 교사 계정만 볼 수 있어요.<br>アクセス権限がありません。</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn" href="index.html" style="text-decoration:none">학습 화면으로</a>
+      <button id="deny-logout" class="btn" type="button">로그아웃</button>
+    </div>
+  </div>
+</div>
+
+<!-- 관리 화면 -->
+<div id="app-view" class="wrap hidden">
+  <header class="top">
+    <div>
+      <h1>학생 학습 현황</h1>
+      <div id="status" class="sub">불러오는 중...</div>
+    </div>
+    <div class="actions">
+      <button id="btn-refresh" class="btn" type="button">새로고침</button>
+      <button id="btn-csv" class="btn" type="button">엑셀(CSV) 저장</button>
+      <button id="btn-logout" class="btn" type="button">로그아웃</button>
+    </div>
+  </header>
+
+  <div id="banner" class="hidden"></div>
+
+  <div class="controls">
+    <div class="weeknav">
+      <button id="wk-prev" class="btn" type="button" aria-label="지난주">◀</button>
+      <div id="wk-label" class="label"></div>
+      <button id="wk-next" class="btn" type="button" aria-label="다음주">▶</button>
+    </div>
+    <select id="flt-class" aria-label="반 선택">
+      <option value="all">전체 반</option>
+      <option value="1a">초급 1반</option>
+      <option value="2a">초급 2반</option>
+      <option value="3a">중급 1반</option>
+      <option value="4a">중급 2반</option>
+    </select>
+    <select id="sort-by" aria-label="정렬">
+      <option value="class">반 → 이름순</option>
+      <option value="name">이름순</option>
+      <option value="scoreDesc">점수 높은 순</option>
+      <option value="scoreAsc">점수 낮은 순</option>
+      <option value="lastOld">마지막 학습이 오래된 순</option>
+      <option value="knownDesc">알고 있는 단어 많은 순</option>
+    </select>
+  </div>
+
+  <div id="summary" class="summary"></div>
+
+  <div class="card tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>학생</th><th>반</th>
+          <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+          <th>점수<br>(10점)</th><th>학습 시간</th><th>연속</th><th>마지막 학습</th><th>아는 단어</th><th>오늘 로그인</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="note">
+    칸의 <b>읽</b>=읽기 연습, <b>퀴</b>=퀴즈, 초록색은 완료, 숫자는 걸린 시간(분)입니다. 한 주는 월~금이고, 읽기와 퀴즈를 각각 1점으로 계산해 10점 만점입니다.<br>
+    붉은 줄은 선택한 주에 점수가 0점인 학생입니다. '기록 없음'은 서버에 학습 기록이 한 번도 올라오지 않은 학생입니다.<br>
+    '오늘 로그인'은 오늘 처음 로그인한 순서(전체/같은 반)입니다.
+  </p>
+</div>
+
+<script>
+// ==== PURE START (화면과 상관없는 계산 부분) ====
+const DAYS = ['월', '화', '수', '목', '금'];
+const COURSE_NAMES = { '1a': '초급 1반', '2a': '초급 2반', '3a': '중급 1반', '4a': '중급 2반' };
+const COURSE_ORDER = { '1a': 1, '2a': 2, '3a': 3, '4a': 4 };
+const pad = (n) => String(n).padStart(2, '0');
+const dateKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+function mondayOf(d) {
+  const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const dow = x.getDay();
+  x.setDate(x.getDate() + (dow === 0 ? -6 : 1 - dow));
+  return x;
+}
+function safeJson(s, fallback) {
+  try { const v = JSON.parse(s); return v == null ? fallback : v; } catch (e) { return fallback; }
+}
+function daysBetween(fromKey, today) {
+  const p = String(fromKey).split('-').map(Number);
+  const a = Date.UTC(p[0], p[1] - 1, p[2]);
+  const b = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  return Math.round((b - a) / 86400000);
+}
+
+// raw: { users, lessons, progByUid, lbByUid, loginRows(오늘 로그인 기록, 시간순) }
+function buildRows(raw, monday, today) {
+  const users = raw.users || [];
+  const totalWords = (raw.lessons || []).filter(l => l && l.word_kr && String(l.word_kr).trim() !== '').length;
+
+  // 서버 문서(uid) ↔ 학생 ID 연결: leaderboard 문서에 id가 들어 있음
+  const uidById = {};
+  Object.keys(raw.lbByUid || {}).forEach(uid => {
+    const id = String((raw.lbByUid[uid] || {}).id || '').toLowerCase();
+    if (id) uidById[id] = uid;
+  });
+
+  // 오늘 로그인 순서 (전체 / 같은 반)
+  const courseById = {};
+  users.forEach(u => { courseById[String(u.ID).toLowerCase()] = u.course; });
+  const orderAll = {}, orderLevel = {}, levelCount = {};
+  (raw.loginRows || []).forEach((r, i) => {
+    const id = String(r.id || '').toLowerCase();
+    if (!id || orderAll[id]) return;
+    orderAll[id] = i + 1;
+    const c = courseById[id];
+    if (c) { levelCount[c] = (levelCount[c] || 0) + 1; orderLevel[id] = levelCount[c]; }
+  });
+
+  const todayKey = dateKey(today);
+  return users.map(u => {
+    const id = String(u.ID);
+    const idl = id.toLowerCase();
+    const uid = uidById[idl];
+    const prog = uid ? (raw.progByUid || {})[uid] : null;
+    const weekly = prog ? safeJson(prog.weeklyJson, {}) : {};
+    const kv = prog ? safeJson(prog.kvJson, {}) : {};
+    const knownArr = safeJson(kv['knownWords_' + id], []);
+
+    const cells = [];
+    let score = 0, minutes = 0, streak = 0, broken = false;
+    for (let i = 0; i < 5; i++) {
+      const d = new Date(monday); d.setDate(monday.getDate() + i);
+      const key = dateKey(d);
+      const e = weekly[key] || {};
+      const c = { key: key, r: !!e.readingDone, rt: e.readingDone ? Math.round(e.readingTime || 0) : 0, q: !!e.quizDone, qt: e.quizDone ? Math.round(e.quizTime || 0) : 0, future: key > todayKey };
+      if (c.r) { score++; minutes += c.rt; }
+      if (c.q) { score++; minutes += c.qt; }
+      if ((c.r || c.q) && !broken) streak++; else broken = true;
+      cells.push(c);
+    }
+    let lastStudy = '';
+    Object.keys(weekly).forEach(k => {
+      const e = weekly[k] || {};
+      if ((e.readingDone || e.quizDone) && k > lastStudy) lastStudy = k;
+    });
+    return {
+      id: id, name: u.Name || id, course: u.course || '', hasData: !!prog,
+      cells: cells, score: score, minutes: minutes, streak: streak,
+      lastStudy: lastStudy, daysSince: lastStudy ? daysBetween(lastStudy, today) : null,
+      knownCount: Array.isArray(knownArr) ? knownArr.length : 0, totalWords: totalWords,
+      loginAll: orderAll[idl] || 0, loginLevel: orderLevel[idl] || 0
+    };
+  });
+}
+
+function sortRows(rows, mode) {
+  const byName = (a, b) => String(a.name).localeCompare(String(b.name), 'ko');
+  const r = rows.slice();
+  if (mode === 'name') r.sort(byName);
+  else if (mode === 'scoreDesc') r.sort((a, b) => b.score - a.score || byName(a, b));
+  else if (mode === 'scoreAsc') r.sort((a, b) => a.score - b.score || byName(a, b));
+  else if (mode === 'lastOld') r.sort((a, b) => (b.daysSince == null ? 9999 : b.daysSince) - (a.daysSince == null ? 9999 : a.daysSince) || byName(a, b));
+  else if (mode === 'knownDesc') r.sort((a, b) => b.knownCount - a.knownCount || byName(a, b));
+  else r.sort((a, b) => (COURSE_ORDER[a.course] || 9) - (COURSE_ORDER[b.course] || 9) || byName(a, b));
+  return r;
+}
+
+function summarize(rows) {
+  const n = rows.length;
+  const avg = n ? rows.reduce((s, r) => s + r.score, 0) / n : 0;
+  return {
+    total: n,
+    loggedInToday: rows.filter(r => r.loginAll > 0).length,
+    avgScore: Math.round(avg * 10) / 10,
+    zeroCount: rows.filter(r => r.score === 0).length,
+    staleCount: rows.filter(r => r.daysSince == null || r.daysSince >= 7).length
+  };
+}
+
+function fmtMinutes(m) { return m >= 60 ? `${Math.floor(m / 60)}시간 ${m % 60}분` : `${m}분`; }
+
+function toCsv(rows, monday) {
+  const esc = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const head = ['학생', 'ID', '반', '주 시작(월)'];
+  DAYS.forEach(d => { head.push(d + ' 읽기(분)'); head.push(d + ' 퀴즈(분)'); });
+  head.push('점수(10점)', '총 학습 시간(분)', '연속 학습일', '마지막 학습일', '알고 있는 단어', '전체 단어', '오늘 로그인(전체)', '오늘 로그인(반)');
+  const lines = [head.map(esc).join(',')];
+  rows.forEach(r => {
+    const line = [r.name, r.id, COURSE_NAMES[r.course] || r.course, dateKey(monday)];
+    r.cells.forEach(c => { line.push(c.r ? (c.rt || '완료') : ''); line.push(c.q ? (c.qt || '완료') : ''); });
+    line.push(r.score, r.minutes, r.streak, r.lastStudy, r.knownCount, r.totalWords, r.loginAll || '', r.loginLevel || '');
+    lines.push(line.map(esc).join(','));
+  });
+  return '\uFEFF' + lines.join('\r\n'); // 엑셀에서 한글이 깨지지 않도록 BOM 추가
+}
+// ==== PURE END ====
+
+// ==================== 화면과 서버 연결 ====================
+const $ = (id) => document.getElementById(id);
+const state = { raw: null, monday: mondayOf(new Date()), classFilter: 'all', sort: 'class', rows: [] };
+let auth = null, db = null;
+
+function show(viewId) {
+  ['login-view', 'deny-view', 'app-view'].forEach(v => $(v).classList.toggle('hidden', v !== viewId));
+}
+function setBanner(msg) {
+  const b = $('banner');
+  b.textContent = msg || '';
+  b.classList.toggle('hidden', !msg);
+}
+
+function initFirebase() {
+  if (!FIREBASE_CONFIG.apiKey || !FIREBASE_CONFIG.projectId) {
+    show('login-view');
+    showLoginError('Firebase 설정값이 비어 있어요.\nadmin.html 위쪽 FIREBASE_CONFIG 에 index.html 과 같은 값을 붙여 넣어 주세요.');
+    $('adm-login-btn').disabled = true;
+    return;
+  }
+  if (typeof firebase === 'undefined') {
+    show('login-view');
+    showLoginError('Firebase 라이브러리를 불러오지 못했어요. 인터넷 연결을 확인해 주세요.');
+    return;
+  }
+  firebase.initializeApp(FIREBASE_CONFIG);
+  auth = firebase.auth();
+  db = firebase.firestore();
+  auth.onAuthStateChanged((user) => {
+    if (!user) { show('login-view'); return; }
+    if (String(user.email || '').toLowerCase() !== TEACHER_EMAIL.toLowerCase()) { show('deny-view'); return; }
+    show('app-view');
+    loadAll();
+  });
+}
+
+function showLoginError(msg) {
+  const e = $('login-err');
+  e.textContent = msg || '';
+  e.classList.toggle('hidden', !msg);
+}
+
+$('login-card').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  showLoginError('');
+  if (!auth) return;
+  const input = $('adm-id').value.trim();
+  const pw = $('adm-pw').value;
+  if (!input || !pw) { showLoginError('아이디와 비밀번호를 입력해 주세요.'); return; }
+  const email = input.includes('@') ? input : input.toLowerCase() + EMAIL_DOMAIN;
+  $('adm-login-btn').disabled = true;
+  try {
+    await auth.signInWithEmailAndPassword(email, pw);
+  } catch (e) {
+    console.error('관리자 로그인 오류:', e && e.code, e);
+    const code = e && e.code;
+    if (code === 'auth/network-request-failed') showLoginError('서버에 연결할 수 없어요. 인터넷 연결을 확인해 주세요.');
+    else if (code === 'auth/too-many-requests') showLoginError('로그인 시도가 너무 많아요. 잠시 후 다시 시도해 주세요.');
+    else showLoginError('아이디 또는 비밀번호가 맞지 않아요.');
+  } finally {
+    $('adm-login-btn').disabled = false;
+  }
+});
+$('btn-logout').addEventListener('click', () => auth && auth.signOut());
+$('deny-logout').addEventListener('click', () => auth && auth.signOut());
+
+async function loadAll() {
+  setBanner('');
+  $('status').textContent = '불러오는 중...';
+  $('btn-refresh').disabled = true;
+  try {
+    const todayKey = dateKey(new Date());
+    const [users, lessons] = await Promise.all([
+      fetch('users.json').then(r => r.ok ? r.json() : []).catch(() => []),
+      fetch('lessons.json').then(r => r.ok ? r.json() : []).catch(() => [])
+    ]);
+    const [progSnap, lbSnap, loginSnap] = await Promise.all([
+      db.collection('progress').get(),
+      db.collection('leaderboard').get(),
+      db.collection('loginLog').doc(todayKey).collection('users').orderBy('at').get()
+    ]);
+    const progByUid = {}, lbByUid = {}, loginRows = [];
+    progSnap.forEach(d => { progByUid[d.id] = d.data() || {}; });
+    lbSnap.forEach(d => { lbByUid[d.id] = d.data() || {}; });
+    loginSnap.forEach(d => { const v = d.data() || {}; loginRows.push({ uid: d.id, id: v.id }); });
+    state.raw = { users: users, lessons: lessons, progByUid: progByUid, lbByUid: lbByUid, loginRows: loginRows };
+    const now = new Date();
+    $('status').textContent = `${now.getHours()}시 ${pad(now.getMinutes())}분 기준 · 학생 ${users.length}명 · 서버 기록 ${progSnap.size}명`;
+    if (!users.length) setBanner('users.json 을 불러오지 못했어요. admin.html 이 index.html 과 같은 폴더에 있는지 확인해 주세요.');
+    render();
+  } catch (e) {
+    console.error('불러오기 오류:', e);
+    $('status').textContent = '불러오지 못했어요';
+    if (e && e.code === 'permission-denied') {
+      setBanner('권한이 없어서 서버 기록을 읽지 못했어요.\nFirestore 규칙에 교사 읽기 권한(isTeacher)을 추가하고 게시했는지, 교사 계정 이메일이 규칙과 같은지 확인해 주세요.');
+    } else {
+      setBanner('불러오는 중 문제가 생겼어요. 잠시 후 새로고침해 주세요.\n(' + (e && (e.code || e.message) || '알 수 없는 오류') + ')');
+    }
+  } finally {
+    $('btn-refresh').disabled = false;
+  }
+}
+
+function render() {
+  if (!state.raw) return;
+  const all = buildRows(state.raw, state.monday, new Date());
+  let rows = state.classFilter === 'all' ? all : all.filter(r => r.course === state.classFilter);
+  rows = sortRows(rows, state.sort);
+  state.rows = rows;
+
+  const fri = new Date(state.monday); fri.setDate(fri.getDate() + 4);
+  $('wk-label').textContent = `${state.monday.getMonth() + 1}/${state.monday.getDate()} ~ ${fri.getMonth() + 1}/${fri.getDate()} (월~금)`;
+  $('wk-next').disabled = dateKey(state.monday) >= dateKey(mondayOf(new Date()));
+
+  const s = summarize(rows);
+  $('summary').innerHTML =
+    `<div class="card stat"><div class="num">${s.loggedInToday} / ${s.total}</div><div class="cap">오늘 로그인한 학생</div></div>` +
+    `<div class="card stat"><div class="num">${s.avgScore}</div><div class="cap">평균 점수 (10점 만점)</div></div>` +
+    `<div class="card stat ${s.zeroCount ? 'warn' : ''}"><div class="num">${s.zeroCount}명</div><div class="cap">이 주에 점수 0점</div></div>` +
+    `<div class="card stat ${s.staleCount ? 'warn' : ''}"><div class="num">${s.staleCount}명</div><div class="cap">7일 이상 학습 없음</div></div>`;
+
+  const tbody = $('rows');
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    if (r.score === 0) tr.className = 'zero';
+    const dayCells = r.cells.map(c => {
+      const cls = c.future ? ' future' : '';
+      const rd = `<span class="chip${c.r ? ' ok' : ''}${cls}" title="읽기 ${c.rt}분">읽${c.r && c.rt ? ' ' + c.rt : ''}</span>`;
+      const qz = `<span class="chip${c.q ? ' ok' : ''}${cls}" title="퀴즈 ${c.qt}분">퀴${c.q && c.qt ? ' ' + c.qt : ''}</span>`;
+      return `<td>${rd}${qz}</td>`;
+    }).join('');
+    const last = r.lastStudy
+      ? `${r.lastStudy.slice(5).replace('-', '/')} <span class="${r.daysSince >= 7 ? 'bad' : 'sub'}">(${r.daysSince === 0 ? '오늘' : r.daysSince + '일 전'})</span>`
+      : '<span class="bad">없음</span>';
+    const login = r.loginAll ? `${r.loginAll}번째<br><span class="sub">반 ${r.loginLevel || '-'}번째</span>` : '<span class="sub">-</span>';
+    tr.innerHTML =
+      `<td><div class="name">${esc(r.name)}</div><div class="idtxt">${esc(r.id)}${r.hasData ? '' : ' · <span class="nodata">기록 없음</span>'}</div></td>` +
+      `<td>${esc(COURSE_NAMES[r.course] || r.course || '-')}</td>` +
+      dayCells +
+      `<td class="score">${r.score}</td>` +
+      `<td>${fmtMinutes(r.minutes)}</td>` +
+      `<td>${r.streak}일</td>` +
+      `<td>${last}</td>` +
+      `<td>${r.knownCount} <span class="sub">/ ${r.totalWords}</span></td>` +
+      `<td>${login}</td>`;
+    tbody.appendChild(tr);
+  });
+  if (!rows.length) tbody.innerHTML = '<tr><td colspan="13" style="text-align:center;padding:28px" class="sub">표시할 학생이 없어요.</td></tr>';
+}
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+$('wk-prev').addEventListener('click', () => { state.monday.setDate(state.monday.getDate() - 7); render(); });
+$('wk-next').addEventListener('click', () => { state.monday.setDate(state.monday.getDate() + 7); render(); });
+$('flt-class').addEventListener('change', (e) => { state.classFilter = e.target.value; render(); });
+$('sort-by').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+$('btn-refresh').addEventListener('click', loadAll);
+$('btn-csv').addEventListener('click', () => {
+  if (!state.rows.length) return;
+  const blob = new Blob([toCsv(state.rows, state.monday)], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `봉센세_학습현황_${dateKey(state.monday)}주.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+});
+
+initFirebase();
+</script>
+</body>
+</html>
