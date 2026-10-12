@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>세종학당 봉센세 - 한국어 학습 앱</title>
   <meta name="theme-color" content="#F4F6FC">
+  <!-- Firebase (로그인 + 학습기록 서버 저장) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script>
+    // ★★★ 여기에 Firebase 콘솔에서 복사한 설정값을 붙여 넣으세요 ★★★
+    // (비워 두면 예전 방식(users.json 로그인)으로 동작합니다)
+    const FIREBASE_CONFIG = {
+ apiKey: "AIzaSyDswrzNI7X0HqYS3N2Ha25xbVI6I6UvYhU",
+  authDomain: "bongsense-c837d.firebaseapp.com",
+  projectId: "bongsense-c837d",
+  storageBucket: "bongsense-c837d.firebasestorage.app",
+  messagingSenderId: "832712243789",
+  appId: "1:832712243789:web:23d32ed8a9d0f8cd907a04"
+    };
+  </script>
   <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.classList.toggle("dark",t==="dark");}catch(e){}})();</script>
   
 <!-- Google Fonts & Material Symbols -->
@@ -110,8 +126,6 @@
     }
   </script>
 
-<!-- html2canvas 라이브러리 (head 태그 상단에 필수 위치) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   
 <style>
     /* Material Symbols 기본 클래스 설정 */
@@ -220,13 +234,11 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     /* 복습 화면 레벨 탭: 가운데 정렬 (칸이 넘치면 좌우 스크롤) */
     #review-level-tabs > :first-child{margin-left:auto}
     #review-level-tabs > :last-child{margin-right:auto}
-      /* 성과 화면 하단 '레포트 제출' 버튼 영역도 같은 폭(720px)으로 */
-    #view-weekly-stats > footer{
-      max-width: var(--app-w);
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-    }
+
+    /* 단어카드 설정 화면 선택 버튼 */
+    .flash-opt{background-color:rgb(var(--c-surface-container));color:rgb(var(--c-on-surface));transition:background-color .15s,transform .1s,box-shadow .15s;cursor:pointer}
+    .flash-opt:active{transform:scale(.97)}
+    .flash-opt[aria-pressed="true"]{background-color:rgb(var(--c-primary));color:rgb(var(--c-on-primary));box-shadow:0 6px 16px -6px rgb(var(--c-primary) / .6)}
   </style>
 </head>
 <body class="bg-surface text-on-surface flex flex-col min-h-screen">
@@ -408,9 +420,13 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
 
     <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.05)]">
       <div class="h-16 px-gutter flex justify-around items-center">
-        <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-primary font-bold transition-colors group" href="#">
-          <span class="material-symbols-outlined text-[24px] mb-0.5" style="font-variation-settings: 'FILL' 1;">school</span>
-          <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">今日の学習</span>
+        <!-- 単語学習 (단어학습 → 단어카드) -->
+        <a id="nav-flashcard"
+           class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] w-20 text-on-surface-variant transition-colors group cursor-pointer"
+           href="javascript:void(0);"
+           onclick="openFlashcardSetup()">
+          <span class="material-symbols-outlined text-[24px] mb-0.5">style</span>
+          <span class="font-kana-subtext text-[11px] leading-tight text-center tracking-tight">単語学習</span>
         </a>
         <!-- 復習モード (복습 모드) -->
         <a id="nav-review-mode" 
@@ -695,7 +711,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
   </header>
 
   <!-- Main Content (고정 헤더 아래에서 시작하도록 pt-20 설정) -->
-  <main class="flex flex-col relative w-full pt-20 pb-28 px-gutter bg-surface flex-grow">
+  <main class="flex flex-col relative w-full pt-20 pb-12 px-gutter bg-surface flex-grow">
     
     <!-- Progress Header Deck -->
     <div class="w-full flex items-center justify-between gap-space-sm pt-space-xs pb-space-sm">
@@ -906,41 +922,26 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
 </div>
 </section>
 <!-- END: WeeklyInsightCard -->
+<!-- BEGIN: MyRankSection (같은 반 / 전체 순위) -->
+<section id="rank-section" class="hidden mt-6">
+<div class="bg-surface-container-lowest rounded-2xl shadow-md p-5">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="text-base font-bold text-on-surface">이번 주 나의 순위</h3>
+<p class="text-xs text-on-surface-variant">今週の順位 (읽기 1점 + 퀴즈 1점 · 주 10점 만점)</p>
+</div>
+<button id="rank-refresh" type="button" aria-label="새로고침" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all cursor-pointer"><span class="material-symbols-outlined text-[22px]">refresh</span></button>
+</div>
+<div class="rounded-xl bg-primary/10 p-4 text-center">
+<div id="rank-line-ko" class="text-lg font-extrabold text-primary leading-snug"></div>
+<div id="rank-line-ja" class="text-sm text-on-surface-variant mt-1 leading-snug"></div>
+</div>
+<p id="rank-detail" class="text-xs text-on-surface-variant text-center mt-3"></p>
+</div>
+</section>
+<!-- END: MyRankSection -->
 </main>
 <!-- END: MainContentSection -->
-<!-- BEGIN: BottomActionSection -->
-<footer class="p-4 bg-white/95 backdrop-blur-xs border-t border-slate-100 sticky bottom-0 z-20" data-purpose="bottom-action-container">
-<button id="submit-report-btn" onclick="handleReportSubmit()" class="w-full h-13 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] transition-all rounded-2xl flex items-center justify-center space-x-2 shadow-sm text-white font-bold text-[15px]" type="button">
-<span class="text-lg leading-tight">📸</span>
-<span id="btn-label" class="">레포트 제출 (レポート提出)</span>
-<svg id="btn-arrow-icon" class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</button>
-</footer>
-<!-- END: BottomActionSection -->
-<!-- Camera Shutter Flash Overlay -->
-<div id="camera-flash" class="pointer-events-none fixed inset-0 z-50 bg-white opacity-0 transition-opacity duration-200"></div>
-
-<!-- Submission Toast / Modal Notification -->
-<div id="submission-toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl shadow-xl p-4 flex items-start space-x-3 transition-all duration-300 transform -translate-y-20 opacity-0 pointer-events-none">
-<div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0 flex items-center justify-center font-bold text-lg">
-✓
-</div>
-<div class="flex-1 text-left">
-<div class="flex items-center space-x-1.5">
-<span class="text-xs font-bold text-emerald-800">📸 캡처 &amp; 완료!</span>
-<span class="text-[10px] px-1.5 py-0.2 bg-emerald-100 text-emerald-700 font-semibold rounded-full">전송 성공</span>
-</div>
-<p class="text-[12px] font-semibold text-slate-800 mt-1 leading-snug">
-학습 레포트가 캡처되었어요. 선생님께 보내주세요!
-</p>
-<p class="text-[10.5px] text-slate-500 mt-0.5">
-画面が保存され、先生に送ってください ✨
-</p>
-</div>
-</div>
-
 </div>
 
 <!-- ==================== VIEW 6: 전체복습 ==================== -->
@@ -982,6 +983,121 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
 
   </main>
 
+</div>
+
+<!-- ==================== VIEW 7: 단어카드 설정 ==================== -->
+<div id="view-flashcard-setup" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <button id="back-from-flash-setup" aria-label="戻る" class="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 rounded-full active:scale-95 text-on-surface transition-transform cursor-pointer" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">세종학당 봉센세</span></div>
+          <span class="font-kana-subtext text-kana-subtext text-on-surface-variant line-clamp-1 leading-tight">Flash Card Mode</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <img class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="./images/default-avatar.png" alt="Profile" />
+      </div>
+    </div>
+  </header>
+  <main class="flex flex-col relative w-full pt-20 pb-12 px-4 flex-grow gap-4">
+    <section class="bg-surface-container-lowest rounded-2xl shadow-md p-4">
+      <h3 class="text-base font-bold text-on-surface">레벨 선택 <span class="text-xs font-normal text-on-surface-variant">レベル選択</span></h3>
+      <div class="flex flex-wrap justify-center gap-2 mt-3">
+        <button type="button" data-flash-level="1a" class="flash-opt flex-1 min-w-[88px] py-3 rounded-xl font-bold text-sm">초급 1<span class="block text-[11px] font-normal opacity-80">初級1</span></button>
+        <button type="button" data-flash-level="2a" class="flash-opt flex-1 min-w-[88px] py-3 rounded-xl font-bold text-sm">초급 2<span class="block text-[11px] font-normal opacity-80">初級2</span></button>
+        <button type="button" data-flash-level="3a" class="flash-opt flex-1 min-w-[88px] py-3 rounded-xl font-bold text-sm">중급 1<span class="block text-[11px] font-normal opacity-80">中級1</span></button>
+        <button type="button" data-flash-level="4a" class="flash-opt flex-1 min-w-[88px] py-3 rounded-xl font-bold text-sm">중급 2<span class="block text-[11px] font-normal opacity-80">中級2</span></button>
+        <button type="button" data-flash-level="random" class="flash-opt flex-1 min-w-[88px] py-3 rounded-xl font-bold text-sm">랜덤<span class="block text-[11px] font-normal opacity-80">ランダム</span></button>
+      </div>
+      <p id="flash-stats-level" class="text-xs text-on-surface-variant text-center mt-3"></p>
+    </section>
+    <section class="bg-surface-container-lowest rounded-2xl shadow-md p-4">
+      <h3 class="text-base font-bold text-on-surface">언어 선택 <span class="text-xs font-normal text-on-surface-variant">言語選択</span></h3>
+      <p class="text-xs text-on-surface-variant mt-1">선택한 언어의 단어가 먼저 나와요 / 選んだ言語の単語が先に出ます</p>
+      <div class="grid grid-cols-2 gap-2 mt-3">
+        <button type="button" data-flash-lang="kr" class="flash-opt py-3 rounded-xl font-bold text-sm">한국어<span class="block text-[11px] font-normal opacity-80">韓国語</span></button>
+        <button type="button" data-flash-lang="ja" class="flash-opt py-3 rounded-xl font-bold text-sm">일본어<span class="block text-[11px] font-normal opacity-80">日本語</span></button>
+      </div>
+    </section>
+    <section class="bg-surface-container-lowest rounded-2xl shadow-md p-4">
+      <h3 class="text-base font-bold text-on-surface">문제 수 <span class="text-xs font-normal text-on-surface-variant">問題数</span></h3>
+      <div class="grid grid-cols-3 gap-2 mt-3">
+        <button type="button" data-flash-count="10" class="flash-opt py-3 rounded-xl font-bold text-sm">10개</button>
+        <button type="button" data-flash-count="20" class="flash-opt py-3 rounded-xl font-bold text-sm">20개</button>
+        <button type="button" data-flash-count="30" class="flash-opt py-3 rounded-xl font-bold text-sm">30개</button>
+      </div>
+    </section>
+    <section class="mt-auto">
+      <p id="flash-stats-all" class="text-xs text-on-surface-variant text-center mb-3"></p>
+      <button id="flash-start-btn" type="button" class="w-full h-14 rounded-2xl bg-primary text-on-primary font-bold text-base shadow-lg active:scale-[0.98] transition-transform cursor-pointer flex items-center justify-center gap-2">
+        <span>시작하기 (スタート)</span><span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+      </button>
+    </section>
+  </main>
+</div>
+
+<!-- ==================== VIEW 8: 단어카드 ==================== -->
+<div id="view-flashcard" class="hidden-view relative z-10 flex flex-col min-h-screen w-full bg-surface">
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <button id="back-from-flash" aria-label="戻る" class="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 rounded-full active:scale-95 text-on-surface transition-transform cursor-pointer" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">세종학당 봉센세</span></div>
+          <span class="font-kana-subtext text-kana-subtext text-on-surface-variant line-clamp-1 leading-tight">Flash Card Mode</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <img class="user-profile-img-all w-9 h-9 rounded-full object-cover ring-2 ring-primary-fixed" src="./images/default-avatar.png" alt="Profile" />
+      </div>
+    </div>
+  </header>
+  <main class="flex flex-col relative w-full pt-20 pb-8 px-4 flex-grow gap-3">
+    <div class="flex items-center justify-between gap-2">
+      <span id="flash-progress" class="text-xs font-bold text-primary bg-primary/10 rounded-full px-3 py-1.5"></span>
+      <span id="flash-title" class="flex-1 text-center text-xs text-on-surface-variant truncate"></span>
+      <button id="flash-lang-toggle" type="button" class="text-xs font-bold text-on-surface-variant bg-surface-container rounded-full px-3 py-1.5 active:scale-95 transition-transform cursor-pointer flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">swap_horiz</span><span id="flash-lang-toggle-label">韓↔日</span></button>
+    </div>
+    <div class="h-1.5 rounded-full bg-surface-container overflow-hidden"><div id="flash-bar" class="h-full rounded-full bg-primary transition-all duration-300" style="width:0%"></div></div>
+
+    <section id="flash-card-area" class="flex flex-col gap-3 flex-grow">
+      <div class="bg-surface-container-lowest rounded-3xl shadow-md p-6 min-h-[150px] flex flex-col items-center justify-center text-center">
+        <span id="flash-side-tag" class="text-[11px] font-bold text-on-surface-variant bg-surface-container rounded-full px-2.5 py-0.5"></span>
+        <div id="flash-word" class="text-4xl font-extrabold text-on-surface mt-3 break-keep leading-snug"></div>
+      </div>
+      <button id="flash-sentence-box" type="button" class="bg-surface-container-lowest rounded-3xl shadow-md p-5 min-h-[130px] flex flex-col items-center justify-center text-center cursor-pointer active:scale-[0.99] transition-transform">
+        <div id="flash-sentence" class="text-xl font-bold text-on-surface leading-relaxed break-keep"></div>
+        <span class="mt-2 text-[11px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">volume_up</span>눌러서 듣기 / タップで音声</span>
+      </button>
+      <div id="flash-answer-row" class="grid grid-cols-2 gap-3 mt-auto pt-2">
+        <button id="flash-unknown-btn" type="button" class="h-16 rounded-2xl bg-tertiary-fixed text-on-tertiary-fixed font-bold text-base shadow-md active:scale-[0.98] transition-transform cursor-pointer">몰라요<span class="block text-[11px] font-normal opacity-80">わからない</span></button>
+        <button id="flash-known-btn" type="button" class="h-16 rounded-2xl bg-secondary text-on-secondary font-bold text-base shadow-md active:scale-[0.98] transition-transform cursor-pointer">알아요<span class="block text-[11px] font-normal opacity-80">わかる</span></button>
+      </div>
+      <button id="flash-next-btn" type="button" class="hidden w-full h-16 rounded-2xl bg-primary text-on-primary font-bold text-base shadow-lg active:scale-[0.98] transition-transform cursor-pointer mt-auto items-center justify-center gap-2"><span>다음 단어 (次の単語へ)</span><span class="material-symbols-outlined text-[20px]">arrow_forward</span></button>
+    </section>
+
+    <section id="flash-result" class="hidden flex-col gap-4 flex-grow justify-center">
+      <div class="bg-surface-container-lowest rounded-3xl shadow-md p-6 text-center">
+        <div class="text-3xl">🎉</div>
+        <h3 class="text-xl font-extrabold text-on-surface mt-2">수고했어요!<span class="block text-sm font-normal text-on-surface-variant">お疲れさまでした!</span></h3>
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <div class="rounded-2xl bg-secondary/15 p-3"><div class="text-2xl font-extrabold text-secondary" id="flash-result-known">0</div><div class="text-xs text-on-surface-variant">알아요 / わかる</div></div>
+          <div class="rounded-2xl bg-tertiary/15 p-3"><div class="text-2xl font-extrabold text-tertiary" id="flash-result-unknown">0</div><div class="text-xs text-on-surface-variant">몰라요 / わからない</div></div>
+        </div>
+        <p id="flash-result-total" class="text-xs text-on-surface-variant mt-4"></p>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <button id="flash-retry-btn" type="button" class="h-14 rounded-2xl bg-surface-container text-on-surface font-bold text-sm active:scale-[0.98] transition-transform cursor-pointer">다시 하기<span class="block text-[11px] font-normal opacity-80">もう一度</span></button>
+        <button id="flash-exit-btn" type="button" class="h-14 rounded-2xl bg-primary text-on-primary font-bold text-sm shadow-md active:scale-[0.98] transition-transform cursor-pointer">돌아가기<span class="block text-[11px] font-normal opacity-80">戻る</span></button>
+      </div>
+    </section>
+  </main>
 </div>
 
 <script>
@@ -1084,7 +1200,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
 
   // ==================== 뷰 전환 공통 함수 ====================
   function showView(targetViewId, recordHistory = true) {
-    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz', 'view-weekly-stats', 'view-review'];
+    const views = ['view-login', 'view-dashboard', 'view-practice', 'view-quiz', 'view-weekly-stats', 'view-review', 'view-flashcard-setup', 'view-flashcard'];
     const target = document.getElementById(targetViewId);
     if (!views.includes(targetViewId) || !target) return;
 
@@ -1105,6 +1221,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     activeViewId = targetViewId;
     if (targetViewId === 'view-dashboard' && currentUser) setupDashboardUI(currentUser);
     if (targetViewId === 'view-review') renderReviewScreen();
+    if (targetViewId === 'view-flashcard-setup') renderFlashSetup();
     window.scrollTo(0, 0);
   }
 
@@ -1175,6 +1292,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     }
 
     localStorage.setItem('weeklyLearningData', JSON.stringify(storedData));
+    cloudSyncSoon(false);
     
     if (typeof renderWeeklyStatsView === 'function') {
       renderWeeklyStatsView();
@@ -1189,6 +1307,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
       currentIndex: currentIndex,
       timestamp: new Date().toISOString()
     }));
+    cloudSyncSoon(true);
   }
 
   // 3. 저장된 진행 상태 불러오기
@@ -1204,7 +1323,392 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     const userId = currentUser?.ID || 'default';
     const progressKey = `progress_${type}_${userId}_${lessonId}`;
     localStorage.removeItem(progressKey);
+    cloudSyncSoon(true);
   }
+
+  // ==================== ☁️ 서버 연동 (Firebase 로그인 + 학습기록 저장 + 친구 비교) ====================
+  // 위쪽 <head>의 FIREBASE_CONFIG 에 설정값을 넣으면 자동으로 켜집니다. (비어 있으면 기존 방식 그대로 동작)
+  const FIREBASE_ENABLED = !!(typeof FIREBASE_CONFIG !== 'undefined' && FIREBASE_CONFIG && FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId);
+  const FIREBASE_EMAIL_DOMAIN = '@bongsense.com'; // 학생 ID → 가짜 이메일로 바꿀 때 쓰는 뒷부분 (Firebase에 계정 만들 때도 똑같이!)
+  const WEEKLY_OWNER_KEY = 'weeklyLearningDataOwner';
+  let fbAuth = null, fbDb = null;
+  if (FIREBASE_ENABLED && typeof firebase !== 'undefined') {
+    try {
+      firebase.initializeApp(FIREBASE_CONFIG);
+      fbAuth = firebase.auth();
+      fbDb = firebase.firestore();
+    } catch (e) { console.error('Firebase 초기화 실패:', e); }
+  }
+
+  const idToEmail = (id) => String(id || '').trim().toLowerCase() + FIREBASE_EMAIL_DOMAIN;
+  const emailToId = (email) => String(email || '').split('@')[0];
+  const toDateKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+
+  function readWeeklyLocal() {
+    try { return JSON.parse(localStorage.getItem('weeklyLearningData') || '{}') || {}; } catch (e) { return {}; }
+  }
+
+  // 두 기기의 주간 기록 합치기: 완료는 OR, 시간은 큰 값
+  function mergeWeekly(a, b) {
+    const out = {};
+    const days = new Set([...Object.keys(a || {}), ...Object.keys(b || {})]);
+    days.forEach(k => {
+      const x = (a && a[k]) || {}, y = (b && b[k]) || {};
+      out[k] = {
+        readingDone: !!(x.readingDone || y.readingDone),
+        readingTime: Math.max(x.readingTime || 0, y.readingTime || 0),
+        quizDone: !!(x.quizDone || y.quizDone),
+        quizTime: Math.max(x.quizTime || 0, y.quizTime || 0)
+      };
+    });
+    return out;
+  }
+
+  // 이번 주(월~금) 요약
+  function computeWeekSummary(weekly) {
+    const today = new Date();
+    const dow = today.getDay();
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + (dow === 0 ? -6 : 1 - dow));
+    let done = 0, minutes = 0;
+    for (let i = 0; i < 5; i++) {
+      const d = new Date(monday);
+      d.setDate(monday.getDate() + i);
+      const e = (weekly || {})[toDateKey(d)];
+      if (e) {
+        if (e.readingDone) done++;
+        if (e.quizDone) done++;
+        minutes += (e.readingTime || 0) + (e.quizTime || 0);
+      }
+    }
+    return { weekKey: toDateKey(monday), weekDone: done, weekMinutes: Math.round(minutes) };
+  }
+
+  // 이어풀기 정보(progress_*, quizPick_*, quizUsed_*) 모으기/되돌리기 (해당 학생 ID 것만)
+  function isUserKvKey(key, id) {
+    if (key === `quizPick_${id}` || key === `quizUsed_${id}` || key === `knownWords_${id}`) return true;
+    if (!key.startsWith('progress_')) return false;
+    const p = key.split('_');
+    return p.length === 4 && p[2] === id;
+  }
+  function collectKv(id) {
+    const kv = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && isUserKvKey(k, id)) kv[k] = localStorage.getItem(k);
+    }
+    return kv;
+  }
+  function replaceKv(id, kv) {
+    const del = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && isUserKvKey(k, id)) del.push(k);
+    }
+    del.forEach(k => localStorage.removeItem(k));
+    Object.keys(kv || {}).forEach(k => { if (isUserKvKey(k, id)) localStorage.setItem(k, String(kv[k])); });
+  }
+  const cloudMetaKey = (id) => `cloudMeta_${id}`;
+  function getCloudMeta(id) { try { return JSON.parse(localStorage.getItem(cloudMetaKey(id)) || '{}') || {}; } catch (e) { return {}; } }
+  function setCloudMeta(id, m) { localStorage.setItem(cloudMetaKey(id), JSON.stringify(m)); }
+  // 이어풀기 정보의 '서버 쪽 버전 번호' (기기 시계를 쓰지 않고 번호로만 비교)
+  function cloudServerVersion(server) {
+    if (!server) return 0;
+    if (typeof server.kvVersion === 'number') return server.kvVersion;
+    return server.kvJson !== undefined ? 1 : 0; // 예전 방식으로 저장된 서버 기록
+  }
+
+  // 로그인 직후: 서버 기록과 이 기기 기록을 합친다
+  async function cloudPullAndMerge() {
+    if (!fbAuth || !fbDb || !fbAuth.currentUser || !currentUser) return;
+    const me = currentUser, uid = fbAuth.currentUser.uid, id = me.ID;
+    const snap = await fbDb.collection('progress').doc(uid).get();
+    const server = snap.exists ? snap.data() : null;
+    let serverWeekly = {}, serverKv = {};
+    if (server) {
+      try { serverWeekly = JSON.parse(server.weeklyJson || '{}') || {}; } catch (e) {}
+      try { serverKv = JSON.parse(server.kvJson || '{}') || {}; } catch (e) {}
+    }
+    // 이 기기의 주간 기록이 '이 학생 것'일 때만 합침 (공용 기기에서 다른 학생 기록이 섞이지 않게)
+    const owner = localStorage.getItem(WEEKLY_OWNER_KEY);
+    const localUsable = owner ? owner === uid : !server; // 예전(소유자 표시 없음) 기록은 서버가 비어 있을 때만 이 학생 것으로 인정
+    const merged = mergeWeekly(localUsable ? readWeeklyLocal() : {}, serverWeekly);
+    localStorage.setItem('weeklyLearningData', JSON.stringify(merged));
+    localStorage.setItem(WEEKLY_OWNER_KEY, uid);
+
+    const meta = getCloudMeta(id);
+    const serverVer = cloudServerVersion(server);
+    const hasLocalKv = Object.keys(collectKv(id)).length > 0;
+    if (!server) {
+      // 서버가 비어 있음 → 이 기기의 이어풀기 정보를 올린다
+      if (hasLocalKv) { meta.dirty = true; meta.seq = (meta.seq || 0) + 1; }
+    } else if (meta.dirty) {
+      // 이 기기에 아직 서버로 못 올린 변경이 있음 → 이 기기 것을 우선해서 올린다
+    } else if (serverVer === 0) {
+      if (hasLocalKv) { meta.dirty = true; meta.seq = (meta.seq || 0) + 1; }
+    } else if (serverVer !== (meta.baseVersion || 0)) {
+      // 다른 기기에서 서버 기록이 바뀜 → 서버 것을 받는다
+      replaceKv(id, serverKv);
+      meta.baseVersion = serverVer;
+    }
+    setCloudMeta(id, meta);
+    await cloudSaveNow();
+  }
+
+  // 서버에 저장 (주간 기록은 서버 것과 합쳐서 저장, 비교용 요약도 함께 저장)
+  let cloudSaveTimer = null;
+  async function cloudSaveNow() {
+    if (!fbAuth || !fbDb || !fbAuth.currentUser || !currentUser) return;
+    const me = currentUser, uid = fbAuth.currentUser.uid, id = me.ID;
+    if (cloudSaveTimer) { clearTimeout(cloudSaveTimer); cloudSaveTimer = null; }
+
+    const ref = fbDb.collection('progress').doc(uid);
+    const snap = await ref.get();
+    const server = snap.exists ? snap.data() : {};
+    let serverWeekly = {};
+    try { serverWeekly = JSON.parse(server.weeklyJson || '{}') || {}; } catch (e) {}
+    const merged = mergeWeekly(readWeeklyLocal(), serverWeekly);
+    localStorage.setItem('weeklyLearningData', JSON.stringify(merged));
+
+    const meta = getCloudMeta(id);
+    const serverVer = cloudServerVersion(snap.exists ? server : null);
+    const seqAtStart = meta.seq || 0;
+    const pushKv = !!meta.dirty;
+    const payload = {
+      weeklyJson: JSON.stringify(merged),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+    if (pushKv) {
+      payload.kvJson = JSON.stringify(collectKv(id));
+      payload.kvVersion = serverVer + 1;
+    }
+    await ref.set(payload, { merge: true });
+    if (pushKv) {
+      const m2 = getCloudMeta(id);
+      m2.baseVersion = serverVer + 1;
+      if ((m2.seq || 0) === seqAtStart) m2.dirty = false; // 저장하는 사이에 또 바뀌었으면 표시 유지
+      setCloudMeta(id, m2);
+      console.log('☁️ 이어풀기 정보 서버 저장 완료 (버전 ' + (serverVer + 1) + ')');
+    }
+
+    const sum = computeWeekSummary(merged);
+    await fbDb.collection('leaderboard').doc(uid).set({
+      id: String(id),
+      name: String(me.Name || id),
+      weekKey: sum.weekKey,
+      weekDone: sum.weekDone,
+      weekMinutes: sum.weekMinutes,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  }
+
+  // 기록이 바뀔 때 호출: 1.5초 뒤 한 번에 저장
+  function cloudSyncSoon(kvChanged) {
+    if (!FIREBASE_ENABLED || !fbAuth || !fbAuth.currentUser || !currentUser) return;
+    if (kvChanged) {
+      const m = getCloudMeta(currentUser.ID);
+      m.dirty = true;
+      m.seq = (m.seq || 0) + 1;
+      setCloudMeta(currentUser.ID, m);
+    }
+    if (cloudSaveTimer) clearTimeout(cloudSaveTimer);
+    cloudSaveTimer = setTimeout(() => {
+      cloudSaveNow().catch(e => console.warn('☁️ 저장 실패 (다음 기회에 다시 시도):', e));
+    }, 1500);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden' && cloudSaveTimer) cloudSaveNow().catch(() => {});
+  });
+  window.addEventListener('pagehide', () => {
+    if (cloudSaveTimer) cloudSaveNow().catch(() => {});
+  });
+
+  // 로그인 (Firebase)
+  async function firebaseLogin(inputId, inputPw) {
+    try {
+      if (!fbAuth) throw { code: 'app/no-sdk' };
+      const profile = usersData.find(u => String(u.ID || '').toLowerCase() === inputId.toLowerCase());
+      if (!profile) throw { code: 'auth/user-not-found' };
+      await fbAuth.signInWithEmailAndPassword(idToEmail(profile.ID), inputPw);
+      currentUser = Object.assign({}, profile);
+      delete currentUser.PW;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      try { await withTimeout(cloudPullAndMerge(), 8000); } catch (e) { console.warn('☁️ 기록 불러오기 실패 (이 기기 기록으로 진행):', e); }
+      setupDashboardUI(currentUser);
+      showView('view-dashboard');
+      showWelcomePopup(currentUser, true);
+    } catch (err) {
+      console.error('로그인 오류:', err && err.code, err);
+      const code = err && err.code;
+      if (code === 'auth/network-request-failed' || code === 'app/no-sdk') {
+        alert('서버에 연결할 수 없습니다. 인터넷 연결을 확인해 주세요.\nサーバーに接続できません。インターネット接続を確認してください。');
+      } else if (code === 'auth/too-many-requests') {
+        alert('로그인 시도가 너무 많습니다. 잠시 후 다시 시도해 주세요.\nログイン試行回数が多すぎます。しばらくしてからもう一度お試しください。');
+      } else {
+        loginErrorMsg?.classList.remove('hidden');
+      }
+      if (!currentUser && fbAuth && fbAuth.currentUser) { try { await fbAuth.signOut(); } catch (e) {} }
+    } finally {
+      loginSpinner?.classList.add('hidden');
+    }
+  }
+
+  // 자동 로그인 (Firebase가 로그인 상태를 기억하고 있을 때)
+  function firebaseAutoLogin() {
+    if (!fbAuth) { showView('view-login'); return; }
+    const unsub = fbAuth.onAuthStateChanged(async (fbUser) => {
+      unsub();
+      try {
+        if (!fbUser) throw new Error('저장된 로그인 없음');
+        const id = emailToId(fbUser.email);
+        const profile = usersData.find(u => String(u.ID || '').toLowerCase() === id.toLowerCase());
+        if (!profile) throw new Error('사용자 정보가 없습니다.');
+        currentUser = Object.assign({}, profile);
+        delete currentUser.PW;
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        try { await withTimeout(cloudPullAndMerge(), 8000); } catch (e) { console.warn('☁️ 기록 불러오기 실패 (이 기기 기록으로 진행):', e); }
+        setupDashboardUI(currentUser);
+        showView('view-dashboard');
+        showWelcomePopup(currentUser, false);
+      } catch (e) {
+        localStorage.removeItem('currentUser');
+        currentUser = null;
+        if (fbUser) { try { await fbAuth.signOut(); } catch (x) {} }
+        showView('view-login');
+      }
+    });
+  }
+
+  // 로그아웃 직전: 마지막 저장 후 Firebase 로그아웃
+  function cloudLogoutFlush() {
+    if (!FIREBASE_ENABLED || !fbAuth) return;
+    const p = (fbAuth.currentUser && currentUser) ? withTimeout(cloudSaveNow(), 5000).catch(() => {}) : Promise.resolve();
+    p.then(() => fbAuth.signOut()).catch(() => {});
+  }
+
+  // 반(코스) 이름: users.json 의 course 값 → 화면에 보여줄 이름
+  const COURSE_LABELS = {
+    '1a': { ko: '초급 1반', ja: '初級1クラス' },
+    '2a': { ko: '초급 2반', ja: '初級2クラス' },
+    '3a': { ko: '중급 1반', ja: '中級1クラス' },
+    '4a': { ko: '중급 2반', ja: '中級2クラス' }
+  };
+  const courseLabel = (c) => COURSE_LABELS[String(c || '').toLowerCase()] || null;
+  const courseOfId = (id) => {
+    const u = (usersData || []).find(x => String(x.ID || '').toLowerCase() === String(id || '').toLowerCase());
+    return u ? u.course : undefined;
+  };
+
+  // ---- 이번 주 순위 계산 (읽기 1점 + 퀴즈 1점, 하루 2점, 주 최대 10점) ----
+  // 같은 점수는 같은 등수(공동)로 처리합니다. 점수가 높은 사람 수 + 1 = 내 등수
+  function computeMyRank(me, roster, docs, myScore, weekKey) {
+    const myId = String(me.ID).toLowerCase();
+    const scores = {};
+    (docs || []).forEach(v => {
+      const id = String((v && v.id) || '').toLowerCase();
+      if (id) scores[id] = (v.weekKey === weekKey) ? (Number(v.weekDone) || 0) : 0; // 지난주 기록은 0점
+    });
+    scores[myId] = myScore; // 내 점수는 이 기기의 최신 값 사용
+    let members = (roster || []).filter(u => u && u.ID).map(u => ({ id: String(u.ID).toLowerCase(), course: u.course }));
+    if (!members.some(m => m.id === myId)) members.push({ id: myId, course: me.course });
+    const calc = (group) => {
+      let higher = 0, tied = 0;
+      group.forEach(m => {
+        if (m.id === myId) return;
+        const s = scores[m.id] || 0;
+        if (s > myScore) higher++; else if (s === myScore) tied++;
+      });
+      return { rank: higher + 1, tied: tied, total: group.length };
+    };
+    const sameLevel = me.course ? members.filter(m => m.course && String(m.course).toLowerCase() === String(me.course).toLowerCase()) : [];
+    return { score: myScore, level: sameLevel.length ? calc(sameLevel) : null, all: calc(members) };
+  }
+
+  // ---- 오늘 로그인 순서 기록/조회 (오늘 처음 로그인한 순서) ----
+  async function cloudLoginOrderToday() {
+    if (!FIREBASE_ENABLED || !fbAuth || !fbDb || !fbAuth.currentUser || !currentUser) return null;
+    const me = currentUser, uid = fbAuth.currentUser.uid;
+    const col = fbDb.collection('loginLog').doc(toDateKey(new Date())).collection('users');
+    const mine = col.doc(uid);
+    const mySnap = await mine.get();
+    if (!mySnap.exists) {
+      await mine.set({ id: String(me.ID), at: firebase.firestore.FieldValue.serverTimestamp() });
+    }
+    const snap = await col.orderBy('at').get();
+    const rows = [];
+    snap.forEach(d => { const v = d.data() || {}; rows.push({ uid: d.id, id: v.id }); });
+    const total = rows.findIndex(r => r.uid === uid) + 1;
+    if (total <= 0) return null;
+    let level = 0;
+    if (me.course) {
+      const same = rows.filter(r => { const c = courseOfId(r.id); return c && String(c).toLowerCase() === String(me.course).toLowerCase(); });
+      level = same.findIndex(r => r.uid === uid) + 1;
+    }
+    return { total: total, level: level > 0 ? level : 0, course: me.course };
+  }
+
+  // 로그인 순서 문구 (한국어 / 일본어)
+  function buildLoginOrderText(res) {
+    const lab = courseLabel(res.course);
+    const ordKo = (n) => n === 1 ? '첫번째' : n + '번째';
+    let ko = '', ja = '';
+    if (res.level && lab) {
+      ko = `오늘 ${lab.ko} 학생들 중 ${ordKo(res.level)} 로그인이에요! 그리고 전체 학생들 중 ${ordKo(res.total)}로 로그인했어요!`;
+      ja = `今日、${lab.ja}の学生の中で${res.level}番目のログインです!そして全体では${res.total}番目にログインしました!`;
+    } else {
+      ko = `오늘 전체 학생들 중 ${ordKo(res.total)}로 로그인했어요!`;
+      ja = `今日、全体で${res.total}番目にログインしました!`;
+    }
+    return { ko: ko, ja: ja };
+  }
+
+  // 성과 화면: 나의 순위 (같은 반 / 전체)
+  let rankDocsCache = null, rankLoadedAt = 0;
+  function renderMyRank() {
+    const koEl = document.getElementById('rank-line-ko');
+    const jaEl = document.getElementById('rank-line-ja');
+    const detailEl = document.getElementById('rank-detail');
+    if (!koEl || !currentUser) return;
+    const wk = computeWeekSummary({}).weekKey;
+    const myScore = computeWeekSummary(readWeeklyLocal()).weekDone;
+    const r = computeMyRank(currentUser, usersData, rankDocsCache || [], myScore, wk);
+    const lab = courseLabel(currentUser.course);
+    if (myScore === 0) {
+      koEl.textContent = '아직 이번 주 점수가 없어요. 읽기와 퀴즈를 시작해 보세요!';
+      jaEl.textContent = '今週のポイントはまだありません。音読とクイズを始めましょう!';
+    } else {
+      const koPart = (x) => `${x.tied > 0 ? '공동 ' : ''}${x.rank}등`;
+      const jaPart = (x) => `${x.rank}位${x.tied > 0 ? 'タイ' : ''}`;
+      koEl.textContent = (r.level && lab ? `${lab.ko}에서 ${koPart(r.level)}! ` : '') + `전체에서 ${koPart(r.all)}!`;
+      jaEl.textContent = (r.level && lab ? `${lab.ja}で${jaPart(r.level)}! ` : '') + `全体で${jaPart(r.all)}!`;
+    }
+    if (detailEl) {
+      detailEl.textContent = `내 점수 ${myScore}/10점 (あなたの得点) · ` + (r.level && lab ? `${lab.ko} ${r.level.total}명 · ` : '') + `전체 ${r.all.total}명`;
+    }
+  }
+  async function loadMyRank(force) {
+    const section = document.getElementById('rank-section');
+    if (!section) return;
+    if (!FIREBASE_ENABLED || !fbDb || !fbAuth || !fbAuth.currentUser || !currentUser) { section.classList.add('hidden'); return; }
+    section.classList.remove('hidden');
+    renderMyRank(); // 먼저 가진 정보로 바로 표시
+    if (!force && rankDocsCache && Date.now() - rankLoadedAt < 20000) return;
+    rankLoadedAt = Date.now();
+    try {
+      const snap = await fbDb.collection('leaderboard').get();
+      const docs = [];
+      snap.forEach(d => docs.push(d.data() || {}));
+      rankDocsCache = docs;
+      renderMyRank();
+    } catch (e) {
+      console.warn('☁️ 순위 불러오기 실패:', e);
+      rankLoadedAt = 0;
+      const detailEl = document.getElementById('rank-detail');
+      if (detailEl) detailEl.textContent = '순위를 불러오지 못했어요. 잠시 후 새로고침해 주세요. (読み込めませんでした)';
+    }
+  }
+  document.getElementById('rank-refresh')?.addEventListener('click', () => loadMyRank(true));
 
   // ==================== 유틸리티: 레벤슈타인 거리 및 유사도 ====================
   function getLevenshteinDistance(str1, str2) {
@@ -1290,6 +1794,8 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
   // force=false: 자동 로그인일 때 (하루에 한 번만 표시)
   function showWelcomePopup(user, force) {
     if (!user) return;
+    // 오늘의 로그인 순서 기록/조회 (팝업을 안 띄우는 자동 로그인에서도 기록은 남김)
+    const orderPromise = (typeof cloudLoginOrderToday === 'function') ? cloudLoginOrderToday().catch(() => null) : Promise.resolve(null);
     const shownKey = `welcomeShown_${user.ID || 'default'}`;
     const today = getTodayKey();
     try {
@@ -1326,6 +1832,10 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
           '<div data-wp="ko" style="font-size:15px;font-weight:700;color:rgb(var(--c-primary))"></div>' +
           '<div data-wp="ja" style="font-size:12px;color:rgb(var(--c-on-surface-variant));margin-top:4px"></div>' +
         '</div>' +
+        '<div data-wp="order" style="display:none;margin-top:12px;padding:12px 14px;border-radius:16px;background:rgb(var(--c-secondary) / .12);text-align:left">' +
+          '<div data-wp="orderKo" style="font-size:13px;font-weight:700;color:rgb(var(--c-secondary));line-height:1.5"></div>' +
+          '<div data-wp="orderJa" style="font-size:12px;color:rgb(var(--c-on-surface-variant));margin-top:3px;line-height:1.5"></div>' +
+        '</div>' +
         '<div data-wp="lesson" style="display:none;margin-top:12px;font-size:12px;font-weight:700;color:rgb(var(--c-secondary))"></div>' +
         '<button id="welcome-popup-close" type="button" style="margin-top:20px;width:100%;border:0;border-radius:16px;padding:15px 0;background:rgb(var(--c-primary));color:rgb(var(--c-on-primary));font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation">시작하기 / はじめる</button>' +
       '</div>';
@@ -1335,6 +1845,13 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     set('titleJa', `ようこそ、${name}さん!`);
     set('ko', msg.ko);
     set('ja', msg.ja);
+    orderPromise.then((res) => {
+      if (!res || !overlay.isConnected) return;
+      const txt = buildLoginOrderText(res);
+      set('orderKo', txt.ko);
+      set('orderJa', txt.ja);
+      overlay.querySelector('[data-wp="order"]').style.display = 'block';
+    });
     if (lessonTitle) {
       set('lesson', `이번 주 학습 / 今週の学習: ${lessonTitle}`);
       overlay.querySelector('[data-wp="lesson"]').style.display = 'block';
@@ -1354,6 +1871,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
   }
 
   function checkAutoLogin() {
+    if (FIREBASE_ENABLED) { firebaseAutoLogin(); return; } // ☁️ Firebase 자동 로그인
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
       try {
@@ -1436,6 +1954,8 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
     loginSpinner?.classList.remove('hidden');
     loginErrorMsg?.classList.add('hidden');
 
+    if (FIREBASE_ENABLED) { firebaseLogin(inputId, inputPw); return; } // ☁️ Firebase 로그인
+
     setTimeout(() => {
       const foundUser = usersData.find(u => 
         (u.ID || "").toString().toLowerCase() === inputId.toLowerCase() &&
@@ -1456,6 +1976,7 @@ html.dark{--c-on-error:105 0 5;--c-primary-container:29 78 216;--c-on-error-cont
   });
 
   logoutBtn?.addEventListener('click', () => {
+    cloudLogoutFlush(); // ☁️ 마지막 저장 후 Firebase 로그아웃
     currentUser = null;
     userProgress = null;
     reviewSelection = null;
@@ -1776,6 +2297,7 @@ function generateQuizProblem(targetItem, allLessons) {
 
   // =========================== VIEW 5: 주간성과======================
   function renderWeeklyStatsView() {
+    if (typeof loadMyRank === 'function') loadMyRank();
     const courseTag = document.getElementById('achievement-course-tag');
     if (courseTag) {
       const userCourse = currentUser?.course || "1a";
@@ -1906,108 +2428,6 @@ function generateQuizProblem(targetItem, allLessons) {
     if (streakElement) streakElement.innerText = `${streakCount}일 달성`;
   }
 
-  // 스크린샷 생성 및 레포트 제출
-  async function handleReportSubmit() {
-    if (typeof html2canvas === 'undefined') {
-      alert("화면 캡처 라이브러리가 로드되지 않았습니다. 페이지를 새로고침 후 다시 시도해 주세요.");
-      return;
-    }
-
-    const btn = document.getElementById('submit-report-btn');
-    const btnLabel = document.getElementById('btn-label');
-    const flash = document.getElementById('camera-flash');
-    const toast = document.getElementById('submission-toast');
-    const targetArea = document.getElementById('view-weekly-stats');
-    
-    if (!targetArea) {
-      alert("캡처할 화면 영역을 찾을 수 없습니다.");
-      return;
-    }
-
-    if (btn && btn.dataset.submitting === 'true') return;
-    if (btn) btn.dataset.submitting = 'true';
-    
-    if (btnLabel) btnLabel.innerText = '화면 캡처 중... (撮影中)';
-    if (btn) {
-      btn.classList.add('bg-slate-700');
-      btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
-    }
-    
-    if (flash) {
-      flash.classList.remove('opacity-0');
-      flash.classList.add('opacity-90');
-      setTimeout(() => {
-        flash.classList.remove('opacity-90');
-        flash.classList.add('opacity-0');
-      }, 120);
-    }
-
-    try {
-      window.scrollTo(0, 0);
-
-      const canvas = await html2canvas(targetArea, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-        onclone: (doc) => { doc.documentElement.classList.remove('dark'); },
-        windowWidth: targetArea.scrollWidth,
-        windowHeight: targetArea.scrollHeight,
-        ignoreElements: (element) => {
-          return element.id === 'submit-report-btn' || 
-                 element.id === 'submission-toast' || 
-                 element.id === 'camera-flash' ||
-                 element.tagName === 'FOOTER';
-        }
-      });
-
-      const image = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      const today = new Date().toISOString().slice(0, 10);
-      
-      link.href = image;
-      link.download = `세종학당_주간학습레포트_${today}.png`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      if (btnLabel) btnLabel.innerText = '캡처 완료! (撮影完了)';
-      if (btn) {
-        btn.classList.remove('bg-slate-700');
-        btn.classList.add('bg-emerald-700');
-      }
-      
-      if (toast) {
-        toast.classList.remove('-translate-y-20', 'opacity-0', 'pointer-events-none');
-        toast.classList.add('translate-y-0', 'opacity-100');
-      }
-      
-      setTimeout(() => {
-        if (toast) {
-          toast.classList.add('-translate-y-20', 'opacity-0', 'pointer-events-none');
-          toast.classList.remove('translate-y-0', 'opacity-100');
-        }
-        if (btnLabel) btnLabel.innerText = '레포트 다시 제출 (再提出)';
-        if (btn) {
-          btn.classList.remove('bg-emerald-700');
-          btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
-          btn.dataset.submitting = 'false';
-        }
-      }, 3200);
-
-    } catch (error) {
-      console.error("스크린샷 생성 실패:", error);
-      alert("화면 캡처 중 오류가 발생했습니다. 직접 스크린샷을 찍어 제출해 주세요.");
-      if (btnLabel) btnLabel.innerText = '레포트 제출 (レポート提出)';
-      if (btn) {
-        btn.classList.remove('bg-slate-700');
-        btn.classList.add('bg-emerald-600');
-        btn.dataset.submitting = 'false';
-      }
-    }
-  }
-
-
   // ================ VIEW 6: 전체복습 ================
   function getActualLessonId(levelId, lessonNum) {
     const lvl = reviewLevels.find(l => l.id === levelId) || reviewLevels[0];
@@ -2067,8 +2487,8 @@ function generateQuizProblem(targetItem, allLessons) {
               <span class="material-symbols-outlined text-[16px]">quiz</span>
               <span>단어퀴즈</span>
             </button>
-            <button type="button" onclick="alert('준비 중입니다.')" class="flex items-center justify-center gap-1 py-2 px-1 rounded-lg bg-outline-variant/20 text-on-surface-variant/60 font-bold text-[12px] cursor-pointer">
-              <span class="material-symbols-outlined text-[16px]">campaign</span>
+            <button type="button" onclick="startFlashcardsForLesson('${currentSelectedLevel}', ${i})" class="flex items-center justify-center gap-1 py-2 px-1 rounded-lg bg-surface-container text-secondary font-bold text-[12px] cursor-pointer active:scale-95 transition-transform">
+              <span class="material-symbols-outlined text-[16px]">style</span>
               <span>단어연습</span>
             </button>
           </div>
@@ -2129,6 +2549,7 @@ function generateQuizProblem(targetItem, allLessons) {
     const lessonsWithQuiz = new Set(
       (lessonsData || [])
         .filter(l => l.word_kr && l.word_kr.trim() !== "")
+        .filter(l => !isWordKnownItem(l)) // 단어카드에서 '알아요'로 표시한 단어는 제외
         .map(l => Number(l.lesson_id))
     );
     const pool = [];
@@ -2157,6 +2578,7 @@ function generateQuizProblem(targetItem, allLessons) {
 
     const pick = remaining[Math.floor(Math.random() * remaining.length)];
     localStorage.setItem(pickKey, String(pick));
+    cloudSyncSoon(true);
     return pick;
   }
 
@@ -2170,6 +2592,7 @@ function generateQuizProblem(targetItem, allLessons) {
     if (!used.includes(Number(lessonId))) used.push(Number(lessonId));
     localStorage.setItem(usedKey, JSON.stringify(used));
     localStorage.removeItem(`quizPick_${userId}`);
+    cloudSyncSoon(true);
   }
 
   function startQuizForLesson(levelOrLessonId, lessonNum) {
@@ -2183,7 +2606,7 @@ function generateQuizProblem(targetItem, allLessons) {
       isRandomQuizMode = true;
       const randomLessonId = getRandomQuizLessonId();
       if (!randomLessonId) {
-        alert("퀴즈 데이터가 없습니다.");
+        alert("퀴즈로 풀 단어가 없어요. (진도 범위의 단어를 모두 알고 있거나 데이터가 없어요)\n出題できる単語がありません。(範囲の単語をすべて覚えているか、データがありません)");
         return;
       }
       selection = getContentSelection(randomLessonId);
@@ -2192,9 +2615,10 @@ function generateQuizProblem(targetItem, allLessons) {
     const targetLessonId = selection.lessonId;
 
     const allLessons = lessonsData || [];
-    const lessonItems = allLessons.filter(
+    let lessonItems = allLessons.filter(
       l => Number(l.lesson_id) === targetLessonId && l.word_kr && l.word_kr.trim() !== ""
     );
+    if (isRandomQuizMode) lessonItems = lessonItems.filter(l => !isWordKnownItem(l)); // 랜덤 퀴즈: '알아요' 단어 제외
 
     if (lessonItems.length === 0) {
       alert(`제 ${targetLessonId}과에 해당하는 퀴즈 데이터가 없습니다.`);
@@ -2232,7 +2656,16 @@ function generateQuizProblem(targetItem, allLessons) {
         || null;
   }
 
-  function playTTS(text, rate = 0.8) {
+  function getVoiceForLang(lang) {
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const prefix = String(lang).slice(0, 2).toLowerCase();
+    return voices.find(v => v.lang === lang)
+        || voices.find(v => (v.lang || '').replace('_', '-').toLowerCase().startsWith(prefix))
+        || null;
+  }
+
+  function playTTS(text, rate = 0.8, lang = 'ko-KR') {
     if (!('speechSynthesis' in window) || !text) return;
     const synth = window.speechSynthesis;
 
@@ -2241,9 +2674,9 @@ function generateQuizProblem(targetItem, allLessons) {
     const speakNow = () => {
       try { synth.resume(); } catch (e) {}
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ko-KR';
+      utterance.lang = lang;
       utterance.rate = rate;
-      const koVoice = getKoreanVoice();
+      const koVoice = getVoiceForLang(lang);
       if (koVoice) utterance.voice = koVoice;
       utterance.onerror = (e) => console.error('🔊 TTS 오류:', e.error);
       currentUtterance = utterance;
@@ -2480,6 +2913,190 @@ function generateQuizProblem(targetItem, allLessons) {
     startRecognition();
   });
  
+
+  // ==================== 단어카드 (Flash Card) ====================
+  // 알고 있는 단어 목록은 학생별로 'knownWords_학생ID' 에 저장하고, 이어풀기 정보와 같은 방식으로 서버에 동기화됩니다.
+  // 단어 하나의 식별값 = "과번호|한국어 단어" (lessons.json 의 lesson_id, word_kr 사용)
+  const flashWordKey = (item) => `${Number(item.lesson_id)}|${String(item.word_kr || '').trim()}`;
+  const flashHasWord = (item) => !!(item && item.word_kr && String(item.word_kr).trim() !== '');
+  function flashShuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+
+  let knownCache = { raw: null, set: new Set(), id: null };
+  function knownStorageKey() { return `knownWords_${currentUser?.ID || 'default'}`; }
+  function getKnownSet() {
+    const key = knownStorageKey();
+    let raw = null;
+    try { raw = localStorage.getItem(key); } catch (e) {}
+    if (knownCache.id === key && knownCache.raw === raw) return knownCache.set;
+    let set = new Set();
+    try { const arr = JSON.parse(raw || '[]'); if (Array.isArray(arr)) set = new Set(arr); } catch (e) {}
+    knownCache = { raw: raw, set: set, id: key };
+    return set;
+  }
+  function isWordKnownItem(item) { return getKnownSet().has(flashWordKey(item)); }
+  function setWordKnown(key, isKnown) {
+    const set = new Set(getKnownSet());
+    const had = set.has(key);
+    if (isKnown === had) return; // 바뀐 게 없으면 저장하지 않음
+    if (isKnown) set.add(key); else set.delete(key);
+    try { localStorage.setItem(knownStorageKey(), JSON.stringify(Array.from(set))); } catch (e) {}
+    cloudSyncSoon(true); // 서버 저장 예약
+  }
+
+  function getWordsForLevel(levelId) {
+    const items = (lessonsData || []).filter(flashHasWord);
+    if (levelId === 'random') return items;
+    const lvl = reviewLevels.find(l => l.id === levelId);
+    if (!lvl) return items;
+    return items.filter(l => { const n = Number(l.lesson_id); return n >= lvl.minId && n <= lvl.maxId; });
+  }
+  const flashFrontOk = (item, lang) => lang === 'ja' ? !!(item.word_jp && String(item.word_jp).trim() !== '') : flashHasWord(item);
+  function buildFlashCard(item) {
+    return {
+      key: flashWordKey(item),
+      kr: { word: String(item.word_kr || '').trim(), sentence: String(item.sentence_kr || '').trim() },
+      ja: { word: String(item.word_jp || '').trim(), sentence: String(item.sentence_jp || '').trim() }
+    };
+  }
+
+  const flashSetup = { level: '1a', lang: 'kr', count: 10 };
+  let flashSession = null;
+  const flashEl = (id) => document.getElementById(id);
+
+  function openFlashcardSetup() { showView('view-flashcard-setup'); }
+
+  function renderFlashSetup() {
+    document.querySelectorAll('[data-flash-level]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.flashLevel === flashSetup.level)));
+    document.querySelectorAll('[data-flash-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.flashLang === flashSetup.lang)));
+    document.querySelectorAll('[data-flash-count]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.flashCount) === flashSetup.count)));
+    const known = getKnownSet();
+    const countKnown = (arr) => arr.filter(i => known.has(flashWordKey(i))).length;
+    const all = getWordsForLevel('random');
+    const lv = getWordsForLevel(flashSetup.level);
+    const lvName = { '1a': '초급 1', '2a': '초급 2', '3a': '중급 1', '4a': '중급 2', 'random': '랜덤(전체)' }[flashSetup.level];
+    const lvEl = flashEl('flash-stats-level');
+    if (lvEl) lvEl.textContent = `${lvName}: 단어 ${lv.length}개 중 ${countKnown(lv)}개 알고 있어요 (${lv.length}語中${countKnown(lv)}語)`;
+    const allEl = flashEl('flash-stats-all');
+    if (allEl) allEl.textContent = `📚 전체 단어 ${all.length}개 중 ${countKnown(all)}개 알고 있어요 / 全${all.length}語中${countKnown(all)}語を覚えています`;
+  }
+
+  function startFlashcardsFromSetup() {
+    const lang = flashSetup.lang;
+    const pool = getWordsForLevel(flashSetup.level).filter(i => flashFrontOk(i, lang));
+    if (!pool.length) { alert('이 레벨에는 단어 데이터가 없습니다.\nこのレベルには単語データがありません。'); return; }
+    const known = getKnownSet();
+    // 아직 모르는 단어를 먼저 뽑고, 모자라면 아는 단어로 채웁니다
+    const picked = flashShuffle(flashShuffle(pool.filter(i => !known.has(flashWordKey(i)))).concat(flashShuffle(pool.filter(i => known.has(flashWordKey(i))))).slice(0, flashSetup.count));
+    const lvName = { '1a': '초급 1', '2a': '초급 2', '3a': '중급 1', '4a': '중급 2', 'random': '랜덤' }[flashSetup.level];
+    beginFlashSession(picked, lang, lvName, startFlashcardsFromSetup);
+    showView('view-flashcard');
+  }
+
+  // 복습 화면의 '단어연습' 버튼: 선택한 과의 단어만, 설정 화면 없이 바로 시작
+  function startFlashcardsForLesson(levelId, lessonNum) {
+    const lessonId = getActualLessonId(levelId, lessonNum);
+    const items = (lessonsData || []).filter(l => Number(l.lesson_id) === lessonId && flashHasWord(l));
+    if (!items.length) { alert(`제 ${lessonNum}과에 해당하는 단어 데이터가 없습니다.`); return; }
+    const t = getBookAndLessonTitle(levelId, lessonId);
+    beginFlashSession(items, 'kr', `${t.bookName} • 제 ${t.lessonNum}과`, () => startFlashcardsForLesson(levelId, lessonNum));
+    showView('view-flashcard');
+  }
+
+  function beginFlashSession(items, lang, title, restartFn) {
+    flashSession = { cards: items.map(buildFlashCard), index: 0, lang: lang, known: 0, unknown: 0, revealed: false, title: title, restart: restartFn };
+    renderFlashCard();
+  }
+
+  function renderFlashCard() {
+    const s = flashSession;
+    if (!s) return;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    const total = s.cards.length;
+    flashEl('flash-title').textContent = s.title || '';
+    flashEl('flash-progress').textContent = `${Math.min(s.index + 1, total)} / ${total}`;
+    flashEl('flash-bar').style.width = Math.round((s.index / total) * 100) + '%';
+    flashEl('flash-lang-toggle-label').textContent = s.lang === 'kr' ? '韓国語' : '日本語';
+
+    if (s.index >= total) { showFlashResult(); return; }
+    flashEl('flash-card-area').classList.remove('hidden');
+    flashEl('flash-result').classList.add('hidden');
+    flashEl('flash-result').classList.remove('flex');
+
+    const card = s.cards[s.index];
+    const front = s.lang;                       // 처음 보여줄 언어
+    const side = s.revealed ? (front === 'kr' ? 'ja' : 'kr') : front;
+    const data = card[side];
+    flashEl('flash-word').textContent = data.word || '-';
+    flashEl('flash-sentence').textContent = data.sentence || '(예문이 없어요 / 例文なし)';
+    flashEl('flash-side-tag').textContent = s.revealed ? '뜻 / 意味' : (front === 'kr' ? '한국어 / 韓国語' : '일본어 / 日本語');
+    flashEl('flash-answer-row').classList.toggle('hidden', s.revealed);
+    const nextBtn = flashEl('flash-next-btn');
+    nextBtn.classList.toggle('hidden', !s.revealed);
+    nextBtn.classList.toggle('flex', s.revealed);
+  }
+
+  function flashAnswerKnown() {
+    const s = flashSession; if (!s || s.revealed || s.index >= s.cards.length) return;
+    setWordKnown(s.cards[s.index].key, true);
+    s.known++; s.index++; s.revealed = false;
+    renderFlashCard();
+  }
+  function flashAnswerUnknown() {
+    const s = flashSession; if (!s || s.revealed || s.index >= s.cards.length) return;
+    setWordKnown(s.cards[s.index].key, false);
+    s.unknown++; s.revealed = true;       // 뜻(번역)을 보여주고, '다음 단어'를 누르면 넘어감
+    renderFlashCard();
+  }
+  function flashNext() {
+    const s = flashSession; if (!s || !s.revealed) return;
+    s.index++; s.revealed = false;
+    renderFlashCard();
+  }
+  function flashToggleLang() {
+    const s = flashSession; if (!s || s.index >= s.cards.length) return;
+    s.lang = s.lang === 'kr' ? 'ja' : 'kr';
+    s.revealed = false;
+    renderFlashCard();
+  }
+  function flashReadSentence() {
+    const s = flashSession; if (!s || s.index >= s.cards.length) return;
+    const card = s.cards[s.index];
+    const side = s.revealed ? (s.lang === 'kr' ? 'ja' : 'kr') : s.lang;
+    const text = card[side].sentence || card[side].word;
+    playTTS(text, 0.85, side === 'ja' ? 'ja-JP' : 'ko-KR');
+  }
+
+  function showFlashResult() {
+    const s = flashSession;
+    flashEl('flash-card-area').classList.add('hidden');
+    const r = flashEl('flash-result');
+    r.classList.remove('hidden'); r.classList.add('flex');
+    flashEl('flash-result-known').textContent = String(s.known);
+    flashEl('flash-result-unknown').textContent = String(s.unknown);
+    const known = getKnownSet();
+    const all = getWordsForLevel('random');
+    const n = all.filter(i => known.has(flashWordKey(i))).length;
+    flashEl('flash-result-total').textContent = `전체 단어 ${all.length}개 중 ${n}개 알고 있어요 / 全${all.length}語中${n}語を覚えています`;
+  }
+
+  // 버튼 연결
+  document.querySelectorAll('[data-flash-level]').forEach(b => b.addEventListener('click', () => { flashSetup.level = b.dataset.flashLevel; renderFlashSetup(); }));
+  document.querySelectorAll('[data-flash-lang]').forEach(b => b.addEventListener('click', () => { flashSetup.lang = b.dataset.flashLang; renderFlashSetup(); }));
+  document.querySelectorAll('[data-flash-count]').forEach(b => b.addEventListener('click', () => { flashSetup.count = Number(b.dataset.flashCount); renderFlashSetup(); }));
+  flashEl('flash-start-btn')?.addEventListener('click', startFlashcardsFromSetup);
+  flashEl('flash-known-btn')?.addEventListener('click', flashAnswerKnown);
+  flashEl('flash-unknown-btn')?.addEventListener('click', flashAnswerUnknown);
+  flashEl('flash-next-btn')?.addEventListener('click', flashNext);
+  flashEl('flash-lang-toggle')?.addEventListener('click', flashToggleLang);
+  flashEl('flash-sentence-box')?.addEventListener('click', flashReadSentence);
+  flashEl('flash-retry-btn')?.addEventListener('click', () => { if (flashSession && flashSession.restart) flashSession.restart(); });
+  flashEl('flash-exit-btn')?.addEventListener('click', () => goBackView());
+  flashEl('back-from-flash-setup')?.addEventListener('click', () => goBackView());
+  flashEl('back-from-flash')?.addEventListener('click', () => goBackView());
 
   // ==================== DOM 완료 초기화 이벤트 리스너 통합 ====================
   document.addEventListener('DOMContentLoaded', () => {
